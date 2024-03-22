@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     ResourceManager _resource = new ResourceManager();
     SoundManager _sound = new SoundManager();
     MapManager _map = new MapManager();
+    SpawnManager _spawnManager = new SpawnManager();
 
     public static DataManager Data { get { return Instance._data; } }
     public static InputManager Input { get { return Instance._input; } }
@@ -26,6 +27,7 @@ public class Managers : MonoBehaviour
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SoundManager Sound { get { return Instance._sound; } }
     public static MapManager Map { get { return Instance._map; } }
+    public static SpawnManager Spawn { get { return Instance._spawnManager; } }
 
     private void Awake()
     {
