@@ -12,14 +12,13 @@ public class TestEnemy : EnemyBase
 
     }
 
+    protected override void Init()
+    {
+        base.Init();
+    }
+
     protected override void Update()
     {
         base.Update();
-        //trans.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, target.position));
-    }
-
-    protected override void Move()
-    {
-        base.Move();
     }
 }

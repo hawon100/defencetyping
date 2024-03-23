@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+    public int hp;
+    public int maxHp;
+
     public float moveSpeed;
     public Transform target;
     public float cooltime;
+    public float distance = 0.5f;
 
     private Vector3 moveVec;
 
@@ -15,7 +19,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-
+        Init();
     }
 
     protected virtual void Update()
@@ -29,19 +33,38 @@ public class EnemyBase : MonoBehaviour
         {
             timeRate += Time.deltaTime;
         }
-        Move();
+        RotateMove();
     }
 
-    protected virtual void Move()
+    protected virtual void Init()
+    {
+        hp = maxHp;
+    }
+
+    public void DirectMove()
     {
         if (!isMove) return;
 
         moveVec = Tracing(transform.position, target.position).normalized;
 
         transform.Translate(moveVec * moveSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(moveVec * moveSpeed);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.1f) isMove = false;
+        CloseDistance(transform.position, target.position, distance);
         //Managers.Data
+    }
+
+    public void RotateMove()
+    {
+        if (!isMove) return;
+
+        moveVec.z = Gaze(transform.position, target.position);
+
+        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+        //transform.Rotate()
+        transform.rotation = Quaternion.Euler(moveVec * moveSpeed);
+
+        CloseDistance(transform.position, target.position, distance);
     }
 
     public Vector3 Tracing(Vector3 curVec, Vector3 targetVec)
@@ -57,5 +80,10 @@ public class EnemyBase : MonoBehaviour
         float degree = Mathf.Atan2(targetVec.y - curVec.y, targetVec.x - curVec.x);
 
         return degree * Mathf.Rad2Deg;
+    }
+
+    public void CloseDistance(Vector3 curVec, Vector3 targetVec, float distance)
+    {
+        if (Vector3.Distance(curVec, targetVec) <= distance) isMove = false;
     }
 }
