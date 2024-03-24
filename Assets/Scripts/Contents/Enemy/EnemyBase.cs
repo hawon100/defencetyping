@@ -12,14 +12,25 @@ public class EnemyBase : MonoBehaviour
     public float cooltime;
     public float distance = 0.5f;
 
-    private Vector3 moveVec;
+    private bool isAttack = true;
+
+    [SerializeField] private Vector3 moveVec;
+    [SerializeField] private Vector3 movePos;
 
     private float timeRate;
     private bool isMove = true;
 
+    protected PoolManager poolManager;
+    protected Poolable poolable;
+
     protected virtual void Awake()
     {
         Init();
+        //Temp
+        movePos = target.position;
+
+        poolManager = Managers.Pool;
+        poolable = GetComponent<Poolable>();
     }
 
     protected virtual void Update()
@@ -27,13 +38,20 @@ public class EnemyBase : MonoBehaviour
         if (timeRate > cooltime)
         {
             timeRate -= cooltime;
+
+            if (isAttack) Attack();
             //Attack or Something else.
         }
         else
         {
             timeRate += Time.deltaTime;
         }
-        RotateMove();
+        DirectMove();
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        CloseDistance(transform.position, target.position, distance);
     }
 
     protected virtual void Init()
@@ -41,16 +59,20 @@ public class EnemyBase : MonoBehaviour
         hp = maxHp;
     }
 
-    public void DirectMove()
+    protected virtual void Attack()
+    {
+
+    }
+
+    protected virtual void DirectMove()
     {
         if (!isMove) return;
 
-        moveVec = Tracing(transform.position, target.position).normalized;
+        //moveVec = Tracing(transform.position, target.position).normalized;
 
-        transform.Translate(moveVec * moveSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(moveVec * moveSpeed);
-
-        CloseDistance(transform.position, target.position, distance);
+        //transform.Translate(moveVec * moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.Euler(moveVec * moveSpeed);
         //Managers.Data
     }
 
@@ -84,6 +106,22 @@ public class EnemyBase : MonoBehaviour
 
     public void CloseDistance(Vector3 curVec, Vector3 targetVec, float distance)
     {
-        if (Vector3.Distance(curVec, targetVec) <= distance) isMove = false;
+        if (Vector3.Distance(curVec, targetVec) <= distance)
+        {
+            isMove = false;
+        }
+    }
+
+    public void Damage(int value)
+    {
+        hp -= value;
+        hp = Mathf.Clamp(hp, 0, maxHp);
+
+        if (hp <= 0) Death();
+    }
+
+    protected virtual void Death()
+    {
+        poolManager.Push(poolable);
     }
 }
