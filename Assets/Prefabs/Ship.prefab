@@ -140,7 +140,7 @@ MonoBehaviour:
   moveVec: {x: 0, y: 0, z: 0}
   movePos: {x: 0, y: 0, z: 0}
   trans: {fileID: 8389702049857578532}
-  bullet: {fileID: 7982570186829381835, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
+  bullet: {fileID: 3505538965151386221, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
 --- !u!114 &3746714687584975451
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class SpawnManager : MonoBehaviour
 
     private PoolManager poolManager;
 
+    private Vector3 spawnPos;
+
     private float timeRate;
 
     [Header("Picking")]
@@ -52,9 +54,15 @@ public class SpawnManager : MonoBehaviour
         int e = Random.Range(0, spawnEnemys.Count);
         int s = Random.Range(0, spawnPoints.Length);
 
+        float deg = Random.Range(0, 360) * Mathf.Rad2Deg;
+
+        spawnPos.x = Mathf.Cos(deg) * 15f;
+        spawnPos.y = Mathf.Sin(deg) * 15f;
+
         Poolable poolable = poolManager.Pop(spawnEnemys[e].poolable.gameObject, spawnPoints[s]);
 
         poolable.transform.parent = null;
-        poolable.transform.position = spawnPoints[s].position;
+        //poolable.transform.position = spawnPoints[s].position;
+        poolable.transform.position = spawnPos;
     }
 }

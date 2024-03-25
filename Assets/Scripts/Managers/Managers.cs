@@ -13,6 +13,7 @@ public class Managers : MonoBehaviour
     SpawnManager _spawn = new SpawnManager();
 
     public static GameManager Game { get { return Instance._game; } }
+    public static SpawnManager Spawn { get { return Instance._spawn; } }
     //Core
     DataManager _data = new DataManager();
     InputManager _input = new InputManager();

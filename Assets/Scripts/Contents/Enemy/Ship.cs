@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestEnemy : EnemyBase
+public class Ship : EnemyBase
 {
-    [SerializeField] private Transform trans; //Temp
+    [SerializeField] private Transform trans; //Temp (Name!)
     public GameObject bullet; //private Temp
 
     private Vector3 spriteRotation;
@@ -32,8 +32,17 @@ public class TestEnemy : EnemyBase
 
         poolBullet.transform.parent = null;
         poolBullet.transform.position = transform.position;
-        poolBullet.gameObject.GetComponent<BezierBullet>().target = target;
-        poolBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
+
+        if (poolBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
+        {
+            poolBullet.gameObject.GetComponent<BezierBullet>().target = target;
+            poolBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
+        }
+
+        if (poolBullet.gameObject.GetComponent<DirectBullet>() != null)
+        {
+            poolBullet.gameObject.GetComponent<DirectBullet>().target = target;
+        }
     }
 
     protected override void DirectMove()

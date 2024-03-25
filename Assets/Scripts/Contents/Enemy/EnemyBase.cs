@@ -13,10 +13,9 @@ public class EnemyBase : MonoBehaviour
     private bool isAttack;
 
     [SerializeField] private Vector3 moveVec;
-    [SerializeField] private Vector3 movePos;
 
     private float timeRate;
-    private bool isMove = true;
+    public bool isMove = true;
 
     protected PoolManager poolManager;
     protected Poolable poolable;
@@ -24,8 +23,6 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Awake()
     {
         Init();
-        //Temp
-        movePos = target.position;
 
         poolManager = Managers.Pool;
         poolable = GetComponent<Poolable>();
@@ -67,12 +64,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (!isMove) return;
 
-        //moveVec = Tracing(transform.position, target.position).normalized;
-
-        //transform.Translate(moveVec * moveSpeed * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-        //transform.rotation = Quaternion.Euler(moveVec * moveSpeed);
-        //Managers.Data
     }
 
     public void RotateMove()

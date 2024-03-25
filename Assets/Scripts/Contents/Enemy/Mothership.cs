@@ -10,7 +10,7 @@ public class Mothership : EnemyBase
 
     private Vector3 spriteRotation;
 
-    private bool isSpawn;
+    private bool isSpawn = true;
 
     protected override void Awake()
     {
@@ -24,7 +24,7 @@ public class Mothership : EnemyBase
 
     protected override void Update()
     {
-        if (isSpawn) Attack();
+        if (!isMove && isSpawn) Attack();
         RotateObject();
         DirectMove();
     }
