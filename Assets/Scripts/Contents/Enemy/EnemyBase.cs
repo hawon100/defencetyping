@@ -106,7 +106,7 @@ public class EnemyBase : MonoBehaviour
 
     public void CheckObstacle()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Tracing(transform.position, target.position), 1.5f, 6);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 2f, Tracing(transform.position, target.position), 1.5f, 6);
 
         if (hit)
         {

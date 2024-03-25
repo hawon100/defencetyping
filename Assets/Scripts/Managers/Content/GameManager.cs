@@ -4,4 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject spawnManager; //Temp
+    public void StartGame() //Temp
+    {
+        spawnManager.SetActive(true);
+    }
 }

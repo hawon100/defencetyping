@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : EnemyBase
+public class Blueship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
     public GameObject bullet; //private Temp
@@ -22,7 +22,7 @@ public class Ship : EnemyBase
 
     protected override void Update()
     {
-        base.Update();
+        DirectMove();
         RotateObject();
     }
 
@@ -65,7 +65,7 @@ public class Ship : EnemyBase
     protected override void Death()
     {
         base.Death();
-    } 
+    }
 
     private void RandomInt()
     {
