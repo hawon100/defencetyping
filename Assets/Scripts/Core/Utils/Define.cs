@@ -27,6 +27,7 @@ public class Define
         Game,
         InGame,
         TestHawon,
+        TestKangmai,
     }
 
     public enum Sound

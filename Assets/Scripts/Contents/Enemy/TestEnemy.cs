@@ -5,15 +5,14 @@ using UnityEngine;
 public class TestEnemy : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp
-    [SerializeField] private GameObject bullet;
+    public GameObject bullet; //private Temp
 
     private Vector3 spriteRotation;
 
     protected override void Awake()
     {
         base.Awake();
-
-        poolManager.CreatePool(bullet, 10); //Temp
+        RandomInt();
     }
 
     protected override void Init()
@@ -33,6 +32,8 @@ public class TestEnemy : EnemyBase
 
         poolBullet.transform.parent = null;
         poolBullet.transform.position = transform.position;
+        poolBullet.gameObject.GetComponent<BezierBullet>().target = target;
+        poolBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
     }
 
     protected override void DirectMove()
@@ -50,5 +51,10 @@ public class TestEnemy : EnemyBase
     protected override void Death()
     {
         base.Death();
+    } 
+
+    private void RandomInt()
+    {
+        distance = Random.Range(5f, 8f);
     }
 }

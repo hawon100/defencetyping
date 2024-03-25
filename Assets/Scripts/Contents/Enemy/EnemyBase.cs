@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -12,7 +10,7 @@ public class EnemyBase : MonoBehaviour
     public float cooltime;
     public float distance = 0.5f;
 
-    private bool isAttack = true;
+    private bool isAttack;
 
     [SerializeField] private Vector3 moveVec;
     [SerializeField] private Vector3 movePos;
@@ -52,6 +50,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         CloseDistance(transform.position, target.position, distance);
+        CheckObstacle();
     }
 
     protected virtual void Init()
@@ -94,21 +93,33 @@ public class EnemyBase : MonoBehaviour
         moveVec.x = targetVec.x - curVec.x;
         moveVec.y = targetVec.y - curVec.y;
 
-        return moveVec;
+        return moveVec.normalized;
     }
 
-    public float Gaze(Vector3 curVec, Vector3 targetVec)
+    public float Gaze(Vector3 currentVec, Vector3 targetVec)
     {
-        float degree = Mathf.Atan2(targetVec.y - curVec.y, targetVec.x - curVec.x);
+        float degree = Mathf.Atan2(targetVec.y - currentVec.y, targetVec.x - currentVec.x);
 
         return degree * Mathf.Rad2Deg;
     }
 
-    public void CloseDistance(Vector3 curVec, Vector3 targetVec, float distance)
+    public void CloseDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
-        if (Vector3.Distance(curVec, targetVec) <= distance)
+        if (Vector3.Distance(currentVec, targetVec) <= distance)
         {
             isMove = false;
+            isAttack = true;
+        }
+    }
+
+    public void CheckObstacle()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Tracing(transform.position, target.position), 1.5f, 6);
+
+        if (hit)
+        {
+            isMove = false;
+            isAttack = true;
         }
     }
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8389702049857578532}
   - component: {fileID: 6388190055839536280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6090729184465292171}
   - component: {fileID: 3746714687584975451}
   - component: {fileID: 7977136372559966869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -135,11 +135,12 @@ MonoBehaviour:
   maxHp: 20
   moveSpeed: 1.2
   target: {fileID: 0}
-  cooltime: 0
-  distance: 1.5
+  cooltime: 4
+  distance: 6
   moveVec: {x: 0, y: 0, z: 0}
   movePos: {x: 0, y: 0, z: 0}
   trans: {fileID: 8389702049857578532}
+  bullet: {fileID: 7982570186829381835, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
 --- !u!114 &3746714687584975451
 MonoBehaviour:
   m_ObjectHideFlags: 0
