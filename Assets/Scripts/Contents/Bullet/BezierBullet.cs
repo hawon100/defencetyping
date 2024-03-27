@@ -5,14 +5,16 @@ using UnityEngine;
 public class BezierBullet : BulletBase
 {
     public float height;
-    public float speed;
-
-    public Transform target; //Temp
 
     [SerializeField] private Vector3 targetPoint;
     public Vector3 enemyPoint;
 
     private float t; //Temp
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void Start()
     {
         base.Start();

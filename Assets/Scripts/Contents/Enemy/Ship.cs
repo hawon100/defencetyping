@@ -15,6 +15,11 @@ public class Ship : EnemyBase
         RandomInt();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     protected override void Init()
     {
         base.Init();

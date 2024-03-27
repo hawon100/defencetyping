@@ -17,6 +17,11 @@ public class Mothership : EnemyBase
         base.Awake();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     protected override void Init()
     {
         base.Init();

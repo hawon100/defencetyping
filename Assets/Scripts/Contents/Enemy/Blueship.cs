@@ -52,6 +52,11 @@ public class Blueship : EnemyBase
 
     protected override void DirectMove()
     {
+        if (!isMove)
+        {
+
+        }
+
         base.DirectMove();
     }
 

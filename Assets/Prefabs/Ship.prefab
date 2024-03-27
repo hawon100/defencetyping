@@ -138,7 +138,7 @@ MonoBehaviour:
   cooltime: 4
   distance: 6
   moveVec: {x: 0, y: 0, z: 0}
-  movePos: {x: 0, y: 0, z: 0}
+  isMove: 1
   trans: {fileID: 8389702049857578532}
   bullet: {fileID: 3505538965151386221, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
 --- !u!114 &3746714687584975451

@@ -10,8 +10,6 @@ public class EnemyBase : MonoBehaviour
     public float cooltime;
     public float distance = 0.5f;
 
-    private bool isAttack;
-
     [SerializeField] private Vector3 moveVec;
 
     private float timeRate;
@@ -28,13 +26,18 @@ public class EnemyBase : MonoBehaviour
         poolable = GetComponent<Poolable>();
     }
 
+    protected virtual void Start()
+    {
+        target = Managers.Game.target;
+    }
+
     protected virtual void Update()
     {
         if (timeRate > cooltime)
         {
             timeRate -= cooltime;
 
-            if (isAttack) Attack();
+            Attack();
             //Attack or Something else.
         }
         else
@@ -46,8 +49,12 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        CloseDistance(transform.position, target.position, distance);
-        CheckObstacle();
+        if (isDistance(transform.position, target.position, distance))
+        {
+            isMove = false;
+        }
+        //CloseDistance(transform.position, target.position, distance);
+        //CheckObstacle();
     }
 
     protected virtual void Init()
@@ -67,19 +74,6 @@ public class EnemyBase : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
     }
 
-    public void RotateMove()
-    {
-        if (!isMove) return;
-
-        moveVec.z = Gaze(transform.position, target.position);
-
-        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
-        //transform.Rotate()
-        transform.rotation = Quaternion.Euler(moveVec * moveSpeed);
-
-        CloseDistance(transform.position, target.position, distance);
-    }
-
     public Vector3 Tracing(Vector3 curVec, Vector3 targetVec)
     {
         moveVec.x = targetVec.x - curVec.x;
@@ -95,13 +89,18 @@ public class EnemyBase : MonoBehaviour
         return degree * Mathf.Rad2Deg;
     }
 
-    public void CloseDistance(Vector3 currentVec, Vector3 targetVec, float distance)
+    //public void CloseDistance(Vector3 currentVec, Vector3 targetVec, float distance)
+    //{
+    //    if (Vector3.Distance(currentVec, targetVec) <= distance)
+    //    {
+    //        isMove = false;
+    //        isAttack = true;
+    //    }
+    //}
+
+    public bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
-        if (Vector3.Distance(currentVec, targetVec) <= distance)
-        {
-            isMove = false;
-            isAttack = true;
-        }
+        return Vector3.Distance(currentVec, targetVec) <= distance;
     }
 
     public void CheckObstacle()
@@ -111,7 +110,6 @@ public class EnemyBase : MonoBehaviour
         if (hit)
         {
             isMove = false;
-            isAttack = true;
         }
     }
 

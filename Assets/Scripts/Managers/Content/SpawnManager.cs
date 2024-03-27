@@ -7,13 +7,13 @@ public class SpawnManager : MonoBehaviour
     [System.Serializable]
     public class SpawnMob
     {
-        public Poolable poolable;
-        public int maxAmount;
+        public GameObject Object;
+        [Range(0, 100)] public int Probability;
     }
-    //Temp
-    public List<SpawnMob> spawnEnemys = new List<SpawnMob>();
-    public Transform[] spawnPoints;
-    public float cooltime;
+
+    public List<SpawnMob> spawnMob;
+    public float spawnTime;
+    public int spawnCount;
 
     private PoolManager poolManager;
 
@@ -21,26 +21,16 @@ public class SpawnManager : MonoBehaviour
 
     private float timeRate;
 
-    [Header("Picking")]
-    public Transform target;
     private void Awake()
     {
         poolManager = Managers.Pool;
-
-        poolManager.Init();
-
-        for (int i = 0; i < spawnEnemys.Count; i++)
-        {
-            spawnEnemys[i].poolable.gameObject.GetComponent<EnemyBase>().target = target;
-            poolManager.CreatePool(spawnEnemys[i].poolable.gameObject, spawnEnemys[i].maxAmount);
-        }
     }
 
     private void Update()
     {
-        if (timeRate >= cooltime)
+        if (timeRate >= spawnTime)
         {
-            timeRate -= cooltime;
+            timeRate -= spawnTime;
             Spawn();
         }
         else
@@ -51,18 +41,23 @@ public class SpawnManager : MonoBehaviour
 
     public void Spawn()
     {
-        int e = Random.Range(0, spawnEnemys.Count);
-        int s = Random.Range(0, spawnPoints.Length);
+        for (int index = 0; index < spawnCount; index++)
+        {
+            for (int i = 0; i < spawnMob.Count; i++)
+            {
+                if (Random.Range(0, 100) < spawnMob[i].Probability)
+                {
+                    float deg = Random.Range(0, 360) * Mathf.Rad2Deg;
 
-        float deg = Random.Range(0, 360) * Mathf.Rad2Deg;
+                    spawnPos.x = Mathf.Cos(deg) * 20f;
+                    spawnPos.y = Mathf.Sin(deg) * 20f;
 
-        spawnPos.x = Mathf.Cos(deg) * 15f;
-        spawnPos.y = Mathf.Sin(deg) * 15f;
+                    Poolable poolable = poolManager.Pop(spawnMob[i].Object, transform);
 
-        Poolable poolable = poolManager.Pop(spawnEnemys[e].poolable.gameObject, spawnPoints[s]);
-
-        poolable.transform.parent = null;
-        //poolable.transform.position = spawnPoints[s].position;
-        poolable.transform.position = spawnPos;
+                    poolable.transform.parent = null;
+                    poolable.transform.position = spawnPos;
+                }
+            }
+        }
     }
 }

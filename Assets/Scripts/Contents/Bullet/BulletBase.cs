@@ -6,8 +6,16 @@ public class BulletBase : MonoBehaviour
 {
     [SerializeField] private string triggerTag;
 
+    public Transform target;
+    public float speed;
+
     protected PoolManager poolManager;
     protected Poolable poolable;
+
+    protected virtual void Awake()
+    {
+        target = Managers.Game.target;
+    }
 
     protected virtual void Start()
     {

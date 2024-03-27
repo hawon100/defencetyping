@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DirectBullet : BulletBase
 {
-    public float speed;
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
-    public Transform target; //Temp
     protected override void Start()
     {
         base.Start();
