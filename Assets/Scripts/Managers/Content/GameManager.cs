@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Managers.Game.target = target;
         Init();
     }
 
