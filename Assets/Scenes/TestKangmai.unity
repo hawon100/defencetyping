@@ -1139,6 +1139,8 @@ MonoBehaviour:
     maxAmount: 50
   - poolObject: {fileID: 7210372992249666956, guid: 909bdad6f8900ae46932e0520ac9c258, type: 3}
     maxAmount: 50
+  - poolObject: {fileID: 3664225653940979932, guid: fe43e12b98c2e6f4cb66a7e3b7ee609a, type: 3}
+    maxAmount: 50
 --- !u!4 &1434002935
 Transform:
   m_ObjectHideFlags: 0
@@ -1201,8 +1203,12 @@ MonoBehaviour:
   spawnMob:
   - Object: {fileID: 3294854627314602454, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
     Probability: 100
+  - Object: {fileID: 3664225653940979932, guid: fe43e12b98c2e6f4cb66a7e3b7ee609a, type: 3}
+    Probability: 100
+  - Object: {fileID: 7210372992249666956, guid: 909bdad6f8900ae46932e0520ac9c258, type: 3}
+    Probability: 45
   spawnTime: 3
-  spawnCount: 3
+  spawnCount: 1
 --- !u!1 &1551811165
 GameObject:
   m_ObjectHideFlags: 0
