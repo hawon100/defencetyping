@@ -5,7 +5,9 @@ using UnityEngine;
 public class Ship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
-    public GameObject bullet; //private Temp
+    [Header("Bullets")]
+    public GameObject bezierBullet; //private Temp
+    public GameObject directBullet; //private Temp
 
     private Vector3 spriteRotation;
 
@@ -18,6 +20,7 @@ public class Ship : EnemyBase
     protected override void Start()
     {
         base.Start();
+        //CreateBullet();
     }
 
     protected override void Init()
@@ -38,20 +41,29 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
-        Poolable poolBullet = poolManager.Pop(bullet, transform);
+        Poolable farBullet = poolManager.Pop(bezierBullet, transform);
+        Poolable closeBullet = poolManager.Pop(directBullet, transform);
 
-        poolBullet.transform.parent = null;
-        poolBullet.transform.position = transform.position;
-
-        if (poolBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
+        if (isDistance(transform.position, target.position, 10))
         {
-            poolBullet.gameObject.GetComponent<BezierBullet>().target = target;
-            poolBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
+            closeBullet.transform.parent = null;
+            closeBullet.transform.position = transform.position;
+        }
+        else
+        {
+            farBullet.transform.parent = null;
+            farBullet.transform.position = transform.position;
         }
 
-        if (poolBullet.gameObject.GetComponent<DirectBullet>() != null)
+        if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
         {
-            poolBullet.gameObject.GetComponent<DirectBullet>().target = target;
+            farBullet.gameObject.GetComponent<BezierBullet>().target = target;
+            farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
+        }
+
+        if (closeBullet.gameObject.GetComponent<DirectBullet>() != null)
+        {
+            closeBullet.gameObject.GetComponent<DirectBullet>().target = target;
         }
     }
 
@@ -75,5 +87,13 @@ public class Ship : EnemyBase
     private void RandomInt()
     {
         distance = Random.Range(5f, 8f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            isMove = false;
+        }
     }
 }

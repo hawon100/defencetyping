@@ -15,7 +15,7 @@ public class SpawnManager : MonoBehaviour
     public float spawnTime;
     public int spawnCount;
 
-    private PoolManager poolManager;
+    private PoolManager poolManager; //이러한 것들을 실행시킬 것들이 필요
 
     private Vector3 spawnPos;
 

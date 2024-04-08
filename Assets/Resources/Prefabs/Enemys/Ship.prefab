@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6090729184465292171}
   - component: {fileID: 3746714687584975451}
   - component: {fileID: 7977136372559966869}
+  - component: {fileID: 3435146998611343607}
   m_Layer: 6
   m_Name: Ship
   m_TagString: Enemy
@@ -134,13 +135,14 @@ MonoBehaviour:
   hp: 0
   maxHp: 20
   moveSpeed: 1.2
-  target: {fileID: 0}
+  target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
   cooltime: 4
   distance: 6
   moveVec: {x: 0, y: 0, z: 0}
   isMove: 1
   trans: {fileID: 8389702049857578532}
-  bullet: {fileID: 3505538965151386221, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
+  bezierBullet: {fileID: 7982570186829381835, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
+  directBullet: {fileID: 3505538965151386221, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
 --- !u!114 &3746714687584975451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,11 +171,38 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3435146998611343607
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294854627314602454}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0

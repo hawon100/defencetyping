@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2016726603759735847}
   - component: {fileID: 2973230478523820711}
   - component: {fileID: 8223618162424107102}
+  - component: {fileID: 2990231329679151692}
   m_Layer: 6
   m_Name: Mothership
   m_TagString: Enemy
@@ -63,11 +64,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -86,14 +87,42 @@ MonoBehaviour:
   hp: 0
   maxHp: 50
   moveSpeed: 2
-  target: {fileID: 0}
+  target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
   cooltime: 10
   distance: 9
   moveVec: {x: 0, y: 0, z: 0}
-  movePos: {x: 0, y: 0, z: 0}
+  isMove: 1
   trans: {fileID: 1438564264688852376}
   smallship: {fileID: 3294854627314602454, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
   spawnCount: 5
+  radius: 5
+--- !u!54 &2990231329679151692
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210372992249666956}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &8509081337168013933
 GameObject:
   m_ObjectHideFlags: 0

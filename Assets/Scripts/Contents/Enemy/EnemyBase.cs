@@ -18,12 +18,16 @@ public class EnemyBase : MonoBehaviour
     protected PoolManager poolManager;
     protected Poolable poolable;
 
+    private Rigidbody rdb; //Temp
+
     protected virtual void Awake()
     {
         Init();
 
         poolManager = Managers.Pool;
         poolable = GetComponent<Poolable>();
+
+        rdb = GetComponent<Rigidbody>(); //Temp
     }
 
     protected virtual void Start()
@@ -71,7 +75,8 @@ public class EnemyBase : MonoBehaviour
     {
         if (!isMove) return;
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        rdb.velocity = Tracing(transform.position, target.position) * moveSpeed; //Temp
     }
 
     public Vector3 Tracing(Vector3 curVec, Vector3 targetVec)
@@ -124,5 +129,10 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Death()
     {
         poolManager.Push(poolable);
+    }
+
+    private void AllMight()
+    {
+        transform.LookAt(target);
     }
 }

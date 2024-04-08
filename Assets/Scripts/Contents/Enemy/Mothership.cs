@@ -7,6 +7,7 @@ public class Mothership : EnemyBase
     [SerializeField] private Transform trans; //Temp
     public GameObject smallship; //private Temp
     [SerializeField] private int spawnCount; //Temp
+    [SerializeField] private float radius;
 
     private Vector3 spriteRotation;
 
@@ -47,8 +48,8 @@ public class Mothership : EnemyBase
             Poolable ship = poolManager.Pop(smallship, transform);
 
             ship.transform.parent = null;
-            ship.transform.position = transform.position + Vector3.right * Mathf.Cos(i * Mathf.Deg2Rad)
-                                                         + Vector3.up * Mathf.Sin(i * Mathf.Deg2Rad);
+            ship.transform.position = transform.position + radius * Vector3.right * Mathf.Cos(i * Mathf.Deg2Rad)
+                                                         + radius * Vector3.up * Mathf.Sin(i * Mathf.Deg2Rad);
             ship.gameObject.GetComponent<EnemyBase>().target = target;
         }
 
