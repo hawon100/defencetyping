@@ -21,6 +21,9 @@ public class SpawnManager : MonoBehaviour
 
     private float timeRate;
 
+
+    public bool isSpawn = true;
+
     private void Awake()
     {
         poolManager = Managers.Pool;
@@ -31,7 +34,7 @@ public class SpawnManager : MonoBehaviour
         if (timeRate >= spawnTime)
         {
             timeRate -= spawnTime;
-            Spawn();
+            if (isSpawn) Spawn();
         }
         else
         {
@@ -59,5 +62,7 @@ public class SpawnManager : MonoBehaviour
                 }
             }
         }
+
+        isSpawn = false;
     }
 }

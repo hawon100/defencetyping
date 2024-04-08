@@ -10,7 +10,7 @@ public class BulletBase : MonoBehaviour
     public float speed;
 
     protected PoolManager poolManager;
-    protected Poolable poolable;
+    private Poolable poolable;
 
     protected virtual void Awake()
     {
@@ -43,7 +43,14 @@ public class BulletBase : MonoBehaviour
 
     protected virtual void Hit()
     {
-        if (poolManager != null && poolable != null)
-            poolManager.Push(poolable);
+        StartCoroutine(HitDestroy());
+    }
+
+    IEnumerator HitDestroy()
+    {
+        yield return new WaitForSeconds(1.5f);
+        poolManager.Push(poolable);
+        //if (poolManager != null && poolable != null)
+        //    poolManager.Push(poolable);
     }
 }

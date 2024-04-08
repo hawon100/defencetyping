@@ -35,6 +35,11 @@ public class EnemyBase : MonoBehaviour
         
     }
 
+    public void BulletPool(GameObject bullet, int amount)
+    {
+        poolManager.CreatePool(bullet, amount);
+    }
+
     protected virtual void Update()
     {
         if (timeRate > cooltime)

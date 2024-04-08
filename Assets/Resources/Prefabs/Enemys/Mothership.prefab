@@ -68,7 +68,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.4
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   moveSpeed: 2
   target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
   cooltime: 10
-  distance: 9
+  distance: 8
   moveVec: {x: 0, y: 0, z: 0}
   isMove: 1
   trans: {fileID: 1438564264688852376}

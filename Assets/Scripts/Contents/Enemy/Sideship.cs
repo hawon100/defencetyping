@@ -2,27 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : EnemyBase
+public class Sideship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
     [Header("Bullets")]
     public GameObject bezierBullet; //private Temp
-    public GameObject directBullet; //private Temp
 
     private Vector3 spriteRotation;
+
+    private float t = 90f;
 
     protected override void Awake()
     {
         base.Awake();
         RandomInt();
-        //BulletPool(bezierBullet, 10);
-        //BulletPool(directBullet, 10);
     }
 
     protected override void Start()
     {
         base.Start();
-        //CreateBullet();
+        isMove = true;
     }
 
     protected override void Init()
@@ -32,7 +31,7 @@ public class Ship : EnemyBase
 
     protected override void Update()
     {
-        base.Update();
+        DirectMove();
         RotateObject();
     }
 
@@ -43,7 +42,7 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
-        if (isMove)
+        if (!isMove)
         {
             Poolable farBullet = poolManager.Pop(bezierBullet, transform);
 
@@ -56,28 +55,25 @@ public class Ship : EnemyBase
                 farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
             }
         }
-        else
-        {
-            Poolable closeBullet = poolManager.Pop(directBullet, transform);
-
-            closeBullet.transform.parent = null;
-            closeBullet.transform.position = transform.position;
-
-            if (closeBullet.gameObject.GetComponent<DirectBullet>() != null)
-            {
-                closeBullet.gameObject.GetComponent<DirectBullet>().target = target;
-            }
-        }
     }
 
     protected override void DirectMove()
     {
-        base.DirectMove();
+        if (!isDistance(transform.position, target.position, 8))
+            if (isMove) base.DirectMove();
+        else
+        {
+            t -= Time.deltaTime;
+            if (t <= 0)
+            {
+                isMove = false;
+            }
+        }
     }
 
     private void RotateObject()
     {
-        spriteRotation.z = Gaze(transform.position, target.position) - 90f;
+        spriteRotation.z = Gaze(transform.position, target.position) - t;
 
         transform.rotation = Quaternion.Euler(spriteRotation);
     }
@@ -85,7 +81,7 @@ public class Ship : EnemyBase
     protected override void Death()
     {
         base.Death();
-    } 
+    }
 
     private void RandomInt()
     {
