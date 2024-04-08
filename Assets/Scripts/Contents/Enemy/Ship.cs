@@ -41,29 +41,30 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
-        Poolable farBullet = poolManager.Pop(bezierBullet, transform);
-        Poolable closeBullet = poolManager.Pop(directBullet, transform);
-
-        if (isDistance(transform.position, target.position, 10))
+        if (isMove)
         {
-            closeBullet.transform.parent = null;
-            closeBullet.transform.position = transform.position;
+            Poolable farBullet = poolManager.Pop(bezierBullet, transform);
+
+            farBullet.transform.parent = null;
+            farBullet.transform.position = transform.position;
+
+            if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
+            {
+                farBullet.gameObject.GetComponent<BezierBullet>().target = target;
+                farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
+            }
         }
         else
         {
-            farBullet.transform.parent = null;
-            farBullet.transform.position = transform.position;
-        }
+            Poolable closeBullet = poolManager.Pop(directBullet, transform);
 
-        if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
-        {
-            farBullet.gameObject.GetComponent<BezierBullet>().target = target;
-            farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
-        }
+            closeBullet.transform.parent = null;
+            closeBullet.transform.position = transform.position;
 
-        if (closeBullet.gameObject.GetComponent<DirectBullet>() != null)
-        {
-            closeBullet.gameObject.GetComponent<DirectBullet>().target = target;
+            if (closeBullet.gameObject.GetComponent<DirectBullet>() != null)
+            {
+                closeBullet.gameObject.GetComponent<DirectBullet>().target = target;
+            }
         }
     }
 

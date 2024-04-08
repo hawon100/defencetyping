@@ -32,7 +32,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        target = Managers.Game.target;
+        
     }
 
     protected virtual void Update()
@@ -73,7 +73,11 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void DirectMove()
     {
-        if (!isMove) return;
+        if (!isMove)
+        {
+            rdb.velocity = Vector3.zero;
+            return;
+        }
 
         //transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
         rdb.velocity = Tracing(transform.position, target.position) * moveSpeed; //Temp
