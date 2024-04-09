@@ -10,6 +10,7 @@ public class PoolList : MonoBehaviour
     {
         public GameObject poolObject;
         public int maxAmount;
+        public bool isUse = true;
     }
 
     [Header("Pool List")]
@@ -30,7 +31,8 @@ public class PoolList : MonoBehaviour
 
         for (int i = 0; i < poolData.Count; i++)
         {
-            poolManager.CreatePool(poolData[i].poolObject, poolData[i].maxAmount);
+            if (poolData[i].isUse)
+                poolManager.CreatePool(poolData[i].poolObject, poolData[i].maxAmount);
         }
     }
 }

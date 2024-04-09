@@ -797,18 +797,25 @@ MonoBehaviour:
   poolData:
   - poolObject: {fileID: 3294854627314602454, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
     maxAmount: 20
+    isUse: 1
   - poolObject: {fileID: 7210372992249666956, guid: 909bdad6f8900ae46932e0520ac9c258, type: 3}
     maxAmount: 10
+    isUse: 1
   - poolObject: {fileID: 3664225653940979932, guid: fe43e12b98c2e6f4cb66a7e3b7ee609a, type: 3}
     maxAmount: 10
+    isUse: 1
   - poolObject: {fileID: 198078821623202441, guid: 78524f04277772446aff96170ff309b5, type: 3}
     maxAmount: 10
+    isUse: 1
   - poolObject: {fileID: 7982570186829381835, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
     maxAmount: 50
+    isUse: 1
   - poolObject: {fileID: 3505538965151386221, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
     maxAmount: 50
+    isUse: 1
   - poolObject: {fileID: 5964598085631025490, guid: 7e08dececea9323438138f7e75362a99, type: 3}
     maxAmount: 10
+    isUse: 1
 --- !u!1 &1393131163
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,19 +938,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e94d5b5a3c5f16048aefecb6c1744612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnMob:
-  - Object: {fileID: 3294854627314602454, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
-    Probability: 100
-  - Object: {fileID: 7210372992249666956, guid: 909bdad6f8900ae46932e0520ac9c258, type: 3}
-    Probability: 100
-  - Object: {fileID: 3664225653940979932, guid: fe43e12b98c2e6f4cb66a7e3b7ee609a, type: 3}
-    Probability: 0
-  - Object: {fileID: 198078821623202441, guid: 78524f04277772446aff96170ff309b5, type: 3}
-    Probability: 100
-  - Object: {fileID: 5964598085631025490, guid: 7e08dececea9323438138f7e75362a99, type: 3}
-    Probability: 100
-  spawnTime: 4
+  generalWave:
+  - {fileID: 11400000, guid: b5d5292e574fd9c43b2a589cbfff20ad, type: 2}
+  - {fileID: 11400000, guid: e65bcee742c7f97459f6d10faa02ce2d, type: 2}
+  - {fileID: 11400000, guid: f8145d682fdaa374893606511a100186, type: 2}
+  - {fileID: 11400000, guid: 09ee10e68b3275742b6fe1e9e6e8b162, type: 2}
+  - {fileID: 11400000, guid: 85aa1f1205946f74097fe2b9b5ca3d80, type: 2}
+  bossWave: []
+  spawnTime: 5
   spawnCount: 1
+  curEnemy: 0
   isSpawn: 1
 --- !u!4 &1551811169 stripped
 Transform:
@@ -1186,7 +1190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1613123014
 Transform:
   m_ObjectHideFlags: 0
@@ -1214,7 +1218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aeec73b4f389304a813252e87bc64b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 5
 --- !u!135 &1613123017
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1263,6 +1267,73 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1635507418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1635507419}
+  - component: {fileID: 1635507420}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1635507419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635507418}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1029.3026, y: 510.18768, z: -5.1180305}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1635507420
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635507418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1642037642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,3 +1851,4 @@ SceneRoots:
   - {fileID: 2058095175}
   - {fileID: 1388832431}
   - {fileID: 2095014349}
+  - {fileID: 1635507419}

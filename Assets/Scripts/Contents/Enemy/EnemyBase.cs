@@ -114,7 +114,11 @@ public class EnemyBase : MonoBehaviour
 
     public bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
-        return Vector3.Distance(currentVec, targetVec) <= distance;
+        Debug.Log("X : " + Mathf.Sqrt(targetVec.x - currentVec.x));
+        Debug.Log("Y : " + Mathf.Sqrt(targetVec.y - currentVec.y));
+        Debug.Log("D : " + Mathf.Sqrt(distance));
+
+        return (targetVec - currentVec).sqrMagnitude <= Mathf.Sqrt(distance);
     }
 
     public void CheckObstacle()
@@ -125,6 +129,8 @@ public class EnemyBase : MonoBehaviour
         {
             isMove = false;
         }
+
+        
     }
 
     public void Damage(int value)
@@ -137,6 +143,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Death()
     {
+        Managers.Spawn.RemoveObject();
         poolManager.Push(poolable);
     }
 
