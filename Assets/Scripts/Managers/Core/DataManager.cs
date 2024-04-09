@@ -1,3 +1,5 @@
+using Data;
+using Data.Stats;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +11,13 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    public Dictionary<int, Data.Stat> StatDict { get; private set; } = new Dictionary<int, Data.Stat>();
+    public Dictionary<int, Stat> StatDict { get; private set; } = new Dictionary<int, Stat>();
+    public Dictionary<int, InstallStat> InstallStatDict { get; private set; } = new Dictionary<int, InstallStat>();
 
     public void Init()
     {
-        StatDict = LoadJson<Data.StatData, int, Data.Stat>("StatData").MakeDict();
+        StatDict = LoadJson<StatData, int, Stat>("CenterTower").MakeDict();
+        InstallStatDict = LoadJson<InstallStatData, int, InstallStat>("InstallTower").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
@@ -21,34 +25,4 @@ public class DataManager
 		TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Data/{path}");
         return JsonUtility.FromJson<Loader>(textAsset.text);
 	}   
-    private T Load<T>(string path) where T : Object
-    {
-        if (typeof(T) == typeof(GameObject))
-        {
-            string name = path;
-            int index = name.LastIndexOf('/');
-            if (index >= 0) name = name.Substring(0, index);
-            GameObject go = Managers.Pool.GetOriginal(name);
-            if (go != null) return go as T;
-        }
-
-        return Resources.Load<T>(path);
-    }
-
-    public T LoadData<T>(string path) where T : Object
-    {
-        T loadedObject = Load<T>($"Datas/{path}");
-
-        if (typeof(T) == typeof(GameObject))
-        {
-            GameObject original = loadedObject as GameObject;
-
-            if (original == null)
-            {
-                Debug.Log($"Failed to load prefab : {path}");
-            }
-        }
-
-        return loadedObject;
-    }
 }
