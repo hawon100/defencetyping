@@ -1,3 +1,4 @@
+using Data.Stats;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,17 +6,6 @@ using UnityEngine;
 
 namespace Data
 {
-    #region Stat
-
-    [Serializable]
-    public class Stat
-    {
-        public int level;
-        public int maxhp;
-        public int attack;
-        public int totalExp;
-    }
-
     [Serializable]
     public class StatData : ILoader<int, Stat>
     {
@@ -32,5 +22,19 @@ namespace Data
         }
     }
 
-    #endregion
+    [Serializable]
+    public class InstallStatData : ILoader<int, InstallStat>
+    {
+        public List<InstallStat> stats = new List<InstallStat>();
+
+        public Dictionary<int, InstallStat> MakeDict()
+        {
+            Dictionary<int, InstallStat> dict = new Dictionary<int, InstallStat>();
+            foreach (InstallStat stat in stats)
+            {
+                dict.Add(stat.level, stat);
+            }
+            return dict;
+        }
+    }
 }

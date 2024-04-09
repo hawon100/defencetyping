@@ -7,6 +7,13 @@ public class Define
     public enum TowerType
     {
         None,
+        Center,
+        Install,
+    }
+
+    public enum InstallTowerType
+    {
+        None,
         Common,
         Rare,
         Epic,
