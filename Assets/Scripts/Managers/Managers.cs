@@ -11,9 +11,12 @@ public class Managers : MonoBehaviour
     //Content
     GameManager _game = new GameManager();
     SpawnManager _spawn = new SpawnManager();
+    TypingManager _typing = new TypingManager();
 
     public static GameManager Game { get { return Instance._game; } }
     public static SpawnManager Spawn { get { return Instance._spawn; } }
+    public static TypingManager Typing { get {  return Instance._typing; } }
+
     //Core
     DataManager _data = new DataManager();
     PoolManager _pool = new PoolManager();
