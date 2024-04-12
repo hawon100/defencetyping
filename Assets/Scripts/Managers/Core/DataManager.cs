@@ -16,8 +16,8 @@ public class DataManager
 
     public void Init()
     {
-        StatDict = LoadJson<StatData, int, Stat>("CenterTower").MakeDict();
-        InstallStatDict = LoadJson<InstallStatData, int, InstallStat>("InstallTower").MakeDict();
+        StatDict = LoadJson<StatData, int, Stat>("Stat/CenterTower").MakeDict();
+        InstallStatDict = LoadJson<InstallStatData, int, InstallStat>("Stat/InstallTower").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

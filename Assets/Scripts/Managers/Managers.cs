@@ -16,14 +16,12 @@ public class Managers : MonoBehaviour
     public static SpawnManager Spawn { get { return Instance._spawn; } }
     //Core
     DataManager _data = new DataManager();
-    InputManager _input = new InputManager();
     PoolManager _pool = new PoolManager();
     ResourceManager _resource = new ResourceManager();
     SoundManager _sound = new SoundManager();
     MapManager _map = new MapManager();
 
     public static DataManager Data { get { return Instance._data; } }
-    public static InputManager Input { get { return Instance._input; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SoundManager Sound { get { return Instance._sound; } }
@@ -56,7 +54,6 @@ public class Managers : MonoBehaviour
 
     public static void Clear()
     {
-        Input.Clear();
         Sound.Clear();
         Map.Clear();
 
