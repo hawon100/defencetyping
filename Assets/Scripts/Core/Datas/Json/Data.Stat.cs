@@ -5,17 +5,12 @@ using UnityEngine;
 namespace Data.Stats
 {
     [Serializable]
-    public class Stat
+    public class Word
     {
-        public int level;
-        public int maxhp;
-        public int attack;
-        public int totalExp;
-    }
-
-    [Serializable]
-    public class InstallStat : Stat
-    {
-        public int price;
+        public int wordIndex;
+        public string buildword;
+        public string attackword;
+        public string skillword;
+        public string fixedword;
     }
 }

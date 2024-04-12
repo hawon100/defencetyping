@@ -11,18 +11,16 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    public Dictionary<int, Stat> StatDict { get; private set; } = new Dictionary<int, Stat>();
-    public Dictionary<int, InstallStat> InstallStatDict { get; private set; } = new Dictionary<int, InstallStat>();
+    public Dictionary<string, Word> WordDict { get; private set; } = new Dictionary<string, Word>();
 
     public void Init()
     {
-        StatDict = LoadJson<StatData, int, Stat>("Stat/CenterTower").MakeDict();
-        InstallStatDict = LoadJson<InstallStatData, int, InstallStat>("Stat/InstallTower").MakeDict();
+        WordDict = LoadJson<WordData, string, Word>().MakeDict();
     }
 
-    Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
+    Loader LoadJson<Loader, Key, Value>() where Loader : ILoader<Key, Value>
     {
-		TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Data/{path}");
-        return JsonUtility.FromJson<Loader>(textAsset.text);
+		//TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Data/{path}");
+        return JsonUtility.FromJson<Loader>(Managers.Network.UrlJson[0]);
 	}   
 }

@@ -37,11 +37,6 @@ public class TowerStat : MonoBehaviour
 
     protected virtual void OnDead(TowerStat attacker)
     {
-        PlayerTowerStat stat = attacker as PlayerTowerStat;
 
-        if (stat != null)
-        {
-            stat.Exp += 15;
-        }
     }
 }

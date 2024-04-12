@@ -7,32 +7,16 @@ using UnityEngine;
 namespace Data
 {
     [Serializable]
-    public class StatData : ILoader<int, Stat>
+    public class WordData : ILoader<string, Word>
     {
-        public List<Stat> stats = new List<Stat>();
+        public List<Word> words = new List<Word>();
 
-        public Dictionary<int, Stat> MakeDict()
+        public Dictionary<string, Word> MakeDict()
         {
-            Dictionary<int, Stat> dict = new Dictionary<int, Stat>();
-            foreach (Stat stat in stats)
+            Dictionary<string, Word> dict = new Dictionary<string, Word>();
+            foreach (Word word in words)
             {
-                dict.Add(stat.level, stat);
-            }
-            return dict;
-        }
-    }
-
-    [Serializable]
-    public class InstallStatData : ILoader<int, InstallStat>
-    {
-        public List<InstallStat> stats = new List<InstallStat>();
-
-        public Dictionary<int, InstallStat> MakeDict()
-        {
-            Dictionary<int, InstallStat> dict = new Dictionary<int, InstallStat>();
-            foreach (InstallStat stat in stats)
-            {
-                dict.Add(stat.level, stat);
+                dict.Add(word.wordIndex.ToString(), word);
             }
             return dict;
         }

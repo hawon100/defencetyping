@@ -20,14 +20,16 @@ public class Managers : MonoBehaviour
     ResourceManager _resource = new ResourceManager();
     SoundManager _sound = new SoundManager();
     MapManager _map = new MapManager();
+    NetworkManager _network = new NetworkManager();
 
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SoundManager Sound { get { return Instance._sound; } }
     public static MapManager Map { get { return Instance._map; } }
+    public static NetworkManager Network { get { return Instance._network; } }
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }
@@ -46,6 +48,7 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
 
+            s_instance._data.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
         }
