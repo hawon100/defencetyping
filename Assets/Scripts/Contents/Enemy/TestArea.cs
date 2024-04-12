@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestArea : MonoBehaviour
 {
     [SerializeField] private int damage;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {

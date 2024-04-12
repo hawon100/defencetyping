@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blueship : EnemyBase
+public class Bombship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
-    public GameObject bullet; //private Temp
+    [SerializeField] private SpriteRenderer spriteRend;
 
     private Vector3 spriteRotation;
+
+    private bool isAttack;
 
     protected override void Awake()
     {
         base.Awake();
-        RandomInt();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
     }
 
     protected override void Init()
@@ -22,41 +28,39 @@ public class Blueship : EnemyBase
 
     protected override void Update()
     {
-        DirectMove();
+        base.Update();
         RotateObject();
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+        if (isDistance(transform.position, target.position, 5f)) isAttack = true;
     }
 
     protected override void Attack()
     {
-        Poolable poolBullet = poolManager.Pop(bullet, transform);
+        if (isAttack) StartCoroutine(SuicideBomb());
+    }
 
-        poolBullet.transform.parent = null;
-        poolBullet.transform.position = transform.position;
+    private IEnumerator SuicideBomb()
+    {
+        isAttack = false;
+        WaitForSeconds time = new WaitForSeconds(0.07f);
 
-        if (poolBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
+        for (int i = 0; i < 3; i++)
         {
-            poolBullet.gameObject.GetComponent<BezierBullet>().target = target;
-            poolBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
+            spriteRend.color = Color.red;
+            yield return time;
+            spriteRend.color = Color.white;
+            yield return time;
         }
 
-        if (poolBullet.gameObject.GetComponent<DirectBullet>() != null)
-        {
-            poolBullet.gameObject.GetComponent<DirectBullet>().target = target;
-        }
+        Death();
     }
 
     protected override void DirectMove()
     {
-        if (!isMove)
-        {
-
-        }
-
         base.DirectMove();
     }
 
@@ -70,10 +74,5 @@ public class Blueship : EnemyBase
     protected override void Death()
     {
         base.Death();
-    }
-
-    private void RandomInt()
-    {
-        distance = Random.Range(5f, 8f);
     }
 }

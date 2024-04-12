@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : EnemyBase
+public class Accordship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
     [Header("Bullets")]
     public GameObject bezierBullet; //private Temp
-    public GameObject directBullet; //private Temp
+    public int bulletCount;
 
     private Vector3 spriteRotation;
+
+    private bool isAttack = true;
 
     protected override void Awake()
     {
         base.Awake();
         RandomInt();
-        //BulletPool(bezierBullet, 10);
-        //BulletPool(directBullet, 10);
+        //BulletPool(bezierBullet, bulletCount * 3);
     }
 
     protected override void Start()
     {
         base.Start();
-        //CreateBullet();
     }
 
     protected override void Init()
@@ -43,7 +43,15 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
-        if (isMove)
+        if (!isMove && isAttack)
+        {
+            StartCoroutine(BulletAttack());
+        }
+    }
+
+    IEnumerator BulletAttack()
+    {
+        for (int i = 0; i < bulletCount; i++)
         {
             Poolable farBullet = poolManager.Pop(bezierBullet, transform);
 
@@ -53,21 +61,13 @@ public class Ship : EnemyBase
             if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
             {
                 farBullet.gameObject.GetComponent<BezierBullet>().target = target;
+                farBullet.gameObject.GetComponent<BezierBullet>().height = Random.Range(-3, 3);
                 farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
             }
-        }
-        else
-        {
-            Poolable closeBullet = poolManager.Pop(directBullet, transform);
 
-            closeBullet.transform.parent = null;
-            closeBullet.transform.position = transform.position;
-
-            if (closeBullet.gameObject.GetComponent<DirectBullet>() != null)
-            {
-                closeBullet.gameObject.GetComponent<DirectBullet>().target = target;
-            }
+            yield return new WaitForSeconds(0.2f);
         }
+        isAttack = false;
     }
 
     protected override void DirectMove()
@@ -85,18 +85,10 @@ public class Ship : EnemyBase
     protected override void Death()
     {
         base.Death();
-    } 
+    }
 
     private void RandomInt()
     {
         distance = Random.Range(5f, 8f);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            isMove = false;
-        }
     }
 }

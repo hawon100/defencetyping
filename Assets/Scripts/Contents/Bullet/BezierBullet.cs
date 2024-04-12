@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class BezierBullet : BulletBase
 {
-    public float height;
-    public float speed;
-
-    public Transform target; //Temp
+    public float height = 5f;
 
     [SerializeField] private Vector3 targetPoint;
     public Vector3 enemyPoint;
 
+    //private TrailRenderer trail; //Temp
+
     private float t; //Temp
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void Start()
     {
         base.Start();
 
         targetPoint = target.position;
+
+        //trail = GetComponent<TrailRenderer>(); //Temp
     }
 
     protected override void Update()
@@ -26,15 +32,22 @@ public class BezierBullet : BulletBase
         Move();
     }
 
-    private void OnEnable()
+    //private void OnEnable()
+    //{
+    //    trail.enabled = true;
+    //}
+
+    private void OnDisable()
     {
-        enemyPoint = transform.position;
+        t = 0;
+        transform.position = enemyPoint;
+        //trail.enabled = false;
     }
 
     protected override void Move()
     {
         t += Time.deltaTime;
-        transform.position = Bezier(enemyPoint, targetPoint, 5, t / speed); //fail!
+        transform.position = Bezier(enemyPoint, targetPoint, height, t / speed); //fail!
     }
 
     protected override void Hit()

@@ -6,8 +6,16 @@ public class BulletBase : MonoBehaviour
 {
     [SerializeField] private string triggerTag;
 
+    public Transform target;
+    public float speed;
+
     protected PoolManager poolManager;
-    protected Poolable poolable;
+    private Poolable poolable;
+
+    protected virtual void Awake()
+    {
+        target = Managers.Game.target;
+    }
 
     protected virtual void Start()
     {
@@ -35,7 +43,14 @@ public class BulletBase : MonoBehaviour
 
     protected virtual void Hit()
     {
-        if (poolManager != null && poolable != null)
-            poolManager.Push(poolable);
+        StartCoroutine(HitDestroy());
+    }
+
+    IEnumerator HitDestroy()
+    {
+        yield return new WaitForSeconds(1.5f);
+        poolManager.Push(poolable);
+        //if (poolManager != null && poolable != null)
+        //    poolManager.Push(poolable);
     }
 }

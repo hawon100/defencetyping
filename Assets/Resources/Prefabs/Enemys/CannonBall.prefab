@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerTag: Tower
-  height: 5
+  target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
   speed: 8
-  target: {fileID: 0}
+  height: 5
   targetPoint: {x: 0, y: 0, z: 0}
   enemyPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &8884469586608210254

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c398807dc78f7d7498cc2079fd074515, type: 3}
+  m_Name: Wave_Normal_01
+  m_EditorClassIdentifier: 
+  Difficulty: 1
+  Mob:
+  - Object: {fileID: 3294854627314602454, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
+    Count: 5
+  - Object: {fileID: 7210372992249666956, guid: 909bdad6f8900ae46932e0520ac9c258, type: 3}
+    Count: 2

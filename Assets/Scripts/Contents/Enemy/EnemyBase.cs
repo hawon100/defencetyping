@@ -10,8 +10,6 @@ public class EnemyBase : MonoBehaviour
     public float cooltime;
     public float distance = 0.5f;
 
-    private bool isAttack;
-
     [SerializeField] private Vector3 moveVec;
 
     private float timeRate;
@@ -20,12 +18,26 @@ public class EnemyBase : MonoBehaviour
     protected PoolManager poolManager;
     protected Poolable poolable;
 
+    private Rigidbody rdb; //Temp
+
     protected virtual void Awake()
     {
         Init();
 
         poolManager = Managers.Pool;
         poolable = GetComponent<Poolable>();
+
+        rdb = GetComponent<Rigidbody>(); //Temp
+    }
+
+    protected virtual void Start()
+    {
+        
+    }
+
+    public void BulletPool(GameObject bullet, int amount)
+    {
+        poolManager.CreatePool(bullet, amount);
     }
 
     protected virtual void Update()
@@ -34,7 +46,7 @@ public class EnemyBase : MonoBehaviour
         {
             timeRate -= cooltime;
 
-            if (isAttack) Attack();
+            Attack();
             //Attack or Something else.
         }
         else
@@ -46,8 +58,12 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        CloseDistance(transform.position, target.position, distance);
-        CheckObstacle();
+        if (isDistance(transform.position, target.position, distance))
+        {
+            isMove = false;
+        }
+        //CloseDistance(transform.position, target.position, distance);
+        //CheckObstacle();
     }
 
     protected virtual void Init()
@@ -62,22 +78,14 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void DirectMove()
     {
-        if (!isMove) return;
+        if (!isMove)
+        {
+            rdb.velocity = Vector3.zero;
+            return;
+        }
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-    }
-
-    public void RotateMove()
-    {
-        if (!isMove) return;
-
-        moveVec.z = Gaze(transform.position, target.position);
-
-        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
-        //transform.Rotate()
-        transform.rotation = Quaternion.Euler(moveVec * moveSpeed);
-
-        CloseDistance(transform.position, target.position, distance);
+        //transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        rdb.velocity = Tracing(transform.position, target.position) * moveSpeed; //Temp
     }
 
     public Vector3 Tracing(Vector3 curVec, Vector3 targetVec)
@@ -95,13 +103,22 @@ public class EnemyBase : MonoBehaviour
         return degree * Mathf.Rad2Deg;
     }
 
-    public void CloseDistance(Vector3 currentVec, Vector3 targetVec, float distance)
+    //public void CloseDistance(Vector3 currentVec, Vector3 targetVec, float distance)
+    //{
+    //    if (Vector3.Distance(currentVec, targetVec) <= distance)
+    //    {
+    //        isMove = false;
+    //        isAttack = true;
+    //    }
+    //}
+
+    public bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
-        if (Vector3.Distance(currentVec, targetVec) <= distance)
-        {
-            isMove = false;
-            isAttack = true;
-        }
+        Debug.Log("X : " + Mathf.Sqrt(targetVec.x - currentVec.x));
+        Debug.Log("Y : " + Mathf.Sqrt(targetVec.y - currentVec.y));
+        Debug.Log("D : " + Mathf.Sqrt(distance));
+
+        return (targetVec - currentVec).sqrMagnitude <= Mathf.Sqrt(distance);
     }
 
     public void CheckObstacle()
@@ -111,8 +128,9 @@ public class EnemyBase : MonoBehaviour
         if (hit)
         {
             isMove = false;
-            isAttack = true;
         }
+
+        
     }
 
     public void Damage(int value)
@@ -125,6 +143,12 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Death()
     {
+        Managers.Spawn.RemoveObject();
         poolManager.Push(poolable);
+    }
+
+    private void AllMight()
+    {
+        transform.LookAt(target);
     }
 }

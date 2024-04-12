@@ -19,6 +19,14 @@ public class Define
         Epic,
         Legend,
     }
+    
+    public enum WaveLevel
+    {
+        Easy,
+        Normal,
+        Hard,
+        Boss,
+    }
 
     public enum Layer
     {
