@@ -2,42 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoBehaviour //Only Funcions
 {
-    //[System.Serializable]
-    //public class SpawnMob //public class Wave
-    //{
-    //    public GameObject Object; //WaveManager
-    //    [Range(0, 100)] public int Probability;
-    //}
-
-    public List<Wave> generalWave;
-    public List<Wave> bossWave;
-    public float spawnTime;
-    public int spawnCount;
-
-    public int curEnemy;
-
-    private PoolManager poolManager; //이러한 것들을 실행시킬 것들이 필요
-
-    private Vector3 spawnPos;
-
-    private float timeRate;
-
-
-    public bool isSpawn = true;
-
-    private int count;
-
-    private void Awake()
-    {
-        poolManager = Managers.Pool;
-        Managers.Spawn.generalWave = generalWave;
-    }
+    public List<Wave> waves = new List<Wave>();
+    public List<GameObject> curEnemy;
+    public Vector3 spawnPos;
 
     private void Start()
     {
-        ExecuteWave(generalWave[Random.Range(0, generalWave.Count)]);    
+        ExecuteWave(waves[Random.Range(0, waves.Count)]);    
     }
 
     public void ExecuteWave(Wave wave)
@@ -53,26 +26,16 @@ public class SpawnManager : MonoBehaviour
                 spawnPos.x = Mathf.Cos(rad) * 20f;
                 spawnPos.y = Mathf.Sin(rad) * 20f;
 
-                Poolable poolable = poolManager.Pop(wave.Mob[i].Object, transform);
+                GameObject enemy = Managers.Resource.Instantiate(wave.Mob[i].Enemy.gameObject, transform.parent = null);
 
-                poolable.transform.parent = null;
-                poolable.transform.position = spawnPos;
+                enemy.transform.position = spawnPos;
 
-                curEnemy++;
+                curEnemy.Add(enemy);
             }
         }
     }
 
-    public void RemoveObject()
-    {
-        curEnemy -= 1;
-
-        if (curEnemy <= 0)
-        {
-            curEnemy = 0;
-            ExecuteWave(generalWave[Random.Range(0, generalWave.Count)]);
-        }
-    }
+    //public void 
 
     //private void Update()
     //{

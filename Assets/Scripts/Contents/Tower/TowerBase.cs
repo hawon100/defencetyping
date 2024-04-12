@@ -18,17 +18,17 @@ public abstract class TowerBase : MonoBehaviour
         {
             if (collider.CompareTag(targetTag))
             {
-                target = collider.transform;
+                //target = collider.transform;
                 return;
             }
         }
 
         // 감지 범위 내에 타겟이 없으면 초기 위치로 돌아가기
-        if (Vector3.Distance(transform.position, originalPosition) > returnRadius)
-        {
-            target = null;
-            agent.SetDestination(originalPosition);
-        }
+        //if (Vector3.Distance(transform.position, originalPosition) > returnRadius)
+        //{
+        //    target = null;
+        //    agent.SetDestination(originalPosition);
+        //}
     }
 
     protected virtual void OnGuI()

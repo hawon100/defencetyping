@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c398807dc78f7d7498cc2079fd074515, type: 3}
   m_Name: Wave_Hard_01
   m_EditorClassIdentifier: 
-  Difficulty: 2
   Mob:
-  - Object: {fileID: 3294854627314602454, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
+  - Enemy: {fileID: 6090729184465292171, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
     Count: 8
-  - Object: {fileID: 198078821623202441, guid: 78524f04277772446aff96170ff309b5, type: 3}
+  - Enemy: {fileID: 828279505403122123, guid: 78524f04277772446aff96170ff309b5, type: 3}
     Count: 1

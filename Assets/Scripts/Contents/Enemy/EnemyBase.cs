@@ -114,11 +114,7 @@ public class EnemyBase : MonoBehaviour
 
     public bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
-        Debug.Log("X : " + Mathf.Sqrt(targetVec.x - currentVec.x));
-        Debug.Log("Y : " + Mathf.Sqrt(targetVec.y - currentVec.y));
-        Debug.Log("D : " + Mathf.Sqrt(distance));
-
-        return (targetVec - currentVec).sqrMagnitude <= Mathf.Sqrt(distance);
+        return (targetVec - currentVec).sqrMagnitude <= distance * distance;
     }
 
     public void CheckObstacle()

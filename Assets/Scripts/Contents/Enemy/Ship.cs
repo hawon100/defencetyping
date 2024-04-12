@@ -6,8 +6,8 @@ public class Ship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
     [Header("Bullets")]
-    public GameObject bezierBullet; //private Temp
-    public GameObject directBullet; //private Temp
+    public BezierBullet bezierBullet; //private Temp
+    public DirectBullet directBullet; //private Temp
 
     private Vector3 spriteRotation;
 
@@ -23,6 +23,7 @@ public class Ship : EnemyBase
     {
         base.Start();
         //CreateBullet();
+        //Managers.Resource.
     }
 
     protected override void Init()
@@ -45,28 +46,19 @@ public class Ship : EnemyBase
     {
         if (isMove)
         {
-            Poolable farBullet = poolManager.Pop(bezierBullet, transform);
+            bezierBullet.target = target;
+            bezierBullet.enemyPoint = transform.position;
 
-            farBullet.transform.parent = null;
-            farBullet.transform.position = transform.position;
-
-            if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
-            {
-                farBullet.gameObject.GetComponent<BezierBullet>().target = target;
-                farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
-            }
+            Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null);
         }
         else
         {
-            Poolable closeBullet = poolManager.Pop(directBullet, transform);
+            directBullet.target = target;
+            //directBullet.gameObject.transform.parent = null;
+            //directBullet.gameObject.transform.position = transform.position;
+            //bezierBullet를 변경하고 bezierBullet.gameObject를 Pop한다.
 
-            closeBullet.transform.parent = null;
-            closeBullet.transform.position = transform.position;
-
-            if (closeBullet.gameObject.GetComponent<DirectBullet>() != null)
-            {
-                closeBullet.gameObject.GetComponent<DirectBullet>().target = target;
-            }
+            Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
         }
     }
 

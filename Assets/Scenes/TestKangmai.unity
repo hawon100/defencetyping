@@ -765,7 +765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1388832431
 Transform:
   m_ObjectHideFlags: 0
@@ -944,7 +944,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8145d682fdaa374893606511a100186, type: 2}
   - {fileID: 11400000, guid: 09ee10e68b3275742b6fe1e9e6e8b162, type: 2}
   - {fileID: 11400000, guid: 85aa1f1205946f74097fe2b9b5ca3d80, type: 2}
-  bossWave: []
   spawnTime: 5
   spawnCount: 1
   curEnemy: 0

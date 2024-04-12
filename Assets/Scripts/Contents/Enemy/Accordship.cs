@@ -53,17 +53,19 @@ public class Accordship : EnemyBase
     {
         for (int i = 0; i < bulletCount; i++)
         {
-            Poolable farBullet = poolManager.Pop(bezierBullet, transform);
+            Managers.Resource.Instantiate(bezierBullet, transform);
 
-            farBullet.transform.parent = null;
-            farBullet.transform.position = transform.position;
+            //Poolable farBullet = poolManager.Pop(bezierBullet, transform);
 
-            if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
-            {
-                farBullet.gameObject.GetComponent<BezierBullet>().target = target;
-                farBullet.gameObject.GetComponent<BezierBullet>().height = Random.Range(-3, 3);
-                farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
-            }
+            //farBullet.transform.parent = null;
+            //farBullet.transform.position = transform.position;
+
+            //if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
+            //{
+            //    farBullet.gameObject.GetComponent<BezierBullet>().target = target;
+            //    farBullet.gameObject.GetComponent<BezierBullet>().height = Random.Range(-3, 3);
+            //    farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
+            //}
 
             yield return new WaitForSeconds(0.2f);
         }
