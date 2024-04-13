@@ -14,7 +14,7 @@ public class BulletBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-        target = Managers.Game.target;
+        //target = Managers.Game.target;
     }
 
     protected virtual void Start()
@@ -49,7 +49,7 @@ public class BulletBase : MonoBehaviour
     IEnumerator HitDestroy()
     {
         yield return new WaitForSeconds(1.5f);
-        poolManager.Push(poolable);
+        Managers.Resource.Destroy(this.gameObject);
         //if (poolManager != null && poolable != null)
         //    poolManager.Push(poolable);
     }

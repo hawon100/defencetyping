@@ -120,7 +120,7 @@ MonoBehaviour:
   moveVec: {x: 0, y: 0, z: 0}
   isMove: 1
   trans: {fileID: 6607570757781781317}
-  bezierBullet: {fileID: 7982570186829381835, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
+  bezierBullet: {fileID: 6300741034209622059, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
   bulletCount: 5
 --- !u!1 &4841467040302231636
 GameObject:

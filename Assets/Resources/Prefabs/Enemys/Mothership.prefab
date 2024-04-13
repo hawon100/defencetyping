@@ -93,7 +93,7 @@ MonoBehaviour:
   moveVec: {x: 0, y: 0, z: 0}
   isMove: 1
   trans: {fileID: 1438564264688852376}
-  smallship: {fileID: 3294854627314602454, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
+  smallship: {fileID: 6090729184465292171, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
   spawnCount: 5
   radius: 5
 --- !u!54 &2990231329679151692

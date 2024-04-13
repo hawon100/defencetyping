@@ -35,17 +35,13 @@ public class EnemyBase : MonoBehaviour
         
     }
 
-    public void BulletPool(GameObject bullet, int amount)
-    {
-        poolManager.CreatePool(bullet, amount);
-    }
-
     protected virtual void Update()
     {
         if (timeRate > cooltime)
         {
             timeRate -= cooltime;
 
+            Debug.Log("Attack!");
             Attack();
             //Attack or Something else.
         }
@@ -103,15 +99,6 @@ public class EnemyBase : MonoBehaviour
         return degree * Mathf.Rad2Deg;
     }
 
-    //public void CloseDistance(Vector3 currentVec, Vector3 targetVec, float distance)
-    //{
-    //    if (Vector3.Distance(currentVec, targetVec) <= distance)
-    //    {
-    //        isMove = false;
-    //        isAttack = true;
-    //    }
-    //}
-
     public bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
         return (targetVec - currentVec).sqrMagnitude <= distance * distance;
@@ -139,7 +126,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Death()
     {
-        Managers.Spawn.RemoveObject();
+        Managers.Spawn.curEnemy.Remove(this.gameObject);
         poolManager.Push(poolable);
     }
 

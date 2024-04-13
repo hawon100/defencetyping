@@ -23,11 +23,17 @@ public abstract class TowerBase : MonoBehaviour
         {
             if (collider.CompareTag(_targetTag))
             {
-                if (_target == null) return;
-
                 _target = collider.transform;
+                return;
             }
         }
+
+        //// 감지 범위 내에 타겟이 없으면 초기 위치로 돌아가기
+        //if (Vector3.Distance(transform.position, originalPosition) > returnRadius)
+        //{
+        //    _target = null;
+        //    _agent.SetDestination(originalPosition);
+        //}
     }
 
     protected virtual void OnDrawGizmos()

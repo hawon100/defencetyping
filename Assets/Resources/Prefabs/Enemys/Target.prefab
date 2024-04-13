@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4106168660260963690}
   - component: {fileID: 8431442687797732603}
   - component: {fileID: 3949158460416565268}
+  - component: {fileID: 3825788384250758285}
+  - component: {fileID: 3725242581392633198}
   m_Layer: 0
   m_Name: Target
   m_TagString: Tower
@@ -105,3 +107,35 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3825788384250758285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528557806965471329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c9196e8be974847874762f84747548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 0
+  _hp: 0
+  _maxHp: 0
+  _attack: 0
+  _defence: 0
+--- !u!114 &3725242581392633198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528557806965471329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f6580fb1d33284e93d7465248a5055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _range: 0
+  _targetTag: 

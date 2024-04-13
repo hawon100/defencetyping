@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour //Only Funcions
 
     private void Start()
     {
-        ExecuteWave(waves[Random.Range(0, waves.Count)]);    
+        ExecuteWave(waves[Random.Range(0, waves.Count)]);     
     }
 
     public void ExecuteWave(Wave wave)

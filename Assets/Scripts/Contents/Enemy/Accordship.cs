@@ -6,7 +6,7 @@ public class Accordship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
     [Header("Bullets")]
-    public GameObject bezierBullet; //private Temp
+    public BezierBullet bezierBullet; //private Temp
     public int bulletCount;
 
     private Vector3 spriteRotation;
@@ -53,7 +53,10 @@ public class Accordship : EnemyBase
     {
         for (int i = 0; i < bulletCount; i++)
         {
-            Managers.Resource.Instantiate(bezierBullet, transform);
+            bezierBullet.height = Random.Range(-3, 3);
+            bezierBullet.target = target;
+            bezierBullet.enemyPoint = transform.position;
+            Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null); ;
 
             //Poolable farBullet = poolManager.Pop(bezierBullet, transform);
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mothership : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp
-    public GameObject smallship; //private Temp
+    public Ship smallship; //private Temp
     [SerializeField] private int spawnCount; //Temp
     [SerializeField] private float radius;
 
@@ -45,12 +45,14 @@ public class Mothership : EnemyBase
     {
         for (int i = 0; i < 360; i += 360 / spawnCount)
         {
-            Poolable ship = poolManager.Pop(smallship, transform);
+            Managers.Resource.Instantiate(smallship.gameObject, transform.parent = null);
 
-            ship.transform.parent = null;
-            ship.transform.position = transform.position + radius * Vector3.right * Mathf.Cos(i * Mathf.Deg2Rad)
-                                                         + radius * Vector3.up * Mathf.Sin(i * Mathf.Deg2Rad);
-            ship.gameObject.GetComponent<EnemyBase>().target = target;
+            //Poolable ship = poolManager.Pop(smallship, transform);
+
+            //ship.transform.parent = null;
+            //ship.transform.position = transform.position + radius * Vector3.right * Mathf.Cos(i * Mathf.Deg2Rad)
+            //                                             + radius * Vector3.up * Mathf.Sin(i * Mathf.Deg2Rad);
+            //ship.gameObject.GetComponent<EnemyBase>().target = target;
         }
 
         isSpawn = false;

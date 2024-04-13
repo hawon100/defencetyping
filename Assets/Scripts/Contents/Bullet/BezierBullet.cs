@@ -9,7 +9,7 @@ public class BezierBullet : BulletBase
     [SerializeField] private Vector3 targetPoint;
     public Vector3 enemyPoint;
 
-    //private TrailRenderer trail; //Temp
+    private TrailRenderer trail; //Temp
 
     private float t; //Temp
     protected override void Awake()
@@ -23,7 +23,7 @@ public class BezierBullet : BulletBase
 
         targetPoint = target.position;
 
-        //trail = GetComponent<TrailRenderer>(); //Temp
+        trail = GetComponent<TrailRenderer>(); //Temp
     }
 
     protected override void Update()

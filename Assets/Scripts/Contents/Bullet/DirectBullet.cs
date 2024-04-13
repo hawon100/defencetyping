@@ -22,7 +22,8 @@ public class DirectBullet : BulletBase
 
     protected override void Move()
     {
-        transform.Translate((target.position - transform.position).normalized * Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
+        //transform.Translate((target.position - transform.position).normalized * Time.deltaTime * speed);
     }
 
     protected override void Hit()

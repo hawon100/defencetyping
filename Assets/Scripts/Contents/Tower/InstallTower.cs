@@ -6,6 +6,8 @@ public class InstallTower : TowerBase
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
 
+    [SerializeField] private DirectBullet directBullet;
+
     protected override void Start()
     {
         
@@ -22,7 +24,13 @@ public class InstallTower : TowerBase
 
         if (curShotDelay < maxShotDelay) return;
 
+        Detected();
 
+        if (_target == null) return;
+
+        directBullet.target = _target;
+
+        Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
 
         maxShotDelay = 0;
     }
