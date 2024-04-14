@@ -15,13 +15,13 @@ public class EnemyBase : MonoBehaviour
     private float timeRate;
     public bool isMove = true;
 
-    private Rigidbody rdb; //Temp
+    private Rigidbody2D rb2d; //Temp
 
     protected virtual void Awake()
     {
         Init();
 
-        rdb = GetComponent<Rigidbody>(); //Temp
+        rb2d = GetComponent<Rigidbody2D>(); //Temp
     }
 
     protected virtual void Start()
@@ -68,11 +68,11 @@ public class EnemyBase : MonoBehaviour
     {
         if (!isMove)
         {
-            rdb.velocity = Vector3.zero;
+            rb2d.velocity = Vector3.zero;
             return;
         }
 
-        rdb.velocity = Tracing(transform.position, target.position) * moveSpeed; //Temp
+        rb2d.velocity = Tracing(transform.position, target.position) * moveSpeed; //Temp
     }
 
     public Vector3 Tracing(Vector3 curVec, Vector3 targetVec)
@@ -105,7 +105,8 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Death()
     {
-        Managers.Spawn.curEnemy.Remove(this.gameObject);
+        Managers.Resource.Destroy(gameObject);
+        //Managers.Spawn.curEnemy.Remove(this.gameObject);
     }
 
     private void AllMight()

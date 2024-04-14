@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBase : MonoBehaviour
 {
-    [SerializeField] private string triggerTag;
+    //[SerializeField] private string triggerTag;
 
     public Transform target;
     public float speed;
@@ -29,15 +29,15 @@ public class BulletBase : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag(triggerTag))
+        if (other.gameObject.CompareTag(target.tag))
         {
-            Hit();
+            Hit(other.gameObject);
         }
     }
 
-    protected virtual void Hit()
+    protected virtual void Hit(GameObject hitObject)
     {
         StartCoroutine(HitDestroy());
     }

@@ -24,6 +24,13 @@ public abstract class TowerBase : MonoBehaviour
             if (collider.CompareTag(_targetTag))
             {
                 _target = collider.transform;
+                OnAttack();
+                return;
+            }
+            else
+            {
+                _target = null;
+                OnAttack();
                 return;
             }
         }

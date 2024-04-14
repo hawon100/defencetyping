@@ -6,16 +6,18 @@ public class InstallTower : TowerBase
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
 
-    [SerializeField] private DirectBullet directBullet;
+    [SerializeField] private PlayerBullet playerBullet;
+
+    private bool isDetected = true;
 
     protected override void Start()
     {
-        
+
     }
 
     protected override void Update()
     {
-        OnAttack();
+        if (isDetected) Detected();
     }
 
     protected override void OnAttack()
@@ -24,15 +26,19 @@ public class InstallTower : TowerBase
 
         if (curShotDelay < maxShotDelay) return;
 
-        Detected();
-
         if (_target == null) return;
 
-        directBullet.target = _target;
+        playerBullet.target = _target;
 
-        Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, transform.parent = null);
 
-        maxShotDelay = 0;
+        b.transform.parent = null;
+        b.transform.position = transform.position;
+
+        curShotDelay -= maxShotDelay;
+
+        playerBullet.target = null;
+        _target = null;
     }
 
     protected override void AdjustLevel()
