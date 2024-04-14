@@ -33,21 +33,7 @@ public class Blueship : EnemyBase
 
     protected override void Attack()
     {
-        Poolable poolBullet = poolManager.Pop(bullet, transform);
-
-        poolBullet.transform.parent = null;
-        poolBullet.transform.position = transform.position;
-
-        if (poolBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
-        {
-            poolBullet.gameObject.GetComponent<BezierBullet>().target = target;
-            poolBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
-        }
-
-        if (poolBullet.gameObject.GetComponent<DirectBullet>() != null)
-        {
-            poolBullet.gameObject.GetComponent<DirectBullet>().target = target;
-        }
+        
     }
 
     protected override void DirectMove()

@@ -15,15 +15,11 @@ public class Ship : EnemyBase
     {
         base.Awake();
         RandomInt();
-        //BulletPool(bezierBullet, 10);
-        //BulletPool(directBullet, 10);
     }
 
     protected override void Start()
     {
         base.Start();
-        //CreateBullet();
-        //Managers.Resource.
     }
 
     protected override void Init()
@@ -44,25 +40,33 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
-        if (isMove)
-        {
-            bezierBullet.target = target;
-            bezierBullet.enemyPoint = transform.position;
+        //Bug ¿µ¿ª
+        //if (isMove)
+        //{
+        //    bezierBullet.target = target;
+        //    //bezierBullet.enemyPoint = transform.position;
 
-            GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null);
+        //    GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null);
 
-            b.transform.parent = null;
-            b.transform.position = transform.position;
-        }
-        else
-        {
-            directBullet.target = target;
+        //    b.transform.parent = null;
+        //    b.transform.position = transform.position;
+        //}
+        //else
+        //{
+        //    directBullet.target = target;
 
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+        //    GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
 
-            b.transform.parent = null;
-            b.transform.position = transform.position;
-        }
+        //    b.transform.parent = null;
+        //    b.transform.position = transform.position;
+        //}
+
+        directBullet.target = target;
+
+        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+
+        b.transform.parent = null;
+        b.transform.position = transform.position;
     }
 
     protected override void DirectMove()

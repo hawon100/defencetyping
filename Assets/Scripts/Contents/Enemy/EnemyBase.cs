@@ -15,17 +15,11 @@ public class EnemyBase : MonoBehaviour
     private float timeRate;
     public bool isMove = true;
 
-    protected PoolManager poolManager;
-    protected Poolable poolable;
-
     private Rigidbody rdb; //Temp
 
     protected virtual void Awake()
     {
         Init();
-
-        poolManager = Managers.Pool;
-        poolable = GetComponent<Poolable>();
 
         rdb = GetComponent<Rigidbody>(); //Temp
     }
@@ -58,8 +52,6 @@ public class EnemyBase : MonoBehaviour
         {
             isMove = false;
         }
-        //CloseDistance(transform.position, target.position, distance);
-        //CheckObstacle();
     }
 
     protected virtual void Init()
@@ -80,7 +72,6 @@ public class EnemyBase : MonoBehaviour
             return;
         }
 
-        //transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
         rdb.velocity = Tracing(transform.position, target.position) * moveSpeed; //Temp
     }
 
@@ -104,18 +95,6 @@ public class EnemyBase : MonoBehaviour
         return (targetVec - currentVec).sqrMagnitude <= distance * distance;
     }
 
-    public void CheckObstacle()
-    {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 2f, Tracing(transform.position, target.position), 1.5f, 6);
-
-        if (hit)
-        {
-            isMove = false;
-        }
-
-        
-    }
-
     public void Damage(int value)
     {
         hp -= value;
@@ -127,7 +106,6 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Death()
     {
         Managers.Spawn.curEnemy.Remove(this.gameObject);
-        poolManager.Push(poolable);
     }
 
     private void AllMight()

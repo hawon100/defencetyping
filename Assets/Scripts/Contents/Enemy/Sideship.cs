@@ -6,7 +6,7 @@ public class Sideship : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp (Name!)
     [Header("Bullets")]
-    public GameObject bezierBullet; //private Temp
+    public BezierBullet bezierBullet; //private Temp
 
     private Vector3 spriteRotation;
 
@@ -44,16 +44,13 @@ public class Sideship : EnemyBase
     {
         if (!isMove)
         {
-            Poolable farBullet = poolManager.Pop(bezierBullet, transform);
+            bezierBullet.target = target;
+            bezierBullet.enemyPoint = transform.position;
 
-            farBullet.transform.parent = null;
-            farBullet.transform.position = transform.position;
+            GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null);
 
-            if (farBullet.gameObject.GetComponent<BezierBullet>() != null) //Temp
-            {
-                farBullet.gameObject.GetComponent<BezierBullet>().target = target;
-                farBullet.gameObject.GetComponent<BezierBullet>().enemyPoint = transform.position;
-            }
+            b.transform.parent = null;
+            b.transform.position = transform.position;
         }
     }
 

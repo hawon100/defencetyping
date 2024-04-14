@@ -9,9 +9,6 @@ public class BulletBase : MonoBehaviour
     public Transform target;
     public float speed;
 
-    protected PoolManager poolManager;
-    private Poolable poolable;
-
     protected virtual void Awake()
     {
         //target = Managers.Game.target;
@@ -19,8 +16,7 @@ public class BulletBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        poolManager = Managers.Pool;
-        poolable = GetComponent<Poolable>();
+
     }
 
     protected virtual void Update()
@@ -50,7 +46,5 @@ public class BulletBase : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         Managers.Resource.Destroy(this.gameObject);
-        //if (poolManager != null && poolable != null)
-        //    poolManager.Push(poolable);
     }
 }

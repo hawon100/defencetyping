@@ -32,16 +32,15 @@ public class BezierBullet : BulletBase
         Move();
     }
 
-    //private void OnEnable()
-    //{
-    //    trail.enabled = true;
-    //}
+    private void OnEnable()
+    {
+        ResetPos();
+    }
 
-    private void OnDisable()
+    private void ResetPos()
     {
         t = 0;
-        transform.position = enemyPoint;
-        //trail.enabled = false;
+        enemyPoint = transform.position;
     }
 
     protected override void Move()
@@ -52,7 +51,6 @@ public class BezierBullet : BulletBase
 
     protected override void Hit()
     {
-
         base.Hit();
     }
 
