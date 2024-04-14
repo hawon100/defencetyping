@@ -28,6 +28,7 @@ public class SpawnManager : MonoBehaviour //Only Funcions
 
                 GameObject enemy = Managers.Resource.Instantiate(wave.Mob[i].Enemy.gameObject, transform.parent = null);
 
+                enemy.transform.parent = null;
                 enemy.transform.position = spawnPos;
 
                 curEnemy.Add(enemy);

@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &420710961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -369,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &521111652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -512,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &580843307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -655,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &668550079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -892,6 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &691116664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1284,6 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &769318765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1652,6 +1658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &1251050397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1833,6 +1840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e84b8824bbb2e488783b0c8a41da77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   waveList: []
 --- !u!1 &1388832430
 GameObject:
@@ -2025,10 +2033,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: b5d5292e574fd9c43b2a589cbfff20ad, type: 2}
-  - {fileID: 11400000, guid: e65bcee742c7f97459f6d10faa02ce2d, type: 2}
-  - {fileID: 11400000, guid: f8145d682fdaa374893606511a100186, type: 2}
-  - {fileID: 11400000, guid: 09ee10e68b3275742b6fe1e9e6e8b162, type: 2}
-  - {fileID: 11400000, guid: 85aa1f1205946f74097fe2b9b5ca3d80, type: 2}
   curEnemy: []
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1551811169 stripped
@@ -2647,6 +2651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
 --- !u!61 &1683303811
 BoxCollider2D:
   m_ObjectHideFlags: 0

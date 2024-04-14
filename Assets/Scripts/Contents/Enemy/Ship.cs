@@ -49,16 +49,19 @@ public class Ship : EnemyBase
             bezierBullet.target = target;
             bezierBullet.enemyPoint = transform.position;
 
-            Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null);
+            GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null);
+
+            b.transform.parent = null;
+            b.transform.position = transform.position;
         }
         else
         {
             directBullet.target = target;
-            //directBullet.gameObject.transform.parent = null;
-            //directBullet.gameObject.transform.position = transform.position;
-            //bezierBullet를 변경하고 bezierBullet.gameObject를 Pop한다.
 
-            Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+
+            b.transform.parent = null;
+            b.transform.position = transform.position;
         }
     }
 
