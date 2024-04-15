@@ -88,7 +88,7 @@ public class Ship : EnemyBase
 
     private void RandomInt()
     {
-        distance = Random.Range(5f, 8f);
+        distance = Random.Range(5f, 7f);
     }
 
     private void OnTriggerEnter(Collider other)

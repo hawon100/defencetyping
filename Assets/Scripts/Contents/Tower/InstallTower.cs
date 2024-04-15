@@ -36,7 +36,11 @@ public class InstallTower : TowerBase
         b.transform.parent = transform;
         b.transform.position = transform.position;
 
+        //Debug.Log(b.GetComponent<BulletBase>().target);
+
         curShotDelay -= maxShotDelay;
+
+        playerBullet.target = null;
         _target = null;
     }
 

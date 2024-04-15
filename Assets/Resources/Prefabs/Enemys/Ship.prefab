@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 20
-  moveSpeed: 1.2
+  moveSpeed: 0.8
   target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
   cooltime: 6
   distance: 6

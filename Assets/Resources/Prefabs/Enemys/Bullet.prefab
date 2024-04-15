@@ -293,5 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99984f8147d8eed4ba107121938782b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTag: Enemy
   target: {fileID: 0}
   speed: 3

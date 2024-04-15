@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBase : MonoBehaviour
 {
-    //[SerializeField] private string triggerTag;
+    [SerializeField] private string triggerTag;
 
     public Transform target;
     public float speed;
@@ -31,7 +31,7 @@ public class BulletBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag(target.tag))
+        if (other.gameObject.CompareTag(triggerTag))
         {
             Hit(other.gameObject);
         }
