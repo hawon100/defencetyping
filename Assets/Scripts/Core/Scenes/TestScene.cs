@@ -1,26 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestScene : BaseScene
 {
-    public List<GameObject> _towers = new();
+    public Text[] text;
+
+    public InputField typingInput;
+    public GameObject tower;
 
     protected override void Init()
     {
         base.Init();
 
         SceneType = Define.Scene.TestHawon;
+    }
 
-        for(int i = 0; i < 16; i++)
+    private void Update()
+    {
+        for (int i = 0; i < text.Length; i++)
         {
-            _towers.Add(Managers.Resource.Instantiate("Tower/InstallTower"));
+            text[i].text = Managers.Typing._word[i];
         }
+        Managers.Typing._input = typingInput.text;
 
-        foreach(var tower in _towers)
-        {
-            Managers.Resource.Destroy(tower);
-        }
+        typingInput.text = Managers.Typing.WordEnter(typingInput.text);
+
+        if (Managers.Typing.tower == null) return;
+
+        Managers.Typing.tower.transform.parent = tower.transform;
+        Managers.Typing.tower.transform.position = tower.transform.position;
     }
 
     public override void Clear()

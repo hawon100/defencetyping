@@ -1,4 +1,3 @@
-using Data.Stats;
 using UnityEngine;
 
 public class TowerStat : MonoBehaviour
@@ -37,11 +36,6 @@ public class TowerStat : MonoBehaviour
 
     protected virtual void OnDead(TowerStat attacker)
     {
-        PlayerTowerStat stat = attacker as PlayerTowerStat;
 
-        if (stat != null)
-        {
-            stat.Exp += 15;
-        }
     }
 }

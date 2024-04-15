@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
@@ -11,9 +10,14 @@ public class Managers : MonoBehaviour
     //Content
     GameManager _game = new GameManager();
     SpawnManager _spawn = new SpawnManager();
+    WordManager _word = new WordManager();
+    TypingManager _typing = new TypingManager();
 
     public static GameManager Game { get { return Instance._game; } }
     public static SpawnManager Spawn { get { return Instance._spawn; } }
+    public static WordManager Word { get {  return Instance._word; } }
+    public static TypingManager Typing { get {  return Instance._typing; } }
+
     //Core
     DataManager _data = new DataManager();
     PoolManager _pool = new PoolManager();
@@ -27,9 +31,14 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance._sound; } }
     public static MapManager Map { get { return Instance._map; } }
 
-    private void Awake()
+    private void Start()
     {
         Init();
+    }
+
+    private void Update()
+    {
+
     }
 
     static void Init()
@@ -46,11 +55,12 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
 
+            s_instance._data.Init();
+            s_instance._typing.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
         }
     }
-
 
     public static void Clear()
     {
