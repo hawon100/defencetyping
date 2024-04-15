@@ -12,7 +12,10 @@ public class InstallTower : TowerBase
 
     protected override void Start()
     {
-
+        for (int i = 0; i < 5; i++)
+        {
+            Managers.Resource.Instantiate(playerBullet.gameObject, transform);
+        }
     }
 
     protected override void Update()
