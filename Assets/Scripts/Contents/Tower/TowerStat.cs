@@ -1,4 +1,3 @@
-using Data.Stats;
 using UnityEngine;
 
 public class TowerStat : MonoBehaviour

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Data;
-using Data.Stats;
 using UnityEngine;
 
 public abstract class PlayerTowerStat : TowerStat

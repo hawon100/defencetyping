@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Define
 {
+    public enum WordState
+    {
+        None,
+        Build,
+        Attack,
+        Skill,
+        Fixed
+    }
+
     public enum TowerType
     {
         None,

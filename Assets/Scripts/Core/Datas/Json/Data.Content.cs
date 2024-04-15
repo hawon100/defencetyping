@@ -1,4 +1,3 @@
-using Data.Stats;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,19 +5,29 @@ using UnityEngine;
 
 namespace Data
 {
+    #region Word
     [Serializable]
-    public class WordData : ILoader<string, Word>
+    public class Word
     {
-        public List<Word> words = new List<Word>();
+        public int wordIndex;
+        public string buildword;
+        public string attackword;
+        public string skillword;
+        public string fixedword;
+    }
 
-        public Dictionary<string, Word> MakeDict()
+    [Serializable]
+    public class WordData : ILoader<int, Word>
+    {
+        public List<Word> words = new();
+
+        public Dictionary<int, Word> MakeDict()
         {
-            Dictionary<string, Word> dict = new Dictionary<string, Word>();
+            Dictionary<int, Word> dict = new();
             foreach (Word word in words)
-            {
-                dict.Add(word.wordIndex.ToString(), word);
-            }
+                dict.Add(word.wordIndex, word);
             return dict;
         }
     }
+    #endregion
 }
