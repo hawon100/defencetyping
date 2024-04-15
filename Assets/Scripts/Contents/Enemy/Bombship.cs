@@ -59,9 +59,9 @@ public class Bombship : EnemyBase
         Death();
     }
 
-    protected override void DirectMove()
+    protected override void Move()
     {
-        base.DirectMove();
+        base.Move();
     }
 
     private void RotateObject()

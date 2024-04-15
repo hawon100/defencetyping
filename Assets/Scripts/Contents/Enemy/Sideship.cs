@@ -31,7 +31,7 @@ public class Sideship : EnemyBase
 
     protected override void Update()
     {
-        DirectMove();
+        Move();
         RotateObject();
     }
 
@@ -54,10 +54,10 @@ public class Sideship : EnemyBase
         }
     }
 
-    protected override void DirectMove()
+    protected override void Move()
     {
         if (!isDistance(transform.position, target.position, 8))
-            if (isMove) base.DirectMove();
+            if (isMove) base.Move();
         else
         {
             t -= Time.deltaTime;

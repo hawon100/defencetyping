@@ -32,7 +32,7 @@ public class Mothership : EnemyBase
     {
         if (!isMove && isSpawn) Attack();
         RotateObject();
-        DirectMove();
+        Move();
     }
 
     protected override void FixedUpdate()
@@ -58,9 +58,9 @@ public class Mothership : EnemyBase
         isSpawn = false;
     }
 
-    protected override void DirectMove()
+    protected override void Move()
     {
-        base.DirectMove();
+        base.Move();
     }
 
     private void RotateObject()

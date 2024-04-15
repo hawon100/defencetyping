@@ -5,7 +5,7 @@ public abstract class TowerBase : MonoBehaviour
     [SerializeField] protected Define.TowerType _type;
     [SerializeField][Range(0.0f, 10.0f)] protected float _range;
     [SerializeField] protected string _targetTag;
-    protected Transform _target;
+    [SerializeField] protected Transform _target; //T3mp -> SerializeField
 
     protected abstract void Start();
     protected abstract void Update();
@@ -24,12 +24,7 @@ public abstract class TowerBase : MonoBehaviour
             if (collider.CompareTag(_targetTag))
             {
                 _target = collider.transform;
-                OnAttack();
-                return;
-            }
-            else
-            {
-                _target = null;
+                Debug.Log(_target.position);
                 OnAttack();
                 return;
             }

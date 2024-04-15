@@ -24,6 +24,8 @@ public class PlayerBullet : BulletBase
     {
         if (target == null) return;
 
+        //transform.LookAt(target);
+        //transform.Translate(Vector2.up * speed * Time.deltaTime);
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
         //transform.Translate((target.position - transform.position).normalized * Time.deltaTime * speed);
     }
@@ -35,6 +37,8 @@ public class PlayerBullet : BulletBase
             hitObject.GetComponent<EnemyBase>().Damage(10);
         }
 
-        base.Hit(hitObject);
+        target = null;
+        //Debug.Log(transform.position);
+        Managers.Resource.Destroy(gameObject);
     }
 }

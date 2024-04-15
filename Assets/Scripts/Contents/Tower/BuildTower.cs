@@ -8,7 +8,7 @@ public class BuildTower : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Click!");
-            var go = Managers.Resource.Instantiate(tower.gameObject, transform);
+            GameObject go = Managers.Resource.Instantiate(tower.gameObject, transform);
             go.transform.parent = transform;
             go.transform.position = transform.position;
         }

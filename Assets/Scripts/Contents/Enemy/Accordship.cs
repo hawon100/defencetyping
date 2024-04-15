@@ -75,9 +75,9 @@ public class Accordship : EnemyBase
         isAttack = false;
     }
 
-    protected override void DirectMove()
+    protected override void Move()
     {
-        base.DirectMove();
+        base.Move();
     }
 
     private void RotateObject()

@@ -22,7 +22,7 @@ public class Blueship : EnemyBase
 
     protected override void Update()
     {
-        DirectMove();
+        Move();
         RotateObject();
     }
 
@@ -36,14 +36,14 @@ public class Blueship : EnemyBase
         
     }
 
-    protected override void DirectMove()
+    protected override void Move()
     {
         if (!isMove)
         {
 
         }
 
-        base.DirectMove();
+        base.Move();
     }
 
     private void RotateObject()

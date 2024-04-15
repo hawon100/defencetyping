@@ -22,22 +22,21 @@ public class InstallTower : TowerBase
 
     protected override void OnAttack()
     {
+        if (_target == null) return;
+
         curShotDelay += Time.deltaTime;
 
         if (curShotDelay < maxShotDelay) return;
 
-        if (_target == null) return;
-
         playerBullet.target = _target;
 
+        //Debug.Log(_target);
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, transform.parent = null);
 
-        b.transform.parent = null;
+        b.transform.parent = transform;
         b.transform.position = transform.position;
 
         curShotDelay -= maxShotDelay;
-
-        playerBullet.target = null;
         _target = null;
     }
 

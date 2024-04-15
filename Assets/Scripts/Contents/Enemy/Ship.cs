@@ -69,9 +69,9 @@ public class Ship : EnemyBase
         b.transform.position = transform.position;
     }
 
-    protected override void DirectMove()
+    protected override void Move()
     {
-        base.DirectMove();
+        base.Move();
     }
 
     private void RotateObject()

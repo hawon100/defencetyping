@@ -14,14 +14,22 @@ public class EnemyBase : MonoBehaviour
 
     private float timeRate;
     public bool isMove = true;
+    public bool isDeath;
 
-    private Rigidbody2D rb2d; //Temp
+    private Rigidbody2D rb2d;
+    private SpriteRenderer spriteRend;
 
     protected virtual void Awake()
     {
-        Init();
+        rb2d = GetComponent<Rigidbody2D>();
+        spriteRend = GetComponent<SpriteRenderer>();
+    }
 
-        rb2d = GetComponent<Rigidbody2D>(); //Temp
+    public void SetSprite(Sprite sp)
+    {
+        if (sp == null) return;
+
+        spriteRend.sprite = sp;
     }
 
     protected virtual void Start()
@@ -31,32 +39,26 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Update()
     {
+        
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        if (isDeath) return;
+
         if (timeRate > cooltime)
         {
             timeRate -= cooltime;
-
-            Debug.Log("Attack!");
             Attack();
-            //Attack or Something else.
         }
         else
         {
             timeRate += Time.deltaTime;
         }
-        DirectMove();
-    }
 
-    protected virtual void FixedUpdate()
-    {
-        if (isDistance(transform.position, target.position, distance))
-        {
-            isMove = false;
-        }
-    }
+        if (!isMove) return;
 
-    protected virtual void Init()
-    {
-        hp = maxHp;
+        Move();
     }
 
     protected virtual void Attack()
@@ -64,18 +66,26 @@ public class EnemyBase : MonoBehaviour
 
     }
 
-    protected virtual void DirectMove()
+    protected virtual void Move()
     {
-        if (!isMove)
-        {
-            rb2d.velocity = Vector3.zero;
-            return;
-        }
+        if (!isMove) return;
 
-        rb2d.velocity = Tracing(transform.position, target.position) * moveSpeed; //Temp
+
+        rb2d.velocity = Trace(transform.position, target.position) * moveSpeed; //Temp
+
+        if (isDistance(transform.position, target.position, distance))
+        {
+            isMove = false;
+            rb2d.velocity = Vector2.zero;
+        }
     }
 
-    public Vector3 Tracing(Vector3 curVec, Vector3 targetVec)
+    protected virtual void Init()
+    {
+        hp = maxHp; hp = maxHp;
+    }
+
+    public Vector3 Trace(Vector3 curVec, Vector3 targetVec)
     {
         moveVec.x = targetVec.x - curVec.x;
         moveVec.y = targetVec.y - curVec.y;
