@@ -14,13 +14,13 @@ public class InstallTower : TowerBase
     {
         for (int i = 0; i < 5; i++)
         {
-            Managers.Resource.Instantiate(playerBullet.gameObject, transform);
+            //Managers.Resource.Instantiate(playerBullet.gameObject, transform);
         }
     }
 
     protected override void Update()
     {
-        if (isDetected) Detected();
+        Detected();
     }
 
     protected override void OnAttack()

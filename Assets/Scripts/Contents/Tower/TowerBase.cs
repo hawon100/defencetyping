@@ -5,7 +5,7 @@ public abstract class TowerBase : MonoBehaviour
     [SerializeField] protected Define.TowerType _type;
     [SerializeField][Range(0.0f, 10.0f)] protected float _range;
     [SerializeField] protected string _targetTag;
-    [SerializeField] protected Transform _target; //T3mp -> SerializeField
+    public Transform _target; //T3mp -> protected
 
     protected abstract void Start();
     protected abstract void Update();
@@ -18,13 +18,14 @@ public abstract class TowerBase : MonoBehaviour
     protected virtual void Detected()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _range);
-        
+
+        _target = null;
+
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag(_targetTag))
             {
                 _target = collider.transform;
-                OnAttack();
                 return;
             }
         }

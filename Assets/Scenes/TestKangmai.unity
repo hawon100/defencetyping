@@ -227,7 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
 --- !u!61 &420710961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -492,7 +494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
 --- !u!61 &521111652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -682,7 +686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
 --- !u!61 &580843307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -947,7 +953,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
 --- !u!61 &668550079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1231,7 +1239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
 --- !u!61 &691116664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1582,9 +1592,8 @@ GameObject:
   m_Component:
   - component: {fileID: 769318762}
   - component: {fileID: 769318763}
-  - component: {fileID: 769318764}
+  - component: {fileID: 769318767}
   - component: {fileID: 769318765}
-  - component: {fileID: 769318766}
   m_Layer: 0
   m_Name: Builder
   m_TagString: Untagged
@@ -1659,19 +1668,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &769318764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769318761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
 --- !u!61 &769318765
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1717,51 +1713,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!61 &769318766
-BoxCollider2D:
+--- !u!114 &769318767
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769318761}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 1
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b51b8ee96a43141a82e4362a40c204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerBase: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
 --- !u!1 &780207065
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,7 +2299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
 --- !u!61 &1251050397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3375,7 +3341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 2902761559371355462, guid: fdb9860f9dafa734f812a7fd5ae6261a, type: 3}
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
 --- !u!61 &1683303811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4065,10 +4033,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1268382050}
   - {fileID: 673181977}
-  - {fileID: 4566782368798703246}
   - {fileID: 1451950361}
   - {fileID: 1613123014}
   - {fileID: 1599520941}
+  - {fileID: 4566782368798703246}
   - {fileID: 713236198}
   - {fileID: 2058095175}
   - {fileID: 1388832431}

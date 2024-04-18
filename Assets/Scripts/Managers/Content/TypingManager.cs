@@ -17,10 +17,6 @@ public class TypingManager : MonoBehaviour
         _word[1] = Managers.Word.AttackWord(_word[1]);
         _word[2] = Managers.Word.SkillWord(_word[2]);
         _word[3] = Managers.Word.FixedWord(_word[3]);
-        Debug.Log(_word[0]);
-        Debug.Log(_word[1]);
-        Debug.Log(_word[2]);
-        Debug.Log(_word[3]);
     }
 
     public string WordEnter(string input)
@@ -35,6 +31,12 @@ public class TypingManager : MonoBehaviour
         else if (_input == _word[1])
         {
             Debug.Log("공격 성공");
+            //Temp
+            GameObject b = Managers.Resource.Instantiate("Enemys/Bullet");
+            b.GetComponent<BulletBase>().target = tower.GetComponent<TowerBase>()._target;
+            b.GetComponent<PlayerBullet>().test();
+            b.transform.parent = tower.transform;
+            b.transform.position = tower.transform.position;
         }
         else if (_input == _word[2])
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBullet : BulletBase
 {
+    private Vector2 moveVec; //Temp
     protected override void Awake()
     {
         base.Awake();
@@ -12,6 +13,12 @@ public class PlayerBullet : BulletBase
     protected override void Start()
     {
         base.Start();
+    }
+
+    public void test()
+    {
+        Debug.Log(target.position);
+        moveVec = (target.position - transform.position).normalized;
     }
 
     protected override void Update()
@@ -24,12 +31,7 @@ public class PlayerBullet : BulletBase
     {
         if (target == null) return;
 
-        if (!target.gameObject.active) return;
-
-        //transform.LookAt(target);
-        //transform.Translate(Vector2.up * speed * Time.deltaTime);
-        //transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
-        transform.Translate((target.position - transform.position).normalized * Time.deltaTime * speed);
+        transform.Translate(moveVec * Time.deltaTime * speed);
     }
 
     protected override void Hit(GameObject hitObject)
