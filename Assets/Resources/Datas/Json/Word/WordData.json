@@ -59,14 +59,14 @@
     {
       "wordIndex": "9",
       "buildword": "마천루",
-      "attackword": "도요토미히데요시",
+      "attackword": "도쿄",
       "skillword": "캡틴아메리카",
       "fixedword": "수소자동차"
     },
     {
       "wordIndex": "10",
       "buildword": "펜타곤",
-      "attackword": "이토히로부미",
+      "attackword": "오사카",
       "skillword": "유니버셜스튜디오",
       "fixedword": "콩코드여객기"
     },
@@ -80,42 +80,42 @@
     {
       "wordIndex": "12",
       "buildword": "야구",
-      "attackword": "도쿠가와이예야스",
+      "attackword": "캐나다",
       "skillword": "아샷추",
       "fixedword": "컴퓨터"
     },
     {
       "wordIndex": "13",
       "buildword": "축구",
-      "attackword": "오다노부다가",
+      "attackword": "사우디아라비아",
       "skillword": "딸기빽스치노",
       "fixedword": "노트북"
     },
     {
       "wordIndex": "14",
       "buildword": "농구",
-      "attackword": "아베",
+      "attackword": "가나",
       "skillword": "빽다방",
       "fixedword": "휴대폰"
     },
     {
       "wordIndex": "15",
       "buildword": "배구",
-      "attackword": "매국",
+      "attackword": "애국가",
       "skillword": "스타벅스",
       "fixedword": "닌텐도"
     },
     {
       "wordIndex": "16",
       "buildword": "당구",
-      "attackword": "애국",
+      "attackword": "무궁화",
       "skillword": "아리랑",
       "fixedword": "플레이스테이션"
     },
     {
       "wordIndex": "17",
       "buildword": "탁구",
-      "attackword": "에도성",
+      "attackword": "기차",
       "skillword": "메가박스",
       "fixedword": "엑스박스"
     },
@@ -129,7 +129,7 @@
     {
       "wordIndex": "19",
       "buildword": "피구",
-      "attackword": "친일파",
+      "attackword": "버스",
       "skillword": "홈플러스",
       "fixedword": "포켓몬고"
     },
@@ -346,14 +346,14 @@
     {
       "wordIndex": "50",
       "buildword": "남아메리카",
-      "attackword": "미야모토무사시",
+      "attackword": "한반도",
       "skillword": "투케더",
       "fixedword": "보석"
     },
     {
       "wordIndex": "51",
       "buildword": "영국",
-      "attackword": "고종",
+      "attackword": "현대캐피탈",
       "skillword": "빵또아",
       "fixedword": "인스타그램"
     },

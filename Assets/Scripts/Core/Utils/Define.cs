@@ -41,6 +41,9 @@ public class Define
     {
         None,
         Block = 8,
+        Background = 9,
+        TowerInstall = 10,
+        Tower = 11,
     }
 
     public enum Scene

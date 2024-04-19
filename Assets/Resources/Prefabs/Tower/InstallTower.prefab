@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 643307313506876871}
   - component: {fileID: 6005185048205759885}
-  - component: {fileID: 7719268476070368161}
   - component: {fileID: 5640808594829813809}
   m_Layer: 0
   m_Name: InstallTower
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4767c8a05fd3d574a8b4c2f319a2057b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,24 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7719268476070368161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383663462593883120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f568713dea2d8f47a7b5b88fce1c5ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 2
-  _range: 1.89
-  _targetTag: 
-  _installType: 1
-  curShotDelay: 0
-  maxShotDelay: 0
 --- !u!114 &5640808594829813809
 MonoBehaviour:
   m_ObjectHideFlags: 0
