@@ -16,6 +16,10 @@ public class EnemyBase : MonoBehaviour
     public bool isMove = true;
     public bool isDeath;
 
+    public Vector3 gazeTarget;
+
+    public float rotateSpeed = 2.0f;
+
     private Rigidbody2D rb2d;
     private SpriteRenderer spriteRend;
 
@@ -23,13 +27,6 @@ public class EnemyBase : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRend = GetComponent<SpriteRenderer>();
-    }
-
-    public void SetSprite(Sprite sp)
-    {
-        if (sp == null) return;
-
-        spriteRend.sprite = sp;
     }
 
     protected virtual void Start()
@@ -70,7 +67,6 @@ public class EnemyBase : MonoBehaviour
     {
         if (!isMove) return;
 
-
         rb2d.velocity = Trace(transform.position, target.position) * moveSpeed; //Temp
 
         if (isDistance(transform.position, target.position, distance))
@@ -80,9 +76,15 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
+    protected virtual void LookAt()
+    {
+        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, target.position) - 90f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotateSpeed * Time.deltaTime);
+    }
+
     protected virtual void Init()
     {
-        hp = maxHp; hp = maxHp;
+        hp = maxHp;
     }
 
     public Vector3 Trace(Vector3 curVec, Vector3 targetVec)
@@ -93,14 +95,14 @@ public class EnemyBase : MonoBehaviour
         return moveVec.normalized;
     }
 
-    public float Gaze(Vector3 currentVec, Vector3 targetVec)
+    protected float Gaze(Vector3 currentVec, Vector3 targetVec)
     {
         float degree = Mathf.Atan2(targetVec.y - currentVec.y, targetVec.x - currentVec.x);
 
         return degree * Mathf.Rad2Deg;
     }
 
-    public bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
+    protected bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
         return (targetVec - currentVec).sqrMagnitude <= distance * distance;
     }
@@ -117,10 +119,5 @@ public class EnemyBase : MonoBehaviour
     {
         Managers.Resource.Destroy(gameObject);
         //Managers.Spawn.curEnemy.Remove(this.gameObject);
-    }
-
-    private void AllMight()
-    {
-        transform.LookAt(target);
     }
 }

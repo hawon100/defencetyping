@@ -5,17 +5,31 @@ using UnityEngine;
 public class Mothership : EnemyBase
 {
     [SerializeField] private Transform trans; //Temp
-    public Ship smallship; //private Temp
     [SerializeField] private int spawnCount; //Temp
     [SerializeField] private float radius;
+
+    [Header("Ships")]
+    public EnemyBase ship; //private Temp
+    public DirectBullet directBullet; //private Temp
 
     private Vector3 spriteRotation;
 
     private bool isSpawn = true;
 
+    private WaitForSeconds gazeOnTime = new WaitForSeconds(1f);
+    private List<EnemyBase> curEnemys;
+
     protected override void Awake()
     {
         base.Awake();
+
+        for (int i = 0; i < 5; i++) //Temp
+        {
+            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
+            Managers.Resource.Destroy(s);
+            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            Managers.Resource.Destroy(b);
+        }
     }
 
     protected override void Start()
@@ -30,32 +44,46 @@ public class Mothership : EnemyBase
 
     protected override void Update()
     {
-        if (!isMove && isSpawn) Attack();
-        RotateObject();
-        Move();
+        if (!isMove) Attack();
+
+        if (isSpawn) Spawn();
+
+        if (curEnemys.Count == 0) isSpawn = true;
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        SeekerBlah();
+        LookAt();
+        Move();
     }
 
     protected override void Attack()
     {
+        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+
+        b.transform.parent = transform;
+        b.transform.position = transform.position;
+    }
+
+    private IEnumerator Spawn()
+    {
         for (int i = 0; i < 360; i += 360 / spawnCount)
         {
-            Managers.Resource.Instantiate(smallship.gameObject, transform.parent = null);
+            ship.gazeTarget.x = Mathf.Cos(i * Mathf.Deg2Rad);
+            ship.gazeTarget.y = Mathf.Sin(i * Mathf.Deg2Rad);
+            curEnemys.Add(ship);
 
-            //Poolable ship = poolManager.Pop(smallship, transform);
+            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
 
-            //ship.transform.parent = null;
-            //ship.transform.position = transform.position + radius * Vector3.right * Mathf.Cos(i * Mathf.Deg2Rad)
-            //                                             + radius * Vector3.up * Mathf.Sin(i * Mathf.Deg2Rad);
-            //ship.gameObject.GetComponent<EnemyBase>().target = target;
+            s.transform.position = transform.position;
         }
 
         isSpawn = false;
+
+        yield return gazeOnTime;
+
+        ship.target = target;
     }
 
     protected override void Move()
@@ -63,20 +91,13 @@ public class Mothership : EnemyBase
         base.Move();
     }
 
-    private void RotateObject()
+    protected override void LookAt()
     {
-        spriteRotation.z = Gaze(transform.position, target.position) - 90f;
-
-        transform.rotation = Quaternion.Euler(spriteRotation);
+        base.LookAt();
     }
 
     protected override void Death()
     {
         base.Death();
-    }
-
-    private void SeekerBlah()
-    {
-        //CloseDistance(transform.position, )
     }
 }

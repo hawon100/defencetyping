@@ -9,7 +9,7 @@ public class Mob
     public int Count;
 }
 
-[CreateAssetMenu(fileName = "Wave")]
+[CreateAssetMenu(fileName = "New WaveData", menuName = "Data/WaveData", order = int.MinValue)]
 public class Wave : ScriptableObject
 {
     public List<Mob> Mob;

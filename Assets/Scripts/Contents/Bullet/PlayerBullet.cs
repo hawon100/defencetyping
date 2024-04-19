@@ -17,7 +17,11 @@ public class PlayerBullet : BulletBase
 
     public void test()
     {
-        Debug.Log(target.position);
+        if (target == null)
+        {
+            Managers.Resource.Destroy(gameObject);
+            return;
+        }
         moveVec = (target.position - transform.position).normalized;
     }
 
@@ -31,7 +35,8 @@ public class PlayerBullet : BulletBase
     {
         if (target == null) return;
 
-        transform.Translate(moveVec * Time.deltaTime * speed);
+        //transform.Translate(moveVec * Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
     }
 
     protected override void Hit(GameObject hitObject)

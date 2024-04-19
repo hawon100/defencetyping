@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8389702049857578532}
   - component: {fileID: 6388190055839536280}
-  - component: {fileID: 1598997569452274893}
   m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
@@ -85,27 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1598997569452274893
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3221243398116840707}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: af776b0bb429ae7419157d4eec1350bc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3294854627314602454
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +139,7 @@ MonoBehaviour:
   cooltime: 6
   distance: 6
   moveVec: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
   isMove: 1
   isDeath: 0
   trans: {fileID: 8389702049857578532}

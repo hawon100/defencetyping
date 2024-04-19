@@ -9,12 +9,16 @@ public class Ship : EnemyBase
     public BezierBullet bezierBullet; //private Temp
     public DirectBullet directBullet; //private Temp
 
-    private Vector3 spriteRotation;
-
     protected override void Awake()
     {
         base.Awake();
-        RandomInt();
+        RandomInt(); //Temp
+
+        for (int i = 0; i < 5; i++) //Temp
+        {
+            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            Managers.Resource.Destroy(b);
+        }
     }
 
     protected override void Start()
@@ -30,37 +34,16 @@ public class Ship : EnemyBase
     protected override void Update()
     {
         base.Update();
-        RotateObject();
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+        LookAt();
     }
 
     protected override void Attack()
     {
-        //Bug ¿µ¿ª
-        //if (isMove)
-        //{
-        //    bezierBullet.target = target;
-        //    //bezierBullet.enemyPoint = transform.position;
-
-        //    GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, transform.parent = null);
-
-        //    b.transform.parent = null;
-        //    b.transform.position = transform.position;
-        //}
-        //else
-        //{
-        //    directBullet.target = target;
-
-        //    GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
-
-        //    b.transform.parent = null;
-        //    b.transform.position = transform.position;
-        //}
-
         directBullet.target = target;
 
         GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
@@ -74,11 +57,18 @@ public class Ship : EnemyBase
         base.Move();
     }
 
-    private void RotateObject()
+    protected override void LookAt()
     {
-        spriteRotation.z = Gaze(transform.position, target.position) - 90f;
+        if (target != null)
+        {
+            base.LookAt();
+        }
+    }
 
-        transform.rotation = Quaternion.Euler(spriteRotation);
+    private void LookAtGaze()
+    {
+        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, gazeTarget));
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotateSpeed * Time.deltaTime);
     }
 
     protected override void Death()
@@ -89,13 +79,5 @@ public class Ship : EnemyBase
     private void RandomInt()
     {
         distance = Random.Range(5f, 7f);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            isMove = false;
-        }
     }
 }

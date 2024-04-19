@@ -32,14 +32,10 @@ public class InstallTower : TowerBase
         if (curShotDelay < maxShotDelay) return;
 
         playerBullet.target = _target;
-
-        //Debug.Log(_target);
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, transform.parent = null);
 
         b.transform.parent = transform;
         b.transform.position = transform.position;
-
-        //Debug.Log(b.GetComponent<BulletBase>().target);
 
         curShotDelay -= maxShotDelay;
 
