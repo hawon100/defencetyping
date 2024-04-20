@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Bullet
   - Tower
+  - Background
+  - TowerInstall
   layers:
   - Default
   - TransparentFX
@@ -16,10 +18,10 @@ TagManager:
   - UI
   - Obstacle
   - 
-  - 
-  - 
-  - 
-  - 
+  - Block
+  - Background
+  - TowerInstall
+  - Tower
   - 
   - 
   - 
@@ -43,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3266720233
+    locked: 0
+  - name: Tower
+    uniqueID: 4053934761
     locked: 0

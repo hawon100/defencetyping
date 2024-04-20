@@ -19,12 +19,14 @@ public class Managers : MonoBehaviour
     public static TypingManager Typing { get {  return Instance._typing; } }
 
     //Core
+    InputManager _input = new InputManager();
     DataManager _data = new DataManager();
     PoolManager _pool = new PoolManager();
     ResourceManager _resource = new ResourceManager();
     SoundManager _sound = new SoundManager();
     MapManager _map = new MapManager();
 
+    public static InputManager Input { get { return Instance._input; } }
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
@@ -38,7 +40,7 @@ public class Managers : MonoBehaviour
 
     private void Update()
     {
-
+        _input.OnUpdate();
     }
 
     static void Init()
@@ -64,9 +66,9 @@ public class Managers : MonoBehaviour
 
     public static void Clear()
     {
+        Input.Clear();
         Sound.Clear();
         Map.Clear();
-
         Pool.Clear();
     }
 }
