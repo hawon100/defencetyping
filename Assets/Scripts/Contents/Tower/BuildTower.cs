@@ -9,6 +9,7 @@ public class BuildTower : MonoBehaviour
     public RectTransform InputPanel;
     public bool isTyping = false;
     public GameObject bg;
+    public int value;
 
     private void Start()
     {
@@ -31,6 +32,8 @@ public class BuildTower : MonoBehaviour
             case "Background":
                 OnMouseEvent_PanelClose(evt);
                 break;
+            //case "TowerInstall":
+            //    break;
         }
     }
 
@@ -38,6 +41,7 @@ public class BuildTower : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            Debug.Log(value);
             PanelOpen();
         }
     }
