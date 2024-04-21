@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Ship : EnemyBase
 {
-    [SerializeField] private Transform trans; //Temp (Name!)
+    [SerializeField] private string targetTag;
+    [SerializeField] [Range(0.0f, 10.0f)] private float range;
     [Header("Bullets")]
     public BezierBullet bezierBullet; //private Temp
     public DirectBullet directBullet; //private Temp
+
+    private Transform savedTarget;
+
+    public bool isDetected = true; //Temp
 
     protected override void Awake()
     {
@@ -40,6 +45,7 @@ public class Ship : EnemyBase
     {
         base.FixedUpdate();
         LookAt();
+        Detected();
     }
 
     protected override void Attack()
@@ -50,6 +56,30 @@ public class Ship : EnemyBase
 
         b.transform.parent = null;
         b.transform.position = transform.position;
+    }
+
+    private void Detected()
+    {
+        if (!isDetected) return;
+        
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag(targetTag))
+            {
+                savedTarget = target;
+                target = collider.transform;
+                isDetected = false;
+                return;
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
     protected override void Move()
@@ -78,6 +108,6 @@ public class Ship : EnemyBase
 
     private void RandomInt()
     {
-        distance = Random.Range(5f, 7f);
+        distance = Random.Range(5, 7);
     }
 }

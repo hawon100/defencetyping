@@ -155,8 +155,8 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: b5d5292e574fd9c43b2a589cbfff20ad, type: 2}
   curEnemy: []
+  spawnArea: []
   spawnPos: {x: 0, y: 0, z: 0}
-  range: 20
 --- !u!4 &13075383
 Transform:
   m_ObjectHideFlags: 0
@@ -695,6 +695,7 @@ MonoBehaviour:
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
+  bg: {fileID: 0}
 --- !u!1 &551245470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,7 +2158,11 @@ MonoBehaviour:
   - {fileID: 1416629656}
   - {fileID: 1011256086}
   typingInput: {fileID: 1195617938}
+  towers:
+  - {fileID: 429024711}
   tower: {fileID: 429024707}
+  curDelayChange: 0
+  maxDelayChange: 0
 --- !u!1 &1981051437
 GameObject:
   m_ObjectHideFlags: 0

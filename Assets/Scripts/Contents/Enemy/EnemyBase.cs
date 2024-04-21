@@ -21,12 +21,10 @@ public class EnemyBase : MonoBehaviour
     public float rotateSpeed = 2.0f;
 
     private Rigidbody2D rb2d;
-    private SpriteRenderer spriteRend;
 
     protected virtual void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     protected virtual void Start()

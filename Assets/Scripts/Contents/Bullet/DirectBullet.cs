@@ -22,6 +22,12 @@ public class DirectBullet : BulletBase
 
     protected override void Move()
     {
+        if (target == null)
+        {
+            Managers.Resource.Destroy(gameObject);
+            return;
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
         //transform.Translate((target.position - transform.position).normalized * Time.deltaTime * speed);
     }

@@ -33,6 +33,7 @@ public class TypingManager : MonoBehaviour
             Debug.Log("공격 성공");
             //Temp
             GameObject b = Managers.Resource.Instantiate("Enemys/Bullet");
+            //Temp
             b.GetComponent<BulletBase>().target = tower.GetComponent<TowerBase>()._target;
             b.GetComponent<PlayerBullet>().test();
             b.transform.parent = tower.transform;
