@@ -44,10 +44,10 @@ public class TypingManager
             //Temp
             GameObject b = Managers.Resource.Instantiate("Enemys/Bullet");
             //Temp
-            b.GetComponent<BulletBase>().target = tower.GetComponent<TowerBase>()._target;
-            b.GetComponent<PlayerBullet>().test();
-            b.transform.parent = tower.transform;
-            b.transform.position = tower.transform.position;
+            //b.GetComponent<BulletBase>().target = tower.GetComponent<TowerBase>()._target;
+            //b.GetComponent<PlayerBullet>().test();
+            //b.transform.parent = tower.transform;
+            //b.transform.position = tower.transform.position;
         }
         else if (_input == _word[2])
         {

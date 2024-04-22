@@ -29,6 +29,7 @@ public class Ship : EnemyBase
     protected override void Start()
     {
         base.Start();
+        Init();
     }
 
     protected override void Init()

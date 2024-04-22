@@ -144,9 +144,10 @@ MonoBehaviour:
   gazeTarget: {x: 0, y: 0, z: 0}
   rotateSpeed: 2
   targetTag: Tower
-  range: 5
+  range: 4
   bezierBullet: {fileID: 6300741034209622059, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
+  isDetected: 1
 --- !u!114 &3746714687584975451
 MonoBehaviour:
   m_ObjectHideFlags: 0
