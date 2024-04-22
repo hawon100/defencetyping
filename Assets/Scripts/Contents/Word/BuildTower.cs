@@ -4,17 +4,45 @@ using DG.Tweening;
 
 public class BuildTower : MonoBehaviour
 {
+    public GameObject bg;
     int _mask = (1 << (int)Define.Layer.Background) | (1 << (int)Define.Layer.TowerInstall) | (1 << (int)Define.Layer.Tower);
     public RectTransform WordPanel;
     public RectTransform InputPanel;
     public bool isTyping = false;
-    public GameObject bg;
-    public int value;
+    public GameObject towerBuild;
+    public GameObject buildUI;
+    public GameObject towerUI;
 
     private void Start()
     {
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;
+    }
+
+    private void Update()
+    {
+        if (Managers.Typing.WordEnd(false))
+        {
+            PanelClose();
+            isTyping = false;
+        }
+
+        towerBuild = Util.FindChild(gameObject);
+
+        Debug.Log(towerBuild);
+
+        if (!isTyping) return;
+
+        if (towerBuild != null)
+        {
+            buildUI.SetActive(false);
+            towerUI.SetActive(true);
+        }
+        else
+        {
+            buildUI.SetActive(true);
+            towerUI.SetActive(false);
+        }
     }
 
     private void OnMouseEvent(Define.MouseEvent evt)
@@ -32,16 +60,13 @@ public class BuildTower : MonoBehaviour
             case "Background":
                 OnMouseEvent_PanelClose(evt);
                 break;
-            //case "TowerInstall":
-            //    break;
         }
     }
 
     private void OnMouseDown()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(value);
             PanelOpen();
         }
     }
@@ -60,14 +85,14 @@ public class BuildTower : MonoBehaviour
     {
         Managers.Typing.WordReset();
         isTyping = true;
-        WordPanel.DOAnchorPosY(540, 0.5f).SetDelay(0.5f);
-        InputPanel.DOAnchorPosY(-540, 0.5f).SetDelay(0.5f);
+        WordPanel.DOAnchorPosY(540, 0.5f);
+        InputPanel.DOAnchorPosY(-540, 0.5f);
     }
 
     private void PanelClose()
     {
         isTyping = false;
-        WordPanel.DOAnchorPosY(690, 0.5f).SetDelay(0.5f);
-        InputPanel.DOAnchorPosY(-690, 0.5f).SetDelay(0.5f);
+        WordPanel.DOAnchorPosY(690, 0.5f);
+        InputPanel.DOAnchorPosY(-690, 0.5f);
     }
 }

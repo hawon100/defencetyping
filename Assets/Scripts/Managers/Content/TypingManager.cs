@@ -1,15 +1,10 @@
 using UnityEngine;
 
-public class TypingManager : MonoBehaviour
+public class TypingManager
 {
     public string _input;
     public string[] _word = new string[4];
     public GameObject tower;
-
-    public void Init()
-    {
-        WordReset();
-    }
 
     public void WordReset()
     {
@@ -19,9 +14,16 @@ public class TypingManager : MonoBehaviour
         _word[3] = Managers.Word.FixedWord(_word[3]);
     }
 
+    public bool WordEnd(bool isTyping)
+    {
+        return isTyping;
+    }
+
     public string WordEnter(string input)
     {
         if (!Input.GetKeyDown(KeyCode.Return)) return input;
+        
+        WordEnd(false);
 
         if (_input == _word[0])
         {
@@ -46,6 +48,7 @@ public class TypingManager : MonoBehaviour
         }
 
         WordReset();
+
         input = "";
 
         return input;

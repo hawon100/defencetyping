@@ -246,11 +246,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 1
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &151089695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -490,9 +492,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 674985121}
-  - {fileID: 2073753291}
-  - {fileID: 856732518}
-  - {fileID: 592071791}
+  - {fileID: 379402736}
   m_Father: {fileID: 1981051438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -619,6 +619,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369105191}
   m_CullTransparentMesh: 1
+--- !u!1 &379402735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379402736}
+  - component: {fileID: 379402737}
+  - component: {fileID: 379402738}
+  m_Layer: 5
+  m_Name: Tower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &379402736
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379402735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2073753291}
+  - {fileID: 856732518}
+  - {fileID: 592071791}
+  m_Father: {fileID: 246184993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 360, y: -50}
+  m_SizeDelta: {x: 420, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &379402737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379402735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 30
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &379402738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379402735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &534467101
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,11 +746,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 0
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &534467104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -899,18 +981,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592071790}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1346894814}
   - {fileID: 1011256085}
-  m_Father: {fileID: 246184993}
+  m_Father: {fileID: 379402736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 360, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &592071792
@@ -998,11 +1080,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 3
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &609379847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1174,11 +1258,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 6
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &617665327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1499,18 +1585,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856732517}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1550201384}
   - {fileID: 1416629655}
-  m_Father: {fileID: 246184993}
+  m_Father: {fileID: 379402736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 210, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856732519
@@ -1935,6 +2021,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011256084}
   m_CullTransparentMesh: 1
+--- !u!1 &1020277148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1020277149}
+  - component: {fileID: 1020277150}
+  m_Layer: 0
+  m_Name: '@Controller'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1020277149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020277148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1020277150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020277148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f779586cad24354fb5459d6d69df1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text:
+  - {fileID: 1085832093}
+  - {fileID: 1120448599}
+  - {fileID: 1416629656}
+  - {fileID: 1011256086}
+  typingInput: {fileID: 1195617938}
+  towers:
+  - {fileID: 534467103}
+  - {fileID: 151089694}
+  - {fileID: 1054376745}
+  - {fileID: 609379846}
+  - {fileID: 2131114712}
+  - {fileID: 1059483218}
+  - {fileID: 617665326}
+  - {fileID: 1067768138}
+  tower: {fileID: 0}
+  curDelayChange: 0
+  maxDelayChange: 10
 --- !u!1 &1054376743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,11 +2130,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 2
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &1054376746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2158,11 +2308,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 5
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &1059483219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2334,11 +2486,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 7
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &1067768139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3297,24 +3451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d39a14017cf6c6409baa4162c8845ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text:
-  - {fileID: 1085832093}
-  - {fileID: 1120448599}
-  - {fileID: 1416629656}
-  - {fileID: 1011256086}
-  typingInput: {fileID: 1195617938}
-  towers:
-  - {fileID: 534467103}
-  - {fileID: 151089694}
-  - {fileID: 1054376745}
-  - {fileID: 609379846}
-  - {fileID: 2131114712}
-  - {fileID: 1059483218}
-  - {fileID: 617665326}
-  - {fileID: 1067768138}
-  tower: {fileID: 0}
-  curDelayChange: 0
-  maxDelayChange: 10
 --- !u!1 &1981051437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3416,18 +3552,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073753290}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 369105192}
   - {fileID: 1120448598}
-  m_Father: {fileID: 246184993}
+  m_Father: {fileID: 379402736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 60, y: -60}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2073753292
@@ -3515,11 +3651,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1304085691}
   WordPanel: {fileID: 1981051438}
   InputPanel: {fileID: 76473299}
   isTyping: 0
-  bg: {fileID: 1304085691}
-  value: 4
+  towerBuild: {fileID: 0}
+  buildUI: {fileID: 674985120}
+  towerUI: {fileID: 379402735}
 --- !u!61 &2131114713
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3651,6 +3789,7 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1579396167}
+  - {fileID: 1020277149}
   - {fileID: 189035115}
   - {fileID: 952780735}
   - {fileID: 898558996}
