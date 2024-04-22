@@ -37,20 +37,23 @@ public class Ship : EnemyBase
         base.Init();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
+    //protected override void Update()
+    //{
+    //    base.Update();
+    //}
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
         LookAt();
-        Detected();
     }
 
     protected override void Attack()
     {
+        Detected();
+
+        if (target == null) return;
+
         directBullet.target = target;
 
         GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
@@ -71,7 +74,7 @@ public class Ship : EnemyBase
             {
                 savedTarget = target;
                 target = collider.transform;
-                isDetected = false;
+                isDetected = false; 
                 return;
             }
         }

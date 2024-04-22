@@ -43,4 +43,9 @@ public abstract class TowerBase : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, _range);
     }
+
+    public void Attack()
+    {
+        OnAttack();
+    }
 }

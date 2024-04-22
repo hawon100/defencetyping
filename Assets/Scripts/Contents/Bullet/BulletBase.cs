@@ -33,6 +33,7 @@ public class BulletBase : MonoBehaviour
     {
         if (other.gameObject.CompareTag(triggerTag))
         {
+            target = null;
             Hit(other.gameObject);
         }
     }

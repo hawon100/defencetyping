@@ -5,26 +5,22 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour //Only Funcions
 {
     public List<Wave> waves = new List<Wave>();
-    public List<GameObject> curEnemy; //To GameManager
+    public List<GameObject> curEnemy = new List<GameObject>(); //To GameManager
     public Transform[] spawnArea;
     public Vector3 spawnPos;
-
-    private bool isSpawn;
-
-    private void Awake() //Temp
-    {
-        //Init();
-    }
-
     public void Init()
     {
+        Debug.Log("Fuck yOu!");
         //Spawn Area
         spawnArea = new Transform[4];
         
         for (int i = 0; i < 4; i++)
         {
-            spawnArea[i] = Managers.Resource.Instantiate("SpawnArea/SpawnArea" + i, transform.parent).transform;
+            //GameObject s = Managers.Resource.Instantiate("SpawnArea/SpawnArea" + i, transform.parent);
+
         }
+
+        Debug.Log(spawnArea[3] == null);
     }
 
     private void Start() //Temp
@@ -32,20 +28,7 @@ public class SpawnManager : MonoBehaviour //Only Funcions
         ExecuteWave(waves[Random.Range(0, waves.Count)]);     
     }
 
-    private void FixedUpdate()
-    {
-        isSpawn = curEnemy.Count <= 0;
-
-        if (!isSpawn) return;
-        
-        isSpawn = false;
-        ExecuteWave(waves[Random.Range(0, waves.Count)]);
-    }
-
-    public void ExecuteWave(int index)
-    {
-        ExecuteWave(waves[index]);
-    }
+    
 
     public void ExecuteWave(Wave wave)
     {
@@ -62,13 +45,11 @@ public class SpawnManager : MonoBehaviour //Only Funcions
                 spawnPos.y = Random.Range(area.position.y - area.localScale.y / 2,
                                           area.position.y + area.localScale.y / 2);
 
-                GameObject enemy = Managers.Resource.Instantiate(wave.Mob[i].Enemy.gameObject, transform.parent = null);
+                GameObject enemy = Managers.Resource.Instantiate(wave.Mob[i].Enemy.gameObject,  null);
 
-                enemy.transform.parent = transform;
                 enemy.transform.position = spawnPos;
 
                 curEnemy.Add(enemy);
-                isSpawn = false;
             }
         }
     }

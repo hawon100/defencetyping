@@ -15,15 +15,15 @@ public class PlayerBullet : BulletBase
         base.Start();
     }
 
-    public void test()
-    {
-        if (target == null)
-        {
-            Managers.Resource.Destroy(gameObject);
-            return;
-        }
-        moveVec = (target.position - transform.position).normalized;
-    }
+    //public void test()
+    //{
+    //    if (target == null)
+    //    {
+    //        Managers.Resource.Destroy(gameObject);
+    //        return;
+    //    }
+    //    moveVec = (target.position - transform.position).normalized;
+    //}
 
     protected override void Update()
     {
@@ -39,6 +39,7 @@ public class PlayerBullet : BulletBase
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
     }
 
+    //Erase And Use isDistance Function.
     protected override void Hit(GameObject hitObject)
     {
         if (hitObject.GetComponent<EnemyBase>() != null)
@@ -46,8 +47,7 @@ public class PlayerBullet : BulletBase
             hitObject.GetComponent<EnemyBase>().Damage(10);
         }
 
-        //target = null;
-        //Debug.Log(transform.position);
+        target = null;
         Managers.Resource.Destroy(gameObject);
     }
 }

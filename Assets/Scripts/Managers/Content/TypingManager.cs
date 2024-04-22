@@ -4,7 +4,7 @@ public class TypingManager
 {
     public string _input;
     public string[] _word = new string[4];
-    public GameObject tower;
+    public GameObject tower; //<- GameObject To TowerBase.
 
     public Define.InstallTowerType type;
 
@@ -41,8 +41,11 @@ public class TypingManager
         else if (_input == _word[1])
         {
             Debug.Log("공격 성공");
+
+            tower.GetComponent<TowerBase>().Attack();
+
             //Temp
-            GameObject b = Managers.Resource.Instantiate("Enemys/Bullet");
+            //GameObject b = Managers.Resource.Instantiate("Enemys/Bullet");
             //Temp
             //b.GetComponent<BulletBase>().target = tower.GetComponent<TowerBase>()._target;
             //b.GetComponent<PlayerBullet>().test();

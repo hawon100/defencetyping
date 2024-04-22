@@ -31,7 +31,7 @@ public class BuildTower : MonoBehaviour
 
         towerBuild = Util.FindChild(gameObject);
 
-        Debug.Log(towerBuild);
+        //Debug.Log(towerBuild);
 
         if (!isTyping) return;
 
