@@ -3,22 +3,19 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController Instance { get; private set; }
-
     public Text[] text;
-
     public InputField typingInput;
 
     public BuildTower[] towers;
     public BuildTower tower;
 
+    public GameObject towerSelectUI;
+    public GameObject buildUI;
+
+    public int gold;
+
     public float curDelayChange;
     public float maxDelayChange;
-
-    private void Start()
-    {
-        Instance = this;
-    }
 
     private void Update()
     {
@@ -70,5 +67,45 @@ public class GameController : MonoBehaviour
         Managers.Typing.WordReset();
 
         curDelayChange = 0;
+    }
+
+    public void BuildTowerSelect(string towerName)
+    {
+        if (tower == null) return;
+        
+        switch (towerName)
+        {
+            case "Common": 
+                Managers.Typing.type = Define.InstallTowerType.Common;
+                break;
+            case "Rare": 
+                Managers.Typing.type = Define.InstallTowerType.Rare; 
+                break;
+            case "Epic": 
+                Managers.Typing.type = Define.InstallTowerType.Epic; 
+                break;
+            case "Legend": 
+                Managers.Typing.type = Define.InstallTowerType.Legend;
+                break;
+        }
+
+        //price shop
+        //if (gold >= 100)
+        //{
+        //    gold -= 100;
+        //}
+        //else
+        //{
+        //    // Don't have any Gold
+        //    return;
+        //}
+
+        tower.type = Managers.Typing.type;
+
+        towerSelectUI.SetActive(false);
+        buildUI.SetActive(true);
+
+        tower = null;
+        Managers.Typing.tower = null;
     }
 }

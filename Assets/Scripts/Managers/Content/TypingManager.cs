@@ -6,6 +6,8 @@ public class TypingManager
     public string[] _word = new string[4];
     public GameObject tower;
 
+    public Define.InstallTowerType type;
+
     public void WordReset()
     {
         _word[0] = Managers.Word.BuildWord(_word[0]);
@@ -28,7 +30,13 @@ public class TypingManager
         if (_input == _word[0])
         {
             Debug.Log("ºôµå ¼º°ø");
-            tower = Managers.Resource.Instantiate("Tower/InstallTower");
+            switch(type)
+            {
+                case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate("Tower/CommonTower"); break;
+                case Define.InstallTowerType.Rare: tower = Managers.Resource.Instantiate("Tower/RareTower"); break;
+                case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate("Tower/EpicTower"); break;
+                case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate("Tower/LegendTower"); break;
+            }
         }
         else if (_input == _word[1])
         {

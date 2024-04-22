@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6005185048205759885}
   - component: {fileID: 5640808594829813809}
   m_Layer: 0
-  m_Name: InstallTower
+  m_Name: LegendTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

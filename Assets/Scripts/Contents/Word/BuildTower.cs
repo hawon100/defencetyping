@@ -10,8 +10,10 @@ public class BuildTower : MonoBehaviour
     public RectTransform InputPanel;
     public bool isTyping = false;
     public GameObject towerBuild;
+    public GameObject towerSelectUI;
     public GameObject buildUI;
     public GameObject towerUI;
+    public Define.InstallTowerType type;
 
     private void Start()
     {
@@ -40,7 +42,6 @@ public class BuildTower : MonoBehaviour
         }
         else
         {
-            buildUI.SetActive(true);
             towerUI.SetActive(false);
         }
     }
@@ -54,7 +55,6 @@ public class BuildTower : MonoBehaviour
 
         if (hit.collider == null) return;
 
-        Debug.Log(hit.collider.gameObject.tag);
         switch (hit.collider.gameObject.tag)
         {
             case "Background":
@@ -83,6 +83,19 @@ public class BuildTower : MonoBehaviour
 
     private void PanelOpen()
     {
+        if (towerBuild == null)
+        {
+            towerSelectUI.SetActive(true);
+            buildUI.SetActive(false);
+            towerUI.SetActive(false);
+        }
+        else
+        {
+            towerSelectUI.SetActive(false);
+            buildUI.SetActive(false);
+            towerUI.SetActive(false);
+        }
+
         Managers.Typing.WordReset();
         isTyping = true;
         WordPanel.DOAnchorPosY(540, 0.5f);
