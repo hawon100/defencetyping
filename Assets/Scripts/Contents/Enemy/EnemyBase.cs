@@ -50,9 +50,6 @@ public class EnemyBase : MonoBehaviour
         {
             timeRate += Time.deltaTime;
         }
-
-        if (!isMove) return;
-
         Move();
     }
 

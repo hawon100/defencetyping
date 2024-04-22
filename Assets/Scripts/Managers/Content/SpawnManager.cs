@@ -9,13 +9,16 @@ public class SpawnManager : MonoBehaviour //Only Funcions
     public Transform[] spawnArea;
     public Vector3 spawnPos;
 
+    private bool isSpawn;
+
     private void Awake() //Temp
     {
-        Init();
+        //Init();
     }
 
     public void Init()
     {
+        //Spawn Area
         spawnArea = new Transform[4];
         
         for (int i = 0; i < 4; i++)
@@ -27,6 +30,21 @@ public class SpawnManager : MonoBehaviour //Only Funcions
     private void Start() //Temp
     {
         ExecuteWave(waves[Random.Range(0, waves.Count)]);     
+    }
+
+    private void FixedUpdate()
+    {
+        isSpawn = curEnemy.Count <= 0;
+
+        if (!isSpawn) return;
+        
+        isSpawn = false;
+        ExecuteWave(waves[Random.Range(0, waves.Count)]);
+    }
+
+    public void ExecuteWave(int index)
+    {
+        ExecuteWave(waves[index]);
     }
 
     public void ExecuteWave(Wave wave)
@@ -50,6 +68,7 @@ public class SpawnManager : MonoBehaviour //Only Funcions
                 enemy.transform.position = spawnPos;
 
                 curEnemy.Add(enemy);
+                isSpawn = false;
             }
         }
     }

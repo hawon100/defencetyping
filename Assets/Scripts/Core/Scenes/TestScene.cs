@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class TestScene : BaseScene
 {
+    [Header("Spawn System")]
+    public Wave[] wavePrefabs;
+
+    [Header("Tower System")]
     public Text[] text;
 
     public InputField typingInput;
@@ -17,13 +21,16 @@ public class TestScene : BaseScene
     {
         base.Init();
 
-        SceneType = Define.Scene.TestHawon;
+        SceneType = Define.Scene.TestKangmai;
+
+        Spawn();
     }
 
     private void Update()
     {
         for (int i = 0; i < text.Length; i++)
         {
+            if (Managers.Typing._word[i] == null) return;
             text[i].text = Managers.Typing._word[i];
         }
         Managers.Typing._input = typingInput.text;
@@ -57,5 +64,16 @@ public class TestScene : BaseScene
     public override void Clear()
     {
 
+    }
+
+    private void Spawn()
+    {
+        for (int i = 0; i < wavePrefabs.Length; i++)
+        {
+            Managers.Spawn.waves.Add(wavePrefabs[i]);
+        }
+
+        Managers.Spawn.Init();
+        Managers.Spawn.ExecuteWave(0);
     }
 }
