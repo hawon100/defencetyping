@@ -16,16 +16,9 @@ public class TypingManager
         _word[3] = Managers.Word.FixedWord(_word[3]);
     }
 
-    public bool WordEnd(bool isTyping)
-    {
-        return isTyping;
-    }
-
     public string WordEnter(string input)
     {
         if (!Input.GetKeyDown(KeyCode.Return)) return input;
-        
-        WordEnd(false);
 
         if (_input == _word[0])
         {
