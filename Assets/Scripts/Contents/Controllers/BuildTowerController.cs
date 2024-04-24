@@ -1,45 +1,40 @@
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.UIElements;
 
-public class BuildTower : MonoBehaviour
+public class BuildTowerController : MonoBehaviour
 {
-    public GameObject bg;
-    int _mask = (1 << (int)Define.Layer.Background) | (1 << (int)Define.Layer.TowerInstall) | (1 << (int)Define.Layer.Tower);
+    int _mask;
     public RectTransform WordPanel;
     public RectTransform InputPanel;
     public bool isTyping = false;
-    public GameObject towerBuild;
-    public GameObject towerSelectUI;
-    public GameObject buildUI;
-    public GameObject towerUI;
     public Define.InstallTowerType type;
+
+    public GameController gameCtrl;
 
     private void Start()
     {
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;
+
+        _mask = (1 << (int)Define.Layer.Background) | (1 << (int)Define.Layer.TowerInstall) | (1 << (int)Define.Layer.Tower);
     }
 
     private void Update()
     {
         OnKeyBoardEvent();
 
-        towerBuild = Util.FindChild(gameObject);
-
-        Debug.Log(towerBuild);
-
         if (!isTyping) return;
+
+        GameObject towerBuild = Util.FindChild(gameObject);
 
         if (towerBuild != null)
         {
-            buildUI.SetActive(false);
-            towerUI.SetActive(true);
+            gameCtrl.buildUI.SetActive(false);
+            gameCtrl.towerUI.SetActive(true);
         }
         else
         {
-            towerUI.SetActive(false);
+            gameCtrl.towerUI.SetActive(false);
         }
     }
 
@@ -47,7 +42,6 @@ public class BuildTower : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("Return");
             PanelClose();
         }
     }
@@ -61,45 +55,45 @@ public class BuildTower : MonoBehaviour
 
         if (hit.collider == null) return;
 
-        switch (hit.collider.gameObject.tag)
+        if (hit.collider.gameObject.CompareTag("Background"))
         {
-            case "Background":
-                OnMouseEvent_PanelClose(evt);
-                break;
-        }
-    }
-
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            PanelOpen();
+            OnMouseEvent_PanelClose(evt);
         }
     }
 
     private void OnMouseEvent_PanelClose(Define.MouseEvent evt)
     {
-        switch (evt)
+        if (evt == Define.MouseEvent.PointerDown)
         {
-            case Define.MouseEvent.PointerDown:
-                PanelClose();
-                break;
+            gameCtrl.curDelayChange = 0;
+            PanelClose();
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        for (int i = 0; i < gameCtrl.towers.Count; i++)
+        {
+            gameCtrl.towers[i].isTyping = false;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameController.Instance.curDelayChange = 0;
+            
+            PanelOpen();
         }
     }
 
     private void PanelOpen()
     {
-        if (towerBuild == null)
+        if (Util.FindChild(gameObject) == null)
         {
-            towerSelectUI.SetActive(true);
-            buildUI.SetActive(false);
-            towerUI.SetActive(false);
+            gameCtrl.towerSelectUI.SetActive(true);
         }
         else
         {
-            towerSelectUI.SetActive(false);
-            buildUI.SetActive(false);
-            towerUI.SetActive(false);
+            gameCtrl.towerSelectUI.SetActive(false);
         }
 
         Managers.Typing.WordReset();
@@ -110,6 +104,8 @@ public class BuildTower : MonoBehaviour
 
     private void PanelClose()
     {
+        gameCtrl.buildUI.SetActive(false);
+        gameCtrl.towerUI.SetActive(false);
         isTyping = false;
         WordPanel.DOAnchorPosY(690, 0.5f);
         InputPanel.DOAnchorPosY(-690, 0.5f);
