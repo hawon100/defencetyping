@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UIElements;
 
 public class BuildTower : MonoBehaviour
 {
@@ -23,11 +24,7 @@ public class BuildTower : MonoBehaviour
 
     private void Update()
     {
-        if (Managers.Typing.WordEnd(false))
-        {
-            PanelClose();
-            isTyping = false;
-        }
+        OnKeyBoardEvent();
 
         towerBuild = Util.FindChild(gameObject);
 
@@ -43,6 +40,15 @@ public class BuildTower : MonoBehaviour
         else
         {
             towerUI.SetActive(false);
+        }
+    }
+
+    private void OnKeyBoardEvent()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("Return");
+            PanelClose();
         }
     }
 
