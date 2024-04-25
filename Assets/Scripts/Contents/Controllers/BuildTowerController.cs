@@ -76,6 +76,9 @@ public class BuildTowerController : MonoBehaviour
         {
             gameCtrl.towers[i].isTyping = false;
         }
+        gameCtrl.towerSelectUI.SetActive(true);
+        gameCtrl.buildUI.SetActive(false);
+        gameCtrl.towerUI.SetActive(false);
 
         if (Input.GetMouseButtonDown(0))
         {
