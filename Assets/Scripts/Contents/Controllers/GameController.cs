@@ -1,29 +1,60 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController Instance { get; private set; }
+
     public Text[] text;
     public InputField typingInput;
 
-    public BuildTower[] towers;
-    public BuildTower tower;
+    public List<BuildTowerController> towers = new();
+    public BuildTowerController selectedTower;
 
     public GameObject towerSelectUI;
     public GameObject buildUI;
+    public GameObject towerUI;
 
     public int gold;
 
     public float curDelayChange;
     public float maxDelayChange;
 
-    private void Update()
+    public Slider[] wordResetTimer;
+
+    private void Start()
     {
-        Update_WordTyping();
-        Update_Build();
+        Instance = this;
     }
 
-    private void Update_WordTyping()
+    private void Update()
+    {
+        UpdateWordTyping();
+        UpdateBuild();
+        UpdateType();
+        UpdateWordReload();
+    }
+
+    private void UpdateType()
+    {
+        if (selectedTower == null) return;
+
+        switch (selectedTower.type)
+        {
+            case Define.InstallTowerType.Common: maxDelayChange = 30; break;
+            case Define.InstallTowerType.Rare: maxDelayChange = 20; break;
+            case Define.InstallTowerType.Epic: maxDelayChange = 10; break;
+            case Define.InstallTowerType.Legend: maxDelayChange = 3; break;
+        }
+
+        if (!selectedTower.isTyping)
+        {
+            selectedTower = null;
+        }
+    }
+
+    private void UpdateWordTyping()
     {
         for (int i = 0; i < text.Length; i++)
         {
@@ -34,57 +65,68 @@ public class GameController : MonoBehaviour
 
         typingInput.text = Managers.Typing.WordEnter(typingInput.text);
 
-        for (int i = 0; i < towers.Length; i++)
+        foreach (var tower in towers)
         {
-            if (towers[i].isTyping)
+            if (tower.isTyping)
             {
-                tower = towers[i];
+                selectedTower = tower;
+                break;
             }
         }
     }
 
-    private void Update_Build()
+    private void UpdateBuild()
     {
-        if (Managers.Typing.tower == null) return;
-        if (tower == null) return;
+        if (Managers.Typing.tower == null || selectedTower == null) return;
 
-        Managers.Typing.tower.transform.parent = tower.transform;
-        Managers.Typing.tower.transform.position = tower.transform.position;
+        Managers.Typing.tower.transform.parent = selectedTower.transform;
+        Managers.Typing.tower.transform.position = selectedTower.transform.position;
 
-        if (!tower.isTyping)
+        if (!selectedTower.isTyping)
         {
-            tower = null;
+            selectedTower = null;
             Managers.Typing.tower = null;
         }
     }
 
-    private void WordReload()
+    private void UpdateWordReload()
     {
+        if (!towerUI.activeSelf && !buildUI.activeSelf)
+        {
+            curDelayChange = 0;
+            return;
+        }
+
+        foreach (var timer in wordResetTimer)
+        {
+            timer.value = curDelayChange / maxDelayChange;
+        }
+
         curDelayChange += Time.deltaTime;
 
-        if (curDelayChange < maxDelayChange) return;
-
-        Managers.Typing.WordReset();
-
-        curDelayChange = 0;
+        if (curDelayChange >= maxDelayChange)
+        {
+            Managers.Typing.WordReset();
+            curDelayChange = 0;
+        }
     }
 
     public void BuildTowerSelect(string towerName)
     {
-        if (tower == null) return;
-        
+        if (selectedTower == null) return;
+
         switch (towerName)
         {
-            case "Common": 
+            case "Common":
                 Managers.Typing.type = Define.InstallTowerType.Common;
                 break;
-            case "Rare": 
-                Managers.Typing.type = Define.InstallTowerType.Rare; 
+            case "Rare":
+                Managers.Typing.type = Define.InstallTowerType.Rare;
                 break;
-            case "Epic": 
-                Managers.Typing.type = Define.InstallTowerType.Epic; 
+            case "Epic":
+                Managers.Typing.type = Define.InstallTowerType.Epic;
                 break;
-            case "Legend": 
+            case "Legend":
                 Managers.Typing.type = Define.InstallTowerType.Legend;
                 break;
         }
@@ -100,12 +142,12 @@ public class GameController : MonoBehaviour
         //    return;
         //}
 
-        tower.type = Managers.Typing.type;
+        selectedTower.type = Managers.Typing.type;
 
         towerSelectUI.SetActive(false);
         buildUI.SetActive(true);
 
-        tower = null;
+        selectedTower = null;
         Managers.Typing.tower = null;
     }
 }
