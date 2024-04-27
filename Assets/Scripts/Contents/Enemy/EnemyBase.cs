@@ -2,23 +2,25 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+    [Header("HP")]
     public int hp;
     public int maxHp;
-
-    public float moveSpeed;
-    public Transform target;
-    public float cooltime;
-    public float distance = 0.5f;
-
-    [SerializeField] private Vector3 moveVec;
-
-    private float timeRate;
-    public bool isMove = true;
     public bool isDeath;
 
-    public Vector3 gazeTarget;
-
+    [Header("Move")]
+    public float moveSpeed;
     public float rotateSpeed = 2.0f;
+    public Transform target;
+    public Vector2 targetPos;
+    public float distance = 0.5f;
+    public bool isMove = true;
+
+    [SerializeField] private Vector3 moveVec;
+    public float cooltime;
+
+    private float timeRate;
+
+    public Vector3 gazeTarget;
 
     private Rigidbody2D rb2d;
 
@@ -64,6 +66,8 @@ public class EnemyBase : MonoBehaviour
 
         rb2d.velocity = Trace(transform.position, target.position) * moveSpeed; //Temp
 
+        if (rb2d.velocity.sqrMagnitude <= 0.1f) isMove = false;
+
         if (isDistance(transform.position, target.position, distance))
         {
             isMove = false;
@@ -73,13 +77,14 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void LookAt()
     {
-        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, target.position) - 90f);
+        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotateSpeed * Time.deltaTime);
     }
 
     protected virtual void Init()
     {
         hp = maxHp;
+        targetPos = target.position;
     }
 
     public Vector3 Trace(Vector3 curVec, Vector3 targetVec)

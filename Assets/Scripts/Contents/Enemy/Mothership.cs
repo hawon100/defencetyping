@@ -17,7 +17,9 @@ public class Mothership : EnemyBase
     private bool isSpawn = true;
 
     private WaitForSeconds gazeOnTime = new WaitForSeconds(1f);
-    private List<EnemyBase> curEnemys;
+    private List<EnemyBase> curShips = new List<EnemyBase>();
+
+    private Vector2 gazePoint;
 
     protected override void Awake()
     {
@@ -25,10 +27,10 @@ public class Mothership : EnemyBase
 
         for (int i = 0; i < 5; i++) //Temp
         {
-            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
-            Managers.Resource.Destroy(s);
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
-            Managers.Resource.Destroy(b);
+            //GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
+            //Managers.Resource.Destroy(s);
+            //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            //Managers.Resource.Destroy(b);
         }
     }
 
@@ -42,48 +44,54 @@ public class Mothership : EnemyBase
         base.Init();
     }
 
-    protected override void Update()
-    {
-        if (!isMove) Attack();
-
-        if (isSpawn) Spawn();
-
-        if (curEnemys.Count == 0) isSpawn = true;
-    }
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
         LookAt();
         Move();
+
+        if (!isMove) Attack();
+
+        if (curShips.Count == 0 && !isSpawn) isSpawn = true;
+       
+        if (isSpawn)
+        {
+            StartCoroutine(Spawn());
+            isSpawn = false;
+        
+        }
     }
 
     protected override void Attack()
     {
-        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+        //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
 
-        b.transform.parent = transform;
-        b.transform.position = transform.position;
+        //b.transform.position = transform.position;
     }
 
     private IEnumerator Spawn()
     {
+        Debug.Log(curShips.Count);
         for (int i = 0; i < 360; i += 360 / spawnCount)
-        {
-            ship.gazeTarget.x = Mathf.Cos(i * Mathf.Deg2Rad);
-            ship.gazeTarget.y = Mathf.Sin(i * Mathf.Deg2Rad);
-            curEnemys.Add(ship);
+        { 
+            targetPos.x = Mathf.Cos(i * Mathf.Deg2Rad) * 5f;
+            targetPos.y = Mathf.Sin(i * Mathf.Deg2Rad) * 5f;
 
             GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
-
+          
             s.transform.position = transform.position;
+
+            curShips.Add(s.GetComponent<EnemyBase>());
         }
 
         isSpawn = false;
 
         yield return gazeOnTime;
 
-        ship.target = target;
+        for (int i = 0; i < curShips.Count; i++)
+        {
+            curShips[i].targetPos = target.position;
+        }
     }
 
     protected override void Move()

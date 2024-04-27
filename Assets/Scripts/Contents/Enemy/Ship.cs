@@ -74,6 +74,7 @@ public class Ship : EnemyBase
             {
                 savedTarget = target;
                 target = collider.transform;
+                targetPos = target.position;
                 isDetected = false; 
                 return;
             }
@@ -101,8 +102,8 @@ public class Ship : EnemyBase
 
     private void LookAtGaze()
     {
-        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, gazeTarget));
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotateSpeed * Time.deltaTime);
+        //Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, gazeTarget));
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotateSpeed * Time.deltaTime);
     }
 
     protected override void Death()

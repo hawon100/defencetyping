@@ -29,7 +29,7 @@ public class SpawnController : MonoBehaviour
             Managers.Spawn.waves.Add(waves[i]);
         }
 
-        Managers.Spawn.ExecuteWave(waves[0]);
+        Managers.Spawn.ExecuteWave(waves[1]);
     }
 
     private void FixedUpdate()

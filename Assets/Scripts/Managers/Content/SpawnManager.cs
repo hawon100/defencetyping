@@ -45,7 +45,7 @@ public class SpawnManager : MonoBehaviour //Only Funcions
                 spawnPos.y = Random.Range(area.position.y - area.localScale.y / 2,
                                           area.position.y + area.localScale.y / 2);
 
-                GameObject enemy = Managers.Resource.Instantiate(wave.Mob[i].Enemy.gameObject,  null);
+                GameObject enemy = Managers.Resource.Instantiate(wave.Mob[i].Enemy.gameObject);
 
                 enemy.transform.position = spawnPos;
 
