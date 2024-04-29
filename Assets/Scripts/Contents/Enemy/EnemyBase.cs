@@ -20,7 +20,7 @@ public class EnemyBase : MonoBehaviour
 
     private float timeRate;
 
-    public Vector3 gazeTarget;
+
 
     private Rigidbody2D rb2d;
 
@@ -64,14 +64,13 @@ public class EnemyBase : MonoBehaviour
     {
         if (!isMove) return;
 
-        rb2d.velocity = Trace(transform.position, target.position) * moveSpeed; //Temp
+        rb2d.velocity = moveSpeed * Trace(transform.position, target.position).normalized; //Temp
 
-        if (rb2d.velocity.sqrMagnitude <= 0.1f) isMove = false;
-
-        if (isDistance(transform.position, target.position, distance))
+        if (rb2d.velocity.sqrMagnitude <= 0.1f || 
+            isDistance(transform.position, target.position, distance))
         {
-            isMove = false;
             rb2d.velocity = Vector2.zero;
+            isMove = false;
         }
     }
 
@@ -92,7 +91,7 @@ public class EnemyBase : MonoBehaviour
         moveVec.x = targetVec.x - curVec.x;
         moveVec.y = targetVec.y - curVec.y;
 
-        return moveVec.normalized;
+        return moveVec;
     }
 
     protected float Gaze(Vector3 currentVec, Vector3 targetVec)

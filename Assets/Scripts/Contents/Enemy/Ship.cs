@@ -10,14 +10,14 @@ public class Ship : EnemyBase
     public BezierBullet bezierBullet; //private Temp
     public DirectBullet directBullet; //private Temp
 
-    private Transform savedTarget;
+    //private Transform savedTarget;
 
     public bool isDetected = true; //Temp
 
     protected override void Awake()
     {
         base.Awake();
-        RandomInt(); //Temp
+        //RandomInt(); //Temp
 
         for (int i = 0; i < 5; i++) //Temp
         {
@@ -45,14 +45,13 @@ public class Ship : EnemyBase
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        LookAt();
     }
 
     protected override void Attack()
     {
         Detected();
 
-        if (target == null) return;
+        //if (target == null) return;
 
         directBullet.target = target;
 
@@ -72,7 +71,7 @@ public class Ship : EnemyBase
         {
             if (collider.CompareTag(targetTag))
             {
-                savedTarget = target;
+                //savedTarget = target;
                 target = collider.transform;
                 targetPos = target.position;
                 isDetected = false; 
@@ -89,6 +88,7 @@ public class Ship : EnemyBase
 
     protected override void Move()
     {
+        LookAt();
         base.Move();
     }
 
@@ -110,9 +110,4 @@ public class Ship : EnemyBase
     {
         base.Death();
     } 
-
-    private void RandomInt()
-    {
-        distance = Random.Range(5, 7);
-    }
 }

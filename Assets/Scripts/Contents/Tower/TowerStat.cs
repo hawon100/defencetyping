@@ -1,7 +1,9 @@
 using UnityEngine;
 
 public class TowerStat : MonoBehaviour
-{
+{ 
+    public TowerStatUI towerStatUI;
+
     [SerializeField] protected int _level;
     [SerializeField] protected int _hp;
     [SerializeField] protected int _maxHp;
@@ -23,6 +25,11 @@ public class TowerStat : MonoBehaviour
         _defence = 0;
     }
 
+    public virtual void Init()
+    {
+
+    }
+
     public virtual void OnAttacked(TowerStat attacker)
     {
         int damage = Mathf.Max(0, attacker.Attack - Defence);
@@ -37,5 +44,11 @@ public class TowerStat : MonoBehaviour
     protected virtual void OnDead(TowerStat attacker)
     {
 
+    }
+
+    public virtual void OnFixed(int fixHp)
+    {
+        Hp += fixHp;
+        Hp = Mathf.Clamp(Hp, 0, MaxHp);
     }
 }

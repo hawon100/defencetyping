@@ -8,6 +8,9 @@ public class TypingManager
 
     public Define.InstallTowerType type;
 
+    public TowerBase towerBase;
+    public TowerStat towerStat;
+
     public void WordReset()
     {
         _word[0] = Managers.Word.BuildWord(_word[0]);
@@ -30,12 +33,16 @@ public class TypingManager
                 case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate("Tower/EpicTower"); break;
                 case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate("Tower/LegendTower"); break;
             }
+
+            towerBase = tower.GetComponent<TowerBase>();
+            towerStat = tower.GetComponent<TowerStat>();
+            //towerStat.towerStatUI.
         }
         else if (_input == _word[1])
         {
             Debug.Log("공격 성공");
 
-            tower.GetComponent<TowerBase>().Attack();
+            towerBase.Attack();
 
             //Temp
             //GameObject b = Managers.Resource.Instantiate("Enemys/Bullet");
@@ -52,6 +59,8 @@ public class TypingManager
         else if (_input == _word[3])
         {
             Debug.Log("수리 성공");
+
+            tower.GetComponent<TowerStat>().OnFixed(1);
         }
         else
         {
