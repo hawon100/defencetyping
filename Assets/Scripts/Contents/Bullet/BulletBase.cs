@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletBase : MonoBehaviour
-{
+{//전체 코드 바꾸기.
     [SerializeField] private string triggerTag;
 
     public Transform target;
     public float speed;
+
+    protected Vector3 targetPos;
 
     protected virtual void Awake()
     {
@@ -29,23 +31,17 @@ public class BulletBase : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag(triggerTag))
-        {
-            target = null;
-            Hit(other.gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.CompareTag(triggerTag))
+    //    {
+    //        target = null;
+    //        Hit(other.gameObject);
+    //    }
+    //}
 
-    protected virtual void Hit(GameObject hitObject)
+    protected bool Measure(Vector3 Vector, float distance)
     {
-        StartCoroutine(HitDestroy());
-    }
-
-    IEnumerator HitDestroy()
-    {
-        yield return new WaitForSeconds(1.5f);
-        Managers.Resource.Destroy(this.gameObject);
+        return Vector.sqrMagnitude <= distance * distance;
     }
 }

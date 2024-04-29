@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
         if (!selectedTower.isTyping)
         {
             selectedTower = null;
-            Managers.Typing.tower = null;
+            //Managers.Typing.tower = null;
         }
     }
 

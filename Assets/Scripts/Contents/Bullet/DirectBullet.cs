@@ -28,13 +28,13 @@ public class DirectBullet : BulletBase
             return;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
-        //transform.Translate((target.position - transform.position).normalized * Time.deltaTime * speed);
-    }
-
-    protected override void Hit(GameObject hitObject)
-    {
-
-        base.Hit(hitObject);
+        targetPos = target.position;
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
+    
+        if (Measure(targetPos - transform.position, 0.1f))
+        {
+            target = null;
+            Managers.Resource.Destroy(gameObject);
+        }
     }
 }

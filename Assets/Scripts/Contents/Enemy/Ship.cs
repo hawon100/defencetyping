@@ -10,6 +10,8 @@ public class Ship : EnemyBase
     public BezierBullet bezierBullet; //private Temp
     public DirectBullet directBullet; //private Temp
 
+    [SerializeField] private bool isAttacked; //Temp
+
     //private Transform savedTarget;
 
     public bool isDetected = true; //Temp
@@ -19,7 +21,7 @@ public class Ship : EnemyBase
         base.Awake();
         //RandomInt(); //Temp
 
-        for (int i = 0; i < 5; i++) //Temp
+        for (int i = 0; i < 3; i++) //Temp
         {
             GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
             Managers.Resource.Destroy(b);
@@ -51,20 +53,21 @@ public class Ship : EnemyBase
     {
         Detected();
 
+        Debug.Log("Ship Attack!");
         //if (target == null) return;
 
-        directBullet.target = target;
+        //directBullet.target = target;
 
-        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
-
-        b.transform.parent = null;
+        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+        b.GetComponent<BulletBase>().target = target;
         b.transform.position = transform.position;
     }
 
     private void Detected()
     {
-        if (!isDetected) return;
-        
+        //if (!isDetected) return;
+
+        Debug.Log("Ship Detected!");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
 
         foreach (Collider2D collider in colliders)
@@ -74,7 +77,6 @@ public class Ship : EnemyBase
                 //savedTarget = target;
                 target = collider.transform;
                 targetPos = target.position;
-                isDetected = false; 
                 return;
             }
         }

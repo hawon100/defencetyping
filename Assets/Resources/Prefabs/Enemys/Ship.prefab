@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,14 +139,15 @@ MonoBehaviour:
   rotateSpeed: 2
   target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
   targetPos: {x: 0, y: 0}
-  distance: 6
+  distance: 4
   isMove: 1
   moveVec: {x: 0, y: 0, z: 0}
-  cooltime: 6
+  cooltime: 5
   targetTag: Tower
   range: 4
   bezierBullet: {fileID: 6300741034209622059, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
+  isAttacked: 0
   isDetected: 1
 --- !u!114 &3746714687584975451
 MonoBehaviour:

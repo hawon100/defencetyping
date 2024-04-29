@@ -8,14 +8,14 @@ public class InstallTower : TowerBase
 
     [SerializeField] private PlayerBullet playerBullet;
 
-    private bool isDetected = true;
+    //private bool isDetected = true;
 
     protected override void Start()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
-            //GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
-            //Managers.Resource.Destroy(b); 
+            GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+            Managers.Resource.Destroy(b); 
         }
     }
 
@@ -27,15 +27,14 @@ public class InstallTower : TowerBase
     protected override void OnAttack()
     {
         Detected();
-        Debug.Log(_target);
 
         if (_target == null) return;
 
-        playerBullet.target = _target;
-        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, transform.parent = null);
+        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+        b.GetComponent<BulletBase>().target = _target;
         b.transform.position = transform.position;
 
-        _target = null;
+        //_target = null;
 
         //Automatic Attack
         //if (_target == null) return;

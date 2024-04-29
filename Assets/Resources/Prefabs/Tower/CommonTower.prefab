@@ -173,11 +173,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383663462593883120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8d75f428987894b9a70981711a4e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerStatUI: {fileID: 0}
   _level: 0
   _hp: 3
   _maxHp: 3

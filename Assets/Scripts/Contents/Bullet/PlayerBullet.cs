@@ -33,21 +33,32 @@ public class PlayerBullet : BulletBase
 
     protected override void Move()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            Managers.Resource.Destroy(gameObject);
+            return;
+        }
 
+        targetPos = target.position;
         //transform.Translate(moveVec * Time.deltaTime * speed);
-        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
+
+        if (Measure(targetPos - transform.position, 0.1f))
+        {
+            target = null;
+            Managers.Resource.Destroy(gameObject);
+        }
     }
 
     //Erase And Use isDistance Function.
-    protected override void Hit(GameObject hitObject)
-    {
-        if (hitObject.GetComponent<EnemyBase>() != null)
-        {
-            hitObject.GetComponent<EnemyBase>().Damage(10);
-        }
+    //protected override void Hit(GameObject hitObject)
+    //{
+    //    if (hitObject.GetComponent<EnemyBase>() != null)
+    //    {
+    //        hitObject.GetComponent<EnemyBase>().Damage(10);
+    //    }
 
-        target = null;
-        Managers.Resource.Destroy(gameObject);
-    }
+    //    target = null;
+    //    Managers.Resource.Destroy(gameObject);
+    //}
 }

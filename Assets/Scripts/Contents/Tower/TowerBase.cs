@@ -19,7 +19,7 @@ public abstract class TowerBase : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _range);
 
-        _target = null;
+        //_target = null;
 
         foreach (Collider2D collider in colliders)
         {
@@ -44,7 +44,7 @@ public abstract class TowerBase : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _range);
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         OnAttack();
     }

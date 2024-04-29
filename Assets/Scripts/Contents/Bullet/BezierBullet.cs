@@ -49,10 +49,10 @@ public class BezierBullet : BulletBase
         transform.position = Bezier(enemyPoint, targetPoint, height, t / speed); //fail!
     }
 
-    protected override void Hit(GameObject hitObject)
-    {
-        base.Hit(hitObject);
-    }
+    //protected override void Hit(GameObject hitObject)
+    //{
+    //    base.Hit(hitObject);
+    //}
 
     private Vector3 Bezier(Vector3 startPos, Vector3 endPos, float height, float t)
     {
