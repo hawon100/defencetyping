@@ -9,7 +9,7 @@ public class TypingManager
     public Define.InstallTowerType type;
 
     public TowerBase towerBase;
-    //public TowerStat towerStat;
+    public TowerStat towerStat;
 
     public void WordReset()
     {
@@ -33,10 +33,8 @@ public class TypingManager
                 case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate("Tower/EpicTower"); break;
                 case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate("Tower/LegendTower"); break;
             }
-
-            Debug.Log(tower);
             towerBase = tower.GetComponent<TowerBase>();
-            //towerStat = tower.GetComponent<TowerStat>();
+            towerStat = tower.GetComponent<TowerStat>();
             //towerStat.towerStatUI.
         }
         else if (_input == _word[1])
@@ -61,7 +59,7 @@ public class TypingManager
         {
             Debug.Log("수리 성공");
 
-            //tower.GetComponent<TowerStat>().OnFixed(1);
+            towerStat.OnFixed(3);
         }
         else
         {

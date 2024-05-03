@@ -54,7 +54,7 @@ public class TowerStat : MonoBehaviour
 
     protected virtual void OnDead()
     {
-
+        
     }
 
     //protected virtual void OnDead(TowerStat attacker)

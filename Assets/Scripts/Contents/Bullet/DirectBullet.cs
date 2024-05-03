@@ -39,6 +39,7 @@ public class DirectBullet : BulletBase
     
         if (Measure(targetPos - transform.position, 0.1f))
         {
+            target.GetComponent<TowerStat>().OnAttacked(1);
             target = null;
             trailRend.Clear();
             Managers.Resource.Destroy(gameObject);

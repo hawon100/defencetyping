@@ -46,6 +46,7 @@ public class InstallTower : TowerBase
             s.target = _target;
             s.Init();
             b.transform.position = transform.position;
+            _target = null;
         }
         else
         {

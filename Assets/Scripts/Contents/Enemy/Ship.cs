@@ -7,7 +7,6 @@ public class Ship : EnemyBase
     [SerializeField] private string targetTag;
     [SerializeField] [Range(0.0f, 10.0f)] private float range;
     [Header("Bullets")]
-    public BezierBullet bezierBullet; //private Temp
     public DirectBullet directBullet; //private Temp
 
     [SerializeField] private bool isAttacked; //Temp
@@ -49,6 +48,7 @@ public class Ship : EnemyBase
     protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
         Detected();
+
         if (target != null)
         {
             //change target to isDetected, then if detected shoot the tower!
@@ -60,14 +60,12 @@ public class Ship : EnemyBase
         }
         else
         {
-            Detected();
+            target = Managers.Game.target;
         }
     }
 
     private void Detected()
     {
-        Debug.Log("Detected from Ship!");
-
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
 
         foreach (Collider2D collider in colliders)
@@ -77,6 +75,7 @@ public class Ship : EnemyBase
                 //savedTarget = target;
                 target = collider.transform;
                 targetPos = target.position;
+                isMove = false;
                 return;
             }
         }

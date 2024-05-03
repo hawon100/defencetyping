@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class CenteralTowerStat : TowerStat
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Init()
     {
-        
+        base.Init();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnAttacked(int damagedHp)
     {
-        
+        base.OnAttacked(damagedHp);
+    }
+
+    protected override void OnDead()
+    {
+
+    }
+
+    //protected virtual void OnDead(TowerStat attacker)
+    //{
+
+    //}
+
+    public override void OnFixed(int fixHp)
+    {
+        base.OnFixed(fixHp);
     }
 }

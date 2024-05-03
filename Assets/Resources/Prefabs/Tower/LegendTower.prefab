@@ -166,7 +166,7 @@ MonoBehaviour:
   curShotDelay: 0
   maxShotDelay: 0
   playerBullet: {fileID: 1197461238427017851, guid: ac4490c55b0fac44abf11ac781671745, type: 3}
-  cooltime: 3
+  cooltime: 1.5
 --- !u!114 &-5111090619318574725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +182,6 @@ MonoBehaviour:
   towerStatUI: {fileID: 0}
   _level: 0
   _hp: 3
-  _maxHp: 3
+  _maxHp: 10
   _attack: 0
   _defence: 0
