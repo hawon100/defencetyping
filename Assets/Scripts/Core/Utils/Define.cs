@@ -55,6 +55,7 @@ public class Define
         InGame,
         TestHawon,
         TestKangmai,
+        MapSelect,
     }
 
     public enum Sound
