@@ -55,8 +55,6 @@ public class Bombship : EnemyBase
             spriteRend.color = Color.white;
             yield return time;
         }
-
-        Death();
     }
 
     protected override void Move()
@@ -69,10 +67,5 @@ public class Bombship : EnemyBase
         spriteRotation.z = Gaze(transform.position, target.position) - 90f;
 
         transform.rotation = Quaternion.Euler(spriteRotation);
-    }
-
-    protected override void Death()
-    {
-        base.Death();
     }
 }

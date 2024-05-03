@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    [Header("HP")]
-    public int hp;
-    public int maxHp;
-    public bool isDeath;
-
     [Header("Move")]
     public float moveSpeed;
     public float rotateSpeed = 2.0f;
@@ -41,8 +36,6 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (isDeath) return;
-
         if (timeRate > cooltime)
         {
             timeRate -= cooltime;
@@ -82,7 +75,6 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Init()
     {
-        hp = maxHp;
         targetPos = target.position;
     }
 
@@ -104,19 +96,5 @@ public class EnemyBase : MonoBehaviour
     protected bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
         return (targetVec - currentVec).sqrMagnitude <= distance * distance;
-    }
-
-    public void Damage(int value)
-    {
-        hp -= value;
-        hp = Mathf.Clamp(hp, 0, maxHp);
-
-        if (hp <= 0) Death();
-    }
-
-    protected virtual void Death()
-    {
-        Managers.Resource.Destroy(gameObject);
-        //Managers.Spawn.curEnemy.Remove(this.gameObject);
     }
 }

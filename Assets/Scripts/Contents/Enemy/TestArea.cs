@@ -9,7 +9,7 @@ public class TestArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyBase>().Damage(damage);
+            //other.gameObject.GetComponent<EnemyBase>().Damage(damage);
         }
     }
 }

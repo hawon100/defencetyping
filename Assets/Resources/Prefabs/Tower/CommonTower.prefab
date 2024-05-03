@@ -166,6 +166,7 @@ MonoBehaviour:
   curShotDelay: 0
   maxShotDelay: 0
   playerBullet: {fileID: 1197461238427017851, guid: ac4490c55b0fac44abf11ac781671745, type: 3}
+  cooltime: 3
 --- !u!114 &2075357386273226461
 MonoBehaviour:
   m_ObjectHideFlags: 0

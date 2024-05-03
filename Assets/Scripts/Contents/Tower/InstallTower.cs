@@ -8,6 +8,11 @@ public class InstallTower : TowerBase
 
     [SerializeField] private PlayerBullet playerBullet;
 
+    [Header("Auto Attack")]
+    [SerializeField] private float cooltime;
+
+    private float timerate;
+
     //private bool isDetected = true;
 
     protected override void Start()
@@ -21,38 +26,31 @@ public class InstallTower : TowerBase
 
     protected override void Update()
     {
-        
+        if (timerate >= cooltime)
+        {
+            timerate = 0;
+            OnAttack();
+        }
+        else
+        {
+            timerate += Time.deltaTime;
+        }
     }
 
     protected override void OnAttack()
     {
-        Detected();
-
-        if (_target == null) return;
-
-        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
-        b.GetComponent<BulletBase>().target = _target;
-        b.transform.position = transform.position;
-
-        //_target = null;
-
-        //Automatic Attack
-        //if (_target == null) return;
-
-        //curShotDelay += Time.deltaTime;
-
-        //if (curShotDelay < maxShotDelay) return;
-
-        //playerBullet.target = _target;
-        //GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, transform.parent = null);
-
-        //b.transform.parent = transform;
-        //b.transform.position = transform.position;
-
-        //curShotDelay -= maxShotDelay;
-
-        //playerBullet.target = null;
-        //_target = null;
+        if (_target != null)
+        {
+            GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+            BulletBase s = b.GetComponent<BulletBase>();
+            s.target = _target;
+            s.Init();
+            b.transform.position = transform.position;
+        }
+        else
+        {
+            Detected();
+        }
     }
 
     protected override void AdjustLevel()
@@ -77,4 +75,9 @@ public class InstallTower : TowerBase
 
     protected override void Detected() => base.Detected();
     protected override void OnDrawGizmos() => base.OnDrawGizmos();
+
+    public override void Attack() //Temp
+    {
+        OnAttack();
+    }
 }

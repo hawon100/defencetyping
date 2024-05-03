@@ -11,14 +11,21 @@ public class BulletBase : MonoBehaviour
 
     protected Vector3 targetPos;
 
+    protected TrailRenderer trailRend; //Temp -> private
     protected virtual void Awake()
     {
-        //target = Managers.Game.target;
+        trailRend = GetComponent<TrailRenderer>();
+    }
+
+    public virtual void Init()
+    {
+        //trailRend.Clear();
+        if (target == null) Debug.Log("No Target In Bullet!");
     }
 
     protected virtual void Start()
     {
-
+        
     }
 
     protected virtual void Update()

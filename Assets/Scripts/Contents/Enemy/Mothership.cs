@@ -103,9 +103,4 @@ public class Mothership : EnemyBase
     {
         base.LookAt();
     }
-
-    protected override void Death()
-    {
-        base.Death();
-    }
 }

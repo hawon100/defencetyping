@@ -8,7 +8,7 @@ public class TypingManager
 
     public Define.InstallTowerType type;
 
-    //public TowerBase towerBase;
+    public TowerBase towerBase;
     //public TowerStat towerStat;
 
     public void WordReset()
@@ -35,18 +35,15 @@ public class TypingManager
             }
 
             Debug.Log(tower);
-            //towerBase = tower.GetComponent<TowerBase>();
+            towerBase = tower.GetComponent<TowerBase>();
             //towerStat = tower.GetComponent<TowerStat>();
             //towerStat.towerStatUI.
         }
         else if (_input == _word[1])
         {
             Debug.Log("공격 성공");
-            Debug.Log(tower);
 
-            // if (tower == null) return "Null";
-
-            tower.GetComponent<TowerBase>().Attack();
+            towerBase.Attack();
 
             //Temp
             //GameObject b = Managers.Resource.Instantiate("Enemys/Bullet");

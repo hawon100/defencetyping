@@ -75,11 +75,6 @@ public class Sideship : EnemyBase
         transform.rotation = Quaternion.Euler(spriteRotation);
     }
 
-    protected override void Death()
-    {
-        base.Death();
-    }
-
     private void RandomInt()
     {
         distance = Random.Range(5f, 8f);

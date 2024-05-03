@@ -12,18 +12,15 @@ public class Ship : EnemyBase
 
     [SerializeField] private bool isAttacked; //Temp
 
-    //private Transform savedTarget;
-
     public bool isDetected = true; //Temp
 
     protected override void Awake()
     {
         base.Awake();
-        //RandomInt(); //Temp
 
         for (int i = 0; i < 3; i++) //Temp
         {
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
             Managers.Resource.Destroy(b);
         }
     }
@@ -49,25 +46,28 @@ public class Ship : EnemyBase
         base.FixedUpdate();
     }
 
-    protected override void Attack()
+    protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
         Detected();
-
-        Debug.Log("Ship Attack!");
-        //if (target == null) return;
-
-        //directBullet.target = target;
-
-        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-        b.GetComponent<BulletBase>().target = target;
-        b.transform.position = transform.position;
+        if (target != null)
+        {
+            //change target to isDetected, then if detected shoot the tower!
+            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+            BulletBase s = b.GetComponent<BulletBase>();
+            s.target = target;
+            s.Init();
+            b.transform.position = transform.position;
+        }
+        else
+        {
+            Detected();
+        }
     }
 
     private void Detected()
     {
-        //if (!isDetected) return;
+        Debug.Log("Detected from Ship!");
 
-        Debug.Log("Ship Detected!");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
 
         foreach (Collider2D collider in colliders)
@@ -80,6 +80,11 @@ public class Ship : EnemyBase
                 return;
             }
         }
+
+        //if (target == null)
+        //{
+        //    target = Managers.Game.target;
+        //}
     }
 
     private void OnDrawGizmos()
@@ -102,14 +107,22 @@ public class Ship : EnemyBase
         }
     }
 
-    private void LookAtGaze()
-    {
-        //Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, gazeTarget));
-        //transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotateSpeed * Time.deltaTime);
-    }
+    //public override void Damage(int value)
+    //{
+    //    StartCoroutine(DamageMotion());
+    //    base.Damage(value);
+    //}
 
-    protected override void Death()
-    {
-        base.Death();
-    } 
+    //protected override void Death()
+    //{
+    //    base.Death();
+    //} 
+
+    //private IEnumerator DamageMotion()
+    //{
+    //    gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+    //    yield return new WaitForSeconds(0.4f);
+    //    gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+    //    yield return new WaitForSeconds(0.4f);
+    //}
 }

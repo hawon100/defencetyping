@@ -9,8 +9,8 @@ public abstract class PlayerTowerStat : TowerStat
 
 	}
 
-	protected override void OnDead(TowerStat attacker)
-	{
-		Debug.Log("Player Dead");
-	}
+	//protected override void OnDead(TowerStat attacker)
+	//{
+	//	Debug.Log("Player Dead");
+	//}
 }

@@ -12,6 +12,7 @@ public class SpawnController : MonoBehaviour
         //Managers.Spawn.Init();
         //Temp - Start
         Managers.Spawn.spawnArea = new Transform[4];
+        Managers.Game.Init();
 
         for (int i = 0; i < 4; i++)
         {
@@ -32,13 +33,13 @@ public class SpawnController : MonoBehaviour
         Managers.Spawn.ExecuteWave(waves[1]);
     }
 
-    private void FixedUpdate()
-    {
-        isSpawn = Managers.Spawn.curEnemy.Count <= 0 == true;
+    //private void FixedUpdate()
+    //{
+    //    isSpawn = Managers.Spawn.curEnemy.Count <= 0 == true;
 
-        if (!isSpawn) return;
+    //    if (!isSpawn) return;
 
-        isSpawn = false;
-        Managers.Spawn.ExecuteWave(waves[Random.Range(0, waveCount)]);
-    }
+    //    isSpawn = false;
+    //    Managers.Spawn.ExecuteWave(waves[Random.Range(0, waveCount)]);
+    //}
 }

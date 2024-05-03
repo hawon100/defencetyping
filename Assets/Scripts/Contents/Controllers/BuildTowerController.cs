@@ -83,7 +83,7 @@ public class BuildTowerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameController.Instance.curDelayChange = 0;
-            
+            Managers.Typing.tower = this.gameObject;
             PanelOpen();
         }
     }

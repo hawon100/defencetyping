@@ -19,32 +19,48 @@ public class TowerStat : MonoBehaviour
     private void Start()
     {
         _level = 1;
-        _hp = 100;
-        _maxHp = 100;
-        _attack = 10;
+        _hp = 3;
+        _maxHp = 3;
+        _attack = 1;
         _defence = 0;
     }
 
     public virtual void Init()
     {
-
+        Hp = MaxHp;
     }
 
-    public virtual void OnAttacked(TowerStat attacker)
+    //public virtual void OnAttacked(TowerStat attacker)
+    //{
+    //    int damage = Mathf.Max(0, attacker.Attack - Defence);
+    //    Hp -= damage;
+    //    if (Hp <= 0)
+    //    {
+    //        Hp = 0;
+    //        OnDead(attacker);
+    //    }
+    //}
+
+    public virtual void OnAttacked(int damagedHp)
     {
-        int damage = Mathf.Max(0, attacker.Attack - Defence);
-        Hp -= damage;
+        Hp -= damagedHp;
+        Hp = Mathf.Clamp(Hp, 0, MaxHp);
         if (Hp <= 0)
         {
             Hp = 0;
-            OnDead(attacker);
+            OnDead();
         }
     }
 
-    protected virtual void OnDead(TowerStat attacker)
+    protected virtual void OnDead()
     {
 
     }
+
+    //protected virtual void OnDead(TowerStat attacker)
+    //{
+
+    //}
 
     public virtual void OnFixed(int fixHp)
     {

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DirectBullet : BulletBase
 {
+    public override void Init()
+    {
+        base.Init();
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -12,6 +17,7 @@ public class DirectBullet : BulletBase
     protected override void Start()
     {
         base.Start();
+        target = Managers.Game.target;
     }
 
     protected override void Update()
@@ -34,6 +40,7 @@ public class DirectBullet : BulletBase
         if (Measure(targetPos - transform.position, 0.1f))
         {
             target = null;
+            trailRend.Clear();
             Managers.Resource.Destroy(gameObject);
         }
     }
