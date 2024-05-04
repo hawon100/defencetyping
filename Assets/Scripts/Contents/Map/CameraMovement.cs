@@ -1,22 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Camera cam;
-    public float zoomStep, minCamSize, maxCamSize;
+    private Camera cam;
+    public float zoomStep = 4, minCamSize = 0.1f, maxCamSize = 5f;
 
     public Image map;
     private float mapMinX, mapMaxX, mapMinY, mapMaxY;
-
 
     private Vector3 dragOrigin;
 
     private void Awake()
     {
+        cam = GetComponent<Camera>();
+
         Vector3[] corners = new Vector3[4];
         map.rectTransform.GetWorldCorners(corners);
 
