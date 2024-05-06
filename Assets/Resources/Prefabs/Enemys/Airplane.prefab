@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7940524014526620336}
   - component: {fileID: 6875906849041558393}
   - component: {fileID: 2361880744257172559}
-  - component: {fileID: 4351992092849665352}
+  - component: {fileID: 647587352150653041}
   m_Layer: 6
   m_Name: Airplane
   m_TagString: Enemy
@@ -220,7 +220,7 @@ MonoBehaviour:
   range: 5
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
   isDetected: 1
---- !u!114 &4351992092849665352
+--- !u!114 &647587352150653041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,11 +229,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7138330034862878254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ebf61095907fa4d958d128d2ce31ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 47b775c5d38efb34cbd79ed6ad270f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  maxHp: 10
+  maxHp: 3
   isDeath: 0
   hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 7740691519104959258}
