@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipStat : EnemyStat
+public class EnemyStat : EnemyStatBase
 {
     [SerializeField] private GameObject hpPanelPrefab;
     [SerializeField] private SpriteRenderer spriteRend;
@@ -16,7 +16,7 @@ public class ShipStat : EnemyStat
     {
         //GameObject ui = Managers.Resource.Instantiate(hpPanelPrefab, null);
         //Once get damage, UI show the HP Bar.
-        if (!isDeath) StartCoroutine(DamagedMotion());
+        if (hp > 1) StartCoroutine(DamagedMotion());
         base.Damage(value);
     }
 

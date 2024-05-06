@@ -30,11 +30,11 @@ public class Accordship : EnemyBase
         base.Init();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        RotateObject();
-    }
+    //protected override void Update()
+    //{
+    //    base.Update();
+    //    RotateObject();
+    //}
 
     protected override void FixedUpdate()
     {

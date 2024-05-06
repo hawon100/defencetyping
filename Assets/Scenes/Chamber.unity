@@ -373,15 +373,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!1 &170115852
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,15 +958,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!1 &372292299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,15 +1213,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!1 &466554391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,15 +1406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!4 &556371539
 Transform:
   m_ObjectHideFlags: 0
@@ -1737,15 +1721,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!1 &625423813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,7 +2000,7 @@ Transform:
   m_GameObject: {fileID: 699574928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2735,15 +2715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!1 &1094098971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,15 +2974,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!1 &1207832683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,12 +3023,14 @@ MonoBehaviour:
   - {fileID: 339614194}
   - {fileID: 130751810}
   - {fileID: 556371538}
-  tower: {fileID: 0}
+  selectedTower: {fileID: 0}
   towerSelectUI: {fileID: 1446728472}
   buildUI: {fileID: 505220224}
+  towerUI: {fileID: 0}
   gold: 0
   curDelayChange: 0
   maxDelayChange: 10
+  wordResetTimer: []
 --- !u!4 &1207832685
 Transform:
   m_ObjectHideFlags: 0
@@ -3585,15 +3559,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 2013954158}
   WordPanel: {fileID: 631086761}
   InputPanel: {fileID: 1975267353}
   isTyping: 0
-  towerBuild: {fileID: 0}
-  towerSelectUI: {fileID: 1446728472}
-  buildUI: {fileID: 505220224}
-  towerUI: {fileID: 1600783537}
   type: 0
+  gameCtrl: {fileID: 0}
 --- !u!1 &1446728472
 GameObject:
   m_ObjectHideFlags: 0

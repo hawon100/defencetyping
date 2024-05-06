@@ -51,7 +51,7 @@ public class PlayerBullet : BulletBase
 
         if (Measure(targetPos - transform.position, 0.1f))
         {
-            target.gameObject.GetComponent<ShipStat>().Damage(1);
+            target.gameObject.GetComponent<EnemyStatBase>().Damage(1);
             target = null;
             trailRend.Clear();
             Managers.Resource.Destroy(gameObject);

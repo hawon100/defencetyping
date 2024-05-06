@@ -1341,6 +1341,7 @@ Transform:
   m_Children:
   - {fileID: 1084488476}
   - {fileID: 1266394667}
+  - {fileID: 1098869984}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411423166
@@ -4085,6 +4086,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 339318992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1098869983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098869984}
+  - component: {fileID: 1098869985}
+  m_Layer: 0
+  m_Name: WaveController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098869984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098869983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 339318992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1098869985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098869983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b636df6ce38d44a418de5a9eb9c0cdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisStage: {fileID: 11400000, guid: d8afd9fc3ad14b74db468a3bdd48fe85, type: 2}
 --- !u!1 &1135423510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4782,7 +4828,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1266394667}
-  - component: {fileID: 1266394666}
   m_Layer: 0
   m_Name: SpawnController
   m_TagString: Untagged
@@ -4790,22 +4835,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1266394666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266394665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a58f97aead991dd45ba78f50a1d9c76c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - {fileID: 11400000, guid: b5d5292e574fd9c43b2a589cbfff20ad, type: 2}
-  - {fileID: 11400000, guid: 596ee11757c95874f9e5d4228a68c22f, type: 2}
-  - {fileID: 11400000, guid: c468eff2266fb81488448a66b740b072, type: 2}
 --- !u!4 &1266394667
 Transform:
   m_ObjectHideFlags: 0

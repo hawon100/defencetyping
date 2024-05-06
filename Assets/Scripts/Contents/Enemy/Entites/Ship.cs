@@ -35,6 +35,12 @@ public class Ship : EnemyBase
         base.Init();
     }
 
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+    }
+
     //protected override void Update()
     //{
     //    base.Update();
@@ -105,23 +111,4 @@ public class Ship : EnemyBase
             base.LookAt();
         }
     }
-
-    //public override void Damage(int value)
-    //{
-    //    StartCoroutine(DamageMotion());
-    //    base.Damage(value);
-    //}
-
-    //protected override void Death()
-    //{
-    //    base.Death();
-    //} 
-
-    //private IEnumerator DamageMotion()
-    //{
-    //    gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-    //    yield return new WaitForSeconds(0.4f);
-    //    gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-    //    yield return new WaitForSeconds(0.4f);
-    //}
 }

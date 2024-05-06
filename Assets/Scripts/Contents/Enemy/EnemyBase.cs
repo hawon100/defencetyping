@@ -19,9 +19,12 @@ public class EnemyBase : MonoBehaviour
 
     private Rigidbody2D rb2d;
 
+    private EnemyStatBase enemyStat;
+
     protected virtual void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        enemyStat = GetComponent<EnemyStatBase>();
     }
 
     protected virtual void Start()
@@ -29,10 +32,15 @@ public class EnemyBase : MonoBehaviour
         
     }
 
-    protected virtual void Update()
+    protected virtual void OnEnable()
     {
-        
+        Init();
     }
+
+    //protected virtual void Update()
+    //{
+        
+    //}
 
     protected virtual void FixedUpdate()
     {
@@ -75,7 +83,12 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Init()
     {
+        target = Managers.Game.target;
         targetPos = target.position;
+
+        isMove = true;
+
+        enemyStat.Init();
     }
 
     public Vector3 Trace(Vector3 curVec, Vector3 targetVec)

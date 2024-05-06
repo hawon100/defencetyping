@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStat : MonoBehaviour
+public class EnemyStatBase : MonoBehaviour
 {
     public int hp;
     public int maxHp;
@@ -11,6 +11,7 @@ public class EnemyStat : MonoBehaviour
     public virtual void Init()
     {
         hp = maxHp;
+        isDeath = false;
     }
 
     public virtual void Damage(int value)
@@ -26,6 +27,7 @@ public class EnemyStat : MonoBehaviour
         isDeath = true;
 
         Managers.Resource.Destroy(gameObject);
+        Managers.Wave.WaveUpdate();
         //Managers.Spawn.curEnemy.Remove(this.gameObject);
         //Manager.Spawn.RemoveCurrentEnemy() -> -1 & if (0) WaveExecute();
     }
