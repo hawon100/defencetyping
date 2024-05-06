@@ -9,6 +9,8 @@ public class GameScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Game;
+
+        Managers.Typing.WordReset();
     }
 
     public override void Clear()
