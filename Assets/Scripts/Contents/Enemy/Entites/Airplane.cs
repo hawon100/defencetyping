@@ -11,7 +11,7 @@ public class Airplane : EnemyBase
 
     public bool isDetected = true; //Temp
 
-    private Vector3 moveVec;
+    private Vector3 moveVector;
 
     protected override void Awake()
     {

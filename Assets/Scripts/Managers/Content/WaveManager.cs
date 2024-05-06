@@ -58,6 +58,8 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()
     {
+        if (currentWave > stage.Wave.Count) return;
+
         currentWave += 1;
         WaveExecute(stage.Wave[currentWave]);
     }
