@@ -4,42 +4,42 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    public List<Wave> waves = new List<Wave>();
-    private bool isSpawn;
-    private int waveCount;
-    private void Start()
-    {
-        //Managers.Spawn.Init();
-        //Temp - Start
-        Managers.Spawn.spawnArea = new Transform[4];
-        Managers.Game.Init();
+    ////public List<Wave> waves = new List<Wave>();
+    ////private bool isSpawn;
+    ////private int waveCount;
+    ////private void Start()
+    ////{
+    ////    //Managers.Spawn.Init();
+    ////    //Temp - Start
+    ////    Managers.Spawn.spawnArea = new Transform[4];
+    ////    Managers.Game.Init();
 
-        for (int i = 0; i < 4; i++)
-        {
-            //GameObject s = Managers.Resource.Instantiate("SpawnArea/SpawnArea" + i, transform.parent);
-            GameObject sa = Managers.Resource.Instantiate("SpawnArea/SpawnArea" + i, transform.parent);
+    ////    for (int i = 0; i < 4; i++)
+    ////    {
+    ////        //GameObject s = Managers.Resource.Instantiate("SpawnArea/SpawnArea" + i, transform.parent);
+    ////        GameObject sa = Managers.Resource.Instantiate("SpawnArea/SpawnArea" + i, transform.parent);
 
-            Managers.Spawn.spawnArea[i] = sa.transform;
-        }
-        //End
+    ////        Managers.Spawn.spawnArea[i] = sa.transform;
+    ////    }
+    ////    //End
 
-        waveCount = Managers.Spawn.waves.Count;
+    ////    waveCount = Managers.Spawn.waves.Count;
 
-        for (int i = 0; i < waveCount; i++)
-        {
-            Managers.Spawn.waves.Add(waves[i]);
-        }
+    ////    for (int i = 0; i < waveCount; i++)
+    ////    {
+    ////        Managers.Spawn.waves.Add(waves[i]);
+    ////    }
 
-        Managers.Spawn.ExecuteWave(waves[1]);
-    }
+    ////    Managers.Spawn.ExecuteWave(waves[1]);
+    ////}
 
-    //private void FixedUpdate()
-    //{
-    //    isSpawn = Managers.Spawn.curEnemy.Count <= 0 == true;
+    //////private void FixedUpdate()
+    //////{
+    //////    isSpawn = Managers.Spawn.curEnemy.Count <= 0 == true;
 
-    //    if (!isSpawn) return;
+    //////    if (!isSpawn) return;
 
-    //    isSpawn = false;
-    //    Managers.Spawn.ExecuteWave(waves[Random.Range(0, waveCount)]);
-    //}
+    //////    isSpawn = false;
+    //////    Managers.Spawn.ExecuteWave(waves[Random.Range(0, waveCount)]);
+    //////}
 }

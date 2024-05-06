@@ -26,11 +26,11 @@ public class Bombship : EnemyBase
         base.Init();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        RotateObject();
-    }
+    //protected override void Update()
+    //{
+    //    base.Update();
+    //    RotateObject();
+    //}
 
     protected override void FixedUpdate()
     {

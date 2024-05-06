@@ -14,13 +14,20 @@ public class WaveManager : MonoBehaviour
         
     }
 
+    public void WaveStart()
+    {
+        if (stage == null) return;
+
+        WaveExecute(stage.Wave[0]);
+    }
+
     public void WaveExecute(Wave wave)
     {
         if (wave == null) return;
 
-        for (int i = 0; i < wave.Mob.Count; i++)
+        for (int i = 0; i < wave.WaveEnemie.Count; i++)
         {
-            for (int j = 0; j < wave.Mob[i].Count; j++)
+            for (int j = 0; j < wave.WaveEnemie[i].Amount; j++)
             {
                 Transform area = spawnArea[Random.Range(0, spawnArea.Length)];
 
@@ -29,12 +36,11 @@ public class WaveManager : MonoBehaviour
                 spawnPos.y = Random.Range(area.position.y - area.localScale.y / 2,
                                           area.position.y + area.localScale.y / 2);
 
-                GameObject enemy = Managers.Resource.Instantiate(wave.Mob[i].Enemy.gameObject);
+                GameObject enemy = Managers.Resource.Instantiate(wave.WaveEnemie[i].Enemy.gameObject);
 
                 enemy.transform.position = spawnPos;
 
                 currentEnemy += 1;
-                //curEnemy.Add(enemy);
             }
         }
     }
@@ -45,14 +51,14 @@ public class WaveManager : MonoBehaviour
 
         if (currentEnemy <= 0)
         {
-            WaveChange();
             currentEnemy = 0;
+            WaveChange();
         }
     }
 
     public void WaveChange()
     {
         currentWave += 1;
-        //WaveExecute(stage.Wave[currentWave]);
+        WaveExecute(stage.Wave[currentWave]);
     }
 }

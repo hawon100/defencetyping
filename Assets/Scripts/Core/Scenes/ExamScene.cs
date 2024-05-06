@@ -15,7 +15,7 @@ public class ExamScene : BaseScene
 
         for (int i = 0; i < waveList.Count; i++)
         {
-            Managers.Spawn.waves.Add(waveList[i]);
+            //Managers.Spawn.waves.Add(waveList[i]);
         }
     }
 

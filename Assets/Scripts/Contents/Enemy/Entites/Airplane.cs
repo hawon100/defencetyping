@@ -9,9 +9,9 @@ public class Airplane : EnemyBase
     [Header("Bullets")]
     public DirectBullet directBullet; //private Temp
 
-    [SerializeField] private bool isAttacked; //Temp
-
     public bool isDetected = true; //Temp
+
+    private Vector3 moveVec;
 
     protected override void Awake()
     {
@@ -19,8 +19,8 @@ public class Airplane : EnemyBase
 
         for (int i = 0; i < 3; i++) //Temp
         {
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-            Managers.Resource.Destroy(b);
+            //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+            //Managers.Resource.Destroy(b);
         }
     }
 
@@ -78,7 +78,14 @@ public class Airplane : EnemyBase
 
     protected override void Move()
     {
-        LookAt(); 
+        LookAt();
+        //moveVec.x = targetPos.x - transform.position.x;
+        //moveVec.y = targetPos.y - transform.position.y;
+        //moveVec = moveVec.normalized;
+        //transform.Translate(moveVec * moveSpeed * Time.deltaTime);
+        if (!isMove) return;
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
     }
 
     protected override void LookAt()

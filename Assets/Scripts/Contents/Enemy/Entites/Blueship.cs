@@ -20,11 +20,11 @@ public class Blueship : EnemyBase
         base.Init();
     }
 
-    protected override void Update()
-    {
-        Move();
-        RotateObject();
-    }
+    //protected override void Update()
+    //{
+    //    Move();
+    //    RotateObject();
+    //}
 
     protected override void FixedUpdate()
     {

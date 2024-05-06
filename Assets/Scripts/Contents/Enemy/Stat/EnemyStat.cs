@@ -2,32 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStat : MonoBehaviour
+public class EnemyStat : EnemyStatBase
 {
-    public int hp;
-    public int maxHp;
-    public bool isDeath;
-
-    public virtual void Init()
+    [SerializeField] private GameObject hpPanelPrefab;
+    [SerializeField] private SpriteRenderer spriteRend;
+    private WaitForSeconds waitSeconds = new WaitForSeconds(0.4f);
+    public override void Init()
     {
-        hp = maxHp;
+        base.Init();
     }
 
-    public virtual void Damage(int value)
+    public override void Damage(int value)
     {
-        hp -= value;
-        hp = Mathf.Clamp(hp, 0, maxHp);
-
-        if (hp <= 0) Death();
+        //GameObject ui = Managers.Resource.Instantiate(hpPanelPrefab, null);
+        //Once get damage, UI show the HP Bar.
+        if (hp > 1) StartCoroutine(DamagedMotion());
+        base.Damage(value);
     }
 
-    protected virtual void Death()
+    protected override void Death()
     {
-        isDeath = true;
+        base.Death();
+    }
 
-        Managers.Resource.Destroy(gameObject);
-        Managers.Wave.WaveUpdate();
-        //Managers.Spawn.curEnemy.Remove(this.gameObject);
-        //Manager.Spawn.RemoveCurrentEnemy() -> -1 & if (0) WaveExecute();
+    private IEnumerator DamagedMotion()
+    {
+        spriteRend.color = Color.red;
+        yield return waitSeconds;
+        spriteRend.color = Color.white;
+        yield return waitSeconds;
     }
 }
