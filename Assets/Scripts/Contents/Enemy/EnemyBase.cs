@@ -4,27 +4,25 @@ public class EnemyBase : MonoBehaviour
 {
     [Header("Move")]
     public float moveSpeed;
-    public float rotateSpeed = 2.0f;
+    public float rotSpeed = .2f;
+    public float stopDistance = .5f;
+    public bool isMove = true;
+    protected Vector3 moveVec;
+
+    [Header("Attack")]
     public Transform target;
     public Vector2 targetPos;
-    public float distance = 0.5f;
-    public bool isMove = true;
-
-    [SerializeField] private Vector3 moveVec;
     public float cooltime;
+    protected float timeRate;
 
-    private float timeRate;
-
-    [SerializeField] private string targetTag;
-    [SerializeField] [Range(0.0f, 10.0f)] private float range;
-
-    private Rigidbody2D rb2d;
+    [Header("Detect")]
+    [SerializeField] protected string targetTag;
+    [SerializeField] [Range(0.0f, 10.0f)] protected float range;
 
     private EnemyStatBase enemyStat;
 
     protected virtual void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         enemyStat = GetComponent<EnemyStatBase>();
     }
 
@@ -37,11 +35,6 @@ public class EnemyBase : MonoBehaviour
     {
         Init();
     }
-
-    //protected virtual void Update()
-    //{
-        
-    //}
 
     protected virtual void FixedUpdate()
     {
@@ -64,16 +57,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Move()
     {
-        if (!isMove) return;
 
-        rb2d.velocity = moveSpeed * Trace(transform.position, target.position).normalized; //Temp
-
-        if (rb2d.velocity.sqrMagnitude <= 0.1f || 
-            isDistance(transform.position, target.position, distance))
-        {
-            rb2d.velocity = Vector2.zero;
-            isMove = false;
-        }
     }
 
     protected virtual void Detected()
@@ -84,7 +68,6 @@ public class EnemyBase : MonoBehaviour
         {
             if (collider.CompareTag(targetTag))
             {
-                //savedTarget = target;
                 target = collider.transform;
                 targetPos = target.position;
                 isMove = false;
@@ -109,7 +92,7 @@ public class EnemyBase : MonoBehaviour
         enemyStat.Init();
     }
 
-    public Vector3 Trace(Vector3 curVec, Vector3 targetVec)
+    protected Vector3 Trace(Vector3 curVec, Vector3 targetVec)
     {
         moveVec.x = targetVec.x - curVec.x;
         moveVec.y = targetVec.y - curVec.y;

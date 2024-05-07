@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Ship : EnemyBase
 {
-    [SerializeField] private string targetTag;
-    [SerializeField] [Range(0.0f, 10.0f)] private float range;
-    [Header("Bullets")]
-    public DirectBullet directBullet; //private Temp
+    [Header("Bullet")]
+    public DirectBullet directBullet;
 
-    [SerializeField] private bool isAttacked; //Temp
-
-    public bool isDetected = true; //Temp
+    private Rigidbody2D rb2d;
 
     protected override void Awake()
     {
         base.Awake();
+        rb2d = GetComponent<Rigidbody2D>();
 
-        for (int i = 0; i < 3; i++) //Temp
+        for (int i = 0; i < 3; i++)
         {
             GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
             Managers.Resource.Destroy(b);
@@ -26,7 +23,6 @@ public class Ship : EnemyBase
 
     protected override void Start()
     {
-        base.Start();
         Init();
     }
 
@@ -41,11 +37,6 @@ public class Ship : EnemyBase
         base.OnEnable();
     }
 
-    //protected override void Update()
-    //{
-    //    base.Update();
-    //}
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -56,12 +47,10 @@ public class Ship : EnemyBase
         if (target != null)
         {
             //change target to isDetected, then if detected shoot the tower!
-            directBullet.target = target;
-            directBullet.Init();
             GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
             BulletBase s = b.GetComponent<BulletBase>();
-            //s.target = target;
-            //s.Init();
+            s.target = target;
+            s.Init();
             b.transform.position = transform.position;
         }
         else
@@ -75,28 +64,27 @@ public class Ship : EnemyBase
         base.Detected();
     }
 
-    //Move() = Detected()
-    //(!isMove) 
-    //
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawWireSphere(transform.position, range);
-    //}
-
     protected override void Move()
     {
-        LookAt();
+        if (!isMove) return;
+
         Detected();
-        base.Move();
+        LookAt();
+
+        rb2d.velocity = moveSpeed * Trace(transform.position, target.position).normalized; //Temp
+
+        if (rb2d.velocity.sqrMagnitude <= 0.1f ||
+            isDistance(transform.position, target.position, stopDistance))
+        {
+            rb2d.velocity = Vector2.zero;
+            isMove = false;
+        }
     }
 
     protected override void LookAt()
     {
-        if (target != null)
-        {
-            base.LookAt();
-        }
+        if (target == null) return;
+        
+        base.LookAt();
     }
 }

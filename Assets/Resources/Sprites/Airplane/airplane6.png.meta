@@ -129,16 +129,79 @@ TextureImporter:
         x: 0
         y: 0
         width: 192
-        height: 145
+        height: 124
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 15}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: f888dd77597f7fb40993b8e8d11321bd
       internalID: -1187984277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: airplane6_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 144
+        width: 15
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc6a3be0ec0c8a45b80085837fd80f0
+      internalID: 1756414214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: airplane6_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 141
+        width: 15
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15b254478787a546921d8aa3522dcb1
+      internalID: 581405369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: airplane6_3
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 138
+        width: 15
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df85b29b6212a374ab0d2c68989f8ddf
+      internalID: 800286652
       vertices: []
       indices: 
       edges: []
@@ -155,6 +218,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       airplane6_0: -1187984277
+      airplane6_1: 1756414214
+      airplane6_2: 581405369
+      airplane6_3: 800286652
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
