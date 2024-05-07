@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class Mothership : EnemyBase
 {
-    [SerializeField] private Transform trans; //Temp
-    [SerializeField] private int spawnCount; //Temp
+    [Header("Ships")]
+    [SerializeField] private EnemyBase ship;
+    [SerializeField] private int amount;
     [SerializeField] private float radius;
 
-    [Header("Ships")]
-    public EnemyBase ship; //private Temp
-    public DirectBullet directBullet; //private Temp
-
-    private Vector3 spriteRotation;
+    [Header("Bullet")]
+    public DirectBullet directBullet;
 
     private bool isSpawn = true;
 
     private WaitForSeconds gazeOnTime = new WaitForSeconds(1f);
     private List<EnemyBase> curShips = new List<EnemyBase>();
 
-    private Vector2 gazePoint;
-
     protected override void Awake()
     {
         base.Awake();
 
-        for (int i = 0; i < 5; i++) //Temp
+        for (int i = 0; i < 5; i++)
         {
-            //GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
-            //Managers.Resource.Destroy(s);
-            //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
-            //Managers.Resource.Destroy(b);
+            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
+            Managers.Resource.Destroy(s);
+            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            Managers.Resource.Destroy(b);
         }
     }
 
@@ -44,13 +40,14 @@ public class Mothership : EnemyBase
         base.Init();
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+    }
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        LookAt();
-        Move();
-
-        if (!isMove) Attack();
 
         if (curShips.Count == 0 && !isSpawn) isSpawn = true;
        
@@ -64,15 +61,14 @@ public class Mothership : EnemyBase
 
     protected override void Attack()
     {
-        //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
 
-        //b.transform.position = transform.position;
+        b.transform.position = transform.position;
     }
 
     private IEnumerator Spawn()
     {
-        Debug.Log(curShips.Count);
-        for (int i = 0; i < 360; i += 360 / spawnCount)
+        for (int i = 0; i < 360; i += 360 / amount)
         { 
             targetPos.x = Mathf.Cos(i * Mathf.Deg2Rad) * 5f;
             targetPos.y = Mathf.Sin(i * Mathf.Deg2Rad) * 5f;
@@ -96,7 +92,7 @@ public class Mothership : EnemyBase
 
     protected override void Move()
     {
-        base.Move();
+        LookAt();
     }
 
     protected override void LookAt()
