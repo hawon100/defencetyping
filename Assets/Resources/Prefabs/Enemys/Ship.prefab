@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3746714687584975451}
   - component: {fileID: 1874629446506951873}
   - component: {fileID: 3587737475521276119}
-  - component: {fileID: 3756650954134158370}
+  - component: {fileID: 3484338840148293526}
   m_Layer: 6
   m_Name: Ship
   m_TagString: Enemy
@@ -221,7 +221,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3756650954134158370
+--- !u!114 &3484338840148293526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3294854627314602454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345c38bbda7646a4f84a71f63095597e, type: 3}
+  m_Script: {fileID: 11500000, guid: e2eb510c2b1303243ba5602b179c6f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
