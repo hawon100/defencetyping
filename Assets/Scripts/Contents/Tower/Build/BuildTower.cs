@@ -9,14 +9,12 @@ public class BuildTower : MonoBehaviour
     public GameController gameCtrl;
     public Define.InstallTowerType type;
 
-    int _mask;
+    int _mask = (1 << (int)Define.Layer.Background) | (1 << (int)Define.Layer.TowerInstall) | (1 << (int)Define.Layer.Tower);
 
     private void Start()
     {
         Managers.Input.MouseAction -= OnMouseEvent;
         Managers.Input.MouseAction += OnMouseEvent;
-
-        _mask = (1 << (int)Define.Layer.Background) | (1 << (int)Define.Layer.TowerInstall) | (1 << (int)Define.Layer.Tower);
     }
 
     private void Update()

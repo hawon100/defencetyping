@@ -11,7 +11,18 @@ public class MapSelect : MonoBehaviour
     {
         switch(sceneName)
         {
-            case "Korea War": infoPanel.DOAnchorPosX(0, 0.5f); break;
+            case "Korea War": PanelOpen(); break;
+            case "Background": PanelClose(); break;
         }
+    }
+
+    private void PanelOpen()
+    {
+        infoPanel.DOAnchorPosX(0, 0.5f);
+    }
+
+    private void PanelClose()
+    {
+        infoPanel.DOAnchorPosX(-600, 0.5f);
     }
 }
