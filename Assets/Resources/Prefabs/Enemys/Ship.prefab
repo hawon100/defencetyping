@@ -141,7 +141,7 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0}
   cooltime: 6
   targetTag: Tower
-  range: 5
+  range: 3
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
 --- !u!114 &3746714687584975451
 MonoBehaviour:

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Airplane : EnemyBase
 {
     [Header("Bomb")]
-    public DirectBullet directBullet;
+    public Bomb bomb;
 
     protected override void Awake()
     {
@@ -13,7 +13,7 @@ public class Airplane : EnemyBase
 
         for (int i = 0; i < 3; i++)
         {
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+            GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
             Managers.Resource.Destroy(b);
         }
     }
@@ -39,10 +39,7 @@ public class Airplane : EnemyBase
         if (target != null)
             target = Managers.Game.target;
 
-        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-        BulletBase s = b.GetComponent<BulletBase>();
-        s.target = target;
-        s.Init();
+        GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
         b.transform.position = transform.position;
     }
 
