@@ -49,7 +49,7 @@ public class PlayerBullet : BulletBase
         //transform.Translate(moveVec * Time.deltaTime * speed);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
 
-        if (Measure(targetPos - transform.position, 0.1f))
+        if (Measure(targetPos - transform.position, 0.1f)) //This one has the Problem
         {
             target.gameObject.GetComponent<EnemyStatBase>().Damage(1);
             target = null;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d281e6f76633e94a9105a7964847736
+guid: d941710f3e9155040ac3a8fa8a5c953a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,106 +121,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: airplane4_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 82
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da9350ad761714849a9f1dd39512fc4d
-      internalID: -1773072342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: airplane4_1
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 65
-        width: 24
-        height: 1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1737889c4850e4e4dbf7e832af9a77c5
-      internalID: 1399804802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: airplane4_2
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 67
-        width: 24
-        height: 1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02e5ca8ec924cbb4d8d6ccf477b2dd25
-      internalID: -953064326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: airplane4_3
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 69
-        width: 24
-        height: 1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1f5c91a59fe5864b873d6202b6b1693
-      internalID: -1465457820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 24f97deec91d06e4696eb91e4caf45d3
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      airplane4_0: -1773072342
-      airplane4_1: 1399804802
-      airplane4_2: -953064326
-      airplane4_3: -1465457820
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

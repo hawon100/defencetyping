@@ -43,6 +43,8 @@ public class WaveManager : MonoBehaviour
                 currentEnemy += 1;
             }
         }
+
+        Debug.Log("Wave " + (currentWave + 1) + "/Spawned : " + currentEnemy);
     }
 
     public void WaveUpdate()
@@ -51,6 +53,7 @@ public class WaveManager : MonoBehaviour
 
         if (currentEnemy <= 0)
         {
+            Debug.Log("Wave " + (currentWave + 1) + "/Destroyed : " + currentEnemy);
             currentEnemy = 0;
             WaveChange();
         }
@@ -58,7 +61,9 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()
     {
-        if (currentWave > stage.Wave.Count) return;
+        if (currentWave >= stage.Wave.Count) return;
+
+        Debug.Log("Wave has Changed " + currentWave);
 
         currentWave += 1;
         WaveExecute(stage.Wave[currentWave]);
