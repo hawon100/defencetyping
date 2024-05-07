@@ -42,21 +42,16 @@ public class Ship : EnemyBase
         base.FixedUpdate();
     }
 
-    protected override void Attack() //First : Detected(), if no target : target set to centraltower
+    protected override void Attack()
     {
-        if (target != null)
-        {
-            //change target to isDetected, then if detected shoot the tower!
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-            BulletBase s = b.GetComponent<BulletBase>();
-            s.target = target;
-            s.Init();
-            b.transform.position = transform.position;
-        }
-        else
-        {
+        if (target == null) 
             target = Managers.Game.target;
-        }
+
+        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+        BulletBase s = b.GetComponent<BulletBase>();
+        s.target = target;
+        s.Init();
+        b.transform.position = transform.position;
     }
 
     protected override void Detected()
@@ -71,7 +66,7 @@ public class Ship : EnemyBase
         Detected();
         LookAt();
 
-        rb2d.velocity = moveSpeed * Trace(transform.position, target.position).normalized; //Temp
+        rb2d.velocity = moveSpeed * Trace(transform.position, target.position);
 
         if (rb2d.velocity.sqrMagnitude <= 0.1f ||
             isDistance(transform.position, target.position, stopDistance))
@@ -83,8 +78,6 @@ public class Ship : EnemyBase
 
     protected override void LookAt()
     {
-        if (target == null) return;
-        
         base.LookAt();
     }
 }

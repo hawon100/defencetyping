@@ -922,17 +922,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rotateSpeed: 2
+  rotSpeed: 0.2
+  stopDistance: 0.5
+  isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  distance: 0.5
-  isMove: 1
-  moveVec: {x: 0, y: 0, z: 0}
   cooltime: 4
   targetTag: Tower
   range: 5
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
-  isDetected: 1
 --- !u!50 &243772166
 Rigidbody2D:
   serializedVersion: 4
@@ -1465,17 +1463,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rotateSpeed: 2
+  rotSpeed: 0.2
+  stopDistance: 0.5
+  isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  distance: 0.5
-  isMove: 1
-  moveVec: {x: 0, y: 0, z: 0}
   cooltime: 4
   targetTag: Tower
   range: 5
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
-  isDetected: 1
 --- !u!50 &271193851
 Rigidbody2D:
   serializedVersion: 4
@@ -3181,17 +3177,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rotateSpeed: 2
+  rotSpeed: 0.2
+  stopDistance: 0.5
+  isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  distance: 0.5
-  isMove: 1
-  moveVec: {x: 0, y: 0, z: 0}
   cooltime: 4
   targetTag: Tower
   range: 5
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
-  isDetected: 1
 --- !u!50 &687589338
 Rigidbody2D:
   serializedVersion: 4
@@ -5803,7 +5797,7 @@ GameObject:
   - component: {fileID: 1205149990}
   - component: {fileID: 1205149989}
   m_Layer: 0
-  m_Name: Square
+  m_Name: TowerCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6306,17 +6300,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rotateSpeed: 2
+  rotSpeed: 0.2
+  stopDistance: 0.5
+  isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  distance: 0.5
-  isMove: 1
-  moveVec: {x: 0, y: 0, z: 0}
   cooltime: 4
   targetTag: Tower
   range: 5
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
-  isDetected: 1
 --- !u!50 &1292441841
 Rigidbody2D:
   serializedVersion: 4
@@ -6497,7 +6489,7 @@ GameObject:
   - component: {fileID: 1357029049}
   m_Layer: 0
   m_Name: CenteralTower
-  m_TagString: Tower
+  m_TagString: TowerCentral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10373,17 +10365,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rotateSpeed: 2
+  rotSpeed: 0.2
+  stopDistance: 0.5
+  isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  distance: 0.5
-  isMove: 1
-  moveVec: {x: 0, y: 0, z: 0}
   cooltime: 4
   targetTag: Tower
   range: 5
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
-  isDetected: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

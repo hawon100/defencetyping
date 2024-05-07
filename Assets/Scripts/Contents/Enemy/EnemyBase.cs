@@ -3,9 +3,9 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     [Header("Move")]
-    public float moveSpeed;
-    public float rotSpeed = .2f;
-    public float stopDistance = .5f;
+    public float moveSpeed = 1f;
+    public float rotSpeed = 2f;
+    public float stopDistance = 5f;
     public bool isMove = true;
     protected Vector3 moveVec;
 
@@ -76,10 +76,17 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+
     protected virtual void LookAt()
     {
         Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotateSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
     }
 
     protected virtual void Init()
@@ -97,7 +104,7 @@ public class EnemyBase : MonoBehaviour
         moveVec.x = targetVec.x - curVec.x;
         moveVec.y = targetVec.y - curVec.y;
 
-        return moveVec;
+        return moveVec.normalized;
     }
 
     protected float Gaze(Vector3 currentVec, Vector3 targetVec)

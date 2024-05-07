@@ -9,6 +9,7 @@ TagManager:
   - Tower
   - Background
   - TowerInstall
+  - TowerCentral
   layers:
   - Default
   - TransparentFX

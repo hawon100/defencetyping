@@ -15,6 +15,8 @@ public class InstallTower : TowerBase
 
     //private bool isDetected = true;
 
+    //Attack Enabled() -> InstallTowerStat.Init(); 
+
     protected override void Start()
     {
         for (int i = 0; i < 3; i++)

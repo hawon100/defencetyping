@@ -316,13 +316,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rotateSpeed: 2
+  rotSpeed: 2
+  stopDistance: 5
+  isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  distance: 0.5
-  isMove: 1
-  moveVec: {x: 0, y: 0, z: 0}
-  cooltime: 4
+  cooltime: 3
   targetTag: Tower
   range: 5
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
@@ -339,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2eb510c2b1303243ba5602b179c6f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 3
   maxHp: 3
   isDeath: 0
   hpPanelPrefab: {fileID: 0}

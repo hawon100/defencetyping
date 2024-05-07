@@ -8,6 +8,6 @@ public class GameManager : MonoBehaviour
     public Transform target; 
     public void Init()
     {
-        target = GameObject.Find("CenteralTower").transform;
+        target = GameObject.Find("TowerCenter").transform;
     }
 }
