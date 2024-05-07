@@ -27,6 +27,7 @@ public class Define
         Rare,
         Epic,
         Legend,
+        Captain,
     }
     
     public enum WaveLevel
