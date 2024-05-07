@@ -1,15 +1,15 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class BuildTowerController : MonoBehaviour
+public class BuildTower : MonoBehaviour
 {
-    int _mask;
     public RectTransform WordPanel;
     public RectTransform InputPanel;
     public bool isTyping = false;
+    public GameController gameCtrl;
     public Define.InstallTowerType type;
 
-    public GameController gameCtrl;
+    int _mask;
 
     private void Start()
     {

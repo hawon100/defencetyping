@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
     public Text[] text;
     public InputField typingInput;
 
-    public List<BuildTowerController> towers = new();
-    public BuildTowerController selectedTower;
+    public List<BuildTower> towers = new();
+    public BuildTower selectedTower;
 
     public GameObject towerSelectUI;
     public GameObject buildUI;

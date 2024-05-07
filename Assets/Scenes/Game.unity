@@ -316,8 +316,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &157746294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1013,8 +1013,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &266525712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2489,8 +2489,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &757416522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3658,8 +3658,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &1008811482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4335,8 +4335,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &1160166569
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5013,6 +5013,7 @@ GameObject:
   - component: {fileID: 1357029045}
   - component: {fileID: 1357029047}
   - component: {fileID: 1357029048}
+  - component: {fileID: 1357029049}
   m_Layer: 0
   m_Name: CenteralTower
   m_TagString: Tower
@@ -5150,6 +5151,23 @@ MonoBehaviour:
   _maxHp: 0
   _attack: 0
   _defence: 0
+--- !u!114 &1357029049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357029044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WordPanel: {fileID: 1520860339}
+  InputPanel: {fileID: 1876054530}
+  isTyping: 0
+  gameCtrl: {fileID: 1084488475}
+  type: 5
 --- !u!1 &1361270817
 GameObject:
   m_ObjectHideFlags: 0
@@ -6111,8 +6129,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &1748045359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6607,8 +6625,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &1774662421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7301,8 +7319,8 @@ MonoBehaviour:
   WordPanel: {fileID: 1520860339}
   InputPanel: {fileID: 1876054530}
   isTyping: 0
-  type: 0
   gameCtrl: {fileID: 1084488475}
+  type: 0
 --- !u!61 &1885114507
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8098,10 +8116,10 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1762037174}
+  - {fileID: 202645759}
   - {fileID: 1765480958}
   - {fileID: 2106799383}
   - {fileID: 339318992}
-  - {fileID: 1762037174}
   - {fileID: 1698133498}
-  - {fileID: 202645759}
   - {fileID: 1357029046}
