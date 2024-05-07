@@ -15,7 +15,8 @@ public class EnemyBase : MonoBehaviour
 
     private float timeRate;
 
-
+    [SerializeField] private string targetTag;
+    [SerializeField] [Range(0.0f, 10.0f)] private float range;
 
     private Rigidbody2D rb2d;
 
@@ -72,6 +73,23 @@ public class EnemyBase : MonoBehaviour
         {
             rb2d.velocity = Vector2.zero;
             isMove = false;
+        }
+    }
+
+    protected virtual void Detected()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag(targetTag))
+            {
+                //savedTarget = target;
+                target = collider.transform;
+                targetPos = target.position;
+                isMove = false;
+                return;
+            }
         }
     }
 

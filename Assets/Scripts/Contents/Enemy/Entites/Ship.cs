@@ -53,15 +53,15 @@ public class Ship : EnemyBase
 
     protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
-        Detected();
-
         if (target != null)
         {
             //change target to isDetected, then if detected shoot the tower!
+            directBullet.target = target;
+            directBullet.Init();
             GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
             BulletBase s = b.GetComponent<BulletBase>();
-            s.target = target;
-            s.Init();
+            //s.target = target;
+            //s.Init();
             b.transform.position = transform.position;
         }
         else
@@ -70,37 +70,25 @@ public class Ship : EnemyBase
         }
     }
 
-    private void Detected()
+    protected override void Detected()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
-
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag(targetTag))
-            {
-                //savedTarget = target;
-                target = collider.transform;
-                targetPos = target.position;
-                isMove = false;
-                return;
-            }
-        }
-
-        //if (target == null)
-        //{
-        //    target = Managers.Game.target;
-        //}
+        base.Detected();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
+    //Move() = Detected()
+    //(!isMove) 
+    //
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(transform.position, range);
+    //}
 
     protected override void Move()
     {
         LookAt();
+        Detected();
         base.Move();
     }
 

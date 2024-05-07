@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Airplane : EnemyBase
 {
-    [SerializeField] private string targetTag;
-    [SerializeField] [Range(0.0f, 10.0f)] private float range;
     [Header("Bullets")]
     public DirectBullet directBullet; //private Temp
 
@@ -59,21 +57,9 @@ public class Airplane : EnemyBase
         }
     }
 
-    private void Detected()
+    protected override void Detected()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
-
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag(targetTag))
-            {
-                //savedTarget = target;
-                target = collider.transform;
-                targetPos = target.position;
-                isMove = false;
-                return;
-            }
-        }
+        base.Detected();
     }
 
     protected override void Move()
