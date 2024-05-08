@@ -6,30 +6,29 @@ using DG.Tweening;
 public class LobbyUI : MonoBehaviour
 {
     public List<RectTransform> rect = new();
-    bool isGameStart = false;
 
     public void OnButton(string btnName)
     {
         switch(btnName)
         {
             case "GameStart":
-                GameStart();
+                GameOpen();
+                break;
+            case "Background":
+                GameClose();
                 break;
         }
     }
 
-    private void GameStart()
+    private void GameOpen()
     {
-        isGameStart = !isGameStart;
-        if (isGameStart)
-        {
-            rect[0].DOAnchorPosY(200, 0.5f);
-            rect[1].DOAnchorPosY(320, 0.5f);
-        }
-        else
-        {
-            rect[0].DOAnchorPosY(55, 0.5f);
-            rect[1].DOAnchorPosY(55, 0.5f);
-        }
+        rect[0].DOAnchorPosY(200, 0.5f);
+        rect[1].DOAnchorPosY(320, 0.5f);
+    }
+
+    private void GameClose()
+    {
+        rect[0].DOAnchorPosY(55, 0.5f);
+        rect[1].DOAnchorPosY(55, 0.5f);
     }
 }
