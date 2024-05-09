@@ -389,6 +389,7 @@ RectTransform:
   m_Children:
   - {fileID: 1919567539}
   - {fileID: 1096510031}
+  - {fileID: 715304968}
   m_Father: {fileID: 45073237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -505,6 +506,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoPanel: {fileID: 1324302365}
+  maps:
+  - warButton: {fileID: 1096510032}
+    warImage: {fileID: 21300000, guid: 6a7c95ed7324bad4d97020729e6da9a9, type: 3}
+    warContent: "1592\uB144(\uC120\uC870 25\uB144) \uC804\uAD6D \uC2DC\uB300\uAC00
+      \uB05D\uB09C \uB3C4\uC694\uD1A0\uBBF8 \uC815\uAD8C \uCE58\uD558\uC758 \uC77C\uBCF8\uC774
+      \uC870\uC120\uC744 \uCE68\uB7B5\uD558\uBA74\uC11C \uBC1C\uBC1C\uD558\uC5EC
+      1597\uB144(\uC120\uC870 31\uB144)\uAE4C\uC9C0 \uC774\uC5B4\uC9C4 \uC804\uC7C1\uC774\uB2E4."
+  - warButton: {fileID: 715304969}
+    warImage: {fileID: 21300000, guid: 5c7bf17f6fdb0a94c87fba7ebe26adf1, type: 3}
+    warContent: "6\xB725 \uC804\uC7C1\uC740 1950\uB144 6\uC6D4 25\uC77C \uC77C\uC694\uC77C
+      \uC0C8\uBCBD 3\uC2DC\uC5D0 \uBD81\uD55C\uAD70\uC774 \uC554\uD638\uBA85 '\uD3ED\uD48D
+      224'\uB77C\uB294 \uC0AC\uC804 \uACC4\uD68D\uC5D0 \uB530\uB77C \uBD81\uC704
+      38\uB3C4\uC120 \uC804\uC5ED\uC5D0 \uAC78\uCCD0 \uB300\uD55C\uBBFC\uAD6D\uC744
+      \uC120\uC804\uD3EC\uACE0 \uC5C6\uC774 \uAE30\uC2B5 \uB0A8\uCE68\uD558\uC5EC
+      \uBC1C\uBC1C\uD55C \uC804\uC7C1\uC774\uB2E4."
+  map:
+    warButton: {fileID: 0}
+    warImage: {fileID: 0}
+    warContent: 
+  warImage: {fileID: 1110848212}
+  warContent: {fileID: 984797010}
 --- !u!114 &640289046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,6 +539,218 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5470962e9c164469c11da14a8f48fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &715304967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715304968}
+  - component: {fileID: 715304971}
+  - component: {fileID: 715304970}
+  - component: {fileID: 715304969}
+  m_Layer: 0
+  m_Name: Korea War
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &715304968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715304967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 819448827}
+  m_Father: {fileID: 420060023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 6094, y: 1875}
+  m_SizeDelta: {x: 156.34, y: 78.17}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &715304969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715304967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 715304970}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 640289045}
+        m_TargetAssemblyTypeName: MapSelect, Assembly-CSharp
+        m_MethodName: StageSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Korea War
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &715304970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715304967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &715304971
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715304967}
+  m_CullTransparentMesh: 1
+--- !u!1 &819448826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819448827}
+  - component: {fileID: 819448829}
+  - component: {fileID: 819448828}
+  m_Layer: 0
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &819448827
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819448826}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 715304968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &819448828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819448826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 4dfcb331fbd387c4e974470f49d0f702, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "6.25 \uC804\uC7C1"
+--- !u!222 &819448829
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819448826}
+  m_CullTransparentMesh: 1
 --- !u!1 &984797008
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,9 +821,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC774 \uC804\uC7C1\uC740 1592\uB144 \uC784\uC804\uB144\uC5D0 \uC77C\uC5B4\uB09C
-    \uC65C\uAD6C\uB4E4\uC774 \uB09C\uC744 \uC77C\uC73C\uD0A8 \uC784\uC9C4\uC65C\uB780\uC774\uB77C\uB294
-    \uC804\uC7C1\uC785\uB2C8\uB2E4."
+  m_Text: 
 --- !u!222 &984797011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -611,7 +843,7 @@ GameObject:
   - component: {fileID: 1096510033}
   - component: {fileID: 1096510032}
   m_Layer: 0
-  m_Name: Korea_War
+  m_Name: Imjin War
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +916,7 @@ MonoBehaviour:
       - m_Target: {fileID: 640289045}
         m_TargetAssemblyTypeName: MapSelect, Assembly-CSharp
         m_MethodName: StageSelect
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -788,7 +1020,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6a7c95ed7324bad4d97020729e6da9a9, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1150,7 +1382,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD55C\uAD6D \uC804\uC7C1"
+  m_Text: "\uC784\uC9C4 \uC65C\uB780"
 --- !u!222 &1851299819
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1281,8 +1513,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 640289045}
         m_TargetAssemblyTypeName: MapSelect, Assembly-CSharp
-        m_MethodName: StageSelect
-        m_Mode: 5
+        m_MethodName: PanelClose
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
