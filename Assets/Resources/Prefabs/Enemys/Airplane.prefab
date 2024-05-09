@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8589123660472422953}
+  m_Father: {fileID: 8167296770001090955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5248893419579261250
 SpriteRenderer:
@@ -135,7 +135,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8339129725692683334}
   m_Father: {fileID: 8589123660472422953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7740691519104959258
@@ -225,7 +226,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8167296770001090955}
-  - {fileID: 8339129725692683334}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3037309109963704959
@@ -324,8 +324,7 @@ MonoBehaviour:
   cooltime: 3
   targetTag: Tower
   range: 5
-  directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
-  isDetected: 1
+  bomb: {fileID: 0}
 --- !u!114 &9186918130475290467
 MonoBehaviour:
   m_ObjectHideFlags: 0

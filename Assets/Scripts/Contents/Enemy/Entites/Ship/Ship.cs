@@ -44,14 +44,30 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
-        if (target == null) 
-            target = Managers.Game.target;
-
         GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-        BulletBase s = b.GetComponent<BulletBase>();
-        s.target = target;
+        BulletBase s = b.GetComponent<DirectBullet>();
         s.Init();
+        s.target = target;
         b.transform.position = transform.position;
+
+        OneMoreCheck();
+    }
+
+    private void OneMoreCheck()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
+        bool foundTarget = false;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag(targetTag))
+            {
+                foundTarget = true;
+                break;
+            }
+        }
+
+        if (!foundTarget) target = Managers.Game.target;
     }
 
     protected override void Detected()
@@ -61,10 +77,15 @@ public class Ship : EnemyBase
 
     protected override void Move()
     {
-        if (!isMove) return;
+        LookAt();
+
+        if (!isMove)
+        {
+            rb2d.velocity = Vector2.zero;
+            return;
+        }
 
         Detected();
-        LookAt();
 
         rb2d.velocity = moveSpeed * Trace(transform.position, target.position);
 

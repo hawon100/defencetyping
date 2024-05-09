@@ -30,6 +30,8 @@ public abstract class TowerBase : MonoBehaviour
             }
         }
 
+        _target = null;
+
         //// 감지 범위 내에 타겟이 없으면 초기 위치로 돌아가기
         //if (Vector3.Distance(transform.position, originalPosition) > returnRadius)
         //{

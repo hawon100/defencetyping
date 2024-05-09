@@ -4,99 +4,98 @@ using UnityEngine;
 
 public class Mothership : EnemyBase
 {
-    [SerializeField] private Transform trans; //Temp
-    [SerializeField] private int spawnCount; //Temp
+    [Header("Ship")]
+    [SerializeField] private EnemyBase ship;
+    [SerializeField] private int amount;
     [SerializeField] private float radius;
 
-    [Header("Ships")]
-    public EnemyBase ship; //private Temp
-    public DirectBullet directBullet; //private Temp
+    [Header("Bullet")]
+    public DirectBullet directBullet;
 
-    private Vector3 spriteRotation;
+    private Rigidbody2D rb2d;
 
-    private bool isSpawn = true;
+    private Vector3 spawnVec;
 
-    private WaitForSeconds gazeOnTime = new WaitForSeconds(1f);
-    private List<EnemyBase> curShips = new List<EnemyBase>();
-
-    private Vector2 gazePoint;
+    private bool isSpawn;
 
     protected override void Awake()
     {
         base.Awake();
+        rb2d = GetComponent<Rigidbody2D>();
 
-        for (int i = 0; i < 5; i++) //Temp
+        for (int i = 0; i < 5; i++)
         {
-            //GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
-            //Managers.Resource.Destroy(s);
-            //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
-            //Managers.Resource.Destroy(b);
+            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
+            Managers.Resource.Destroy(s);
+            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            Managers.Resource.Destroy(b);
         }
     }
 
     protected override void Start()
     {
-        base.Start();
+        Init();
     }
 
     protected override void Init()
     {
+        isSpawn = true;
         base.Init();
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        LookAt();
-        Move();
-
-        if (!isMove) Attack();
-
-        if (curShips.Count == 0 && !isSpawn) isSpawn = true;
-       
-        if (isSpawn)
-        {
-            StartCoroutine(Spawn());
-            isSpawn = false;
-        
-        }
     }
 
     protected override void Attack()
     {
-        //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
 
-        //b.transform.position = transform.position;
-    }
+        b.transform.position = transform.position;
 
-    private IEnumerator Spawn()
-    {
-        Debug.Log(curShips.Count);
-        for (int i = 0; i < 360; i += 360 / spawnCount)
-        { 
-            targetPos.x = Mathf.Cos(i * Mathf.Deg2Rad) * 5f;
-            targetPos.y = Mathf.Sin(i * Mathf.Deg2Rad) * 5f;
-
-            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
-          
-            s.transform.position = transform.position;
-
-            curShips.Add(s.GetComponent<EnemyBase>());
-        }
+        if (!isSpawn) return;
 
         isSpawn = false;
+        Spawn();
+    }
 
-        yield return gazeOnTime;
-
-        for (int i = 0; i < curShips.Count; i++)
+    private void Spawn() 
+    {
+        for (int i = 0; i < 360; i += 360 / amount)
         {
-            curShips[i].targetPos = target.position;
+            //targetPos.x = Mathf.Cos(i * Mathf.Deg2Rad) * 5f;
+            //targetPos.y = Mathf.Sin(i * Mathf.Deg2Rad) * 5f;
+            spawnVec.x = Mathf.Cos(i * Mathf.Deg2Rad) * radius;
+            spawnVec.y = Mathf.Sin(i * Mathf.Deg2Rad) * radius;
+
+            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
+
+            //s.transform.position = transform.position;
+            s.transform.position = transform.position + spawnVec;
         }
     }
 
     protected override void Move()
     {
-        base.Move();
+        if (!isMove) return;
+
+        Detected();
+        LookAt();
+
+        rb2d.velocity = moveSpeed * Trace(transform.position, target.position);
+
+        if (rb2d.velocity.sqrMagnitude <= 0.1f ||
+            isDistance(transform.position, target.position, stopDistance))
+        {
+            rb2d.velocity = Vector2.zero;
+            isMove = false;
+        }
     }
 
     protected override void LookAt()
