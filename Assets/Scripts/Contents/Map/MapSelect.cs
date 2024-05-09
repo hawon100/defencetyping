@@ -18,7 +18,7 @@ public class MapSelect : MonoBehaviour
     public RectTransform infoPanel;
 
     public MapInfomation[] maps;
-    public MapInfomation map;
+    private MapInfomation map;
 
     public Image warImage;
     public Text warContent;
