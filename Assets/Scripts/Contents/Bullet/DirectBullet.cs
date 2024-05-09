@@ -34,7 +34,6 @@ public class DirectBullet : BulletBase
         }
 
         //targetPos = target.position;
-        Debug.Log(target);
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
     
         //if (Measure(targetPos - transform.position, 0.1f))

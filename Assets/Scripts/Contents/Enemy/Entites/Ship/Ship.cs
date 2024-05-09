@@ -50,9 +50,24 @@ public class Ship : EnemyBase
         s.target = target;
         b.transform.position = transform.position;
 
-        Detected();
+        OneMoreCheck();
+    }
 
-        if (target == null) target = Managers.Game.target;
+    private void OneMoreCheck()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
+        bool foundTarget = false;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag(targetTag))
+            {
+                foundTarget = true;
+                break;
+            }
+        }
+
+        if (!foundTarget) target = Managers.Game.target;
     }
 
     protected override void Detected()
