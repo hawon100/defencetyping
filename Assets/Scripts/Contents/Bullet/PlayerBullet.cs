@@ -49,13 +49,28 @@ public class PlayerBullet : BulletBase
         //transform.Translate(moveVec * Time.deltaTime * speed);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
 
-        if (Measure(targetPos - transform.position, 0.1f)) //This one has the Problem
+        //if (Measure(targetPos - transform.position, 0.1f)) //This one has the Problem
+        //{
+        //    target.gameObject.GetComponent<EnemyStatBase>().Damage(1);
+        //    target = null;
+        //    trailRend.Clear();
+        //    Managers.Resource.Destroy(gameObject);
+        //}
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            target.gameObject.GetComponent<EnemyStatBase>().Damage(1);
-            target = null;
-            trailRend.Clear();
-            Managers.Resource.Destroy(gameObject);
+            Hit();
         }
+    }
+
+    protected override void Hit()
+    {
+        target.gameObject.GetComponent<EnemyStatBase>().Damage(1);
+        target = null;
+        base.Hit();
     }
 
     //Erase And Use isDistance Function.

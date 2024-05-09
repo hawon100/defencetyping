@@ -7,14 +7,16 @@ public class Airplane : EnemyBase
     [Header("Bomb")]
     public Bomb bomb;
 
+    private Vector2 movingTo;
+
     protected override void Awake()
     {
         base.Awake();
 
         for (int i = 0; i < 3; i++)
         {
-            GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
-            Managers.Resource.Destroy(b);
+            //GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
+            //Managers.Resource.Destroy(b);
         }
     }
 
@@ -27,6 +29,8 @@ public class Airplane : EnemyBase
     protected override void Init()
     {
         base.Init();
+        movingTo.x = Trace(transform.position, targetPos).x;
+        movingTo.y = Trace(transform.position, targetPos).y;
     }
 
     protected override void FixedUpdate()
@@ -39,8 +43,8 @@ public class Airplane : EnemyBase
         if (target != null)
             target = Managers.Game.target;
 
-        GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
-        b.transform.position = transform.position;
+        //GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
+        //b.transform.position = transform.position;
     }
 
     protected override void Detected()
@@ -52,13 +56,37 @@ public class Airplane : EnemyBase
     {
         if (!isMove) return;
 
-        LookAt();
-
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        transform.Translate(movingTo * moveSpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+    
+        //if (OutOfScreen())
+        //{
+        //    isMove = false;
+        //    Managers.Wave.WaveUpdate();
+        //    Managers.Resource.Destroy(gameObject);
+        //}
     }
 
     protected override void LookAt()
     {
         base.LookAt();
+    }
+
+    private bool OutOfScreen()
+    {
+        return transform.position.x < -Managers.Game.absScreenX ||
+               transform.position.x > Managers.Game.absScreenX ||
+               transform.position.y < -Managers.Game.absScreenY ||
+               transform.position.y > Managers.Game.absScreenY;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Background"))
+        {
+            isMove = false;
+            Managers.Wave.WaveUpdate();
+            Managers.Resource.Destroy(gameObject);
+        }
     }
 }

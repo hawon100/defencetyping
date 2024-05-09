@@ -20,7 +20,6 @@ public class BulletBase : MonoBehaviour
     public virtual void Init()
     {
         //trailRend.Clear();
-        if (target == null) Debug.Log("No Target In Bullet!");
     }
 
     protected virtual void Start()
@@ -50,5 +49,11 @@ public class BulletBase : MonoBehaviour
     protected bool Measure(Vector3 Vector, float distance)
     {
         return Vector.sqrMagnitude <= distance * distance;
+    }
+
+    protected virtual void Hit()
+    {
+        trailRend.Clear();
+        Managers.Resource.Destroy(gameObject);
     }
 }

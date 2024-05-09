@@ -17,7 +17,6 @@ public class DirectBullet : BulletBase
     protected override void Start()
     {
         base.Start();
-        target = Managers.Game.target;
     }
 
     protected override void Update()
@@ -34,15 +33,28 @@ public class DirectBullet : BulletBase
             return;
         }
 
-        targetPos = target.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
+        //targetPos = target.position;
+        Debug.Log(target);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
     
-        if (Measure(targetPos - transform.position, 0.1f))
-        {
-            target.GetComponent<TowerStat>().OnAttacked(1);
-            target = null;
-            trailRend.Clear();
-            Managers.Resource.Destroy(gameObject);
-        }
+        //if (Measure(targetPos - transform.position, 0.1f))
+        //{
+        //    target.GetComponent<TowerStat>().OnAttacked(1);
+        //    target = null;
+        //    trailRend.Clear();
+        //    Managers.Resource.Destroy(gameObject);
+        //}
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tower")) Hit();
+    }
+
+    protected override void Hit()
+    {
+        target.GetComponent<TowerStat>().OnAttacked(1);
+        target = null;
+        base.Hit();
     }
 }

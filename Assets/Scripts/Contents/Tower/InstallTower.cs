@@ -41,19 +41,16 @@ public class InstallTower : TowerBase
 
     protected override void OnAttack()
     {
-        if (_target != null)
-        {
-            GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
-            BulletBase s = b.GetComponent<BulletBase>();
-            s.target = _target;
-            s.Init();
-            b.transform.position = transform.position;
-            _target = null;
-        }
-        else
-        {
-            Detected();
-        }
+        Detected();
+
+        if (_target == null) return;
+        
+        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+        BulletBase s = b.GetComponent<BulletBase>();
+        s.target = _target;
+        s.Init();
+        b.transform.position = transform.position;
+        _target = null;
     }
 
     protected override void AdjustLevel()

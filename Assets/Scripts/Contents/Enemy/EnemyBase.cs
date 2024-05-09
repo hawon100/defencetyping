@@ -69,7 +69,7 @@ public class EnemyBase : MonoBehaviour
             if (collider.CompareTag(targetTag))
             {
                 target = collider.transform;
-                targetPos = target.position;
+                //targetPos = target.position;
                 isMove = false;
                 return;
             }
@@ -85,14 +85,14 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void LookAt()
     {
-        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
+        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, target.position) - 90f);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
     }
 
     protected virtual void Init()
     {
         target = Managers.Game.target;
-        targetPos = target.position;
+        //targetPos = target.position;
 
         isMove = true;
 
