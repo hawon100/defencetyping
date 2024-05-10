@@ -9,7 +9,8 @@ public class WaveController : MonoBehaviour
 
     [SerializeField] private Text waveText; //Temp
     [SerializeField] private Image analogPanel;
-    [SerializeField] private Button returnButton;
+    [SerializeField] private GameObject returnButton;
+    [SerializeField] private Color darkColor;
     private int curWave;
     private void Start()
     {
@@ -43,13 +44,11 @@ public class WaveController : MonoBehaviour
     {
         if (Managers.Wave.isWave) return;
 
-        float alpha = Mathf.Lerp(analogPanel.color.a, 0.5f, Time.deltaTime * 0.2f);
-        Color color = new Color(1, 1, 1, alpha);
-        analogPanel.color = color;
+        analogPanel.color = Color.Lerp(analogPanel.color, darkColor, 1.2f * Time.deltaTime);
 
-        if (Mathf.Round(analogPanel.color.a) == 0.5f)
+        if (Mathf.Round(analogPanel.color.r) == darkColor.r)
         {
-            returnButton.enabled = true;
+            returnButton.SetActive(true);
         }
     }
 }

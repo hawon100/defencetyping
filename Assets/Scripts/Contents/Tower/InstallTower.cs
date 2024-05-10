@@ -34,6 +34,8 @@ public class InstallTower : TowerBase
 
     protected override void Update()
     {
+        if (!Managers.Wave.isWave) return; //KILL SWITCH!
+
         if (timerate >= cooltime)
         {
             timerate = 0;

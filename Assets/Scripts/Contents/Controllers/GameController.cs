@@ -153,16 +153,8 @@ public class GameController : MonoBehaviour
         Managers.Typing.tower = null;
     }
 
-    public void OnButton(string btnName)
+    public void OnReturnLobby()
     {
-        //switch (btnName)
-        //{
-        //    case "GameStart":
-        //        GameOpen();
-        //        break;
-        //    case "Background":
-        //        GameClose();
-        //        break;
-        //}
+        Managers.Map.LoadScene(Define.Scene.MapSelect);
     }
 }

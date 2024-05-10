@@ -25,7 +25,7 @@ public class CenteralTowerStat : TowerStat
 
     protected override void OnDead()
     {
-
+        Managers.Wave.isWave = false;
     }
 
     public void TextUpdate_Temp()

@@ -2296,7 +2296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: -130}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506938001
@@ -5632,7 +5632,8 @@ MonoBehaviour:
   thisStage: {fileID: 11400000, guid: cc95eb8647b409941a3e2b805fc5c8f6, type: 2}
   waveText: {fileID: 479970932}
   analogPanel: {fileID: 1176958731}
-  returnButton: {fileID: 1349659256}
+  returnButton: {fileID: 1349659254}
+  darkColor: {r: 0, g: 0, b: 0, a: 0.5372549}
 --- !u!1 &1108299330
 GameObject:
   m_ObjectHideFlags: 0
@@ -6340,7 +6341,7 @@ MonoBehaviour:
   towerStatUI: {fileID: 0}
   _level: 0
   _hp: 0
-  _maxHp: 30000
+  _maxHp: 15
   _attack: 0
   _defence: 0
   CentralTowerHP: {fileID: 506938001}
@@ -6383,7 +6384,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -235109981
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 283ca998a55d3ae4691609a41bc70113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7133,7 +7134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1349659255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7198,13 +7199,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1084488475}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: OnReturnLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

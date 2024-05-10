@@ -27,8 +27,12 @@ public class EnemyStatBase : MonoBehaviour
         isDeath = true;
 
         Managers.Resource.Destroy(gameObject);
-        Managers.Wave.WaveUpdate();
         //Managers.Spawn.curEnemy.Remove(this.gameObject);
         //Manager.Spawn.RemoveCurrentEnemy() -> -1 & if (0) WaveExecute();
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (isDeath == true) Managers.Wave.WaveUpdate();
     }
 }

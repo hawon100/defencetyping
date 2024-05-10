@@ -22,6 +22,7 @@ public class EnemyStat : EnemyStatBase
 
     protected override void Death()
     {
+        spriteRend.color = Color.white;
         base.Death();
     }
 
@@ -32,4 +33,6 @@ public class EnemyStat : EnemyStatBase
         spriteRend.color = Color.white;
         yield return waitSeconds;
     }
+
+    protected override void OnDisable() => base.OnDisable();
 }
