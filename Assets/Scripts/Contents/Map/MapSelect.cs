@@ -54,4 +54,9 @@ public class MapSelect : MonoBehaviour
     {
         infoPanel.DOAnchorPosX(-600, 0.5f);
     }
+
+    public void OnGamePlay()
+    {
+        Managers.Map.LoadScene(Define.Scene.Game);
+    }
 }

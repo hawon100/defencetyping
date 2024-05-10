@@ -105,10 +105,10 @@ public class BuildTower : MonoBehaviour
 
     private void PanelClose()
     {
+        WordPanel.DOAnchorPosY(690, 0.5f);
+        InputPanel.DOAnchorPosY(-690, 0.5f);
         gameCtrl.buildUI.SetActive(false);
         gameCtrl.towerUI.SetActive(false);
         isTyping = false;
-        WordPanel.DOAnchorPosY(690, 0.5f);
-        InputPanel.DOAnchorPosY(-690, 0.5f);
     }
 }

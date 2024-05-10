@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 14022209}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 640289045}
+        m_TargetAssemblyTypeName: MapSelect, Assembly-CSharp
+        m_MethodName: OnGamePlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &14022209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,10 +533,6 @@ MonoBehaviour:
       38\uB3C4\uC120 \uC804\uC5ED\uC5D0 \uAC78\uCCD0 \uB300\uD55C\uBBFC\uAD6D\uC744
       \uC120\uC804\uD3EC\uACE0 \uC5C6\uC774 \uAE30\uC2B5 \uB0A8\uCE68\uD558\uC5EC
       \uBC1C\uBC1C\uD55C \uC804\uC7C1\uC774\uB2E4."
-  map:
-    warButton: {fileID: 0}
-    warImage: {fileID: 0}
-    warContent: 
   warImage: {fileID: 1110848212}
   warContent: {fileID: 984797010}
 --- !u!114 &640289046
