@@ -7,6 +7,9 @@ public abstract class TowerBase : MonoBehaviour
     [SerializeField] protected string _targetTag;
     public Transform _target; //T3mp -> protected
 
+
+    public Vector2 targetPos;//TEMTemp
+
     protected abstract void Start();
     protected abstract void Update();
     protected abstract void OnAttack();
@@ -26,6 +29,7 @@ public abstract class TowerBase : MonoBehaviour
             if (collider.CompareTag(_targetTag))
             {
                 _target = collider.transform;
+                targetPos = _target.position;
                 return;
             }
         }
@@ -38,6 +42,13 @@ public abstract class TowerBase : MonoBehaviour
         //    _target = null;
         //    _agent.SetDestination(originalPosition);
         //}
+    }
+
+    protected float Gaze(Vector3 currentVec, Vector3 targetVec)
+    {
+        float degree = Mathf.Atan2(targetVec.y - currentVec.y, targetVec.x - currentVec.x);
+
+        return degree * Mathf.Rad2Deg;
     }
 
     protected virtual void OnDrawGizmos()

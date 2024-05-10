@@ -11,6 +11,11 @@ public class InstallTower : TowerBase
     [Header("Auto Attack")]
     [SerializeField] private float cooltime;
 
+    [Header("Cannon")]
+    [SerializeField] private float rotSpeed = 5f;
+    [SerializeField] private Transform cannon;
+    [SerializeField] private Transform shotPoint;
+
     private float timerate;
 
     //private bool isDetected = true;
@@ -19,6 +24,7 @@ public class InstallTower : TowerBase
 
     protected override void Start()
     {
+        rotSpeed = 5f;
         for (int i = 0; i < 3; i++)
         {
             GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
@@ -37,6 +43,14 @@ public class InstallTower : TowerBase
         {
             timerate += Time.deltaTime;
         }
+        CannonMove();
+    }
+
+    private void CannonMove()
+    {
+        Detected();
+        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
+        cannon.rotation = Quaternion.Slerp(cannon.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
     }
 
     protected override void OnAttack()
@@ -44,12 +58,13 @@ public class InstallTower : TowerBase
         Detected();
 
         if (_target == null) return;
+        else targetPos = Vector2.zero;
         
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
-        s.target = _target;
         s.Init();
-        b.transform.position = transform.position;
+        s.target = _target;
+        b.transform.position = shotPoint.position;
         _target = null;
     }
 

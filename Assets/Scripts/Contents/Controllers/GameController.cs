@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
 
     public Slider[] wordResetTimer;
 
+    public Vector3 towerOffset;
+
     private void Start()
     {
         Instance = this;
@@ -149,5 +151,18 @@ public class GameController : MonoBehaviour
 
         selectedTower = null;
         Managers.Typing.tower = null;
+    }
+
+    public void OnButton(string btnName)
+    {
+        //switch (btnName)
+        //{
+        //    case "GameStart":
+        //        GameOpen();
+        //        break;
+        //    case "Background":
+        //        GameClose();
+        //        break;
+        //}
     }
 }
