@@ -155,6 +155,8 @@ public class GameController : MonoBehaviour
 
     public void OnReturnLobby()
     {
+        Managers.Wave.isWave = true;
+        Managers.Wave.isWin = false;
         Managers.Map.LoadScene(Define.Scene.MapSelect);
     }
 }

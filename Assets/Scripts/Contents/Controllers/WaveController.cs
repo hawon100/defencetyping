@@ -11,6 +11,7 @@ public class WaveController : MonoBehaviour
     [SerializeField] private Image analogPanel;
     [SerializeField] private GameObject returnButton;
     [SerializeField] private Color darkColor;
+    [SerializeField] private Text gameText;
     private int curWave;
     private void Start()
     {
@@ -49,6 +50,14 @@ public class WaveController : MonoBehaviour
         if (Mathf.Round(analogPanel.color.r) == darkColor.r)
         {
             returnButton.SetActive(true);
+            if (Managers.Wave.isWin)
+            {
+                gameText.text = "You Win !";
+            }
+            else
+            {
+                gameText.text = "Game Over !";
+            }
         }
     }
 }
