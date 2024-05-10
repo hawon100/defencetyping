@@ -49,13 +49,10 @@ public class PlayerBullet : BulletBase
         //transform.Translate(moveVec * Time.deltaTime * speed);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
 
-        //if (Measure(targetPos - transform.position, 0.1f)) //This one has the Problem
-        //{
-        //    target.gameObject.GetComponent<EnemyStatBase>().Damage(1);
-        //    target = null;
-        //    trailRend.Clear();
-        //    Managers.Resource.Destroy(gameObject);
-        //}
+        if (Measure(targetPos - transform.position, 0.05f)) //This one has the Problem
+        {
+            base.Hit();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

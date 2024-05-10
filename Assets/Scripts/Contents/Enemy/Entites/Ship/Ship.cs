@@ -44,13 +44,13 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
+        OneMoreCheck();
+
         GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
         BulletBase s = b.GetComponent<DirectBullet>();
         s.Init();
         s.target = target;
         b.transform.position = transform.position;
-
-        OneMoreCheck();
     }
 
     private void OneMoreCheck()
@@ -63,7 +63,7 @@ public class Ship : EnemyBase
             if (collider.CompareTag(targetTag))
             {
                 foundTarget = true;
-                break;
+                return;
             }
         }
 

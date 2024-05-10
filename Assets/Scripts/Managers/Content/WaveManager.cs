@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
     public Vector3 spawnPos;
     public int currentWave;
     public int currentEnemy;
+    public bool isWave = true;
     public void Init()
     {
         
@@ -59,21 +60,21 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    public void WaveChange()
+    public void WaveChange()                                        
     {
-        if (currentWave < stage.Wave.Count)
-        {
-            currentWave += 1;
-            WaveExecute(stage.Wave[currentWave]);
-        }
-        else
+        if (currentWave + 1 >= stage.Wave.Count)
         {
             WaveEnd();
+            return;
         }
+        
+        currentWave += 1;
+        WaveExecute(stage.Wave[currentWave]);
     }
 
     public void WaveEnd()
     {
-
+        Debug.Log("Wave End!");
+        isWave = false;
     }
 }
