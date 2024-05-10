@@ -9,10 +9,9 @@ public class GameManager : MonoBehaviour
     public Transform background;
     public float absScreenX;
     public float absScreenY;
+
     public void Init()
     {
-        target = GameObject.Find("TowerCenter").transform;
-        background = GameObject.Find("Back").transform;
         absScreenX = background.localScale.x / 2;
         absScreenY = background.localScale.y / 2;
     }

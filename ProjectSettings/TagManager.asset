@@ -62,3 +62,9 @@ TagManager:
   - name: TowerCentral
     uniqueID: 4059857315
     locked: 0
+  - name: Enemy
+    uniqueID: 2414137899
+    locked: 0
+  - name: Bullet
+    uniqueID: 882365351
+    locked: 0

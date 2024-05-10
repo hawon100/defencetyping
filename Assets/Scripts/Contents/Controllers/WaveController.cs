@@ -45,6 +45,8 @@ public class WaveController : MonoBehaviour
     {
         if (Managers.Wave.isWave) return;
 
+        analogPanel.gameObject.SetActive(true);
+
         analogPanel.color = Color.Lerp(analogPanel.color, darkColor, 1.2f * Time.deltaTime);
 
         if (Mathf.Round(analogPanel.color.r) == darkColor.r)

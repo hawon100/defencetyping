@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController Instance { get; private set; }
-
     public Text[] text;
     public InputField typingInput;
 
@@ -25,9 +23,13 @@ public class GameController : MonoBehaviour
 
     public Vector3 towerOffset;
 
+    public Transform target;
+    public Transform background;
+
     private void Start()
     {
-        Instance = this;
+        Managers.Game.target = target;
+        Managers.Game.background = background;
     }
 
     private void Update()
