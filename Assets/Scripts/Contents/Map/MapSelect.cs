@@ -59,4 +59,9 @@ public class MapSelect : MonoBehaviour
     {
         Managers.Map.LoadScene(Define.Scene.Game);
     }
+
+    public void OnGameLobby()
+    {
+        Managers.Map.LoadScene(Define.Scene.Lobby);
+    }
 }
