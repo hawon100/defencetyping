@@ -23,6 +23,26 @@ public class MapSelect : MonoBehaviour
     public Image warImage;
     public Text warContent;
 
+    public Slider yearNum;
+    public Text yearNumText;
+
+    private void Update()
+    {
+        yearNumText.text = ((int)yearNum.value).ToString();
+    }
+
+    public void ZoomInOut(bool isZoom)
+    {
+        if(isZoom)
+        {
+            yearNum.value++;
+        }
+        if(!isZoom)
+        {
+            yearNum.value--;
+        }
+    }
+
     public void StageSelect()
     {
         string eventButtonName = EventSystem.current.currentSelectedGameObject.name;
