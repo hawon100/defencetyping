@@ -44,6 +44,8 @@ public class Ship : EnemyBase
 
     protected override void Attack()
     {
+        if (isMove) return;
+
         OneMoreCheck();
 
         GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
