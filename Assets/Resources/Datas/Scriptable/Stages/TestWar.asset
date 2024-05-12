@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2009f652e3f639544a6f82110eadb134, type: 3}
   m_Name: TestWar
   m_EditorClassIdentifier: 
+  Tower:
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: -4.5, y: 0}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 0, y: 3}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 0, y: -3}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 4.5, y: 0}
   WaveLoop: 0
   WaveRandom: 0
   Wave:

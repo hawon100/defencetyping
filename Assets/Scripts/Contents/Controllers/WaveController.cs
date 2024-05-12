@@ -12,9 +12,16 @@ public class WaveController : MonoBehaviour
     [SerializeField] private GameObject returnButton;
     [SerializeField] private Color darkColor;
     [SerializeField] private Text gameText;
+
+    [Header("GameController(Temp)")]
+    [SerializeField] private GameController gameController;
+    [SerializeField] private BuildTower centeralTower;
+    [SerializeField] private Transform installTowerGroup;
     private int curWave;
     private void Start()
     {
+        TowerInit();
+
         Managers.Wave.spawnArea = new Transform[4];
         Managers.Game.Init();
 
@@ -28,6 +35,21 @@ public class WaveController : MonoBehaviour
         Managers.Wave.stage = thisStage;
         Managers.Wave.WaveStart();
         UpdateWave_Temp();
+    }
+
+    private void TowerInit() //Temp
+    {
+        for (int i = 0; i < thisStage.Tower.Count; i++) 
+        {
+            GameObject tb = Managers.Resource.Instantiate(thisStage.Tower[i].TowerBuilder.gameObject, null);
+            tb.transform.parent = installTowerGroup;
+            tb.transform.position = thisStage.Tower[i].TowerBuilderPos;
+            BuildTower bt = tb.GetComponent<BuildTower>();
+            bt.WordPanel = centeralTower.WordPanel;
+            bt.InputPanel = centeralTower.InputPanel;
+            bt.gameCtrl = centeralTower.gameCtrl;
+            gameController.towers.Add(bt);
+        }
     }
 
     private void FixedUpdate()
