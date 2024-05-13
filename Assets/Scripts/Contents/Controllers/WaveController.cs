@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI; //Temp
 
@@ -18,8 +19,11 @@ public class WaveController : MonoBehaviour
     [SerializeField] private BuildTower centeralTower;
     [SerializeField] private Transform installTowerGroup;
     private int curWave;
+
     private void Start()
     {
+        thisStage = Managers.Game.currentStage;
+
         TowerInit();
 
         Managers.Wave.spawnArea = new Transform[4];
