@@ -12,8 +12,13 @@ public class TowerBuiler
 [CreateAssetMenu(fileName = "New StageData", menuName = "Data/StageData", order = int.MinValue)]
 public class Stage : ScriptableObject
 {
+    [Header("Background")]
+    public GameObject Background;
+
+    [Header("Tower")]
     public List<TowerBuiler> Tower;
 
+    [Header("Wave")]
     public bool WaveLoop;
     public bool WaveRandom;
     public List<Wave> Wave;

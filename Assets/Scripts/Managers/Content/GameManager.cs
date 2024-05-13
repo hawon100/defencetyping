@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
 
     public void Init()
     {
-        absScreenX = background.localScale.x / 2;
-        absScreenY = background.localScale.y / 2;
+        //absScreenX = background.localScale.x / 2;
+        //absScreenY = background.localScale.y / 2;
     }
 
     public void EndGame()

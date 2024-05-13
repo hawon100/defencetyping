@@ -25,6 +25,9 @@ public class WaveController : MonoBehaviour
         Managers.Wave.WaveReset();
 
         thisStage = Managers.Game.currentStage;
+        
+        GameObject bg = Managers.Resource.Instantiate(thisStage.Background, null);
+        bg.transform.parent = installTowerGroup;
 
         TowerInit();
 
