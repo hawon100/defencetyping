@@ -11,10 +11,6 @@ public class WaveManager : MonoBehaviour
     public int currentEnemy;
     public bool isWave = true;
     public bool isWin = false;
-    public void Init()
-    {
-        
-    }
 
     public void WaveStart()
     {

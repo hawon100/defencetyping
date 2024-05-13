@@ -29,6 +29,7 @@ public class MapSelect : MonoBehaviour
     private void Update()
     {
         yearNumText.text = ((int)yearNum.value).ToString();
+        Debug.Log(Managers.Game.currentStage);
     }
 
     public void ZoomInOut(bool isZoom)
@@ -61,6 +62,7 @@ public class MapSelect : MonoBehaviour
         {
             warImage.sprite = map.warImage;
             warContent.text = map.warContent;
+            Managers.Game.currentStage = Resources.Load<Stage>($"Datas/Scriptable/Stages/{map.warButton.name}");
             PanelOpen();
         }
     }
