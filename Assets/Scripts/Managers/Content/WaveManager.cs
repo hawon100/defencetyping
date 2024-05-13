@@ -75,4 +75,12 @@ public class WaveManager : MonoBehaviour
         isWave = false;
         isWin = true;
     }
+
+    public void WaveReset()
+    {
+        isWin = false;
+        isWave = true;
+        currentEnemy = 0;
+        currentWave = 0;
+    }
 }

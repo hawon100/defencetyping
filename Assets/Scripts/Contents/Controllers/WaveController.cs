@@ -22,6 +22,8 @@ public class WaveController : MonoBehaviour
 
     private void Start()
     {
+        Managers.Wave.WaveReset();
+
         thisStage = Managers.Game.currentStage;
 
         TowerInit();
