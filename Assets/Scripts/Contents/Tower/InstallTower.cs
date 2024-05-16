@@ -18,8 +18,6 @@ public class InstallTower : TowerBase
 
     private float timerate;
 
-    //private bool isDetected = true;
-
     //Attack Enabled() -> InstallTowerStat.Init(); 
 
     protected override void Start()

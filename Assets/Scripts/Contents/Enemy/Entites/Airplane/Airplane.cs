@@ -72,6 +72,11 @@ public class Airplane : EnemyBase
         base.LookAt();
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+    }
+
     private bool OutOfScreen()
     {
         return transform.position.x < -Managers.Game.absScreenX ||
