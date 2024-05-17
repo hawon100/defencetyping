@@ -23,11 +23,6 @@ public class MapSelect : MonoBehaviour
     public Image warImage;
     public Text warContent;
 
-    private void Update()
-    {
-        Debug.Log(Managers.Game.currentStage);
-    }
-
     public void StageSelect()
     {
         string eventButtonName = EventSystem.current.currentSelectedGameObject.name;
