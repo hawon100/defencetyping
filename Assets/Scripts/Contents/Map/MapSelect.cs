@@ -25,7 +25,7 @@ public class MapSelect : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Managers.Game.currentStage);
+        //Debug.Log(Managers.Game.currentStage);
     }
 
     public void StageSelect()
