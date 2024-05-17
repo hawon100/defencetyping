@@ -66,6 +66,13 @@ public class WaveManager : MonoBehaviour
         }
         
         currentWave += 1;
+
+        if (stage.WaveRandom)
+        {
+            WaveExecute(stage.Wave[Random.Range(0, stage.Wave.Count)]);
+            return;
+        }
+
         WaveExecute(stage.Wave[currentWave]);
     }
 
