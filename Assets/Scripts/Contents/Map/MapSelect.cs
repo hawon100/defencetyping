@@ -23,6 +23,11 @@ public class MapSelect : MonoBehaviour
     public Image warImage;
     public Text warContent;
 
+    private void Update()
+    {
+        Debug.Log(Managers.Game.currentStage);
+    }
+
     public void StageSelect()
     {
         string eventButtonName = EventSystem.current.currentSelectedGameObject.name;
@@ -41,6 +46,7 @@ public class MapSelect : MonoBehaviour
         {
             warImage.sprite = map.warImage;
             warContent.text = map.warContent;
+            Managers.Game.currentStage = Resources.Load<Stage>($"Datas/Scriptable/Stages/{map.warButton.name}");
             PanelOpen();
         }
     }

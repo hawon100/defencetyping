@@ -11,10 +11,6 @@ public class WaveManager : MonoBehaviour
     public int currentEnemy;
     public bool isWave = true;
     public bool isWin = false;
-    public void Init()
-    {
-        
-    }
 
     public void WaveStart()
     {
@@ -78,5 +74,13 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Wave End!");
         isWave = false;
         isWin = true;
+    }
+
+    public void WaveReset()
+    {
+        isWin = false;
+        isWave = true;
+        currentEnemy = 0;
+        currentWave = 0;
     }
 }

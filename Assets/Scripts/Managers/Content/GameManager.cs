@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     public float absScreenX;
     public float absScreenY;
 
+    public Stage currentStage;
+
     public void Init()
     {
-        absScreenX = background.localScale.x / 2;
-        absScreenY = background.localScale.y / 2;
+        //absScreenX = background.localScale.x / 2;
+        //absScreenY = background.localScale.y / 2;
     }
 
     public void EndGame()
