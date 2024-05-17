@@ -50,7 +50,7 @@ public class BuildTower : MonoBehaviour
         Vector2 rayOrigin = new Vector2(mousePosition.x, mousePosition.y);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, 100.0f, _mask);
 
-        Debug.Log(hit.collider);
+        //Debug.Log(hit.collider);
 
         if (hit.collider == null) return;
 
