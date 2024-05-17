@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8453541078980306363}
   - component: {fileID: 1663919508599627983}
   - component: {fileID: 5861065556869493118}
-  - component: {fileID: 3904470752682476388}
   - component: {fileID: 2105567412254394623}
+  - component: {fileID: 956074166395120477}
   m_Layer: 10
   m_Name: Tower
   m_TagString: TowerInstall
@@ -114,8 +114,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &3904470752682476388
-BoxCollider2D:
+--- !u!114 &2105567412254394623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388215017483280264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WordPanel: {fileID: 0}
+  InputPanel: {fileID: 0}
+  isTyping: 0
+  gameCtrl: {fileID: 0}
+  type: 0
+--- !u!58 &956074166395120477
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,33 +163,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.96875, y: 2.8125}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
-  m_EdgeRadius: 0
---- !u!114 &2105567412254394623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3388215017483280264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ca96d56cb7c9e44ca3b5923311a4dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WordPanel: {fileID: 0}
-  InputPanel: {fileID: 0}
-  isTyping: 0
-  gameCtrl: {fileID: 0}
-  type: 0
+  m_Radius: 1.8

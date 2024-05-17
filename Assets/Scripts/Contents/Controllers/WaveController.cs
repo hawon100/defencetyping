@@ -63,7 +63,7 @@ public class WaveController : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateWave_Temp();
-        UpdateGame();
+        UpdateGame(); //수정 사항!!
     }
 
     private void UpdateWave_Temp()
