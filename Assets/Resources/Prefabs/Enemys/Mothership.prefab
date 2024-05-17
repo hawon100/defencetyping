@@ -73,7 +73,7 @@ MonoBehaviour:
   range: 5
   ship: {fileID: 6090729184465292171, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
   amount: 5
-  radius: 10
+  radius: 7
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
 --- !u!50 &7887535597030322765
 Rigidbody2D:

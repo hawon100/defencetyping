@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Airplane : EnemyBase
 {
+    [Header("Sprite")]
+    [SerializeField] private Transform triSprite;
+
     [Header("Bomb")]
     public Bomb bomb;
 
@@ -31,6 +34,7 @@ public class Airplane : EnemyBase
         base.Init();
         movingTo.x = Trace(transform.position, targetPos).x;
         movingTo.y = Trace(transform.position, targetPos).y;
+        triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos));
     }
 
     protected override void FixedUpdate()
@@ -70,6 +74,11 @@ public class Airplane : EnemyBase
     protected override void LookAt()
     {
         base.LookAt();
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
     }
 
     private bool OutOfScreen()
