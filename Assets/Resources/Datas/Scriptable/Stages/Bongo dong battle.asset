@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2009f652e3f639544a6f82110eadb134, type: 3}
+  m_Name: Bongo dong battle
+  m_EditorClassIdentifier: 
+  Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
+  Tower:
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 0, y: 4.5}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: -4, y: 3.5}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 4, y: 3.5}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 0, y: -4.5}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: -4, y: -3.5}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 4, y: -3.5}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 6, y: 0}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: -6, y: 0}
+  WaveLoop: 0
+  WaveRandom: 0
+  Wave:
+  - {fileID: 11400000, guid: fa92e2f455855be4e933010254bf919e, type: 2}
+  - {fileID: 11400000, guid: 9b0235393bfb97e4a84fa608e0986474, type: 2}
+  - {fileID: 11400000, guid: 557e1bdfc4b1f51459633d8930ee73b0, type: 2}
+  - {fileID: 11400000, guid: 308aa15a11f2bba4e90a894e574da960, type: 2}
+  - {fileID: 11400000, guid: 134255d99ddbaf64f990897e15ac8c8b, type: 2}
