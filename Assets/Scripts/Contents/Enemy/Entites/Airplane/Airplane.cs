@@ -34,7 +34,7 @@ public class Airplane : EnemyBase
         base.Init();
         movingTo.x = Trace(transform.position, targetPos).x;
         movingTo.y = Trace(transform.position, targetPos).y;
-        triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos));
+        triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
     }
 
     protected override void FixedUpdate()
@@ -44,11 +44,12 @@ public class Airplane : EnemyBase
 
     protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
-        if (target != null)
-            target = Managers.Game.target;
+        //if (target != null)
+        //    target = Managers.Game.target;
 
-        //GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
-        //b.transform.position = transform.position;
+        GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
+        b.GetComponent<Bomb>().StartBomb();
+        b.transform.position = transform.position;
     }
 
     protected override void Detected()
