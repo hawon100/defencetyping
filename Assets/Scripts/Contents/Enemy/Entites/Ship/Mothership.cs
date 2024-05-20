@@ -76,6 +76,7 @@ public class Mothership : EnemyBase
 
             GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
 
+            Managers.Wave.currentEnemy++;
             //s.transform.position = transform.position;
             s.transform.position = transform.position + spawnVec;
         }
