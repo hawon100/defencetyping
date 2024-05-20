@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2009f652e3f639544a6f82110eadb134, type: 3}
+  m_Name: Dadaepojinseong Battle
+  m_EditorClassIdentifier: 
+  Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
+  Tower:
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: -4.5, y: 0}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 0, y: 3}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 0, y: -3}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 4.5, y: 0}
+  WaveLoop: 0
+  WaveRandom: 0
+  Wave:
+  - {fileID: 11400000, guid: 297fa608b97f38047af359b41099aff3, type: 2}
+  - {fileID: 11400000, guid: d440053e1228a4b428f6ae7e1aa0dc0f, type: 2}
+  - {fileID: 11400000, guid: abcfde6b7658c7c47a846600d9b87766, type: 2}
+  - {fileID: 11400000, guid: f14648118ffe4364495f755238f234ea, type: 2}
+  - {fileID: 11400000, guid: 0cf68516bd8df0d499f5bf9c59b05849, type: 2}
