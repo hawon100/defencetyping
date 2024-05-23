@@ -38,11 +38,11 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        //if (!Managers.Wave.isWave)
-        //{
-        //    enemyStat.Damage(enemyStat.maxHp);
-        //    return; //KILL SWITCH!
-        //}
+        if (!Managers.Wave.isWave)
+        {
+            enemyStat.Damage(enemyStat.maxHp);
+            return; //KILL SWITCH!
+        }
 
         if (timeRate > cooltime)
         {

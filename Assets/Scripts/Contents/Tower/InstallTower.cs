@@ -17,6 +17,7 @@ public class InstallTower : TowerBase
     [SerializeField] private Transform shotPoint;
 
     private float timerate;
+    private const float rotationTolerance = 1f; // Tolerance in degrees for aiming accuracy
 
     //Attack Enabled() -> InstallTowerStat.Init(); 
 
@@ -26,7 +27,7 @@ public class InstallTower : TowerBase
         for (int i = 0; i < 3; i++)
         {
             GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
-            Managers.Resource.Destroy(b); 
+            Managers.Resource.Destroy(b);
         }
     }
 
@@ -34,32 +35,33 @@ public class InstallTower : TowerBase
     {
         if (!Managers.Wave.isWave) return; //KILL SWITCH!
 
-        if (timerate >= cooltime)
-        {
-            timerate = 0;
-            OnAttack();
-        }
-        else
-        {
-            timerate += Time.deltaTime;
-        }
         CannonMove();
     }
 
     private void CannonMove()
     {
         Detected();
+
         Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
         cannon.rotation = Quaternion.Slerp(cannon.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
+
+        // Check if the cannon is aimed within tolerance
+        if (Quaternion.Angle(cannon.rotation, targetQuaternion) <= rotationTolerance)
+        {
+            timerate += Time.deltaTime;
+
+            if (timerate < cooltime) return;
+            
+            timerate = 0;
+            OnAttack();
+        }
     }
 
     protected override void OnAttack()
     {
-        Detected();
-
         if (_target == null) return;
-        else targetPos = Vector2.zero;
-        
+        //else targetPos = Vector2.zero;
+
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
         s.Init();
