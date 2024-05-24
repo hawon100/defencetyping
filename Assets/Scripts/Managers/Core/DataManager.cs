@@ -13,7 +13,7 @@ public class DataManager
 
     public void Init()
     {
-        WordDict = LoadJson<WordData, int, Word>("Word/WordData").MakeDict();
+        WordDict = LoadJson<WordData, int, Word>("Word/WordData_Wihwa Island retreat").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
@@ -21,14 +21,4 @@ public class DataManager
 		TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Datas/Json/{path}");
         return JsonUtility.FromJson<Loader>(textAsset.text);
 	}
-
-    //public void SaveJson<Key, Value>(Dictionary<Key, Value> data, string fileName, string path = "")
-    //{
-    //    // 데이터를 JSON 문자열로 직렬화
-    //    string jsonString = JsonUtility.ToJson(data);
-
-    //    // 파일 경로를 지정하고 JSON 문자열을 파일에 저장
-    //    string fullPath = Path.Combine(Application.dataPath + $"/Data/{path}", $"{fileName}.json");
-    //    File.WriteAllText(fullPath, jsonString);
-    //}
 }

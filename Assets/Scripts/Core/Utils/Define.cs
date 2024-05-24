@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Define
 {
+    public enum CurrentStage
+    {
+        None,
+        Hansan_Battle,
+        Myeongnyang_Battle
+    }
+
     public enum WordState
     {
         None,
@@ -29,7 +36,7 @@ public class Define
         Legend,
         Captain,
     }
-    
+
     public enum WaveLevel
     {
         Easy,

@@ -2385,7 +2385,7 @@ GameObject:
   - component: {fileID: 1794181673}
   - component: {fileID: 1794181672}
   m_Layer: 5
-  m_Name: Dadaepojinseong Battle
+  m_Name: 'Dadaepo Battle '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
