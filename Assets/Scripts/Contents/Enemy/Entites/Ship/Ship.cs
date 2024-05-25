@@ -7,12 +7,16 @@ public class Ship : EnemyBase
     [Header("Bullet")]
     public DirectBullet directBullet;
 
+    private Animator anime;
+    private int attackAnime = Animator.StringToHash("Attack");
+    
     private Rigidbody2D rb2d;
 
     protected override void Awake()
     {
         base.Awake();
         rb2d = GetComponent<Rigidbody2D>();
+        anime = GetComponent<Animator>();
 
         for (int i = 0; i < 3; i++)
         {
@@ -47,6 +51,8 @@ public class Ship : EnemyBase
         if (isMove) return;
 
         OneMoreCheck();
+
+        anime.SetTrigger(attackAnime);
 
         GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
         BulletBase s = b.GetComponent<DirectBullet>();
