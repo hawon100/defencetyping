@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRend;
+    [SerializeField] private GameObject boom;
 
     private WaitForSeconds delay0p2 = new WaitForSeconds(0.2f);
     private WaitForSeconds delay0p5 = new WaitForSeconds(0.5f);
@@ -22,6 +23,10 @@ public class Bomb : MonoBehaviour
             spriteRend.color = Color.white;
             yield return delay0p2;
         }
+
+        GameObject b = Managers.Resource.Instantiate(boom, null);
+        b.transform.position = transform.position;
+
         Death();
     }
 

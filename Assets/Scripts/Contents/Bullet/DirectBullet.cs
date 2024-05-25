@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DirectBullet : BulletBase
 {
+    [SerializeField] private GameObject boom;
     public override void Init()
     {
         base.Init();
@@ -47,6 +48,9 @@ public class DirectBullet : BulletBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject b = Managers.Resource.Instantiate(boom, null);
+        b.transform.position = transform.position;
+
         if (collision.gameObject.CompareTag("Tower")) Hit();
     }
 
