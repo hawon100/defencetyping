@@ -7,6 +7,9 @@ public class Ship : EnemyBase
     [Header("Bullet")]
     public DirectBullet directBullet;
 
+    [Header("Particle System")]
+    public ParticleSystem particle;
+
     private Animator anime;
     private int attackAnime = Animator.StringToHash("Attack");
     
@@ -32,6 +35,7 @@ public class Ship : EnemyBase
 
     protected override void Init()
     {
+        particle.Play();
         base.Init();
     }
 
@@ -97,6 +101,7 @@ public class Ship : EnemyBase
         if (!isMove)
         {
             rb2d.velocity = Vector2.zero;
+            particle.Stop();
             return;
         }
 

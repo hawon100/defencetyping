@@ -5058,6 +5058,7 @@ MonoBehaviour:
   targetTag: Tower
   range: 3
   directBullet: {fileID: 2143609493978922587, guid: 97765bc1e1869e14fa5f4161e01a38cc, type: 3}
+  particle: {fileID: 1253022481357235591}
 --- !u!114 &3746714687584975451
 MonoBehaviour:
   m_ObjectHideFlags: 0
