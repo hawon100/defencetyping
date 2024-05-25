@@ -12,7 +12,11 @@ public class LobbyUI : MonoBehaviour
             case "GameStart":
                 Managers.Map.LoadScene(Define.Scene.MapSelect);
                 break;
-            case "ContentWar":
+            case "PowerUp":
+                //character Level up
+                break;
+            case "Edit":
+                //character tower add or remove
                 break;
         }
     }
