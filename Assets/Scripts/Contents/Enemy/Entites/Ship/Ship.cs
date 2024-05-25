@@ -64,22 +64,34 @@ public class Ship : EnemyBase
     private IEnumerator AttackCoroutine()
     {
 
-        Quaternion initialRotation = transform.rotation;
-        float progress = 0f;
+        //Quaternion initialRotation = transform.rotation;
+        //float progress = 0f;
 
-        while (progress < 1f)
+        //while (progress < 1f)
+        //{
+        //    LookAt();
+        //    progress += Time.deltaTime * rotSpeed;
+
+        //    // 목표 각도에 거의 도달했는지 확인
+        //    if (Quaternion.Angle(transform.rotation, targetQuaternion) < 0.1f)
+        //    {
+        //        transform.rotation = targetQuaternion;
+        //        break;
+        //    }
+
+        //    yield return null; // 다음 프레임까지 대기
+        //}
+
+        bool isRotate = true;
+
+        while (isRotate)
         {
-            LookAt();
-            progress += Time.deltaTime * rotSpeed;
+            Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
 
-            // 목표 각도에 거의 도달했는지 확인
-            if (Quaternion.Angle(transform.rotation, targetQuaternion) < 0.1f)
-            {
-                transform.rotation = targetQuaternion;
-                break;
-            }
+            if (Quaternion.Angle(transform.rotation, targetQuaternion) <= 0.1f) isRotate = false;
 
-            yield return null; // 다음 프레임까지 대기
+            yield return null;
         }
 
         anime.SetTrigger(attackAnime);
