@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class InstallTower : TowerBase
 {
@@ -35,12 +36,17 @@ public class InstallTower : TowerBase
     {
         if (!Managers.Wave.isWave) return; //KILL SWITCH!
 
-        CannonMove();
+        timerate += Time.deltaTime;
+
+        if (timerate < cooltime) return;
+
+        timerate = 0;
+        OnAttack();
     }
 
     private void CannonMove()
     {
-        Detected();
+
 
         Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
         cannon.rotation = Quaternion.Slerp(cannon.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
@@ -59,8 +65,26 @@ public class InstallTower : TowerBase
 
     protected override void OnAttack()
     {
+        Detected();
+
         if (_target == null) return;
-        //else targetPos = Vector2.zero;
+
+        StartCoroutine(AttackCoroutine());
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        bool isRotate = true;
+
+        while (isRotate)
+        {
+            Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
+            cannon.rotation = Quaternion.Slerp(cannon.rotation, targetQuaternion, rotSpeed * Time.deltaTime); 
+
+            if (Quaternion.Angle(cannon.rotation, targetQuaternion) <= 0.1f) isRotate = false;
+
+            yield return null;
+        }
 
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
