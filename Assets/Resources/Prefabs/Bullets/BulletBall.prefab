@@ -177,6 +177,7 @@ MonoBehaviour:
   triggerTag: Tower
   target: {fileID: 0}
   speed: 3
+  boom: {fileID: 1939226773735726338, guid: d45c340c179c3164382121b56c06c6ba, type: 3}
 --- !u!58 &-8595067128502008581
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class InstallTower : TowerBase
 {
@@ -16,7 +17,11 @@ public class InstallTower : TowerBase
     [SerializeField] private Transform cannon;
     [SerializeField] private Transform shotPoint;
 
+    [Header("Boom Effect")]
+    [SerializeField] private GameObject boom;
+
     private float timerate;
+    private const float rotationTolerance = 1f; // Tolerance in degrees for aiming accuracy
 
     //Attack Enabled() -> InstallTowerStat.Init(); 
 
@@ -26,7 +31,7 @@ public class InstallTower : TowerBase
         for (int i = 0; i < 3; i++)
         {
             GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
-            Managers.Resource.Destroy(b); 
+            Managers.Resource.Destroy(b);
         }
     }
 
@@ -34,23 +39,31 @@ public class InstallTower : TowerBase
     {
         if (!Managers.Wave.isWave) return; //KILL SWITCH!
 
-        if (timerate >= cooltime)
-        {
-            timerate = 0;
-            OnAttack();
-        }
-        else
-        {
-            timerate += Time.deltaTime;
-        }
-        CannonMove();
+        timerate += Time.deltaTime;
+
+        if (timerate < cooltime) return;
+
+        timerate = 0;
+        OnAttack();
     }
 
     private void CannonMove()
     {
-        Detected();
+
+
         Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
         cannon.rotation = Quaternion.Slerp(cannon.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
+
+        // Check if the cannon is aimed within tolerance
+        if (Quaternion.Angle(cannon.rotation, targetQuaternion) <= rotationTolerance)
+        {
+            timerate += Time.deltaTime;
+
+            if (timerate < cooltime) return;
+            
+            timerate = 0;
+            OnAttack();
+        }
     }
 
     protected override void OnAttack()
@@ -58,8 +71,27 @@ public class InstallTower : TowerBase
         Detected();
 
         if (_target == null) return;
-        else targetPos = Vector2.zero;
-        
+
+        StartCoroutine(AttackCoroutine());
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        bool isRotate = true;
+
+        while (isRotate)
+        {
+            Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
+            cannon.rotation = Quaternion.Slerp(cannon.rotation, targetQuaternion, rotSpeed * Time.deltaTime); 
+
+            if (Quaternion.Angle(cannon.rotation, targetQuaternion) <= 0.1f) isRotate = false;
+
+            yield return null;
+        }
+
+        GameObject m = Managers.Resource.Instantiate(boom, null);
+        m.transform.position = shotPoint.position;
+
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
         s.Init();

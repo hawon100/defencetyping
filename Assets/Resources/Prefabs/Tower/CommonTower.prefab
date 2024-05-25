@@ -258,6 +258,7 @@ MonoBehaviour:
   rotSpeed: 2
   cannon: {fileID: 2848625991078983945}
   shotPoint: {fileID: 8673633835223954727}
+  boom: {fileID: 1939226773735726338, guid: d45c340c179c3164382121b56c06c6ba, type: 3}
 --- !u!114 &2075357386273226461
 MonoBehaviour:
   m_ObjectHideFlags: 0

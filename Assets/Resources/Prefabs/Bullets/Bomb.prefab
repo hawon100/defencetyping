@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRend: {fileID: 8955077556956693700}
+  boom: {fileID: 1939226773735726338, guid: d45c340c179c3164382121b56c06c6ba, type: 3}

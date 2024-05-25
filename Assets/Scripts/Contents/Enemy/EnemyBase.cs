@@ -21,6 +21,9 @@ public class EnemyBase : MonoBehaviour
 
     private EnemyStatBase enemyStat;
 
+    protected Transform detectedTarget;
+    protected Quaternion targetQuaternion;
+
     protected virtual void Awake()
     {
         enemyStat = GetComponent<EnemyStatBase>();
@@ -38,11 +41,11 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        //if (!Managers.Wave.isWave)
-        //{
-        //    enemyStat.Damage(enemyStat.maxHp);
-        //    return; //KILL SWITCH!
-        //}
+        if (!Managers.Wave.isWave)
+        {
+            enemyStat.Damage(enemyStat.maxHp);
+            return; //KILL SWITCH!
+        }
 
         if (timeRate > cooltime)
         {
@@ -75,12 +78,13 @@ public class EnemyBase : MonoBehaviour
         {
             if (collider.CompareTag(targetTag))
             {
-                target = collider.transform;
-                //targetPos = target.position;
+                detectedTarget = collider.transform;
                 isMove = false;
                 return;
             }
         }
+
+        detectedTarget = null;
     }
 
 
@@ -92,7 +96,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void LookAt()
     {
-        Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, target.position) - 90f);
+        targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, target.position) - 90f);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetQuaternion, rotSpeed * Time.deltaTime);
     }
 
