@@ -17,6 +17,9 @@ public class InstallTower : TowerBase
     [SerializeField] private Transform cannon;
     [SerializeField] private Transform shotPoint;
 
+    [Header("Boom Effect")]
+    [SerializeField] private GameObject boom;
+
     private float timerate;
     private const float rotationTolerance = 1f; // Tolerance in degrees for aiming accuracy
 
@@ -85,6 +88,9 @@ public class InstallTower : TowerBase
 
             yield return null;
         }
+
+        GameObject m = Managers.Resource.Instantiate(boom, null);
+        m.transform.position = shotPoint.position;
 
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
