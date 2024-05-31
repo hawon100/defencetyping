@@ -57,13 +57,10 @@ public class Define
     public enum Scene
     {
         Unknown,
-        Login,
         Lobby,
         Game,
-        InGame,
-        TestHawon,
-        TestKangmai,
         MapSelect,
+        Loading,
     }
 
     public enum Sound
