@@ -159,6 +159,6 @@ public class GameController : MonoBehaviour
     {
         Managers.Wave.isWave = true;
         Managers.Wave.isWin = false;
-        Managers.Map.LoadScene(Define.Scene.MapSelect);
+        MapManager.LoadScene(Define.Scene.Lobby);
     }
 }

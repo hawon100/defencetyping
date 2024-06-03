@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4113207, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -740,11 +740,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125761732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27df3d1a8eb728b479923ce03ba0e3ba, type: 3}
+  m_Script: {fileID: 11500000, guid: a12532f027ff4c346924b3f9d4a0d5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressbar: {fileID: 0}
-  name: 
+  progressbar: {fileID: 1334799553}
+  NextScene: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

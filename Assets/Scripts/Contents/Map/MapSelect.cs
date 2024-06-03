@@ -15,6 +15,7 @@ public class MapInfomation
 
 public class MapSelect : MonoBehaviour
 {
+    public RectTransform LobbyWin;
     public RectTransform infoPanel;
 
     public MapInfomation[] maps;
@@ -58,11 +59,12 @@ public class MapSelect : MonoBehaviour
 
     public void OnGamePlay()
     {
-        Managers.Map.LoadScene(Define.Scene.Game);
+        MapManager.LoadScene(Define.Scene.Game);
     }
 
     public void OnGameLobby()
     {
-        Managers.Map.LoadScene(Define.Scene.Lobby);
+        PanelClose();
+        LobbyWin.DOAnchorPosY(0, 0.5f);
     }
 }

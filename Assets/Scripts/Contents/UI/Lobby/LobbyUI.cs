@@ -5,12 +5,14 @@ using DG.Tweening;
 
 public class LobbyUI : MonoBehaviour
 {
+    public RectTransform LobbyWin;
+
     public void OnButton(string btnName)
     {
         switch (btnName)
         {
             case "GameStart":
-                Managers.Map.LoadScene(Define.Scene.MapSelect);
+                LobbyWin.DOAnchorPosY(-10, 0.5f);
                 break;
             case "PowerUp":
                 //character Level up

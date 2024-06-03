@@ -59,7 +59,6 @@ public class Define
         Unknown,
         Lobby,
         Game,
-        MapSelect,
         Loading,
     }
 
