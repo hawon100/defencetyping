@@ -48,14 +48,14 @@ public class DirectBullet : BulletBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject b = Managers.Resource.Instantiate(boom, null);
-        b.transform.position = transform.position;
-
         if (collision.gameObject.CompareTag("Tower")) Hit();
     }
 
     protected override void Hit()
     {
+        GameObject b = Managers.Resource.Instantiate(boom, null);
+        b.transform.position = transform.position;
+
         target.GetComponent<TowerStat>().OnAttacked(1);
         target = null;
         base.Hit();
