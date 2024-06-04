@@ -16,4 +16,5 @@ MonoBehaviour:
   Tower: []
   WaveLoop: 0
   WaveRandom: 0
-  Wave: []
+  Wave:
+  - {fileID: 11400000, guid: fa92e2f455855be4e933010254bf919e, type: 2}
