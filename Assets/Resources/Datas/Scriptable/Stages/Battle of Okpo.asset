@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2009f652e3f639544a6f82110eadb134, type: 3}
-  m_Name: Conquest Tsushima Island
+  m_Name: Battle of Okpo
   m_EditorClassIdentifier: 
   Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
   Tower: []
