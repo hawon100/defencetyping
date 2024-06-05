@@ -12,7 +12,7 @@ public class LobbyUI : MonoBehaviour
         switch (btnName)
         {
             case "GameStart":
-                LobbyWin.DOAnchorPosY(-10, 0.5f);
+                LobbyWin.DOAnchorPosY(0, 0.5f);
                 break;
             case "PowerUp":
                 //character Level up
