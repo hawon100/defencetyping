@@ -10,6 +10,7 @@ public class MapInfomation
 {
     public Button warButton;
     public Sprite warImage;
+    public Define.CurrentStage stage;
     [TextArea(5, 5)] public string warContent;
 }
 
@@ -42,6 +43,7 @@ public class MapSelect : MonoBehaviour
         {
             warImage.sprite = map.warImage;
             warContent.text = map.warContent;
+            Managers.Data.currentStage = map.stage;
             Managers.Game.currentStage = Resources.Load<Stage>($"Datas/Scriptable/Stages/{map.warButton.name}");
             PanelOpen();
         }
@@ -65,6 +67,6 @@ public class MapSelect : MonoBehaviour
     public void OnGameLobby()
     {
         PanelClose();
-        LobbyWin.DOAnchorPosY(0, 0.5f);
+        LobbyWin.DOAnchorPosY(10, 0.5f);
     }
 }
