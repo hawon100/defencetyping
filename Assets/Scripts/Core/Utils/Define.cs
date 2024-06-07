@@ -4,28 +4,6 @@ using UnityEngine;
 
 public class Define
 {
-    public enum CurrentStage
-    {
-        None = -1,
-        Battle_of_Okpo = 0,
-        Battle_of_Happo = 1,
-        Battle_of_Jukjinpo = 2,
-        Battle_of_Sacheon,
-        Battle_of_Dangpo,
-        Battle_of_Danghangpo,
-        Battle_of_Yulpo,
-        Battle_of_Hansan_Island,
-        Battle_of_Angolpo,
-        Battle_of_Busan,
-        Battle_of_Ungpo,
-        Battle_of_Jangmunpo,
-        Battle_of_Chilcheollyang,
-        Battle_of_Myeongnyang,
-        Battle_of_Jeolyi_Island,
-        Battle_of_Noryang,
-        EndLine,
-    }
-
     public enum WordState
     {
         None,

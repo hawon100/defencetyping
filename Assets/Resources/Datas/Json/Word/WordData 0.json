@@ -2,38 +2,38 @@
   "words": [
     {
       "wordIndex": "1",
-      "buildword": "옥포 해전",
-      "attackword": "물령망동 정중여산",
-      "skillword": "이순신 충무공",
-      "fixedword": "원균"
+      "buildword": "충무공 이순신",
+      "attackword": "어영담",
+      "skillword": "적진포 해전",
+      "fixedword": "사천 해전"
     },
     {
       "wordIndex": "2",
-      "buildword": "도요토미 히데요시",
-      "attackword": "정운",
+      "buildword": "원균",
+      "attackword": "어영남",
       "skillword": "도도 다카토라",
       "fixedword": "부상자 1명"
     },
     {
       "wordIndex": "3",
-      "buildword": "전선 26척 침몰",
+      "buildword": "정운",
       "attackword": "사상자 불명",
       "skillword": "선조 25년",
       "fixedword": "임진년 5월 7일"
     },
     {
       "wordIndex": "4",
-      "buildword": "전라좌도 수군절도사 이순신",
+      "buildword": "배흥립",
       "attackword": "조선수군",
       "skillword": "조선",
       "fixedword": "승리"
     },
     {
       "wordIndex": "5",
-      "buildword": "배흥립",
+      "buildword": "무의공 이순신",
       "attackword": "어영담",
       "skillword": "어영남",
-      "fixedword": "권문세족 세퇴"
-    },
+      "fixedword": "무의공 이순신"
+    }
   ]
 }
