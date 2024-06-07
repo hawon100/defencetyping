@@ -371,7 +371,7 @@ MonoBehaviour:
   cooltime: 0
   targetTag: 
   range: 0
-  triSprite: {fileID: 0}
+  triSprite: {fileID: 2901246660037438641}
   bomb: {fileID: 0}
 --- !u!58 &7432582720304012996
 CircleCollider2D:
@@ -447,8 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2eb510c2b1303243ba5602b179c6f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
-  maxHp: 20
+  hp: 100
+  maxHp: 100
   isDeath: 0
   hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 1083255187887556969}

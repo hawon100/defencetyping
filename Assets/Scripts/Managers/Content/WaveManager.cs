@@ -25,21 +25,27 @@ public class WaveManager : MonoBehaviour
 
         for (int i = 0; i < wave.WaveEnemie.Count; i++)
         {
-            for (int j = 0; j < wave.WaveEnemie[i].Amount; j++)
-            {
-                Transform area = spawnArea[Random.Range(0, spawnArea.Length)];
+            GameObject enemy = Managers.Resource.Instantiate(wave.WaveEnemie[i].Enemy.gameObject);
 
-                spawnPos.x = Random.Range(area.position.x - area.localScale.x / 2,
-                                          area.position.x + area.localScale.x / 2);
-                spawnPos.y = Random.Range(area.position.y - area.localScale.y / 2,
-                                          area.position.y + area.localScale.y / 2);
+            enemy.transform.position = wave.WaveEnemie[i].SpawnPos;
 
-                GameObject enemy = Managers.Resource.Instantiate(wave.WaveEnemie[i].Enemy.gameObject);
+            currentEnemy += 1;
 
-                enemy.transform.position = spawnPos;
+            //for (int j = 0; j < wave.WaveEnemie[i].Amount; j++)
+            //{
+            //    //Transform area = spawnArea[Random.Range(0, spawnArea.Length)];
 
-                currentEnemy += 1;
-            }
+            //    //spawnPos.x = Random.Range(area.position.x - area.localScale.x / 2,
+            //    //                          area.position.x + area.localScale.x / 2);
+            //    //spawnPos.y = Random.Range(area.position.y - area.localScale.y / 2,
+            //    //                          area.position.y + area.localScale.y / 2);
+
+            //    GameObject enemy = Managers.Resource.Instantiate(wave.WaveEnemie[i].Enemy.gameObject);
+
+            //    enemy.transform.position = spawnPos;
+
+            //    currentEnemy += 1;
+            //}
         }
 
         Debug.Log("Wave " + (currentWave + 1) + "/Spawned : " + currentEnemy);
