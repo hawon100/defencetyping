@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Battle of Okpo
   m_EditorClassIdentifier: 
   Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
-  Tower: []
+  Tower:
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: -3, y: 0}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 3, y: 0}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: -3, y: 3}
+  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
+    TowerBuilderPos: {x: 3, y: -3}
   WaveLoop: 0
   WaveRandom: 0
   Wave:
