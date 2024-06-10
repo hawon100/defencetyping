@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public Stage currentStage;
 
+    public Transform uiCanvas;
+
     public void Init()
     {
         //absScreenX = background.localScale.x / 2;
