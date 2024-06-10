@@ -57,9 +57,16 @@ public class TypingManager
         }
         else if (_input == _word[3])
         {
-            Debug.Log("수리 성공");
-
-            towerStat.OnFixed(3);
+            if(UserStat.Gold >= UserStat.FixedPrice)
+            {
+                UserStat.Gold -= 30;
+                Debug.Log("수리 성공");
+                towerStat.OnFixed(3);
+            }
+            else
+            {
+                Debug.Log("수리 실패 돈 부족");
+            }
         }
         else
         {

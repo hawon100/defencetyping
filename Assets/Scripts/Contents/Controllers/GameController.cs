@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public Text[] text;
+    public Text[] captaintext;
     public InputField typingInput;
 
     public List<BuildTower> towers = new();
@@ -13,8 +14,14 @@ public class GameController : MonoBehaviour
     public GameObject towerSelectUI;
     public GameObject buildUI;
     public GameObject towerUI;
+    public GameObject captainUI;
 
-    public int gold;
+    public Text goldText;
+    public Text[] towerPriceText = new Text[4];
+    public int[] towerPrice = new int[4];
+    private int price;
+
+    public Text warningText;
 
     public float curDelayChange;
     public float maxDelayChange;
@@ -34,6 +41,13 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        goldText.text = $"{UserStat.Gold}$";
+
+        for(int i = 0; i < towerPrice.Length; i++)
+        {
+            towerPriceText[i].text = $"{towerPrice[i]}$";
+        }
+
         UpdateWordTyping();
         UpdateBuild();
         UpdateType();
@@ -63,6 +77,11 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             text[i].text = Managers.Typing._word[i];
+        }
+
+        for (int i = 0; i < captaintext.Length; i++)
+        {
+            captaintext[i].text = Managers.Typing._word[i];
         }
 
         Managers.Typing._input = typingInput.text;
@@ -123,28 +142,33 @@ public class GameController : MonoBehaviour
         {
             case "Common":
                 Managers.Typing.type = Define.InstallTowerType.Common;
+                price = towerPrice[0];
                 break;
             case "Rare":
                 Managers.Typing.type = Define.InstallTowerType.Rare;
+                price = towerPrice[1];
                 break;
             case "Epic":
                 Managers.Typing.type = Define.InstallTowerType.Epic;
+                price = towerPrice[2];
                 break;
             case "Legend":
                 Managers.Typing.type = Define.InstallTowerType.Legend;
+                price = towerPrice[3];
                 break;
         }
 
         //price shop
-        //if (gold >= 100)
-        //{
-        //    gold -= 100;
-        //}
-        //else
-        //{
-        //    // Don't have any Gold
-        //    return;
-        //}
+        if (UserStat.Gold >= price)
+        {
+            UserStat.Gold -= price;
+        }
+        else
+        {
+            // don't have any gold
+
+            return;
+        }
 
         selectedTower.type = Managers.Typing.type;
 
