@@ -18,6 +18,9 @@ public class Stage : ScriptableObject
     [Header("Tower")]
     public List<TowerBuiler> Tower;
 
+    [Header("Spawner")]
+    public List<GameObject> Spawners;
+
     [Header("Wave")]
     public bool WaveLoop;
     public bool WaveRandom;

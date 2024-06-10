@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2009f652e3f639544a6f82110eadb134, type: 3}
   m_Name: Battle of Okpo
   m_EditorClassIdentifier: 
-  Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
+  Background: {fileID: 3946853328564810819, guid: f83ca3fcd2c81124a905bdcbeb3585e5, type: 3}
   Tower:
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: -3, y: 0}
+    TowerBuilderPos: {x: -1.5, y: -4}
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 3, y: 0}
+    TowerBuilderPos: {x: 4, y: 4}
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: -3, y: 3}
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 3, y: -3}
+    TowerBuilderPos: {x: 5, y: 0}
+  Spawners:
+  - {fileID: 2002706007621442774, guid: f9bf2059e6e97dd45b545e5a7cb2bd80, type: 3}
   WaveLoop: 0
   WaveRandom: 0
   Wave:

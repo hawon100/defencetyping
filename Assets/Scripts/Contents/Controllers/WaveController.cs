@@ -30,12 +30,12 @@ public class WaveController : MonoBehaviour
 
         TowerInit();
 
-        Managers.Wave.spawnArea = new Transform[4];
+        Managers.Wave.spawnArea = new Transform[thisStage.Spawners.Count];
         Managers.Game.Init();
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < thisStage.Spawners.Count; i++)
         {
-            GameObject sa = Managers.Resource.Instantiate("SpawnArea/SpawnArea" + i, transform.parent);
+            GameObject sa = Managers.Resource.Instantiate(thisStage.Spawners[i], transform.parent);
 
             Managers.Wave.spawnArea[i] = sa.transform;
         }
