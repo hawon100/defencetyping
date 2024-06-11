@@ -21,6 +21,7 @@ public class TowerStatHPUI : MonoBehaviour
 
         hpPanel.sizeDelta = panelSize;
 
+        //Debug.Log("MAX HP : " + maxHp + ", HP : " + curHp);
         for (int i = 0; i < maxHp; i++)
         {
             GameObject h = Managers.Resource.Instantiate(healthPrefab, null);
@@ -28,7 +29,7 @@ public class TowerStatHPUI : MonoBehaviour
             h.transform.parent = hpSlot;
 
             health[i] = h;
-            health[i].SetActive(i <= curHp);
+            health[i].SetActive(i < curHp);
         }
     }
 
@@ -43,5 +44,18 @@ public class TowerStatHPUI : MonoBehaviour
         {
             health[i].SetActive(true);
         }
+    }
+
+    //Temp
+    public void BoxCreater(Vector2 pos)
+    {
+        Debug.Log("Box : " + pos);
+
+        Vector2 viewportPosition = Camera.main.WorldToViewportPoint(pos);
+        Vector2 worldObjectScreenPosition = new Vector2(
+                ((viewportPosition.x * 1920f) - (1920f * 0.5f)),
+                ((viewportPosition.y * 1080f) - (1080f * 0.5f)));
+
+        GetComponent<RectTransform>().anchoredPosition = Camera.main.WorldToViewportPoint(pos);
     }
 }
