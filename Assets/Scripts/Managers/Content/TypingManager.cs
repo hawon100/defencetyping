@@ -35,6 +35,7 @@ public class TypingManager
             }
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
+            towerStat.Init();
             //towerStat.towerStatUI.
         }
         else if (_input == _word[1])
