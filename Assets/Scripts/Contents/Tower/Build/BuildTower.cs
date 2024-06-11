@@ -25,29 +25,23 @@ public class BuildTower : MonoBehaviour
 
         GameObject towerBuild = Util.FindChild(gameObject);
 
-        if(towerBuild.GetComponent<CenteralTowerStat>().enabled)
+        if (towerBuild != null)
         {
-            if (towerBuild != null)
+            gameCtrl.buildUI.SetActive(false);
+
+            if(towerBuild.GetComponent<CenteralTowerStat>().enabled)
             {
-                gameCtrl.buildUI.SetActive(false);
                 gameCtrl.captainUI.SetActive(true);
             }
             else
             {
-                gameCtrl.captainUI.SetActive(false);
+                gameCtrl.towerUI.SetActive(true);
             }
         }
         else
         {
-            if (towerBuild != null)
-            {
-                gameCtrl.buildUI.SetActive(false);
-                gameCtrl.towerUI.SetActive(true);
-            }
-            else
-            {
-                gameCtrl.towerUI.SetActive(false);
-            }
+            gameCtrl.towerUI.SetActive(false);
+            gameCtrl.captainUI.SetActive(false);
         }
     }
 
@@ -90,6 +84,7 @@ public class BuildTower : MonoBehaviour
         {
             gameCtrl.towers[i].isTyping = false;
         }
+
         gameCtrl.towerSelectUI.SetActive(true);
         gameCtrl.buildUI.SetActive(false);
         gameCtrl.captainUI.SetActive(false);

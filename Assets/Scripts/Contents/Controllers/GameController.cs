@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     public Text goldText;
     public Text[] towerPriceText = new Text[4];
     public int[] towerPrice = new int[4];
-    private int price;
+    public int price;
 
     public Text warningText;
 

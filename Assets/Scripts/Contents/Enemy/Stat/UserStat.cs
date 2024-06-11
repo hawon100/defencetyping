@@ -12,11 +12,13 @@ public class UserStat : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Gold = _gold;
+        FixedPrice = _fixedPrice;
     }
 
     private void Update()
     {
-        Gold = _gold;
-        FixedPrice = _fixedPrice;
+        _gold = Gold;
+        _fixedPrice = FixedPrice;
     }
 }
