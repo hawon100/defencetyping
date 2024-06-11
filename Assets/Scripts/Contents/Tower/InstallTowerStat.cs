@@ -7,7 +7,7 @@ public class InstallTowerStat : TowerStat
     {
         if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
 
-        GameObject u = Managers.Resource.Instantiate(hpUI.gameObject, Managers.Game.uiCanvas);
+        GameObject u = Managers.Resource.Instantiate("UI/TowerHP/TowerHP", Managers.Game.uiCanvas);
         hpUI = u.GetComponent<TowerStatHPUI>();
         u.GetComponent<RectTransform>().localPosition = transform.position;
         hpUI.InitHP(MaxHp, Hp);
@@ -16,8 +16,8 @@ public class InstallTowerStat : TowerStat
 
     public override void OnAttacked(int damagedHp)
     {
+        hpUI.UpdateHP(Hp - damagedHp);
         base.OnAttacked(damagedHp);
-        hpUI.UpdateHP(Hp);
     }
 
     protected override void OnDead()

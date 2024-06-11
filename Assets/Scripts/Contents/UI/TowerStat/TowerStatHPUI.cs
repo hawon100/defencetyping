@@ -23,9 +23,9 @@ public class TowerStatHPUI : MonoBehaviour
 
         for (int i = 0; i < maxHp; i++)
         {
-            GameObject h = Managers.Resource.Instantiate(healthPrefab, hpSlot);
+            GameObject h = Managers.Resource.Instantiate(healthPrefab, null);
 
-            h.transform.parent = transform;
+            h.transform.parent = hpSlot;
 
             health[i] = h;
             health[i].SetActive(i <= curHp);
