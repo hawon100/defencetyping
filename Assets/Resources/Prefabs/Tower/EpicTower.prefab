@@ -273,9 +273,10 @@ MonoBehaviour:
   towerStatUI: {fileID: 0}
   _level: 0
   _hp: 3
-  _maxHp: 10
+  _maxHp: 3
   _attack: 0
   _defence: 0
+  hpUI: {fileID: 0}
 --- !u!1 &1723432701665100685
 GameObject:
   m_ObjectHideFlags: 0
