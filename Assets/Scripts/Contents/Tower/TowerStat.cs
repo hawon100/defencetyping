@@ -19,11 +19,11 @@ public class TowerStat : MonoBehaviour
 
     private void Start()
     {
-        _level = 1;
-        _hp = 3;
-        _maxHp = 3;
-        _attack = 1;
-        _defence = 0;
+        //_level = 1;
+        //_hp = 3;
+        //_maxHp = 3;
+        //_attack = 1;
+        //_defence = 0;
     }
 
     public virtual void Init()

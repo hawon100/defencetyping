@@ -16,12 +16,13 @@ public class CentralStatHPUI : MonoBehaviour
 
     public void InitHP(int max, int cur)
     {
+        Debug.Log(max);
         maxHp = max;
         hpSlider.value = 1;
     }
 
     public void UpdateHP(int hp)
     {
-        hpSlider.value = hp / maxHp;
+        hpSlider.value = (float)hp / maxHp;
     }
 }

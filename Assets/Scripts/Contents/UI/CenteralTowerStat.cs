@@ -10,20 +10,18 @@ public class CenteralTowerStat : TowerStat
     public override void Init()
     {
         base.Init();
+        hpUI.InitHP(MaxHp, MaxHp);
     }
 
     private void Start()
     {
         Init();
-        GameObject ui = Managers.Resource.Instantiate("");
-        hpUI = ui.GetComponent<CentralStatHPUI>();
-        hpUI.InitHP(MaxHp, MaxHp);
     }
 
     public override void OnAttacked(int damagedHp)
     {
+        hpUI.UpdateHP(Hp - damagedHp);
         base.OnAttacked(damagedHp);
-        hpUI.UpdateHP(Hp);
     }
 
     protected override void OnDead()

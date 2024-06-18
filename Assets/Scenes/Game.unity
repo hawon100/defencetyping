@@ -4939,7 +4939,7 @@ MonoBehaviour:
   _maxHp: 15
   _attack: 0
   _defence: 0
-  CentralTowerHP: {fileID: 506938001}
+  hpUI: {fileID: 6618934698812779053}
 --- !u!212 &1205149990
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7810,7 +7810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8427,9 +8427,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6618934698812779052}
-  - component: {fileID: 7391456469586859453}
+  - component: {fileID: 6618934698812779053}
   m_Layer: 0
-  m_Name: TowerHP
+  m_Name: CentralTowerHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8638,7 +8638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: -140}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &6618934698812779052
@@ -8661,6 +8661,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6618934698812779053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2379089553659202018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87c1cb770fc8284589d02572a65da7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSlider: {fileID: 2116310300}
 --- !u!114 &6790442245193124253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8684,21 +8697,6 @@ MonoBehaviour:
   range: 5
   triSprite: {fileID: 0}
   bomb: {fileID: 0}
---- !u!114 &7391456469586859453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2379089553659202018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c2f0a0fe80f634c828e5e5ce02bf3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPrefab: {fileID: 4697208522079289824, guid: d84ab755df059e84db3fa877dd3b4047, type: 3}
-  hpSlot: {fileID: 0}
-  hpPanel: {fileID: 6509853282388137008}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
