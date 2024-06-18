@@ -5,7 +5,8 @@ using UnityEngine.UI; //Temp
 
 public class CenteralTowerStat : TowerStat
 {
-    [SerializeField] private Text CentralTowerHP; //Temp
+    //[SerializeField] private Text CentralTowerHP; //Temp
+    [SerializeField] private CentralStatHPUI hpUI;
     public override void Init()
     {
         base.Init();
@@ -14,23 +15,20 @@ public class CenteralTowerStat : TowerStat
     private void Start()
     {
         Init();
-        TextUpdate_Temp();
+        GameObject ui = Managers.Resource.Instantiate("");
+        hpUI = ui.GetComponent<CentralStatHPUI>();
+        hpUI.InitHP(MaxHp, MaxHp);
     }
 
     public override void OnAttacked(int damagedHp)
     {
         base.OnAttacked(damagedHp);
-        TextUpdate_Temp();
+        hpUI.UpdateHP(Hp);
     }
 
     protected override void OnDead()
     {
         Managers.Wave.isWave = false;
-    }
-
-    public void TextUpdate_Temp()
-    {
-        CentralTowerHP.text = "HP : " + Hp;
     }
 
     //protected virtual void OnDead(TowerStat attacker)
