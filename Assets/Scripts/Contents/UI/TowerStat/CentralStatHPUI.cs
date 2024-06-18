@@ -14,9 +14,8 @@ public class CentralStatHPUI : MonoBehaviour
 
     }
 
-    public void InitHP(int max, int cur)
+    public void InitHP(int max)
     {
-        Debug.Log(max);
         maxHp = max;
         hpSlider.value = 1;
     }

@@ -10,7 +10,7 @@ public class CenteralTowerStat : TowerStat
     public override void Init()
     {
         base.Init();
-        hpUI.InitHP(MaxHp, MaxHp);
+        hpUI.InitHP(MaxHp);
     }
 
     private void Start()
