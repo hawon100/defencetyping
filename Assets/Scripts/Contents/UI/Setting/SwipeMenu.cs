@@ -9,14 +9,16 @@ public class SwipeMenu : MonoBehaviour
     float scroll_pos = 0;
     float[] pos;
 
-    private void Update()
+    protected virtual void Update()
     {
         pos = new float[transform.childCount];
         float distance = 1f / (pos.Length - 1f);
+
         for(int i = 0; i < pos.Length; i++)
         {
             pos[i] = distance * i;
         }
+
         if(Input.GetMouseButton(0))
         {
             scroll_pos = scrollbar.GetComponent<Scrollbar>().value;

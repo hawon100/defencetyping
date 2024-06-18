@@ -6,6 +6,7 @@ using DG.Tweening;
 public class LobbyUI : MonoBehaviour
 {
     public RectTransform LobbyWin;
+    public RectTransform EditWin;
 
     public void OnButton(string btnName)
     {
@@ -19,6 +20,8 @@ public class LobbyUI : MonoBehaviour
                 break;
             case "Edit":
                 //character tower add or remove
+                EditWin.DOAnchorPosX(0, 0.5f);
+
                 break;
         }
     }
