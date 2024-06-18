@@ -34,10 +34,7 @@ public class TeamEdit : MonoBehaviour
             dataEdit[i].charButton = dataEdit[i].charObj.GetComponent<Button>();
         }
 
-        for (int i = 0; i < dataEdit.Count; i++)
-        {
-            dataEdit[i].charButton.onClick.AddListener(() => CharAdd(i));
-        }
+        dataEdit[0].charButton.onClick.AddListener(() => CharAdd(0));
     }
 
     private void CharAdd(int i)
@@ -45,6 +42,7 @@ public class TeamEdit : MonoBehaviour
         Debug.Log($"{i}");
         Debug.Log($"{i%4}");
         dataEdit[i].charObj.transform.parent = holder[i % 4].transform;
+        dataEdit[i].charObj.transform.localScale = holder[i % 4].transform.localScale;
     }
 
     public void OnButtonClick()
