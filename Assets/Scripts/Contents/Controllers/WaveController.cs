@@ -56,6 +56,7 @@ public class WaveController : MonoBehaviour
             bt.WordPanel = centeralTower.WordPanel;
             bt.InputPanel = centeralTower.InputPanel;
             bt.gameCtrl = centeralTower.gameCtrl;
+            bt.hpPos = thisStage.Tower[i].HpPanelPos;
             gameController.towers.Add(bt);
         }
     }

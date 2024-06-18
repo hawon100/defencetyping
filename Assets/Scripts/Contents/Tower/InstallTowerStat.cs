@@ -9,10 +9,9 @@ public class InstallTowerStat : TowerStat
 
         GameObject u = Managers.Resource.Instantiate("UI/TowerHP/TowerHP", Managers.Game.uiCanvas);
         hpUI = u.GetComponent<TowerStatHPUI>();
-        //u.GetComponent<RectTransform>().anchoredPosition = transform.position;
-        Debug.Log("Tower : " + transform.parent.position);
-        hpUI.BoxCreater(transform.parent.position);
-        hpUI.InitHP(MaxHp, Hp);
+        //hpUI.MoveUI(new Vector2(4, 4));
+        hpUI.SetUI(towerPos);
+        hpUI.InitHP(MaxHp, MaxHp);
         base.Init();
     }
 

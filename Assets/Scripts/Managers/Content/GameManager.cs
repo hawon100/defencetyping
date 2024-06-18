@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public Transform uiCanvas;
 
+    public Vector3 checkedTowerPos;
+
     public void Init()
     {
         //absScreenX = background.localScale.x / 2;

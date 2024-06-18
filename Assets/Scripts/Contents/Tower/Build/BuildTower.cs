@@ -11,6 +11,9 @@ public class BuildTower : MonoBehaviour
 
     int _mask = (1 << (int)Define.Layer.Background) | (1 << (int)Define.Layer.TowerInstall) | (1 << (int)Define.Layer.Tower);
 
+    //Temp
+    public Vector2 hpPos;
+
     private void Start()
     {
         Managers.Input.MouseAction -= OnMouseEvent;
@@ -94,6 +97,7 @@ public class BuildTower : MonoBehaviour
         {
             gameCtrl.curDelayChange = 0;
             Managers.Typing.tower = this.gameObject;
+            Managers.Typing.curBuildPos = hpPos; //Temp
             PanelOpen();
         }
     }

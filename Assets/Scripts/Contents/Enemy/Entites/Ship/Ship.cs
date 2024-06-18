@@ -125,7 +125,7 @@ public class Ship : EnemyBase
 
         rb2d.velocity = moveSpeed * Trace(transform.position, target.position);
 
-        if (rb2d.velocity.sqrMagnitude <= 0.1f ||
+        if (rb2d.velocity.sqrMagnitude <= 0.9f ||
             isDistance(transform.position, target.position, stopDistance))
         {
             rb2d.velocity = Vector2.zero;
