@@ -3,6 +3,7 @@ using UnityEngine;
 public class TowerStat : MonoBehaviour
 { 
     public TowerStatUI towerStatUI;
+    public Vector2     towerPos;
 
     [SerializeField] protected int _level;
     [SerializeField] protected int _hp;

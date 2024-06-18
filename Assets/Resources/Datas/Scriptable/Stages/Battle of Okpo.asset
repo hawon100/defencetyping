@@ -16,10 +16,13 @@ MonoBehaviour:
   Tower:
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
     TowerBuilderPos: {x: -1.5, y: -4}
+    HpPanelPos: {x: -118, y: -295}
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
     TowerBuilderPos: {x: 4, y: 4}
+    HpPanelPos: {x: 306, y: 328}
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
     TowerBuilderPos: {x: 5, y: 0}
+    HpPanelPos: {x: 380, y: 15}
   Spawners:
   - {fileID: 2002706007621442774, guid: f9bf2059e6e97dd45b545e5a7cb2bd80, type: 3}
   WaveLoop: 0

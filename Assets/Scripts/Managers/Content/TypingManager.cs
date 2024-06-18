@@ -11,6 +11,9 @@ public class TypingManager
     public TowerBase towerBase;
     public TowerStat towerStat;
 
+    //Temp
+    public Vector2 curBuildPos;
+
     public void WordReset()
     {
         _word[0] = Managers.Word.BuildWord(_word[0]);
@@ -35,6 +38,7 @@ public class TypingManager
             }
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
+            towerStat.towerPos = curBuildPos;
             towerStat.Init();
             //towerStat.towerStatUI.
         }
