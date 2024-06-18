@@ -271,9 +271,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerStatUI: {fileID: 0}
+  towerPos: {x: 0, y: 0}
   _level: 0
   _hp: 3
-  _maxHp: 3
+  _maxHp: 10
   _attack: 0
   _defence: 0
   hpUI: {fileID: 0}

@@ -7,6 +7,9 @@ public class TowerBuiler
 {
     public BuildTower TowerBuilder;
     public Vector2 TowerBuilderPos;
+
+    
+    public Vector2 HpPanelPos;
 }
 
 [CreateAssetMenu(fileName = "New StageData", menuName = "Data/StageData", order = int.MinValue)]

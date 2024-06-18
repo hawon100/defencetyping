@@ -12,6 +12,13 @@ public class TowerStatHPUI : MonoBehaviour
     private GameObject[] health;
     private Vector2 panelSize;
 
+    private RectTransform uiRect;
+
+    private void Awake()
+    {
+        uiRect = GetComponent<RectTransform>();
+    }
+
     public void InitHP(int maxHp, int curHp)
     {
         health = new GameObject[maxHp];
@@ -56,6 +63,20 @@ public class TowerStatHPUI : MonoBehaviour
                 ((viewportPosition.x * 1920f) - (1920f * 0.5f)),
                 ((viewportPosition.y * 1080f) - (1080f * 0.5f)));
 
-        GetComponent<RectTransform>().anchoredPosition = Camera.main.WorldToViewportPoint(pos);
+        GetComponent<RectTransform>().anchoredPosition = worldObjectScreenPosition;
+    }
+
+    public void MoveUI(Vector2 position)
+    {
+        Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, position);
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(uiRect.parent as RectTransform, screenPoint, Camera.main, out Vector2 localPoint);
+
+        uiRect.anchoredPosition = localPoint;
+    }
+
+    public void SetUI(Vector2 position)
+    {
+        uiRect.anchoredPosition = position;
     }
 }
