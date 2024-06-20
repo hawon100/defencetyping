@@ -273,8 +273,8 @@ MonoBehaviour:
   towerStatUI: {fileID: 0}
   towerPos: {x: 0, y: 0}
   _level: 0
-  _hp: 3
-  _maxHp: 10
+  _hp: 7
+  _maxHp: 7
   _attack: 0
   _defence: 0
   hpUI: {fileID: 0}
