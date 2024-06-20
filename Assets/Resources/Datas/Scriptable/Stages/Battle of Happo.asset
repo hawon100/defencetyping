@@ -15,13 +15,16 @@ MonoBehaviour:
   Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
   Tower:
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: -4.5, y: 0}
+    TowerBuilderPos: {x: -5, y: -4}
+    HpPanelPos: {x: -385, y: -250}
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 0, y: 3}
+    TowerBuilderPos: {x: 5, y: -4}
+    HpPanelPos: {x: 385, y: -250}
   - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 0, y: -3}
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 4.5, y: 0}
+    TowerBuilderPos: {x: 0, y: -5}
+    HpPanelPos: {x: 0, y: -330}
+  Spawners:
+  - {fileID: 3534320944152608091, guid: 912441cc33616964bbc03cf4d27e3ead, type: 3}
   WaveLoop: 0
   WaveRandom: 0
   Wave:

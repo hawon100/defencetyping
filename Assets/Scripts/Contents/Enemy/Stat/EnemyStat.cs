@@ -23,6 +23,10 @@ public class EnemyStat : EnemyStatBase
     protected override void Death()
     {
         spriteRend.color = Color.white;
+
+        GameObject d = Managers.Resource.Instantiate("VFX/DustExplosion");
+        d.transform.position = transform.position;
+
         base.Death();
     }
 
