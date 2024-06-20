@@ -21,6 +21,7 @@ public class EffectControll : MonoBehaviour
     {
         yield return waitSeconds;
 
+        transform.localScale = Vector2.one;
         Managers.Resource.Destroy(this.gameObject);
     }
 }

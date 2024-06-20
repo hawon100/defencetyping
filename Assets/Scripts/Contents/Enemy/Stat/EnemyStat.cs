@@ -24,8 +24,12 @@ public class EnemyStat : EnemyStatBase
     {
         spriteRend.color = Color.white;
 
-        GameObject d = Managers.Resource.Instantiate("VFX/DustExplosion");
+        //GameObject d = Managers.Resource.Instantiate("VFX/DustExplosion");
+        GameObject d = Managers.Resource.Instantiate("VFX/BigExplosion");
         d.transform.position = transform.position;
+        GameObject e = Managers.Resource.Instantiate("VFX/boom");
+        e.transform.position = transform.position;
+        e.transform.localScale = 3 * Vector2.one;
 
         base.Death();
     }
