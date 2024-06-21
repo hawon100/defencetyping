@@ -49,7 +49,8 @@ public class WaveController : MonoBehaviour
     {
         for (int i = 0; i < thisStage.Tower.Count; i++) 
         {
-            GameObject tb = Managers.Resource.Instantiate(thisStage.Tower[i].TowerBuilder.gameObject, null);
+            //GameObject tb = Managers.Resource.Instantiate(thisStage.Tower[i].TowerBuilder.gameObject, null);
+            GameObject tb = Managers.Resource.Instantiate("Tower/Tower");
             tb.transform.parent = installTowerGroup;
             tb.transform.position = thisStage.Tower[i].TowerBuilderPos;
             BuildTower bt = tb.GetComponent<BuildTower>();

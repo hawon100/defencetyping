@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: Battle of Busan
   m_EditorClassIdentifier: 
   Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
-  Tower: []
+  Tower:
+  - TowerBuilderPos: {x: 0, y: 0}
+    HpPanelPos: {x: 0, y: 0}
+  Spawners: []
+  isRight: 0
+  isLeft: 0
+  isTop: 0
+  isBottom: 0
   WaveLoop: 0
   WaveRandom: 0
   Wave: []
