@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class CharDataEdit
 {
     public string charName;
+    public string prefabName;
     public Sprite charImage;
     public Button charButton;
     public GameObject charObj;
@@ -47,32 +48,30 @@ public class TeamEdit : MonoBehaviour
 
             int index = i;
             dataEdit[i].charButton.onClick.AddListener(() => CharAdd(index));
-
         }
 
         // Team Data Load
         for (int i = 0; i < dataEdit.Count; i++)
         {
-            DataLoad(i);
-
-            // if (dataEdit[i].charName == teamData.team[i].charName)
-            // {
-            // }
+            for(int j = 0; j < teamData.team.Count; j++)
+            {
+                if (dataEdit[i].charName == teamData.team[j].charName)
+                {
+                    DataLoad(i, j);
+                }
+            }
         }
     }
 
-    private void DataLoad(int i)
+    private void DataLoad(int i, int j)
     {
-        Debug.Log($"{teamData.team[i].charName}");
+         int holderIndex = -1;
 
-
-        int holderIndex = -1;
-
-        for (int j = 0; j < holders.Count; j++)
+        for (int x = 0; x < holders.Count; x++)
         {
-            if (!holders[j].isChild)
+            if (!holders[x].isChild)
             {
-                holderIndex = j;
+                holderIndex = x;
                 break;
             }
         }
@@ -83,8 +82,7 @@ public class TeamEdit : MonoBehaviour
             return;
         }
 
-        if (teamData.team[i].charName == "") return;
-
+        Debug.Log($"{teamData.team[j].charName}");
         dataEdit[i].charButton.enabled = false;
         holders[holderIndex].objName = dataEdit[i].charName;
         dataEdit[i].charObj.transform.parent = holders[holderIndex].holderObj.transform;
@@ -128,17 +126,11 @@ public class TeamEdit : MonoBehaviour
 
     private void CharRemove(int i)
     {
+        teamData.team[i].prefabName = "";
         dataEdit[i].charButton.enabled = true;
         dataEdit[i].charObj.transform.parent = content.transform;
         dataEdit[i].charObj.transform.localScale = new Vector3(1f, 1f, 1f);
         currentIndex--;
-    }
-
-    private void Swap<T>(ref T x, ref T y)
-    {
-        T temp = x;
-        x = y;
-        y = temp;
     }
 
     public void OnButtonClick(int index)
@@ -151,14 +143,56 @@ public class TeamEdit : MonoBehaviour
         holders[index].isChild = false; // Update the isChild state of the holder
         holders[index].objName = "";
 
+        for (int i = index; i < holders.Count - 1; i++)
+        {
+            holders[i].objName = holders[i + 1].objName;
+            holders[i].isChild = holders[i + 1].isChild;
+            holders[i + 1].objName = "";
+            holders[i + 1].isChild = false;
+
+            // Update the teamData as well
+            teamData.team[i].charName = teamData.team[i + 1].charName;
+            teamData.team[i].charImage = teamData.team[i + 1].charImage;
+            teamData.team[i].prefab = teamData.team[i + 1].prefab;
+
+            teamData.team[i + 1].charName = "";
+            teamData.team[i + 1].charImage = null;
+            teamData.team[i + 1].prefab = null;
+        }
+
         for (int i = 0; i < dataEdit.Count; i++)
         {
             if (obj.FindChild<Text>().text == dataEdit[i].charName)
             {
-                teamData.team[index].charName = "";
-                teamData.team[index].charImage = null;
-                teamData.team[index].prefab = null;
                 CharRemove(i);
+                break;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < dataEdit.Count; i++)
+        {
+            for (int j = 0; j < holders.Count; j++)
+            {
+                if(dataEdit[i].charName == "") return;
+
+                if (dataEdit[i].charName == holders[j].objName)
+                {
+                    Debug.Log($"Character Data {j} : {dataEdit[i].charName}");
+                    dataEdit[i].charObj.transform.parent = holders[j].holderObj.transform;
+                    dataEdit[i].charObj.transform.position = holders[j].holderObj.transform.position;
+                }
+            }
+        }
+
+        for(int i = 0; i < dataEdit.Count; i++)
+        {
+            for(int j = 0; j < teamData.team.Count; j++)
+            {
+                if (dataEdit[i].charName == holders[j].objName)
+                    teamData.team[j].prefabName = dataEdit[i].prefabName;
             }
         }
     }

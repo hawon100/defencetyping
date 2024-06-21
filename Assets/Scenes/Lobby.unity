@@ -331,23 +331,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 1040700674}
   dataEdit:
-  - charName: "\uD30C\uC625\uC120"
+  - charName: "\uD310\uC625\uC120"
+    prefabName: panokseon
     charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
     prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uADC0\uC120"
+    prefabName: turtleship
     charImage: {fileID: 21300000, guid: 7ef1e3ea340b57042a74506f97e68ada, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
     prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uBC29\uD328\uC120"
+    prefabName: shieldship
     charImage: {fileID: -370902250, guid: 88df73e7fdacf53458866a0ce39f0905, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
     prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uD574\uACE8\uC120"
+    prefabName: skullship
     charImage: {fileID: 21300000, guid: 283ca998a55d3ae4691609a41bc70113, type: 3}
+    charButton: {fileID: 0}
+    charObj: {fileID: 0}
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+  - charName: "\uB9F9\uC120"
+    prefabName: blindship
+    charImage: {fileID: 21300000, guid: c8b175558c1dd0c4fa261d8d6e28344d, type: 3}
+    charButton: {fileID: 0}
+    charObj: {fileID: 0}
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+  - charName: "\uACFC\uC120"
+    prefabName: overwire
+    charImage: {fileID: 150306051, guid: 88df73e7fdacf53458866a0ce39f0905, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
     prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}

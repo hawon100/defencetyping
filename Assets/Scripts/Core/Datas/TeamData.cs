@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharData
 {
     public string charName;
+    public string prefabName;
     public Sprite charImage;
     public GameObject prefab;
 }

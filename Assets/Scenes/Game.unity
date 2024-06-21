@@ -1451,6 +1451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 339318992}
+  - component: {fileID: 339318993}
   m_Layer: 0
   m_Name: '@Controller'
   m_TagString: Untagged
@@ -1476,6 +1477,26 @@ Transform:
   - {fileID: 1098869984}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &339318993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339318991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2357aa135eaf854886baa00d43bdd22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  background: {fileID: 0}
+  absScreenX: 0
+  absScreenY: 0
+  currentStage: {fileID: 0}
+  uiCanvas: {fileID: 0}
+  checkedTowerPos: {x: 0, y: 0, z: 0}
+  teamData: {fileID: 11400000, guid: fd2e7e554714be0448f8e82f21a94d32, type: 2}
 --- !u!1 &404811830
 GameObject:
   m_ObjectHideFlags: 0

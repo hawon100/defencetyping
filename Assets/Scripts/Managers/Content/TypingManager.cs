@@ -31,10 +31,10 @@ public class TypingManager
             Debug.Log("ºôµå ¼º°ø");
             switch(type)
             {
-                case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate("Tower/CommonTower"); break;
-                case Define.InstallTowerType.Rare: tower = Managers.Resource.Instantiate("Tower/RareTower"); break;
-                case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate("Tower/EpicTower"); break;
-                case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate("Tower/LegendTower"); break;
+                case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate($"Tower/{Managers.Game.teamData.team[0].prefabName}"); break;
+                case Define.InstallTowerType.Rare: tower = Managers.Resource.Instantiate($"Tower/{Managers.Game.teamData.team[1].prefabName}"); break;
+                case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate($"Tower/{Managers.Game.teamData.team[2].prefabName}"); break;
+                case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate($"Tower/{Managers.Game.teamData.team[3].prefabName}"); break;
             }
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
