@@ -48,13 +48,24 @@ public class TeamEdit : MonoBehaviour
             int index = i;
             dataEdit[i].charButton.onClick.AddListener(() => CharAdd(index));
 
-            // Team Data Load
-            TeamDataLoad(i);
+        }
+
+        // Team Data Load
+        for (int i = 0; i < dataEdit.Count; i++)
+        {
+            DataLoad(i);
+
+            // if (dataEdit[i].charName == teamData.team[i].charName)
+            // {
+            // }
         }
     }
 
-    private void TeamDataLoad(int i)
+    private void DataLoad(int i)
     {
+        Debug.Log($"{teamData.team[i].charName}");
+
+
         int holderIndex = -1;
 
         for (int j = 0; j < holders.Count; j++)
@@ -72,9 +83,15 @@ public class TeamEdit : MonoBehaviour
             return;
         }
 
-        dataEdit[i].charName = teamData.team[holderIndex].charName;
-        dataEdit[i].charImage = teamData.team[holderIndex].charImage;
-        dataEdit[i].prefab = teamData.team[holderIndex].prefab;
+        if (teamData.team[i].charName == "") return;
+
+        dataEdit[i].charButton.enabled = false;
+        holders[holderIndex].objName = dataEdit[i].charName;
+        dataEdit[i].charObj.transform.parent = holders[holderIndex].holderObj.transform;
+        dataEdit[i].charObj.transform.localScale = holders[holderIndex].holderObj.transform.localScale;
+        dataEdit[i].charObj.transform.position = holders[holderIndex].holderObj.transform.position;
+        holders[holderIndex].isChild = true;
+        currentIndex++;
     }
 
     private void CharAdd(int i)
@@ -96,7 +113,6 @@ public class TeamEdit : MonoBehaviour
             return;
         }
 
-        //int holderIndex = currentIndex % holders.Count;
         teamData.team[holderIndex].charName = dataEdit[i].charName;
         teamData.team[holderIndex].charImage = dataEdit[i].charImage;
         teamData.team[holderIndex].prefab = dataEdit[i].prefab;
@@ -115,7 +131,14 @@ public class TeamEdit : MonoBehaviour
         dataEdit[i].charButton.enabled = true;
         dataEdit[i].charObj.transform.parent = content.transform;
         dataEdit[i].charObj.transform.localScale = new Vector3(1f, 1f, 1f);
+        currentIndex--;
+    }
 
+    private void Swap<T>(ref T x, ref T y)
+    {
+        T temp = x;
+        x = y;
+        y = temp;
     }
 
     public void OnButtonClick(int index)
@@ -132,11 +155,10 @@ public class TeamEdit : MonoBehaviour
         {
             if (obj.FindChild<Text>().text == dataEdit[i].charName)
             {
-                teamData.team[index].charName = null;
+                teamData.team[index].charName = "";
                 teamData.team[index].charImage = null;
                 teamData.team[index].prefab = null;
                 CharRemove(i);
-                currentIndex--;
             }
         }
     }
