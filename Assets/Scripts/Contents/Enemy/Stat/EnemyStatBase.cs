@@ -26,6 +26,7 @@ public class EnemyStatBase : MonoBehaviour
     {
         isDeath = true;
 
+        Managers.Resource.Instantiate("VFX/DustExplosion");
         Managers.Resource.Destroy(gameObject);
         //Managers.Spawn.curEnemy.Remove(this.gameObject);
         //Manager.Spawn.RemoveCurrentEnemy() -> -1 & if (0) WaveExecute();

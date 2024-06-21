@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 225976804}
   - component: {fileID: 225976803}
   m_Layer: 5
-  m_Name: Battle_of_Jukjinpo
+  m_Name: Battle of Jukjinpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

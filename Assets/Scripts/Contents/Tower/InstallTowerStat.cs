@@ -24,6 +24,7 @@ public class InstallTowerStat : TowerStat
     protected override void OnDead()
     {
         Managers.Resource.Destroy(this.gameObject);
+        Managers.Resource.Destroy(hpUI.gameObject);
         base.OnDead();
     }
 

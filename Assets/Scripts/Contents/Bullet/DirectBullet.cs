@@ -53,6 +53,8 @@ public class DirectBullet : BulletBase
 
     protected override void Hit()
     {
+        if (!(Vector2.Distance(transform.position, target.position) < 0.9f)) return;
+
         GameObject b = Managers.Resource.Instantiate(boom, null);
         b.transform.position = transform.position;
 
