@@ -45,7 +45,8 @@ public class TypingManager
         else if (_input == _word[1])
         {
             Debug.Log("공격 성공");
-
+            towerBase = tower.GetComponent<TowerBase>();
+            Debug.Log(tower.name);
             towerBase.Attack();
 
             //Temp
@@ -66,6 +67,7 @@ public class TypingManager
             {
                 UserStat.Gold -= 30;
                 Debug.Log("수리 성공");
+                towerStat = tower.GetComponent<TowerStat>();
                 towerStat.OnFixed(3);
             }
             else
