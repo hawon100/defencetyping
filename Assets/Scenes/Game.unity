@@ -5628,6 +5628,7 @@ GameObject:
   - component: {fileID: 1357029045}
   - component: {fileID: 1357029047}
   - component: {fileID: 1357029049}
+  - component: {fileID: 1357029050}
   m_Layer: 11
   m_Name: CenteralTower
   m_TagString: TowerCentral
@@ -5766,6 +5767,25 @@ MonoBehaviour:
   gameCtrl: {fileID: 1084488475}
   type: 5
   hpPos: {x: 0, y: 0}
+--- !u!114 &1357029050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357029044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b45c75fffc8044418906db94918362a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _range: 0
+  _targetTag: Enemy
+  _target: {fileID: 0}
+  targetPos: {x: 0, y: 0}
+  playerBullet: {fileID: 1197461238427017851, guid: ac4490c55b0fac44abf11ac781671745, type: 3}
+  boom: {fileID: 1939226773735726338, guid: d45c340c179c3164382121b56c06c6ba, type: 3}
 --- !u!1 &1378406565
 GameObject:
   m_ObjectHideFlags: 0

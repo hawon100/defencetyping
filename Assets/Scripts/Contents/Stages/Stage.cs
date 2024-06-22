@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class TowerBuiler
 {
-    public BuildTower TowerBuilder;
     public Vector2 TowerBuilderPos;
 
     
@@ -23,6 +22,10 @@ public class Stage : ScriptableObject
 
     [Header("Spawner")]
     public List<GameObject> Spawners;
+    public bool isRight;
+    public bool isLeft;
+    public bool isTop;
+    public bool isBottom;
 
     [Header("Wave")]
     public bool WaveLoop;
