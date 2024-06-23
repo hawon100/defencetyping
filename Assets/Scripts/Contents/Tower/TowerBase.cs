@@ -11,7 +11,10 @@ public abstract class TowerBase : MonoBehaviour
     public Vector2 targetPos;//TEMTemp
 
     protected abstract void Start();
-    protected abstract void Update();
+    protected virtual void Update()
+    {
+
+    }
     protected abstract void OnAttack();
     protected abstract void AdjustLevel();
     protected abstract void Skill();
