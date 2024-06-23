@@ -1,75 +1,53 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class CharDataEdit
-{
-    public string charName;
-    public string prefabName;
-    public Sprite charImage;
-    public Button charButton;
-    public GameObject charObj;
-    public GameObject prefab;
-}
-
-[System.Serializable]
-public class CharHolder
-{
-    public bool isChild;
-    public GameObject holderObj;
-    public string objName;
-}
-
 public class TeamEdit : MonoBehaviour
 {
+    public RectTransform editWin;
     public GameObject content;
-    public List<CharDataEdit> dataEdit = new();
-    public List<CharHolder> holders = new();
-    List<GameObject> _charDataList = new();
-    public int currentIndex = 0;
     public TeamData teamData;
+    public CharListData charList;
+    public HolderList holderList;
 
     private void Start()
     {
-        for (int i = 0; i < dataEdit.Count * 2; i++) _charDataList.Add(Managers.Resource.Instantiate("UI/Lobby/CharButton"));
-        foreach (var obj in _charDataList) Managers.Resource.Destroy(obj);
+        for (int i = 0; i < charList.dataEdit.Count * 2; i++) holderList._charDataList.Add(Managers.Resource.Instantiate("UI/Lobby/CharButton"));
+        foreach (var obj in holderList._charDataList) Managers.Resource.Destroy(obj);
 
-        for (int i = 0; i < dataEdit.Count; i++)
+        for (int i = 0; i < charList.dataEdit.Count; i++)
         {
             var obj = Managers.Resource.Instantiate("UI/Lobby/CharButton");
-            dataEdit[i].charObj = obj;
-            dataEdit[i].charObj.transform.parent = content.transform;
-            dataEdit[i].charObj.FindChild<Text>().text = dataEdit[i].charName;
-            dataEdit[i].charObj.FindChild<Image>().sprite = dataEdit[i].charImage;
-            dataEdit[i].charButton = dataEdit[i].charObj.GetComponent<Button>();
+            charList.dataEdit[i].charObj = obj;
+            charList.dataEdit[i].charObj.transform.parent = content.transform;
+            charList.dataEdit[i].charObj.FindChild<Text>().text = charList.dataEdit[i].charName;
+            charList.dataEdit[i].charObj.FindChild<Image>().sprite = charList.dataEdit[i].charImage;
+            charList.dataEdit[i].charButton = charList.dataEdit[i].charObj.GetComponent<Button>();
 
             int index = i;
-            dataEdit[i].charButton.onClick.AddListener(() => CharAdd(index));
+            charList.dataEdit[i].charButton.onClick.AddListener(() => CharAdd(index));
         }
 
         // Team Data Load
-        for (int i = 0; i < dataEdit.Count; i++)
+        for (int i = 0; i < charList.dataEdit.Count; i++)
         {
             for(int j = 0; j < teamData.team.Count; j++)
             {
-                if (dataEdit[i].charName == teamData.team[j].charName)
+                if (charList.dataEdit[i].charName == teamData.team[j].charName)
                 {
-                    DataLoad(i, j);
+                    DataLoad(i);
                 }
             }
         }
     }
 
-    private void DataLoad(int i, int j)
+    private void DataLoad(int i)
     {
          int holderIndex = -1;
 
-        for (int x = 0; x < holders.Count; x++)
+        for (int x = 0; x < holderList.holders.Count; x++)
         {
-            if (!holders[x].isChild)
+            if (!holderList.holders[x].isChild)
             {
                 holderIndex = x;
                 break;
@@ -82,23 +60,21 @@ public class TeamEdit : MonoBehaviour
             return;
         }
 
-        Debug.Log($"{teamData.team[j].charName}");
-        dataEdit[i].charButton.enabled = false;
-        holders[holderIndex].objName = dataEdit[i].charName;
-        dataEdit[i].charObj.transform.parent = holders[holderIndex].holderObj.transform;
-        dataEdit[i].charObj.transform.localScale = holders[holderIndex].holderObj.transform.localScale;
-        dataEdit[i].charObj.transform.position = holders[holderIndex].holderObj.transform.position;
-        holders[holderIndex].isChild = true;
-        currentIndex++;
+        charList.dataEdit[i].charButton.enabled = false;
+        holderList.holders[holderIndex].objName = charList.dataEdit[i].charName;
+        charList.dataEdit[i].charObj.transform.parent = holderList.holders[holderIndex].holderObj.transform;
+        charList.dataEdit[i].charObj.transform.localScale = holderList.holders[holderIndex].holderObj.transform.localScale;
+        charList.dataEdit[i].charObj.transform.position = holderList.holders[holderIndex].holderObj.transform.position;
+        holderList.holders[holderIndex].isChild = true;
     }
 
     private void CharAdd(int i)
     {
         int holderIndex = -1;
 
-        for (int j = 0; j < holders.Count; j++)
+        for (int j = 0; j < holderList.holders.Count; j++)
         {
-            if (!holders[j].isChild)
+            if (!holderList.holders[j].isChild)
             {
                 holderIndex = j;
                 break;
@@ -111,44 +87,41 @@ public class TeamEdit : MonoBehaviour
             return;
         }
 
-        teamData.team[holderIndex].charName = dataEdit[i].charName;
-        teamData.team[holderIndex].charImage = dataEdit[i].charImage;
-        teamData.team[holderIndex].prefab = dataEdit[i].prefab;
+        teamData.team[holderIndex].charName = charList.dataEdit[i].charName;
+        teamData.team[holderIndex].charImage = charList.dataEdit[i].charImage;
+        teamData.team[holderIndex].prefab = charList.dataEdit[i].prefab;
 
-        dataEdit[i].charButton.enabled = false;
-        holders[holderIndex].objName = dataEdit[i].charName;
-        dataEdit[i].charObj.transform.parent = holders[holderIndex].holderObj.transform;
-        dataEdit[i].charObj.transform.localScale = holders[holderIndex].holderObj.transform.localScale;
-        dataEdit[i].charObj.transform.position = holders[holderIndex].holderObj.transform.position;
-        holders[holderIndex].isChild = true;
-        currentIndex++;
+        charList.dataEdit[i].charButton.enabled = false;
+        holderList.holders[holderIndex].objName = charList.dataEdit[i].charName;
+        charList.dataEdit[i].charObj.transform.parent = holderList.holders[holderIndex].holderObj.transform;
+        charList.dataEdit[i].charObj.transform.localScale = holderList.holders[holderIndex].holderObj.transform.localScale;
+        charList.dataEdit[i].charObj.transform.position = holderList.holders[holderIndex].holderObj.transform.position;
+        holderList.holders[holderIndex].isChild = true;
     }
 
     private void CharRemove(int i)
     {
         teamData.team[i].prefabName = "";
-        dataEdit[i].charButton.enabled = true;
-        dataEdit[i].charObj.transform.parent = content.transform;
-        dataEdit[i].charObj.transform.localScale = new Vector3(1f, 1f, 1f);
-        currentIndex--;
+        charList.dataEdit[i].charButton.enabled = true;
+        charList.dataEdit[i].charObj.transform.parent = content.transform;
+        charList.dataEdit[i].charObj.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     public void OnButtonClick(int index)
     {
-        var obj = Util.FindChild(holders[index].holderObj);
-        Debug.Log(obj);
+        var obj = Util.FindChild(holderList.holders[index].holderObj);
 
         if (obj == null) return;
 
-        holders[index].isChild = false; // Update the isChild state of the holder
-        holders[index].objName = "";
+        holderList.holders[index].isChild = false; // Update the isChild state of the holder
+        holderList.holders[index].objName = "";
 
-        for (int i = index; i < holders.Count - 1; i++)
+        for (int i = index; i < holderList.holders.Count - 1; i++)
         {
-            holders[i].objName = holders[i + 1].objName;
-            holders[i].isChild = holders[i + 1].isChild;
-            holders[i + 1].objName = "";
-            holders[i + 1].isChild = false;
+            holderList.holders[i].objName = holderList.holders[i + 1].objName;
+            holderList.holders[i].isChild = holderList.holders[i + 1].isChild;
+            holderList.holders[i + 1].objName = "";
+            holderList.holders[i + 1].isChild = false;
 
             // Update the teamData as well
             teamData.team[i].charName = teamData.team[i + 1].charName;
@@ -160,9 +133,9 @@ public class TeamEdit : MonoBehaviour
             teamData.team[i + 1].prefab = null;
         }
 
-        for (int i = 0; i < dataEdit.Count; i++)
+        for (int i = 0; i < charList.dataEdit.Count; i++)
         {
-            if (obj.FindChild<Text>().text == dataEdit[i].charName)
+            if (obj.FindChild<Text>().text == charList.dataEdit[i].charName)
             {
                 CharRemove(i);
                 break;
@@ -172,28 +145,32 @@ public class TeamEdit : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < dataEdit.Count; i++)
+        for (int i = 0; i < charList.dataEdit.Count; i++)
         {
-            for (int j = 0; j < holders.Count; j++)
+            for (int j = 0; j < holderList.holders.Count; j++)
             {
-                if(dataEdit[i].charName == "") return;
+                if(charList.dataEdit[i].charName == "") return;
 
-                if (dataEdit[i].charName == holders[j].objName)
+                if (charList.dataEdit[i].charName == holderList.holders[j].objName)
                 {
-                    Debug.Log($"Character Data {j} : {dataEdit[i].charName}");
-                    dataEdit[i].charObj.transform.parent = holders[j].holderObj.transform;
-                    dataEdit[i].charObj.transform.position = holders[j].holderObj.transform.position;
+                    charList.dataEdit[i].charObj.transform.parent = holderList.holders[j].holderObj.transform;
+                    charList.dataEdit[i].charObj.transform.position = holderList.holders[j].holderObj.transform.position;
                 }
             }
         }
 
-        for(int i = 0; i < dataEdit.Count; i++)
+        for(int i = 0; i < charList.dataEdit.Count; i++)
         {
             for(int j = 0; j < teamData.team.Count; j++)
             {
-                if (dataEdit[i].charName == holders[j].objName)
-                    teamData.team[j].prefabName = dataEdit[i].prefabName;
+                if (charList.dataEdit[i].charName == holderList.holders[j].objName)
+                    teamData.team[j].prefabName = charList.dataEdit[i].prefabName;
             }
         }
+    }
+
+    public void OnEditExit()
+    {
+        editWin.DOAnchorPosX(17.75f, 0.5f);
     }
 }

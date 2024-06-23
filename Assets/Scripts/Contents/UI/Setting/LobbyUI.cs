@@ -7,6 +7,7 @@ public class LobbyUI : MonoBehaviour
 {
     public RectTransform LobbyWin;
     public RectTransform EditWin;
+    public RectTransform LevelWin;
 
     public void OnButton(string btnName)
     {
@@ -17,11 +18,11 @@ public class LobbyUI : MonoBehaviour
                 break;
             case "PowerUp":
                 //character Level up
+                LevelWin.DOAnchorPosX(0, 0.5f);
                 break;
             case "Edit":
                 //character tower add or remove
                 EditWin.DOAnchorPosX(0, 0.5f);
-
                 break;
         }
     }
