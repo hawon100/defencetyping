@@ -24,7 +24,7 @@ public class TestTower : TowerBase
 
     }
 
-    protected override void Skill()
+    protected override void OnSkill()
     {
 
     }

@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team:
   - charName: 
-    prefabName: 
+    prefabName: CommonTower
     charImage: {fileID: 0}
     prefab: {fileID: 0}
   - charName: 
-    prefabName: 
+    prefabName: RareTower
     charImage: {fileID: 0}
     prefab: {fileID: 0}
   - charName: 
-    prefabName: 
+    prefabName: EpicTower
     charImage: {fileID: 0}
     prefab: {fileID: 0}
   - charName: 
-    prefabName: 
+    prefabName: RareTower
     charImage: {fileID: 0}
     prefab: {fileID: 0}

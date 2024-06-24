@@ -6,6 +6,9 @@ public class CentralTower : TowerBase
 {
     [SerializeField] private PlayerBullet playerBullet;
 
+    [Header("Skill")]
+    [SerializeField] private GameObject zenWave;
+
     [Header("Boom Effect")]
     [SerializeField] private GameObject boom;
 
@@ -53,9 +56,10 @@ public class CentralTower : TowerBase
 
     }
 
-    protected override void Skill()
+    protected override void OnSkill()
     {
-
+        GameObject w = Managers.Resource.Instantiate(zenWave, null);
+        w.transform.position = transform.position;
     }
 
     protected override void TowerFixed()
@@ -73,5 +77,10 @@ public class CentralTower : TowerBase
     public override void Attack() //Temp
     {
         OnAttack();
+    }
+
+    public override void Skill()
+    {
+        OnSkill();
     }
 }

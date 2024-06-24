@@ -12,6 +12,9 @@ public class TeamEdit : MonoBehaviour
 
     private void Start()
     {
+        //Temp
+        return;
+
         for (int i = 0; i < charList.dataEdit.Count * 2; i++) holderList._charDataList.Add(Managers.Resource.Instantiate("UI/Lobby/CharButton"));
         foreach (var obj in holderList._charDataList) Managers.Resource.Destroy(obj);
 
@@ -145,6 +148,9 @@ public class TeamEdit : MonoBehaviour
 
     private void Update()
     {
+        //Temp
+        return;
+
         for (int i = 0; i < charList.dataEdit.Count; i++)
         {
             for (int j = 0; j < holderList.holders.Count; j++)

@@ -29,6 +29,7 @@ public class TypingManager
         if (_input == _word[0])
         {
             Debug.Log("빌드 성공");
+            Debug.Log(Managers.Game.teamData);
             switch(type)
             {
                 case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate($"Tower/{Managers.Game.teamData.team[0].prefabName}"); break;
@@ -36,6 +37,7 @@ public class TypingManager
                 case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate($"Tower/{Managers.Game.teamData.team[2].prefabName}"); break;
                 case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate($"Tower/{Managers.Game.teamData.team[3].prefabName}"); break;
             }
+            Debug.Log(tower);
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
             towerStat.towerPos = curBuildPos;
@@ -60,6 +62,8 @@ public class TypingManager
         else if (_input == _word[2])
         {
             Debug.Log("스킬 성공");
+            towerBase = tower.GetComponent<TowerBase>();
+            towerBase.Skill();
         }
         else if (_input == _word[3])
         {

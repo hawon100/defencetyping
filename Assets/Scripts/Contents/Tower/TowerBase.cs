@@ -17,7 +17,7 @@ public abstract class TowerBase : MonoBehaviour
     }
     protected abstract void OnAttack();
     protected abstract void AdjustLevel();
-    protected abstract void Skill();
+    protected abstract void OnSkill();
     protected abstract void TowerFixed();
     protected abstract void OnDamaged();
 
@@ -63,5 +63,10 @@ public abstract class TowerBase : MonoBehaviour
     public virtual void Attack()
     {
         OnAttack();
+    }
+
+    public virtual void Skill()
+    {
+        OnSkill();
     }
 }
