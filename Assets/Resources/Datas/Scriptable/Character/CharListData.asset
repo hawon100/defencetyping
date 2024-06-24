@@ -15,57 +15,100 @@ MonoBehaviour:
   dataEdit:
   - charName: "\uD310\uC625\uC120"
     prefabName: panokseon
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uBC29\uD328\uC120"
     prefabName: shieldline
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uADC0\uC120"
     prefabName: retrace
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uD574\uACE8\uC120"
     prefabName: skullline
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uB9F9\uC120"
     prefabName: blindline
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uACFC\uC120"
     prefabName: overwire
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uD611\uC120"
     prefabName: narrowline
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uC0AC\uD6C4\uC120"
     prefabName: posteriorline
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
   - charName: "\uB204\uC804\uC120"
     prefabName: shortcircuit
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    stat:
+      level: 1
+      hp: 3
+      attack: 3
+      price: 5
     charImage: {fileID: 0}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
-  holders: []
-  _charDataList: []

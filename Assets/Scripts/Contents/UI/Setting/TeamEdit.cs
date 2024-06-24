@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TeamEdit : MonoBehaviour
 {
-    public RectTransform editWin;
+    public RectTransform teamEditWin;
     public GameObject content;
     public TeamData teamData;
     public CharListData charList;
@@ -171,6 +171,6 @@ public class TeamEdit : MonoBehaviour
 
     public void OnEditExit()
     {
-        editWin.DOAnchorPosX(17.75f, 0.5f);
+        teamEditWin.DOAnchorPosX(17.75f, 0.5f);
     }
 }
