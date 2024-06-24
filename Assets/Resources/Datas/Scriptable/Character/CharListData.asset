@@ -20,95 +20,104 @@ MonoBehaviour:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uBC29\uD328\uC120"
     prefabName: shieldline
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: 8704c4accb592db4ca9d1f7c750b08d9, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uADC0\uC120"
     prefabName: retrace
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: c3719c01649f75d4682fa67c77cd67bf, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uD574\uACE8\uC120"
     prefabName: skullline
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: 8e1d712cd61e1044cb79b776122f0b36, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uB9F9\uC120"
     prefabName: blindline
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: 9d81f2ec5cdde694cb66950959c22ccc, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uACFC\uC120"
     prefabName: overwire
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: 719696576b1e71c488d54ec80cb3369c, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uD611\uC120"
     prefabName: narrowline
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: 6f08ae173ee24814c9bca06fbb321139, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uC0AC\uD6C4\uC120"
     prefabName: posteriorline
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: fe8bb908b282fbc42a7b603dd5a4011c, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}
   - charName: "\uB204\uC804\uC120"
     prefabName: shortcircuit
-    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: 3c63cf673fc341d40851c924c10d7598, type: 3}
     stat:
       level: 1
       hp: 3
       attack: 3
+      time: 5
       price: 5
-    charImage: {fileID: 0}
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
     charButton: {fileID: 0}
     charObj: {fileID: 0}

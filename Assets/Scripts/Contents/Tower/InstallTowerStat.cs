@@ -2,9 +2,22 @@ using UnityEngine;
 
 public class InstallTowerStat : TowerStat
 {
+    public TeamData teamData;
+    public CharListData charData;
     public TowerStatHPUI hpUI;
+
     public override void Init()
     {
+        base.Init();
+
+        for (int i = 0; i < charData.dataEdit.Count; i++)
+        {
+            _level = charData.dataEdit[i].stat.level;
+            _hp = charData.dataEdit[i].stat.hp;
+            _maxHp = charData.dataEdit[i].stat.hp;
+            _attack = charData.dataEdit[i].stat.attack;
+        }
+
         if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
 
         GameObject u = Managers.Resource.Instantiate("UI/TowerHP/TowerHP", Managers.Game.uiCanvas);
@@ -12,7 +25,6 @@ public class InstallTowerStat : TowerStat
         //hpUI.MoveUI(new Vector2(4, 4));
         hpUI.SetUI(towerPos);
         hpUI.InitHP(MaxHp, MaxHp);
-        base.Init();
     }
 
     public override void OnAttacked(int damagedHp)

@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Team
   m_EditorClassIdentifier: 
   team:
-  - charName: 
-    prefabName: CommonTower
+  - charName: "\uD310\uC625\uC120"
+    prefabName: panokseon
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: f80572ef9ae7dae4a925b3aa51f799d9, type: 3}
+  - charName: "\uBC29\uD328\uC120"
+    prefabName: shieldline
+    charImage: {fileID: 21300000, guid: 025cf6b779356984591f9e86408567e8, type: 3}
+    prefab: {fileID: 1383663462593883120, guid: 8704c4accb592db4ca9d1f7c750b08d9, type: 3}
+  - charName: "\uADC0\uC120"
+    prefabName: retrace
     charImage: {fileID: 0}
-    prefab: {fileID: 0}
-  - charName: 
-    prefabName: RareTower
+    prefab: {fileID: 1383663462593883120, guid: c3719c01649f75d4682fa67c77cd67bf, type: 3}
+  - charName: "\uD574\uACE8\uC120"
+    prefabName: skullline
     charImage: {fileID: 0}
-    prefab: {fileID: 0}
-  - charName: 
-    prefabName: EpicTower
-    charImage: {fileID: 0}
-    prefab: {fileID: 0}
-  - charName: 
-    prefabName: RareTower
-    charImage: {fileID: 0}
-    prefab: {fileID: 0}
+    prefab: {fileID: 1383663462593883120, guid: 8e1d712cd61e1044cb79b776122f0b36, type: 3}

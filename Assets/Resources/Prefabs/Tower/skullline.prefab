@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 295938827064892}
   - component: {fileID: -5111090619318574725}
   m_Layer: 0
-  m_Name: LegendTower
+  m_Name: skullline
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

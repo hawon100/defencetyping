@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public TeamData teamData;
+    public static TeamData TeamData;
+
     public Text[] text;
     public Text[] captaintext;
     public InputField typingInput;
@@ -18,7 +21,6 @@ public class GameController : MonoBehaviour
 
     public Text goldText;
     public Text[] towerPriceText = new Text[4];
-    public int[] towerPrice = new int[4];
     public int price;
 
     public Text warningText;
@@ -33,6 +35,11 @@ public class GameController : MonoBehaviour
     public Transform target;
     public Transform background;
 
+    private void Awake()
+    {
+        TeamData = teamData;
+    }
+
     private void Start()
     {
         Managers.Game.target = target;
@@ -43,9 +50,9 @@ public class GameController : MonoBehaviour
     {
         goldText.text = $"{UserStat.Gold}$";
 
-        for(int i = 0; i < towerPrice.Length; i++)
+        for (int i = 0; i < TeamData.team.Count; i++)
         {
-            towerPriceText[i].text = $"{towerPrice[i]}$";
+            towerPriceText[i].text = $"{TeamData.team[i].stat.price}$";
         }
 
         UpdateWordTyping();
@@ -60,10 +67,10 @@ public class GameController : MonoBehaviour
 
         switch (selectedTower.type)
         {
-            case Define.InstallTowerType.Common: maxDelayChange = 30; break;
-            case Define.InstallTowerType.Rare: maxDelayChange = 20; break;
-            case Define.InstallTowerType.Epic: maxDelayChange = 10; break;
-            case Define.InstallTowerType.Legend: maxDelayChange = 3; break;
+            case Define.InstallTowerType.Common: maxDelayChange = teamData.team[0].stat.time; break;
+            case Define.InstallTowerType.Rare: maxDelayChange = teamData.team[1].stat.time; break;
+            case Define.InstallTowerType.Epic: maxDelayChange = teamData.team[2].stat.time; break;
+            case Define.InstallTowerType.Legend: maxDelayChange = teamData.team[3].stat.time; break;
         }
 
         if (!selectedTower.isTyping)
@@ -142,19 +149,19 @@ public class GameController : MonoBehaviour
         {
             case "Common":
                 Managers.Typing.type = Define.InstallTowerType.Common;
-                price = towerPrice[0];
+                price = TeamData.team[0].stat.price;
                 break;
             case "Rare":
                 Managers.Typing.type = Define.InstallTowerType.Rare;
-                price = towerPrice[1];
+                price = TeamData.team[1].stat.price;
                 break;
             case "Epic":
                 Managers.Typing.type = Define.InstallTowerType.Epic;
-                price = towerPrice[2];
+                price = TeamData.team[2].stat.price;
                 break;
             case "Legend":
                 Managers.Typing.type = Define.InstallTowerType.Legend;
-                price = towerPrice[3];
+                price = TeamData.team[3].stat.price;
                 break;
         }
 

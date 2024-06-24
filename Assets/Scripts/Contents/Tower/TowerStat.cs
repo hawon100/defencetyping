@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class TowerStat : MonoBehaviour
 {
-    public TeamData teamData;
-    public CharListData charData;
     public TowerStatUI towerStatUI;
     public Vector2     towerPos;
 
@@ -19,16 +17,7 @@ public class TowerStat : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < teamData.team.Count; i++)
-        {
-            if (teamData.team[i].prefabName == charData.dataEdit[i].prefabName)
-            {
-                _level = charData.dataEdit[i].stat.level;
-                _hp = charData.dataEdit[i].stat.hp;
-                _maxHp = charData.dataEdit[i].stat.hp;
-                _attack = charData.dataEdit[i].stat.attack;
-            }
-        }
+        Init();
     }
 
     public virtual void Init()
