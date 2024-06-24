@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
 
     public Vector3 checkedTowerPos;
 
-    public TeamData teamData;
-
     public void Init()
     {
         //absScreenX = background.localScale.x / 2;

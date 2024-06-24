@@ -8,6 +8,7 @@ public class CharDataStat
     public int level;
     public int hp;
     public int attack;
+    public int time;
     public int price;
 }
 
