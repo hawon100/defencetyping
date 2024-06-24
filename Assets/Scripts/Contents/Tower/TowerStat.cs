@@ -1,7 +1,9 @@
 using UnityEngine;
 
 public class TowerStat : MonoBehaviour
-{ 
+{
+    public TeamData teamData;
+    public CharListData charData;
     public TowerStatUI towerStatUI;
     public Vector2     towerPos;
 
@@ -9,21 +11,24 @@ public class TowerStat : MonoBehaviour
     [SerializeField] protected int _hp;
     [SerializeField] protected int _maxHp;
     [SerializeField] protected int _attack;
-    [SerializeField] protected int _defence;
 
     public int Level { get { return _level; } set { _level = value; } }
     public int Hp { get { return _hp; } set { _hp = value; } }
     public int MaxHp { get { return _maxHp; } set { _maxHp = value; } }
     public int Attack { get { return _attack; } set { _attack = value; } }
-    public int Defence { get { return _defence; } set { _defence = value; } }
 
     private void Start()
     {
-        //_level = 1;
-        //_hp = 3;
-        //_maxHp = 3;
-        //_attack = 1;
-        //_defence = 0;
+        for(int i = 0; i < teamData.team.Count; i++)
+        {
+            if (teamData.team[i].prefabName == charData.dataEdit[i].prefabName)
+            {
+                _level = charData.dataEdit[i].stat.level;
+                _hp = charData.dataEdit[i].stat.hp;
+                _maxHp = charData.dataEdit[i].stat.hp;
+                _attack = charData.dataEdit[i].stat.attack;
+            }
+        }
     }
 
     public virtual void Init()
