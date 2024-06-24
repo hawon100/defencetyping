@@ -48,7 +48,7 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Wave " + (  + 1) + "/Spawned : " + currentEnemy);
+        Debug.Log("Wave " + (currentWave  + 1) + "/Spawned : " + currentEnemy);
     }
 
     public void WaveUpdate() //Problem

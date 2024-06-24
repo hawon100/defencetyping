@@ -7,13 +7,16 @@ public class ZenWave : MonoBehaviour
     [SerializeField] private float seconds;
 
     private WaitForSeconds waitSeconds;
-    private void Start()
+    private void Awake()
     {
+        Debug.Log("Start");
         waitSeconds = new(seconds);
     }
 
-    private void OnEnable()
+    //private void OnEnable()
+    public void StableStart()
     {
+        Debug.Log("StableStart");
         StartCoroutine(StableDestroy());
     }
 
@@ -27,7 +30,7 @@ public class ZenWave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
 
         if (!other.gameObject.CompareTag("Enemy")) return;
 

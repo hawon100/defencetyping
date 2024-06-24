@@ -62,11 +62,12 @@ public abstract class TowerBase : MonoBehaviour
 
     public virtual void Attack()
     {
-        OnAttack();
+        //OnAttack();
     }
 
     public virtual void Skill()
     {
-        OnSkill();
+        Debug.Log("Skill() was activated");
+        //OnSkill();
     }
 }
