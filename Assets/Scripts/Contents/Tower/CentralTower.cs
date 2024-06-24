@@ -6,6 +6,9 @@ public class CentralTower : TowerBase
 {
     [SerializeField] private PlayerBullet playerBullet;
 
+    [Header("Skill")]
+    [SerializeField] private GameObject zenWave;
+
     [Header("Boom Effect")]
     [SerializeField] private GameObject boom;
 
@@ -53,9 +56,12 @@ public class CentralTower : TowerBase
 
     }
 
-    protected override void Skill()
+    protected override void OnSkill()
     {
-
+        Debug.Log("OnSkill() was activated");
+        GameObject w = Managers.Resource.Instantiate("Skills/WaveEffect");
+        w.transform.position = transform.position;
+        w.GetComponentInChildren<ZenWave>().StableStart();
     }
 
     protected override void TowerFixed()
@@ -73,5 +79,11 @@ public class CentralTower : TowerBase
     public override void Attack() //Temp
     {
         OnAttack();
+    }
+
+    public override void Skill()
+    {
+        Debug.Log("Skill() in child was activated");
+        OnSkill();
     }
 }

@@ -22,7 +22,7 @@ public class CenterTower : TowerBase
 
     }
 
-    protected override void Skill()
+    protected override void OnSkill()
     {
 
     }

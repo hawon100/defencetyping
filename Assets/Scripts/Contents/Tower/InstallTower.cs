@@ -105,7 +105,7 @@ public class InstallTower : TowerBase
 
     }
 
-    protected override void Skill()
+    protected override void OnSkill()
     {
 
     }
