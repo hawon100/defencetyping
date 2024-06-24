@@ -33,10 +33,15 @@ public class GameController : MonoBehaviour
     public Transform target;
     public Transform background;
 
+    //Temp
+    public TeamData teamData;
+
     private void Start()
     {
         Managers.Game.target = target;
         Managers.Game.background = background;
+        //Temp
+        Managers.Game.teamData = teamData;
     }
 
     private void Update()
