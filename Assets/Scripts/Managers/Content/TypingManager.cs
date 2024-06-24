@@ -13,6 +13,7 @@ public class TypingManager
 
     //Temp
     public Vector2 curBuildPos;
+    private int timeTimeTime;
 
     public void WordReset()
     {
@@ -63,6 +64,8 @@ public class TypingManager
         {
             Debug.Log("스킬 성공");
             towerBase = tower.GetComponent<TowerBase>();
+            timeTimeTime += 1;
+            Debug.Log(timeTimeTime + "번째 스킬 발동 상태: " + towerBase);
             towerBase.Skill();
         }
         else if (_input == _word[3])
