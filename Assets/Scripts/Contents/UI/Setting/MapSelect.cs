@@ -15,7 +15,7 @@ public class MapInfomation
 
 public class MapSelect : MonoBehaviour
 {
-    public RectTransform LobbyWin;
+    public RectTransform mapWin;
     public RectTransform infoPanel;
 
     public MapInfomation[] maps;
@@ -65,6 +65,6 @@ public class MapSelect : MonoBehaviour
     public void OnGameLobby()
     {
         PanelClose();
-        LobbyWin.DOAnchorPosY(10, 0.5f);
+        mapWin.DOAnchorPosY(1080, 0.5f);
     }
 }
