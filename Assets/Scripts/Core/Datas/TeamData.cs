@@ -2,12 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class LoadStat
-{   
-    public int time;
-    public int price;
-}
 
 [System.Serializable]
 public class CharData
@@ -15,7 +9,6 @@ public class CharData
     public string charName;
     public string prefabName;
     public Sprite charImage;
-    public LoadStat stat;
     public GameObject prefab;
 }
 

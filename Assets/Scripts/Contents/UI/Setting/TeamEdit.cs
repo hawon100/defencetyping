@@ -91,9 +91,6 @@ public class TeamEdit : MonoBehaviour
         teamData.team[holderIndex].charImage = charList.dataEdit[i].charImage;
         teamData.team[holderIndex].prefab = charList.dataEdit[i].prefab;
 
-        teamData.team[holderIndex].stat.time = charList.dataEdit[i].stat.time;
-        teamData.team[holderIndex].stat.price = charList.dataEdit[i].stat.price;
-
         charList.dataEdit[i].charButton.enabled = false;
         holderList.holders[holderIndex].objName = charList.dataEdit[i].charName;
         charList.dataEdit[i].charObj.transform.parent = holderList.holders[holderIndex].holderObj.transform;
@@ -131,15 +128,9 @@ public class TeamEdit : MonoBehaviour
             teamData.team[i].charImage = teamData.team[i + 1].charImage;
             teamData.team[i].prefab = teamData.team[i + 1].prefab;
 
-            teamData.team[i].stat.time = teamData.team[i + 1].stat.time;
-            teamData.team[i].stat.price = teamData.team[i + 1].stat.price;
-
             teamData.team[i + 1].charName = "";
             teamData.team[i + 1].charImage = null;
             teamData.team[i + 1].prefab = null;
-
-            teamData.team[i + 1].stat.time = 0;
-            teamData.team[i + 1].stat.price = 0;
         }
 
         for (int i = 0; i < charList.dataEdit.Count; i++)

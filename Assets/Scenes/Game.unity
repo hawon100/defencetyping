@@ -4367,6 +4367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f779586cad24354fb5459d6d69df1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charData: {fileID: 11400000, guid: d16ad8af628db1b4d9e5f868d31a2a6d, type: 2}
   teamData: {fileID: 11400000, guid: fd2e7e554714be0448f8e82f21a94d32, type: 2}
   text:
   - {fileID: 1769373292}
@@ -8057,7 +8058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2081483991
 SpriteRenderer:
   m_ObjectHideFlags: 0
