@@ -30,4 +30,8 @@ namespace Data
         }
     }
     #endregion
+
+    #region Char
+
+    #endregion
 }
