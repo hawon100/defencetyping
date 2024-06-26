@@ -1,0 +1,10 @@
+{
+  "teams": [
+    {
+      "team1_charname": "판옥선",
+      "team2_charname": "귀선",
+      "team3_charname": "방패선",
+      "team4_charname": "해골선"
+    }
+  ]
+}

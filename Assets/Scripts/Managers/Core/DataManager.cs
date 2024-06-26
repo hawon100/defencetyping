@@ -9,11 +9,13 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    public Dictionary<int, Word> WordDict { get; private set; } = new();
+    public Dictionary<int, Load_Word> WordDict { get; private set; } = new();
+    public Dictionary<int, Load_TeamEdit> TeamDict { get; private set; } = new();
 
     public void Init()
     {
-        WordDict = LoadJson<WordData, int, Word>($"Word/WordData").MakeDict();
+        WordDict = LoadJson<Load_WordData, int, Load_Word>($"Word/WordData").MakeDict();
+        TeamDict = LoadJson<Load_TeamEditData, int, Load_TeamEdit>($"Team/TeamData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

@@ -17,13 +17,15 @@ public class LobbyScene : BaseScene
 
     public class Player
     {
-        public string name;
-        public int score;
+        public string team1_charname;
+        public string team2_charname;
+        public string team3_charname;
+        public string team4_charname;
     }
 
     public class PlayerContainer
     {
-        public List<Player> players;
+        public List<Player> teams;
     }
 
     private void Save()
@@ -32,32 +34,29 @@ public class LobbyScene : BaseScene
         {
             new Player
             {
-                name = "1",
-                score = 10,
-            },
-            new Player
-            {
-                name = "2",
-                score = 30,
+                team1_charname = "판옥선",
+                team2_charname = "귀선",
+                team3_charname = "방패선",
+                team4_charname = "해골선",
             }
         };
 
         // WordsContainer 객체 생성
         PlayerContainer playerContainer = new PlayerContainer
         {
-            players = playerList
+            teams = playerList
         };
 
         // WordsContainer 객체를 JSON 문자열로 변환
         string json = JsonConvert.SerializeObject(playerContainer, Formatting.Indented);
 
         // JSON 문자열을 파일로 저장
-        string path = Path.Combine(Application.dataPath, "stats.json");
+        string path = Path.Combine(Application.dataPath, "teams.json");
         File.WriteAllText(path, json);
 
         // 결과 확인
-        Debug.Log("JSON file created at: " + path);
-        Debug.Log("JSON content: " + json);
+        //Debug.Log("JSON file created at: " + path);
+        //Debug.Log("JSON content: " + json);
     }
 
     public override void Clear()
