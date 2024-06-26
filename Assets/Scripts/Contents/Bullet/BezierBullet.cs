@@ -87,7 +87,8 @@ public class BezierBullet : BulletBase
         //GameObject b = Managers.Resource.Instantiate(boom, null);
         //b.transform.position = transform.position;
 
-        target.GetComponent<TowerStat>().OnAttacked(1);
+        if (target.GetComponent<EnemyStat>()) target.GetComponent<EnemyStat>().Damage(1);
+        if (target.GetComponent<TowerStat>()) target.GetComponent<TowerStat>().OnAttacked(1);
         target = null;
         base.Hit();
     }

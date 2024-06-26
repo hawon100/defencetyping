@@ -37,10 +37,14 @@ public class Gunpowdership : EnemyBase
         Move();
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Tower")) 
-            StartCoroutine(Bomb());
+        if (other.gameObject.CompareTag("Tower")) BombFunc();
+    }
+
+    private void BombFunc()
+    {
+        StartCoroutine(Bomb());
     }
 
     private IEnumerator Bomb()
@@ -66,17 +70,13 @@ public class Gunpowdership : EnemyBase
             return;
         }
 
-        Detected();
-
-        if (detectedTarget != null) target = detectedTarget;
-
         LookAt();
 
         rb2d.velocity = moveSpeed * Trace(transform.position, target.position);
 
-        if (rb2d.velocity.sqrMagnitude <= 0.9f ||
-            isDistance(transform.position, target.position, stopDistance))
+        if (isDistance(transform.position, target.position, stopDistance))
         {
+            BombFunc();
             rb2d.velocity = Vector2.zero;
             isMove = false;
         }

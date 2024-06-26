@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 882365351
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3ab06470c0989946862a508438fefaa, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   height: 5
   boom: {fileID: 0}
   targetPoint: {x: 0, y: 0, z: 0}
-  enemyPoint: {x: 0, y: 0, z: 0}
+  startPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &8884469586608210254
 MonoBehaviour:
   m_ObjectHideFlags: 0

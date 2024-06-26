@@ -6,37 +6,15 @@ public class CameraZoomer : MonoBehaviour
     public Camera cam;
     public float zoomStep = 1f, minCamSize = 5f, maxCamSize = 20f;
 
-    public GameObject background;
-    private float mapMinX, mapMaxX, mapMinY, mapMaxY;
+    // 수동으로 설정할 수 있는 카메라 제한 좌표
+    public float mapMinX, mapMaxX, mapMinY, mapMaxY;
 
     private Vector3 dragOrigin;
-
-    private void Awake()
-    {
-        InitializeBackgroundBounds();
-    }
 
     private void Update()
     {
         PanCamera();
         ZoomCamera();
-    }
-
-    private void InitializeBackgroundBounds()
-    {
-        SpriteRenderer backgroundRenderer = background.GetComponent<SpriteRenderer>();
-
-        if (backgroundRenderer != null)
-        {
-            mapMinX = background.transform.position.x - backgroundRenderer.bounds.size.x / 2f;
-            mapMaxX = background.transform.position.x + backgroundRenderer.bounds.size.x / 2f;
-            mapMinY = background.transform.position.y - backgroundRenderer.bounds.size.y / 2f;
-            mapMaxY = background.transform.position.y + backgroundRenderer.bounds.size.y / 2f;
-        }
-        else
-        {
-            Debug.LogError("Background GameObject does not have a SpriteRenderer component.");
-        }
     }
 
     private void PanCamera()
