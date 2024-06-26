@@ -45,4 +45,9 @@ public class DragDrog : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
+
+    private void Update()
+    {
+        
+    }
 }

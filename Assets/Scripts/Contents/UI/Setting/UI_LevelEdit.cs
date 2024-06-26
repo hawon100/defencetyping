@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelEdit : MonoBehaviour
+public class UI_LevelEdit : MonoBehaviour
 {
     public RectTransform levelWin;
     public CharListData charList;

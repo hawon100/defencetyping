@@ -49,12 +49,12 @@ public class MapSelect : MonoBehaviour
 
     private void PanelOpen()
     {
-        infoPanel.DOAnchorPosX(0, 0.5f);
+        infoPanel.DOAnchorPosX(-910, 0.5f);
     }
 
     public void PanelClose()
     {
-        infoPanel.DOAnchorPosX(-600, 0.5f);
+        infoPanel.DOAnchorPosX(-1510, 0.5f);
     }
 
     public void OnGamePlay()

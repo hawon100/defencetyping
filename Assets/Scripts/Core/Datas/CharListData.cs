@@ -18,7 +18,6 @@ public class CharDataEdit
     [Header("Character Setting")]
     public string charName;
     public string prefabName;
-    public GameObject prefab;
     public CharDataStat stat;
 
     [Header("Reference")]

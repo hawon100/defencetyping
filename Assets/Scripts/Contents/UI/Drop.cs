@@ -6,23 +6,21 @@ using UnityEngine.UI;
 
 public class Drop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    private Image _image;
     private RectTransform _rect;
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
         _rect = GetComponent<RectTransform>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _image.color = Color.yellow;
+        //_image.color = Color.yellow;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _image.color = Color.white;
+        //_image.color = Color.white;
     }
 
     public void OnDrop(PointerEventData eventData)
