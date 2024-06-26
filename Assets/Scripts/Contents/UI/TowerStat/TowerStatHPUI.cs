@@ -53,30 +53,10 @@ public class TowerStatHPUI : MonoBehaviour
         }
     }
 
-    //Temp
-    public void BoxCreater(Vector2 pos)
+    public void SetUI(Vector2 position, Canvas canvas)
     {
-        Debug.Log("Box : " + pos);
-
-        Vector2 viewportPosition = Camera.main.WorldToViewportPoint(pos);
-        Vector2 worldObjectScreenPosition = new Vector2(
-                ((viewportPosition.x * 1920f) - (1920f * 0.5f)),
-                ((viewportPosition.y * 1080f) - (1080f * 0.5f)));
-
-        GetComponent<RectTransform>().anchoredPosition = worldObjectScreenPosition;
-    }
-
-    public void MoveUI(Vector2 position)
-    {
-        Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, position);
-
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(uiRect.parent as RectTransform, screenPoint, Camera.main, out Vector2 localPoint);
-
+        Vector2 screenPoint = Camera.main.WorldToScreenPoint(position);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPoint, null, out Vector2 localPoint);
         uiRect.anchoredPosition = localPoint;
-    }
-
-    public void SetUI(Vector2 position)
-    {
-        uiRect.anchoredPosition = position;
     }
 }

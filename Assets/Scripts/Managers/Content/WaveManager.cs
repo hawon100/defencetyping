@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void EndGame();
+
 public class WaveManager : MonoBehaviour
 {
     public Stage stage;
@@ -11,6 +13,8 @@ public class WaveManager : MonoBehaviour
     public int currentEnemy;
     public bool isWave = true;
     public bool isWin = false;
+
+    public event EndGame OnEndGame; 
 
     public void WaveStart()
     {
@@ -85,7 +89,8 @@ public class WaveManager : MonoBehaviour
     public void WaveEnd()
     {
         Debug.Log("Wave End!");
-        isWave = false;
+        //isWave = false;
+        OnEndGame();
         isWin = true;
     }
 

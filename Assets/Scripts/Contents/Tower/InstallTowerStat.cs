@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InstallTowerStat : TowerStat
 {
@@ -19,11 +20,10 @@ public class InstallTowerStat : TowerStat
         }
 
         if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
-
         GameObject u = Managers.Resource.Instantiate("UI/TowerHP/TowerHP", Managers.Game.uiCanvas);
         hpUI = u.GetComponent<TowerStatHPUI>();
         //hpUI.MoveUI(new Vector2(4, 4));
-        hpUI.SetUI(towerPos);
+        hpUI.SetUI(towerPos, Managers.Game.uiCanvas.GetComponent<Canvas>());
         hpUI.InitHP(MaxHp, MaxHp);
     }
 

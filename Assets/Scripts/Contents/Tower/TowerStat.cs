@@ -17,7 +17,7 @@ public class TowerStat : MonoBehaviour
 
     private void Start()
     {
-        Init();
+        //Init();
     }
 
     public virtual void Init()

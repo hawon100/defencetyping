@@ -6,13 +6,16 @@ public class Ship : EnemyBase
 {
     [Header("Bullet")]
     public DirectBullet directBullet;
+    public BezierBullet bezierBullet;
+    public ParabolaBullet paraBullet;
 
     [Header("Particle System")]
     public ParticleSystem particle;
 
     private Animator anime;
-    private int attackAnime = Animator.StringToHash("Attack");
-    
+    private readonly int attackAnime = Animator.StringToHash("Attack");
+    //readonly : Only for Read
+
     private Rigidbody2D rb2d;
 
     protected override void Awake()
@@ -20,12 +23,6 @@ public class Ship : EnemyBase
         base.Awake();
         rb2d = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
-
-        for (int i = 0; i < 3; i++)
-        {
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-            Managers.Resource.Destroy(b);
-        }
     }
 
     protected override void Start()
@@ -63,25 +60,6 @@ public class Ship : EnemyBase
 
     private IEnumerator AttackCoroutine()
     {
-
-        //Quaternion initialRotation = transform.rotation;
-        //float progress = 0f;
-
-        //while (progress < 1f)
-        //{
-        //    LookAt();
-        //    progress += Time.deltaTime * rotSpeed;
-
-        //    // 목표 각도에 거의 도달했는지 확인
-        //    if (Quaternion.Angle(transform.rotation, targetQuaternion) < 0.1f)
-        //    {
-        //        transform.rotation = targetQuaternion;
-        //        break;
-        //    }
-
-        //    yield return null; // 다음 프레임까지 대기
-        //}
-
         bool isRotate = true;
 
         while (isRotate)
@@ -96,10 +74,16 @@ public class Ship : EnemyBase
 
         anime.SetTrigger(attackAnime);
 
-        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-        BulletBase s = b.GetComponent<DirectBullet>();
-        s.Init();
+        //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+        GameObject b = Managers.Resource.Instantiate(paraBullet.gameObject, null);
+        BulletBase s = b.GetComponent<BulletBase>();
+
+        //GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, null);
+        //BulletBase s = b.GetComponent<BezierBullet>();
+        //s.Init();
+        Debug.Log(target);
         s.target = target;
+        s.triggerTag = targetTag;
         b.transform.position = transform.position;
     }
 

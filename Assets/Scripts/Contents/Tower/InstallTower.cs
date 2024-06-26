@@ -7,7 +7,7 @@ public class InstallTower : TowerBase
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
 
-    [SerializeField] private PlayerBullet playerBullet;
+    [SerializeField] private BezierBullet playerBullet;
 
     [Header("Auto Attack")]
     [SerializeField] private float cooltime;
@@ -22,6 +22,8 @@ public class InstallTower : TowerBase
 
     private float timerate;
     private const float rotationTolerance = 1f; // Tolerance in degrees for aiming accuracy
+
+    private readonly WaitForSeconds waiting = new(1f);
 
     //Attack Enabled() -> InstallTowerStat.Init(); 
 
@@ -94,10 +96,15 @@ public class InstallTower : TowerBase
 
         GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
-        s.Init();
+        //s.Init();
+        Debug.Log(_target);
         s.target = _target;
+        s.triggerTag = _targetTag;
         b.transform.position = shotPoint.position;
-        _target = null;
+
+        yield return waiting;
+
+        //_target = null;
     }
 
     protected override void AdjustLevel()

@@ -168,7 +168,7 @@ MonoBehaviour:
   _installType: 0
   curShotDelay: 0
   maxShotDelay: 0
-  playerBullet: {fileID: 1197461238427017851, guid: ac4490c55b0fac44abf11ac781671745, type: 3}
+  playerBullet: {fileID: 6300741034209622059, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
   cooltime: 1.5
   rotSpeed: 2
   cannon: {fileID: 7525042665298961909}
@@ -186,14 +186,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8d75f428987894b9a70981711a4e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamData: {fileID: 11400000, guid: fd2e7e554714be0448f8e82f21a94d32, type: 2}
-  charData: {fileID: 11400000, guid: d16ad8af628db1b4d9e5f868d31a2a6d, type: 2}
   towerStatUI: {fileID: 0}
   towerPos: {x: 0, y: 0}
   _level: 0
   _hp: 10
   _maxHp: 10
   _attack: 0
+  teamData: {fileID: 11400000, guid: fd2e7e554714be0448f8e82f21a94d32, type: 2}
+  charData: {fileID: 11400000, guid: d16ad8af628db1b4d9e5f868d31a2a6d, type: 2}
   hpUI: {fileID: 0}
 --- !u!1 &3508323806308724288
 GameObject:

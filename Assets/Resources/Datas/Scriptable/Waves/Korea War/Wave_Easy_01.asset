@@ -15,3 +15,5 @@ MonoBehaviour:
   WaveEnemie:
   - Enemy: {fileID: 6090729184465292171, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
     Amount: 3
+  - Enemy: {fileID: 3358897851568981498, guid: e1f1ec0d58a94be41a55ecd85888d42a, type: 3}
+    Amount: 1
