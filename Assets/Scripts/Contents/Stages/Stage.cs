@@ -1,15 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public class TowerBuiler
-{
-    public Vector2 TowerBuilderPos;
-
-    
-    public Vector2 HpPanelPos;
-}
 
 [CreateAssetMenu(fileName = "New StageData", menuName = "Data/StageData", order = int.MinValue)]
 public class Stage : ScriptableObject
@@ -18,7 +8,7 @@ public class Stage : ScriptableObject
     public GameObject Background;
 
     [Header("Tower")]
-    public List<TowerBuiler> Tower;
+    public List<Vector2> TowerBuilderPos;
 
     [Header("Spawner")]
     public List<GameObject> Spawners;

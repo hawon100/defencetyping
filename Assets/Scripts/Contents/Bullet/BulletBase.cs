@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletBase : MonoBehaviour
 {//전체 코드 바꾸기.
-    [SerializeField] private string triggerTag;
+    public string triggerTag;
 
     public Transform target;
     public float speed;

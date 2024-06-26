@@ -32,8 +32,15 @@ public class EnemyStatBase : MonoBehaviour
         //Manager.Spawn.RemoveCurrentEnemy() -> -1 & if (0) WaveExecute();
     }
 
+    protected virtual void OnEnable()
+    {
+        //Managers.Wave.OnEndGame += Death;
+    }
+
     protected virtual void OnDisable()
     {
+        //Managers.Wave.OnEndGame -= Death;
+
         if (isDeath == true) Managers.Wave.WaveUpdate();
     }
 }

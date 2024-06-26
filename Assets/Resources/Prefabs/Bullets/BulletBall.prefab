@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2990647666349738897}
   - component: {fileID: 3918292802231987157}
   - component: {fileID: 5733629002761476820}
-  - component: {fileID: 2143609493978922587}
   - component: {fileID: -8595067128502008581}
+  - component: {fileID: 3936043536885680306}
   m_Layer: 0
   m_Name: BulletBall
   m_TagString: Bullet
@@ -162,22 +162,6 @@ TrailRenderer:
   m_Autodestruct: 1
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &2143609493978922587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3505538965151386221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 802f9f3907aabd84da2184cfc229706a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerTag: Tower
-  target: {fileID: 0}
-  speed: 3
-  boom: {fileID: 1939226773735726338, guid: d45c340c179c3164382121b56c06c6ba, type: 3}
 --- !u!58 &-8595067128502008581
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -213,6 +197,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!114 &3936043536885680306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505538965151386221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a86da867acb0548ab628d5ea932056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTag: Tower
+  target: {fileID: 0}
+  speed: 3
+  startPoint: {x: 0, y: 0, z: 0}
+  controlPoint: {x: 0, y: 5, z: 0}
+  endPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &8727070325517337332
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +288,7 @@ SpriteRenderer:
   m_SortingLayerID: 882365351
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3ab06470c0989946862a508438fefaa, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -6,8 +6,9 @@ public class BezierBullet : BulletBase
 {
     public float height = 5f;
 
+    [SerializeField] private GameObject boom;
     [SerializeField] private Vector3 targetPoint;
-    public Vector3 enemyPoint;
+    public Vector3 startPoint;
 
     private TrailRenderer trail; //Temp
 
@@ -21,7 +22,9 @@ public class BezierBullet : BulletBase
     {
         base.Start();
 
+
         targetPoint = target.position;
+        ResetPos();
 
         trail = GetComponent<TrailRenderer>(); //Temp
     }
@@ -29,7 +32,6 @@ public class BezierBullet : BulletBase
     protected override void Update()
     {
         base.Update();
-        Move();
     }
 
     private void OnEnable()
@@ -37,22 +39,23 @@ public class BezierBullet : BulletBase
         ResetPos();
     }
 
+    public override void Init()
+    {
+        base.Init();
+    }
+
     private void ResetPos()
     {
         t = 0;
-        enemyPoint = transform.position;
+        startPoint = transform.position;
     }
 
     protected override void Move()
     {
         t += Time.deltaTime;
-        transform.position = Bezier(enemyPoint, targetPoint, height, t / speed); //fail!
+        targetPoint = target.position;
+        transform.position = Bezier(startPoint, targetPoint, height, t / speed); //fail!
     }
-
-    //protected override void Hit(GameObject hitObject)
-    //{
-    //    base.Hit(hitObject);
-    //}
 
     private Vector3 Bezier(Vector3 startPos, Vector3 endPos, float height, float t)
     {
@@ -70,5 +73,22 @@ public class BezierBullet : BulletBase
         Vector3 YZ = Vector3.Lerp(Y, Z, t);
 
         return Vector3.Lerp(XY, YZ, t);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(triggerTag)) Hit();
+    }
+
+    protected override void Hit()
+    {
+        if (!(Vector2.Distance(transform.position, target.position) < 0.9f)) return;
+
+        //GameObject b = Managers.Resource.Instantiate(boom, null);
+        //b.transform.position = transform.position;
+
+        target.GetComponent<TowerStat>().OnAttacked(1);
+        target = null;
+        base.Hit();
     }
 }

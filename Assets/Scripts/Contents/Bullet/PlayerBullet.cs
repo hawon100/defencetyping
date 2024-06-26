@@ -65,7 +65,7 @@ public class PlayerBullet : BulletBase
 
     protected override void Hit()
     {
-        target.gameObject.GetComponent<EnemyStatBase>().Damage(1);
+        target.gameObject.GetComponent<EnemyStat>().Damage(1);
         target = null;
         base.Hit();
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CentralTower : TowerBase
 {
-    [SerializeField] private PlayerBullet playerBullet;
+    //[SerializeField] private PlayerBullet playerBullet;
 
     [Header("Skill")]
     [SerializeField] private GameObject zenWave;
@@ -22,8 +22,8 @@ public class CentralTower : TowerBase
         _range = 50f;
         for (int i = 0; i < 3; i++)
         {
-            GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
-            Managers.Resource.Destroy(b);
+            //GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+            //Managers.Resource.Destroy(b);
         }
     }
 
@@ -43,12 +43,12 @@ public class CentralTower : TowerBase
         GameObject m = Managers.Resource.Instantiate(boom, null);
         m.transform.position = transform.position;
 
-        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
-        BulletBase s = b.GetComponent<BulletBase>();
-        s.Init();
-        s.target = _target;
-        b.transform.position = transform.position;
-        _target = null;
+        //GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+        //BulletBase s = b.GetComponent<BulletBase>();
+        //s.Init();
+        //s.target = _target;
+        //b.transform.position = transform.position;
+        //_target = null;
     }
 
     protected override void AdjustLevel()

@@ -97,7 +97,7 @@ public class BuildTower : MonoBehaviour
         {
             gameCtrl.curDelayChange = 0;
             Managers.Typing.tower = this.gameObject;
-            Managers.Typing.curBuildPos = hpPos; //Temp
+            Managers.Typing.curBuildPos = transform.position; //Temp
             PanelOpen();
         }
     }
