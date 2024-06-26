@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Drop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class Drop : MonoBehaviour, IDropHandler
 {
     private RectTransform _rect;
 
@@ -13,20 +13,11 @@ public class Drop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
         _rect = GetComponent<RectTransform>();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        //_image.color = Color.yellow;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        //_image.color = Color.white;
-    }
-
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
         {
+            Debug.Log($"Detect Character Card - {Util.FindChild<Text>(eventData.pointerDrag.gameObject, "ObjName").text}");
             // 특정 레이어를 감지하여 조건에 맞는지 확인
             if (eventData.pointerDrag.layer == LayerMask.NameToLayer("EditUI"))
             {

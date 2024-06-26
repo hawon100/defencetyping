@@ -11,8 +11,6 @@ public class LobbyScene : BaseScene
         base.Init();
         
         SceneType = Define.Scene.Lobby;
-
-        Save();
     }
 
     public class Player
@@ -51,7 +49,7 @@ public class LobbyScene : BaseScene
         string json = JsonConvert.SerializeObject(playerContainer, Formatting.Indented);
 
         // JSON 문자열을 파일로 저장
-        string path = Path.Combine(Application.dataPath, "teams.json");
+        string path = Path.Combine(Application.dataPath, "TeamData.json");
         File.WriteAllText(path, json);
 
         // 결과 확인

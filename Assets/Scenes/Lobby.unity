@@ -579,6 +579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: 
+  customString:
+    customString: 
 --- !u!114 &70068419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,6 +1637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: 
+  customString:
+    customString: 
 --- !u!1 &240641936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: "\uD310\uC625\uC120"
+  customString:
+    customString: "\uD310\uC625\uC120"
 --- !u!114 &278665952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4218,6 +4227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: 
+  customString:
+    customString: 
 --- !u!114 &783281788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5269,6 +5281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: 
+  customString:
+    customString: 
 --- !u!114 &1026410026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6585,6 +6600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: 
+  customString:
+    customString: 
 --- !u!114 &1278099204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8046,6 +8064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: 
+  customString:
+    customString: 
 --- !u!114 &1733429298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8324,6 +8345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186f561eb45b9404485a9c456af1c687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredString: 
+  customString:
+    customString: 
 --- !u!114 &1878132462
 MonoBehaviour:
   m_ObjectHideFlags: 0
