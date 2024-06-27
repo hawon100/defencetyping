@@ -1,60 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
 using System.IO;
+using System;
 
 public class LobbyScene : BaseScene
 {
     protected override void Init()
     {
         base.Init();
-        
+
         SceneType = Define.Scene.Lobby;
-    }
 
-    public class Player
-    {
-        public string team1_charname;
-        public string team2_charname;
-        public string team3_charname;
-        public string team4_charname;
-    }
-
-    public class PlayerContainer
-    {
-        public List<Player> teams;
-    }
-
-    private void Save()
-    {
-        List<Player> playerList = new List<Player>
+        List<Data.Save_Character> characterList = new List<Data.Save_Character>
         {
-            new Player
+            new Data.Save_Character
             {
-                team1_charname = "판옥선",
-                team2_charname = "귀선",
-                team3_charname = "방패선",
-                team4_charname = "해골선",
+                index = 0,
+                charName = "판옥선",
+                objName = "panokseon",
+                level = 1,
+                hp = 3,
+                attack = 1,
+                price = 5,
+                time = 3,
             }
         };
 
-        // WordsContainer 객체 생성
-        PlayerContainer playerContainer = new PlayerContainer
+        Data.Save_Character save_Character = new Data.Save_Character()
         {
-            teams = playerList
+            index = 0,
+            charName = "판옥선",
+            objName = "panokseon",
+            level = 1,
+            hp = 3,
+            attack = 1,
+            price = 5,
+            time = 3,
         };
 
-        // WordsContainer 객체를 JSON 문자열로 변환
-        string json = JsonConvert.SerializeObject(playerContainer, Formatting.Indented);
+        characterList.Add(save_Character);
 
-        // JSON 문자열을 파일로 저장
-        string path = Path.Combine(Application.dataPath, "TeamData.json");
-        File.WriteAllText(path, json);
+        Data.Save_CharacterData temp = new Data.Save_CharacterData
+        {
+            characters = characterList
+        };
 
-        // 결과 확인
-        //Debug.Log("JSON file created at: " + path);
-        //Debug.Log("JSON content: " + json);
+        Managers.Data.SaveJson("Temp", "TempData", temp);
+
+        Debug.Log(Managers.Data.CharacterDict[0].charName);
     }
 
     public override void Clear()

@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < TeamData.team.Count; i++)
         {
-            towerPriceText[i].text = $"{charData.dataEdit[i].stat.price}$";
+            //towerPriceText[i].text = $"{charData.dataEdit[i].stat.price}$";
         }
 
         UpdateWordTyping();
@@ -68,10 +68,10 @@ public class GameController : MonoBehaviour
 
         switch (selectedTower.type)
         {
-            case Define.InstallTowerType.Common: maxDelayChange = charData.dataEdit[0].stat.time; break;
-            case Define.InstallTowerType.Rare: maxDelayChange = charData.dataEdit[1].stat.time; break;
-            case Define.InstallTowerType.Epic: maxDelayChange = charData.dataEdit[2].stat.time; break;
-            case Define.InstallTowerType.Legend: maxDelayChange = charData.dataEdit[3].stat.time; break;
+            //case Define.InstallTowerType.Common: maxDelayChange = charData.dataEdit[0].stat.time; break;
+            //case Define.InstallTowerType.Rare: maxDelayChange = charData.dataEdit[1].stat.time; break;
+            //case Define.InstallTowerType.Epic: maxDelayChange = charData.dataEdit[2].stat.time; break;
+            //case Define.InstallTowerType.Legend: maxDelayChange = charData.dataEdit[3].stat.time; break;
         }
 
         if (!selectedTower.isTyping)
@@ -148,46 +148,46 @@ public class GameController : MonoBehaviour
 
         switch (towerName)
         {
-            case "Common":
-                Managers.Typing.type = Define.InstallTowerType.Common;
-                for (int i = 0; i < charData.dataEdit.Count; i++)
-                {
-                    if (charData.dataEdit[i].prefabName == teamData.team[0].prefabName)
-                    {
-                        price = charData.dataEdit[i].stat.price;
-                    }
-                }
-                break;
-            case "Rare":
-                Managers.Typing.type = Define.InstallTowerType.Rare;
-                for (int i = 0; i < charData.dataEdit.Count; i++)
-                {
-                    if (charData.dataEdit[i].prefabName == teamData.team[1].prefabName)
-                    {
-                        price = charData.dataEdit[i].stat.price;
-                    }
-                }
-                break;
-            case "Epic":
-                Managers.Typing.type = Define.InstallTowerType.Epic;
-                for (int i = 0; i < charData.dataEdit.Count; i++)
-                {
-                    if (charData.dataEdit[i].prefabName == teamData.team[2].prefabName)
-                    {
-                        price = charData.dataEdit[i].stat.price;
-                    }
-                }
-                break;
-            case "Legend":
-                Managers.Typing.type = Define.InstallTowerType.Legend;
-                for (int i = 0; i < charData.dataEdit.Count; i++)
-                {
-                    if (charData.dataEdit[i].prefabName == teamData.team[3].prefabName)
-                    {
-                        price = charData.dataEdit[i].stat.price;
-                    }
-                }
-                break;
+            //case "Common":
+            //    Managers.Typing.type = Define.InstallTowerType.Common;
+            //    for (int i = 0; i < charData.dataEdit.Count; i++)
+            //    {
+            //        if (charData.dataEdit[i].prefabName == teamData.team[0].prefabName)
+            //        {
+            //            price = charData.dataEdit[i].stat.price;
+            //        }
+            //    }
+            //    break;
+            //case "Rare":
+            //    Managers.Typing.type = Define.InstallTowerType.Rare;
+            //    for (int i = 0; i < charData.dataEdit.Count; i++)
+            //    {
+            //        if (charData.dataEdit[i].prefabName == teamData.team[1].prefabName)
+            //        {
+            //            price = charData.dataEdit[i].stat.price;
+            //        }
+            //    }
+            //    break;
+            //case "Epic":
+            //    Managers.Typing.type = Define.InstallTowerType.Epic;
+            //    for (int i = 0; i < charData.dataEdit.Count; i++)
+            //    {
+            //        if (charData.dataEdit[i].prefabName == teamData.team[2].prefabName)
+            //        {
+            //            price = charData.dataEdit[i].stat.price;
+            //        }
+            //    }
+            //    break;
+            //case "Legend":
+            //    Managers.Typing.type = Define.InstallTowerType.Legend;
+            //    for (int i = 0; i < charData.dataEdit.Count; i++)
+            //    {
+            //        if (charData.dataEdit[i].prefabName == teamData.team[3].prefabName)
+            //        {
+            //            price = charData.dataEdit[i].stat.price;
+            //        }
+            //    }
+            //    break;
         }
 
         //price shop

@@ -8,6 +8,11 @@ public class UI_TeamEdit : MonoBehaviour
     public TeamData teamData;
     public HolderList holderList;
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         for (int i = 0; i < holderList.holders.Count; i++)

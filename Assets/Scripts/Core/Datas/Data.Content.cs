@@ -3,9 +3,53 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using static LobbyScene;
 
 namespace Data
 {
+    #region Save
+
+    #region TeamEdit
+    [Serializable]
+    public class Save_TeamEdit
+    {
+        public int index;
+        public string team1_charName;
+        public string team2_charName;
+        public string team3_charName;
+        public string team4_charName;
+    }
+
+    [Serializable]
+    public class Save_TeamEditData
+    {
+        public List<Save_TeamEdit> teams = new();
+    }
+    #endregion
+
+    #region Character
+    [Serializable]
+    public class Save_Character
+    {
+        public int index;
+        public string charName;
+        public string objName;
+        public int level;
+        public int hp;
+        public int attack;
+        public int price;
+        public int time;
+    }
+
+    [Serializable]
+    public class Save_CharacterData
+    {
+        public List<Save_Character> characters = new();
+    }
+    #endregion
+
+    #endregion
+
     #region Load
 
     #region Word
@@ -60,25 +104,32 @@ namespace Data
     }
     #endregion
 
-    #endregion
-
-    #region Save
-
-    #region TeamEdit
+    #region Character
     [Serializable]
-    public class Save_TeamEdit
+    public class Load_Character
     {
         public int index;
-        public string team1_charName;
-        public string team2_charName;
-        public string team3_charName;
-        public string team4_charName;
+        public string charName;
+        public string objName;
+        public int level;
+        public int hp;
+        public int attack;
+        public int price;
+        public int time;
     }
 
     [Serializable]
-    public class Save_TeamEditData
+    public class Load_CharacterData : ILoader<int, Load_Character>
     {
-        public List<Save_TeamEdit> teams = new();
+        public List<Load_Character> characters = new();
+
+        public Dictionary<int, Load_Character> MakeDict()
+        {
+            Dictionary<int, Load_Character> dict = new();
+            foreach (Load_Character character in characters)
+                dict.Add(character.index, character);
+            return dict;
+        }
     }
     #endregion
 

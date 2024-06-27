@@ -11,13 +11,13 @@ public class InstallTowerStat : TowerStat
     {
         base.Init();
 
-        for (int i = 0; i < charData.dataEdit.Count; i++)
-        {
-            _level = charData.dataEdit[i].stat.level;
-            _hp = charData.dataEdit[i].stat.hp;
-            _maxHp = charData.dataEdit[i].stat.hp;
-            _attack = charData.dataEdit[i].stat.attack;
-        }
+        //for (int i = 0; i < charData.dataEdit.Count; i++)
+        //{
+        //    _level = Managers.Data.CharacterDict[i].level;
+        //    _hp = charData.dataEdit[i].stat.hp;
+        //    _maxHp = charData.dataEdit[i].stat.hp;
+        //    _attack = charData.dataEdit[i].stat.attack;
+        //}
 
         if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
         GameObject u = Managers.Resource.Instantiate("UI/TowerHP/TowerHP", Managers.Game.uiCanvas);

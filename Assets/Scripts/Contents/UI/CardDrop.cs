@@ -5,13 +5,26 @@ using UnityEngine.UI;
 public class CardDrop : BaseDrop
 {
     [HideInInspector] public string charName;
-    private Image _image;
+    public Image _image;
 
     private void Awake()
     {
         _rect = GetComponent<RectTransform>();
         _image = Util.FindChild<Image>(gameObject, "pairing");
         _image.enabled = false;
+    }
+
+    private void Update()
+    {
+        if (Util.FindChild<Drag>(gameObject) != null)
+        {
+            holderList.UpdateHolderList(charName, _image, false);
+            holderList.ResetHolderList(charName);
+        }
+        else
+        {
+            holderList.UpdateHolderList(charName, _image, true);
+        }
     }
 
     public override void OnDrop(PointerEventData eventData)
@@ -24,11 +37,9 @@ public class CardDrop : BaseDrop
                 {
                     eventData.pointerDrag.transform.SetParent(transform);
                     eventData.pointerDrag.GetComponent<RectTransform>().position = _rect.position;
-                    _image.enabled = true;
                 }
                 else
                 {
-                    _image.enabled = false;
                     return;
                 }
             }

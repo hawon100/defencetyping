@@ -1,0 +1,44 @@
+{
+  "characters": [
+    {
+      "index": 0,
+      "charName": "판옥선",
+      "objName": "panokseon",
+      "level": 1,
+      "hp": 3,
+      "attack": 1,
+      "price": 5,
+      "time": 3
+    },
+    {
+      "index": 1,
+      "charName": "방패선",
+      "objName": "shieldline",
+      "level": 1,
+      "hp": 3,
+      "attack": 1,
+      "price": 5,
+      "time": 3
+    },
+    {
+      "index": 2,
+      "charName": "귀선",
+      "objName": "retrace",
+      "level": 1,
+      "hp": 3,
+      "attack": 1,
+      "price": 5,
+      "time": 3
+    },
+    {
+      "index": 3,
+      "charName": "해골선",
+      "objName": "skullline",
+      "level": 1,
+      "hp": 3,
+      "attack": 1,
+      "price": 5,
+      "time": 3
+    }
+  ]
+}

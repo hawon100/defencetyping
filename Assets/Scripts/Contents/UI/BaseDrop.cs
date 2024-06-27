@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class BaseDrop : MonoBehaviour, IDropHandler
 {
     public RectTransform _rect;
+    public HolderList holderList;
 
     private void Awake()
     {
@@ -19,8 +20,6 @@ public class BaseDrop : MonoBehaviour, IDropHandler
         {
             if (Util.FindChild(gameObject) != null) return;
 
-            //Debug.Log($"Detect Character Card - {Util.FindChild<Text>(eventData.pointerDrag.gameObject, "ObjName").text}");
-            // 특정 레이어를 감지하여 조건에 맞는지 확인
             if (eventData.pointerDrag.layer == LayerMask.NameToLayer("EditUI"))
             {
                 eventData.pointerDrag.transform.SetParent(transform);
