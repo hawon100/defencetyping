@@ -8,6 +8,7 @@ public class BezierBullet : BulletBase
 
     [SerializeField] private GameObject boom;
     [SerializeField] private Vector3 targetPoint;
+    [SerializeField] private Define.BulletType bulletType;
     public Vector3 startPoint;
 
     private TrailRenderer trail; //Temp
@@ -87,8 +88,8 @@ public class BezierBullet : BulletBase
         //GameObject b = Managers.Resource.Instantiate(boom, null);
         //b.transform.position = transform.position;
 
-        if (target.GetComponent<EnemyStat>()) target.GetComponent<EnemyStat>().Damage(1);
-        if (target.GetComponent<TowerStat>()) target.GetComponent<TowerStat>().OnAttacked(1);
+        if (bulletType == Define.BulletType.Enemy) target.GetComponent<EnemyStat>().Damage(1);
+        if (bulletType == Define.BulletType.Tower) target.GetComponent<TowerStat>().OnAttacked(1);
         target = null;
         base.Hit();
     }
