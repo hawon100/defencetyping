@@ -70,6 +70,12 @@ public class Define
         Click,
     }
 
+    public enum BulletType
+    {
+        Enemy,
+        Tower,
+    }
+
     public enum CameraMode
     {
         QuarterView,

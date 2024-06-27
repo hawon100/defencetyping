@@ -253,7 +253,7 @@ MonoBehaviour:
   _installType: 0
   curShotDelay: 0
   maxShotDelay: 0
-  playerBullet: {fileID: 6300741034209622059, guid: 391d66eb36c86574bb7708b832252efa, type: 3}
+  playerBullet: {fileID: 5920300684569205574, guid: 148f6001258b9644b80657adffce9aaf, type: 3}
   cooltime: 2.5
   rotSpeed: 2
   cannon: {fileID: 2848625991078983945}
