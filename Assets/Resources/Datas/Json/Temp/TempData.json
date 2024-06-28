@@ -9,6 +9,16 @@
             "attack": 1,
             "price": 5,
             "time": 3
+        },
+        {
+            "index": 0,
+            "charName": "판옥선",
+            "objName": "panokseon",
+            "level": 1,
+            "hp": 3,
+            "attack": 1,
+            "price": 5,
+            "time": 3
         }
     ]
 }

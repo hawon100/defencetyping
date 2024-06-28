@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerTag: Tower
   target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
-  speed: 3
+  speed: 4
   height: 5
   boom: {fileID: 0}
   targetPoint: {x: 0, y: 0, z: 0}

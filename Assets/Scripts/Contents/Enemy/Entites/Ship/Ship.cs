@@ -75,16 +75,17 @@ public class Ship : EnemyBase
         anime.SetTrigger(attackAnime);
 
         //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
-        GameObject b = Managers.Resource.Instantiate(paraBullet.gameObject, null);
+        GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, null);
+        b.transform.position = transform.position;
         BulletBase s = b.GetComponent<BulletBase>();
 
         //GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, null);
         //BulletBase s = b.GetComponent<BezierBullet>();
         //s.Init();
         Debug.Log(target);
+        s.Init();
         s.target = target;
         s.triggerTag = targetTag;
-        b.transform.position = transform.position;
     }
 
     protected override void Detected()

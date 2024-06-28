@@ -24,7 +24,7 @@ public class BezierBullet : BulletBase
         base.Start();
 
 
-        targetPoint = target.position;
+        //targetPoint = target.position;
         ResetPos();
 
         trail = GetComponent<TrailRenderer>(); //Temp
@@ -37,11 +37,13 @@ public class BezierBullet : BulletBase
 
     private void OnEnable()
     {
-        ResetPos();
+        //ResetPos();
     }
 
     public override void Init()
     {
+        t = 0;
+        startPoint = transform.position;
         base.Init();
     }
 
