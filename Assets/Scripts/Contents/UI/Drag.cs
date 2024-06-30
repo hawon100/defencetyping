@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private Canvas cvs;
     private Transform canvas;
     private Transform previousParent;
     private RectTransform rect;
@@ -13,7 +12,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     private void Awake()
     {
-        canvas = cvs.transform;
+        canvas = FindObjectOfType<Canvas>().transform;
         rect = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }

@@ -15,9 +15,13 @@ namespace Data
     {
         public int index;
         public string team1_charName;
+        public string team1_charImage;
         public string team2_charName;
+        public string team2_charImage;
         public string team3_charName;
+        public string team3_charImage;
         public string team4_charName;
+        public string team4_charImage;
     }
 
     [Serializable]
@@ -39,6 +43,7 @@ namespace Data
         public int attack;
         public int price;
         public int time;
+        public string pathImage;
     }
 
     [Serializable]
@@ -84,9 +89,13 @@ namespace Data
     {
         public int index;
         public string team1_charName;
+        public string team1_charImage;
         public string team2_charName;
+        public string team2_charImage;
         public string team3_charName;
+        public string team3_charImage;
         public string team4_charName;
+        public string team4_charImage;
     }
 
     [Serializable]
@@ -116,6 +125,7 @@ namespace Data
         public int attack;
         public int price;
         public int time;
+        public string pathImage;
     }
 
     [Serializable]

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class CharDataEdit
 {
+    public string charName;
     public Sprite charImage;
-    public Button charButton;
     public GameObject charObj;
 }
 

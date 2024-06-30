@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [System.Serializable]
 public class CharData
 {
     public string charName;
     public string prefabName;
     public Sprite charImage;
-    public GameObject prefab;
 }
 
 [CreateAssetMenu(fileName = "New TeamData", menuName = "Data/TeamData", order = int.MinValue)]

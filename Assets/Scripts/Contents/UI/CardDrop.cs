@@ -4,14 +4,16 @@ using UnityEngine.UI;
 
 public class CardDrop : BaseDrop
 {
-    [HideInInspector] public string charName;
+    public string charName;
     public Image _image;
 
-    private void Awake()
+    protected override void Start()
     {
-        _rect = GetComponent<RectTransform>();
+        base.Start();
+
         _image = Util.FindChild<Image>(gameObject, "pairing");
         _image.enabled = false;
+        charName = Util.FindChild<Text>(Util.FindChild(gameObject, "CharCard"), "ObjName").text;
     }
 
     private void Update()

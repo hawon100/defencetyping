@@ -9,8 +9,9 @@ public class BaseDrop : MonoBehaviour, IDropHandler
     public RectTransform _rect;
     public HolderList holderList;
 
-    private void Awake()
+    protected virtual void Start()
     {
+        holderList = FindObjectOfType<HolderList>();
         _rect = GetComponent<RectTransform>();
     }
 

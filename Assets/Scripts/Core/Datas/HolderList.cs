@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.WSA;
 
 [System.Serializable]
 public class CharHolder
 {
-    public bool isChild;
     public GameObject holderObj;
     public string objName;
     public Image holderImage;
@@ -15,6 +13,23 @@ public class CharHolder
 public class HolderList : MonoBehaviour
 {
     public List<CharHolder> holders = new();
+    public Button exit;
+
+    private void Update()
+    {
+        foreach (var holder in holders)
+        {
+            if(holder.objName == "")
+            {
+                exit.enabled = false;
+                continue;
+            }
+            else
+            {
+                exit.enabled = true;
+            }
+        }
+    }
 
     public void UpdateHolderList(string charName, Image image, bool isActive)
     {

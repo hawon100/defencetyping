@@ -1,10 +1,11 @@
 {
-  "teams": [
-    {
-      "team1_charname": "판옥선",
-      "team2_charname": "귀선",
-      "team3_charname": "방패선",
-      "team4_charname": "해골선"
-    }
-  ]
+    "teams": [
+        {
+            "index": 0,
+            "team1_charName": "방패선",
+            "team2_charName": "판옥선",
+            "team3_charName": "귀선",
+            "team4_charName": "해골선"
+        }
+    ]
 }

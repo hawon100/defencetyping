@@ -4,20 +4,19 @@ using UnityEngine.UI;
 public class InstallTowerStat : TowerStat
 {
     public TeamData teamData;
-    public CharListData charData;
     public TowerStatHPUI hpUI;
 
     public override void Init()
     {
         base.Init();
 
-        //for (int i = 0; i < charData.dataEdit.Count; i++)
-        //{
-        //    _level = Managers.Data.CharacterDict[i].level;
-        //    _hp = charData.dataEdit[i].stat.hp;
-        //    _maxHp = charData.dataEdit[i].stat.hp;
-        //    _attack = charData.dataEdit[i].stat.attack;
-        //}
+        for (int i = 0; i < Managers.Data.CharacterDict.Count; i++)
+        {
+            _level = Managers.Data.CharacterDict[i].level;
+            _hp = Managers.Data.CharacterDict[i].hp;
+            _maxHp = Managers.Data.CharacterDict[i].hp;
+            _attack = Managers.Data.CharacterDict[i].attack;
+        }
 
         if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
         GameObject u = Managers.Resource.Instantiate("UI/TowerHP/TowerHP", Managers.Game.uiCanvas);
