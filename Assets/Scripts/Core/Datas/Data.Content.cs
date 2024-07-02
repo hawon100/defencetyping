@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
-using static LobbyScene;
 
 namespace Data
 {
@@ -14,14 +11,9 @@ namespace Data
     public class Save_TeamEdit
     {
         public int index;
-        public string team1_charName;
-        public string team1_charImage;
-        public string team2_charName;
-        public string team2_charImage;
-        public string team3_charName;
-        public string team3_charImage;
-        public string team4_charName;
-        public string team4_charImage;
+        public string charName;
+        public string charNameEN;
+        public string charImage;
     }
 
     [Serializable]
@@ -88,14 +80,9 @@ namespace Data
     public class Load_TeamEdit
     {
         public int index;
-        public string team1_charName;
-        public string team1_charImage;
-        public string team2_charName;
-        public string team2_charImage;
-        public string team3_charName;
-        public string team3_charImage;
-        public string team4_charName;
-        public string team4_charImage;
+        public string charName;
+        public string charNameEN;
+        public string charImage;
     }
 
     [Serializable]

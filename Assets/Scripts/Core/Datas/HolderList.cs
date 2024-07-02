@@ -7,13 +7,15 @@ public class CharHolder
 {
     public GameObject holderObj;
     public string objName;
+    public string objNameEN;
     public Image holderImage;
+    public string ImagePath;
 }
 
 public class HolderList : MonoBehaviour
 {
-    public List<CharHolder> holders = new();
     public Button exit;
+    public List<CharHolder> holders = new();
 
     private void Update()
     {
@@ -22,21 +24,19 @@ public class HolderList : MonoBehaviour
             if(holder.objName == "")
             {
                 exit.enabled = false;
-                continue;
+                return;
             }
-            else
-            {
-                exit.enabled = true;
-            }
+            exit.enabled = true;
         }
     }
 
-    public void UpdateHolderList(string charName, Image image, bool isActive)
+    public void UpdateHolderList(string imagePath, string charName, Image image, bool isActive)
     {
         foreach (var holder in holders)
         {
             if (holder.objName == charName)
             {
+                holder.ImagePath = imagePath;
                 holder.holderImage = image;
                 holder.holderImage.enabled = isActive;
                 break;
@@ -50,6 +50,7 @@ public class HolderList : MonoBehaviour
         {
             if (holder.objName == charName)
             {
+                holder.ImagePath = "";
                 holder.objName = "";
                 holder.holderImage.enabled = false;
                 holder.holderImage = null;

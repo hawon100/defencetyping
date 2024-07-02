@@ -8,12 +8,14 @@ public class Managers : MonoBehaviour
     static Managers Instance { get { Init(); return s_instance; } }
 
     //Content
+    DataSaveLoad _dataSaveLoad = new DataSaveLoad();
     GameManager _game = new GameManager();
     SpawnManager _spawn = new SpawnManager();
     WordManager _word = new WordManager();
     WaveManager _wave = new WaveManager();
     TypingManager _typing = new TypingManager();
 
+    public static DataSaveLoad DSL { get { return Instance._dataSaveLoad; } }
     public static GameManager Game { get { return Instance._game; } }
     public static SpawnManager Spawn { get { return Instance._spawn; } }
     public static WordManager Word { get {  return Instance._word; } }

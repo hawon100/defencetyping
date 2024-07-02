@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,15 +9,6 @@ public class UI_TeamEdit : MonoBehaviour
     public RectTransform teamWin;
     public HolderList holderList;
 
-    private void Start()
-    {
-        for (int i = 0; i < holderList.holders.Count; i++)
-        {
-            holderList.holders[i].objName = Managers.Data.TeamDict[i].team1_charName;
-            holderList.holders[i].holderImage.sprite = Resources.Load<Sprite>(Managers.Data.;
-        }
-    }
-
     private void Update()
     {
         for (int i = 0; i < holderList.holders.Count; i++)
@@ -24,29 +16,54 @@ public class UI_TeamEdit : MonoBehaviour
             if (Util.FindChild(holderList.holders[i].holderObj) == null) continue;
 
             holderList.holders[i].objName = Util.FindChild<Text>(Util.FindChild(holderList.holders[i].holderObj, "CharCard"), "ObjName").text;
+            holderList.holders[i].objNameEN = Util.FindChild<Text>(Util.FindChild(holderList.holders[i].holderObj, "CharCard"), "ObjNameEN").text;
         }
     }
 
     public void OnEditExit()
     {
-        List<Data.Save_TeamEdit> teamList = new List<Data.Save_TeamEdit>
+        Managers.DSL.teamList = new List<Data.Save_TeamEdit>
         { 
             new Data.Save_TeamEdit
             {
                 index = 0,
-                team1_charName = holderList.holders[0].objName,
-                team2_charName = holderList.holders[1].objName,
-                team3_charName = holderList.holders[2].objName,
-                team4_charName = holderList.holders[3].objName,
-            }
+                charName = holderList.holders[0].objName,
+                charNameEN = holderList.holders[0].objNameEN,
+                charImage = holderList.holders[0].ImagePath,
+            },
+            new Data.Save_TeamEdit
+            {
+                index = 1,
+                charName = holderList.holders[1].objName,
+                charNameEN = holderList.holders[1].objNameEN,
+                charImage = holderList.holders[1].ImagePath,
+            },
+            new Data.Save_TeamEdit
+            {
+                index = 2,
+                charName = holderList.holders[2].objName,
+                charNameEN = holderList.holders[2].objNameEN,
+                charImage = holderList.holders[2].ImagePath,
+            },
+            new Data.Save_TeamEdit
+            {
+                index = 3,
+                charName = holderList.holders[3].objName,
+                charNameEN = holderList.holders[3].objNameEN,
+                charImage = holderList.holders[3].ImagePath,
+            },
         };
 
-        Data.Save_TeamEditData teamData = new Data.Save_TeamEditData
+        Managers.DSL.teamData = new Data.Save_TeamEditData
         {
-            teams = teamList
+            teams = Managers.DSL.teamList
         };
 
-        Managers.Data.SaveJson("Team", "TeamData", teamData);
+        string jsonData = Managers.Data.SaveJson(Managers.DSL.teamData);
+
+        PlayerPrefs.SetString("TeamData", jsonData);
+        PlayerPrefs.Save();
+        Debug.Log(PlayerPrefs.GetString("TeamData", jsonData));
 
         teamWin.DOAnchorPosX(1920, 0.5f);
     }

@@ -6,6 +6,7 @@ public class CardDrop : BaseDrop
 {
     public string charName;
     public Image _image;
+    private string pathImage;
 
     protected override void Start()
     {
@@ -13,19 +14,27 @@ public class CardDrop : BaseDrop
 
         _image = Util.FindChild<Image>(gameObject, "pairing");
         _image.enabled = false;
-        charName = Util.FindChild<Text>(Util.FindChild(gameObject, "CharCard"), "ObjName").text;
+        charName = Util.FindChild<Text>(gameObject, "Text").text;
+
+        for(int i = 0; i < Managers.Data.CharacterDict.Count; i++)
+        {
+            if (Managers.Data.CharacterDict[i].charName == charName)
+            {
+                pathImage = Managers.Data.CharacterDict[i].pathImage;
+            }
+        }
     }
 
     private void Update()
     {
         if (Util.FindChild<Drag>(gameObject) != null)
         {
-            holderList.UpdateHolderList(charName, _image, false);
+            holderList.UpdateHolderList(pathImage, charName, _image, false);
             holderList.ResetHolderList(charName);
         }
         else
         {
-            holderList.UpdateHolderList(charName, _image, true);
+            holderList.UpdateHolderList(pathImage, charName, _image, true);
         }
     }
 

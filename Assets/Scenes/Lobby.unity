@@ -334,7 +334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamWin: {fileID: 162087706}
-  teamData: {fileID: 11400000, guid: fd2e7e554714be0448f8e82f21a94d32, type: 2}
   holderList: {fileID: 5396582}
 --- !u!114 &5396582
 MonoBehaviour:
@@ -351,16 +350,24 @@ MonoBehaviour:
   holders:
   - holderObj: {fileID: 235384212}
     objName: 
+    objNameEN: 
     holderImage: {fileID: 0}
+    ImagePath: 
   - holderObj: {fileID: 70068416}
     objName: 
+    objNameEN: 
     holderImage: {fileID: 0}
+    ImagePath: 
   - holderObj: {fileID: 1733429295}
     objName: 
+    objNameEN: 
     holderImage: {fileID: 0}
+    ImagePath: 
   - holderObj: {fileID: 783281785}
     objName: 
+    objNameEN: 
     holderImage: {fileID: 0}
+    ImagePath: 
   exit: {fileID: 176745584}
 --- !u!114 &5396583
 MonoBehaviour:
@@ -6580,6 +6587,11 @@ MonoBehaviour:
   slots: []
   cards: []
   _list: []
+  parentSlot:
+  - {fileID: 235384212}
+  - {fileID: 70068416}
+  - {fileID: 1733429295}
+  - {fileID: 783281785}
 --- !u!1 &1299574101
 GameObject:
   m_ObjectHideFlags: 0

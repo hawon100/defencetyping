@@ -12,13 +12,11 @@ public interface ILoader<Key, Value>
 public class DataManager
 {
     public Dictionary<int, Load_Word> WordDict { get; private set; } = new();
-    public Dictionary<int, Load_TeamEdit> TeamDict { get; private set; } = new();
     public Dictionary<int, Load_Character> CharacterDict { get; private set; } = new();
 
     public void Init()
     {
         WordDict = LoadJson<Load_WordData, int, Load_Word>($"Word/WordData").MakeDict();
-        TeamDict = LoadJson<Load_TeamEditData, int, Load_TeamEdit>($"Team/TeamData").MakeDict();
         CharacterDict = LoadJson<Load_CharacterData, int, Load_Character>($"Character/CharacterData").MakeDict();
     }
 
@@ -28,11 +26,9 @@ public class DataManager
         return JsonUtility.FromJson<Loader>(textAsset.text);
 	}
 
-    public void SaveJson<T>(string fileName, string dataName, T container)
+    public string SaveJson<T>(T container)
     {
-        string json = JsonUtility.ToJson(container, true);
-
-        string path = Path.Combine(Application.dataPath + $"/Resources/Datas/Json/{fileName}", $"{dataName}.json");
-        File.WriteAllText(path, json);
+        string json = JsonUtility.ToJson(container);
+        return json;
     }
 }
