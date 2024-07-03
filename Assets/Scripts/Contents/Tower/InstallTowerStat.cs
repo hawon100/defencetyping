@@ -9,12 +9,21 @@ public class InstallTowerStat : TowerStat
     {
         base.Init();
 
-        for (int i = 0; i < Managers.DSL.charList.Count; i++) // all change code
+        if(PlayerPrefs.HasKey("CharacterData"))
         {
-            _level = Managers.DSL.charList[i].level;
-            _hp = Managers.DSL.charList[i].hp;
-            _maxHp = Managers.DSL.charList[i].hp;
-            _attack = Managers.DSL.charList[i].attack;
+            string jsonData = PlayerPrefs.GetString("CharacterData");
+            Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+
+            for (int i = 0; i < Managers.DSL.charData.characters.Count; i++) // all change code
+            {
+                if (Managers.DSL.charData.characters[i].objName == gameObject.name)
+                {
+                    _level = Managers.DSL.charData.characters[i].level;
+                    _hp = Managers.DSL.charData.characters[i].hp;
+                    _maxHp = Managers.DSL.charData.characters[i].hp;
+                    _attack = Managers.DSL.charData.characters[i].attack;
+                }
+            }
         }
 
         if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
