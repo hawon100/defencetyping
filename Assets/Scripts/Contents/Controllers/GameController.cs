@@ -208,7 +208,8 @@ public class GameController : MonoBehaviour
         buildUI.SetActive(true);
 
         selectedTower = null;
-        Managers.Typing.tower = null;
+        //Temp
+        //Managers.Typing.tower = null;
     }
 
     public void OnReturnLobby()
