@@ -39,18 +39,30 @@ public class BackDrop : BaseDrop
             }
         }
 
-
-        for(int i = 0; i < Managers.DSL.teamList.Count; i++)
+        if(PlayerPrefs.HasKey("TeamData"))
         {
-            for(int j = 0; j < cards.Count; j++)
+            string jsonTeamData = PlayerPrefs.GetString("TeamData");
+            Managers.DSL.teamData = JsonUtility.FromJson<Data.Save_TeamEditData>(jsonTeamData);
+
+            for (int j = 0; j < cards.Count; j++)
             {
-                if (Managers.DSL.charList[i].charName == Util.FindChild<Text>(cards[j], "ObjName").text)
+                for (int i = 0; i < Managers.DSL.teamData.teams.Count; i++)
                 {
-                    cards[j].transform.SetParent(parentSlot[i].transform);
-                    cards[j].transform.position = parentSlot[i].transform.position;
+                    Debug.Log(Managers.DSL.teamData.teams[i].charName);
+                    if (PlayerPrefs.HasKey("CharacterData"))
+                    {
+                        string jsonData = PlayerPrefs.GetString("CharacterData");
+                        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+
+                        if (Managers.DSL.teamData.teams[i].charName == Util.FindChild<Text>(cards[j], "ObjName").text)
+                        {
+                            cards[j].transform.SetParent(parentSlot[i].transform);
+                            cards[j].transform.position = parentSlot[i].transform.position;
+                        }
+                    }
                 }
             }
-        }
+        }    
     }
 
     public override void OnDrop(PointerEventData eventData)

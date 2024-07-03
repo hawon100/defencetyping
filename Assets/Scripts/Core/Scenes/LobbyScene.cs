@@ -10,13 +10,7 @@ public class LobbyScene : BaseScene
 
         SceneType = Define.Scene.Lobby;
 
-        //Managers.DSL.charList[0].level = 1;
-
-        //string jsonData = Managers.Data.SaveJson(teamData);
-
-        //PlayerPrefs.SetString("CharacterData", jsonData);
-        //PlayerPrefs.Save();
-        //Debug.Log(PlayerPrefs.GetString("CharacterData"));
+        Debug.Log(PlayerPrefs.GetString("TeamData"));
     }
 
     public override void Clear()
