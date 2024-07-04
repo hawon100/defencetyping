@@ -40,6 +40,8 @@ public class EnemyStat : EnemyStatBase
         yield return waitSeconds;
         spriteRend.color = Color.white;
         yield return waitSeconds;
+
+        StopCoroutine(DamagedMotion());
     }
 
     protected override void OnEnable()  => base.OnEnable();
