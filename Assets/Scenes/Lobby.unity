@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06ed5c16ac891e4aae6390e15ec56e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exit: {fileID: 176745584}
   holders:
   - holderObj: {fileID: 235384212}
     objName: 
@@ -368,7 +369,6 @@ MonoBehaviour:
     objNameEN: 
     holderImage: {fileID: 0}
     ImagePath: 
-  exit: {fileID: 176745584}
 --- !u!114 &5396583
 MonoBehaviour:
   m_ObjectHideFlags: 0

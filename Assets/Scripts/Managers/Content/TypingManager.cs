@@ -39,7 +39,9 @@ public class TypingManager
             }
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
-            Debug.Log(towerBase, towerStat);
+            Debug.Log(tower.name);
+            Debug.Log(towerBase);
+            Debug.Log(towerStat);
             //towerStat.towerPos = curBuildPos;
             towerStat.Init();
             //towerStat.towerStatUI.
