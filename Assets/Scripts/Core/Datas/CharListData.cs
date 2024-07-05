@@ -7,7 +7,6 @@ public class CharDataEdit
 {
     public string charName;
     public Sprite charImage;
-    public GameObject charObj;
 }
 
 [CreateAssetMenu(fileName = "New CharListData", menuName = "Data/CharListData", order = int.MinValue)]
