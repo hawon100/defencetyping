@@ -10,7 +10,7 @@ public class DataSaveLoad
 
     public void SaveChar()
     {
-        charList = new List<Data.Save_Character>
+        Managers.DSL.charList = new List<Data.Save_Character>
         {
             new Data.Save_Character
             {
@@ -59,12 +59,29 @@ public class DataSaveLoad
                 price= 5,
                 time= 3,
                 pathImage= "Assets/Sprites/Ship/skullline"
+            },
+            new Data.Save_Character
+            {
+                index = 4,
+                charName = "¸Í¼±",
+                objName = "blindline",
+                level= 1,
+                hp= 3,
+                attack= 1,
+                price= 5,
+                time= 3,
+                pathImage= "Assets/Sprites/Ship/blindline"
             }
         };
 
-        charData = new Data.Save_CharacterData
+        Managers.DSL.charData = new Data.Save_CharacterData
         {
-            characters = charList
+            characters = Managers.DSL.charList
         };
+
+        string jsonData = Managers.Data.SaveJson(Managers.DSL.charData);
+
+        PlayerPrefs.SetString("CharacterData", jsonData);
+        PlayerPrefs.Save();
     }
 }

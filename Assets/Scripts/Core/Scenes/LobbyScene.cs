@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LobbyScene : BaseScene
@@ -9,8 +10,6 @@ public class LobbyScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Lobby;
-
-        Debug.Log(PlayerPrefs.GetString("TeamData"));
     }
 
     public override void Clear()

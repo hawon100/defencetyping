@@ -5,15 +5,17 @@ using UnityEngine.UI;
 public class CardDrop : BaseDrop
 {
     public string charName;
-    public Image _image;
+    public GameObject _image;
+    public GameObject _text;
     private string pathImage;
 
     protected override void Start()
     {
         base.Start();
 
-        _image = Util.FindChild<Image>(gameObject, "pairing");
-        _image.enabled = false;
+        _image = Util.FindChild(gameObject, "pairing");
+        _text = Util.FindChild(_image, "Select");
+
         charName = Util.FindChild<Text>(gameObject, "Text").text;
 
         for(int i = 0; i < Managers.Data.CharacterDict.Count; i++)
@@ -29,12 +31,12 @@ public class CardDrop : BaseDrop
     {
         if (Util.FindChild<Drag>(gameObject) != null)
         {
-            holderList.UpdateHolderList(pathImage, charName, _image, false);
+            holderList.UpdateHolderList(pathImage, charName, _text, false);
             holderList.ResetHolderList(charName);
         }
         else
         {
-            holderList.UpdateHolderList(pathImage, charName, _image, true);
+            holderList.UpdateHolderList(pathImage, charName, _text, true);
         }
     }
 

@@ -8,7 +8,7 @@ public class CharHolder
     public GameObject holderObj;
     public string objName;
     public string objNameEN;
-    public Image holderImage;
+    public GameObject holderImage;
     public string ImagePath;
 }
 
@@ -30,7 +30,7 @@ public class HolderList : MonoBehaviour
         }
     }
 
-    public void UpdateHolderList(string imagePath, string charName, Image image, bool isActive)
+    public void UpdateHolderList(string imagePath, string charName, GameObject image, bool isActive)
     {
         foreach (var holder in holders)
         {
@@ -38,7 +38,7 @@ public class HolderList : MonoBehaviour
             {
                 holder.ImagePath = imagePath;
                 holder.holderImage = image;
-                holder.holderImage.enabled = isActive;
+                holder.holderImage.SetActive(isActive);
                 break;
             }
         }
@@ -52,7 +52,7 @@ public class HolderList : MonoBehaviour
             {
                 holder.ImagePath = "";
                 holder.objName = "";
-                holder.holderImage.enabled = false;
+                holder.holderImage.SetActive(false);
                 holder.holderImage = null;
                 break;
             }

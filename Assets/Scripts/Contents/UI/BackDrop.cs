@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class BackDrop : BaseDrop
 {
     public GameObject spawnParent;
-    public CharListData charListData;
     public List<CardDrop> slots = new(); // slot object
     public List<GameObject> cards = new(); // card object
+    public List<GameObject> shells = new(); // shells object
     public List<GameObject> _list = new(); // pool object
     public List<GameObject> parentSlot = new(); //select
 
@@ -16,26 +16,34 @@ public class BackDrop : BaseDrop
     {
         base.Start();
 
-        for (int i = 0; i < Managers.Data.CharacterDict.Count; i++) _list.Add(Managers.Resource.Instantiate("UI/Lobby/Slot"));
-        foreach(var card in _list) Managers.Resource.Destroy(card);
+        for (int i = 0; i < Managers.DSL.charData.characters.Count; i++) _list.Add(Managers.Resource.Instantiate("UI/Lobby/Slot"));
+        foreach (var card in _list) Managers.Resource.Destroy(card);
 
-        for (int i = 0; i < Managers.Data.CharacterDict.Count; i++)
+        for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
         {
             var obj = Managers.Resource.Instantiate("UI/Lobby/Slot", spawnParent.transform);
             slots.Add(obj.GetComponent<CardDrop>());
             var cardObj = Util.FindChild(obj, "CharCard");
             cards.Add(cardObj);
+            var shellObj = Util.FindChild(obj, "pairing");
+            shells.Add(shellObj);
 
-            Util.FindChild<Text>(obj, "Text").text = Managers.Data.CharacterDict[i].charName;
-            Util.FindChild<Image>(cardObj, "Icon").sprite = charListData.dataEdit[i].charImage;
-            Util.FindChild<Text>(cardObj, "ObjName").text = Managers.Data.CharacterDict[i].charName;
-            Util.FindChild<Text>(cardObj, "ObjNameEN").text = Managers.Data.CharacterDict[i].objName;
+            Util.FindChild<Text>(obj, "Text").text = Managers.DSL.charData.characters[i].charName;
+            Util.FindChild<Image>(cardObj, "Icon").sprite = Resources.Load<Sprite>($"{Managers.DSL.charData.characters[i].pathImage}");
+            Util.FindChild<Text>(cardObj, "ObjName").text = Managers.DSL.charData.characters[i].charName;
+            Util.FindChild<Text>(cardObj, "ObjNameEN").text = Managers.DSL.charData.characters[i].objName;
+
+            Util.FindChild<Text>(shellObj, "ObjName").text = Managers.DSL.charData.characters[i].charName;
+            Util.FindChild<Text>(shellObj, "ObjNameEN").text = Managers.DSL.charData.characters[i].objName;
+
+
             if(PlayerPrefs.HasKey("CharacterData"))
             {
                 string jsonData = PlayerPrefs.GetString("CharacterData");
                 Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
 
                 Util.FindChild<Text>(cardObj, "Level").text = $"lv.{Managers.DSL.charData.characters[i].level}";
+                Util.FindChild<Text>(shellObj, "Level").text = $"lv.{Managers.DSL.charData.characters[i].level}";
             }
         }
 
