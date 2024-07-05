@@ -138,8 +138,6 @@ public class GameController : MonoBehaviour
     public void BuildTowerSelect(string towerName)
     {
         if (selectedTower == null) return;
-        if (!PlayerPrefs.HasKey("TeamData")) return;
-        if (!PlayerPrefs.HasKey("CharacterData")) return;
 
         string jsonCharData = PlayerPrefs.GetString("CharacterData");
         Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonCharData);
