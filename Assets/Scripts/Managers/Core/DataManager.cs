@@ -12,12 +12,10 @@ public interface ILoader<Key, Value>
 public class DataManager
 {
     public Dictionary<int, Load_Word> WordDict { get; private set; } = new();
-    public Dictionary<int, Load_Character> CharacterDict { get; private set; } = new();
 
     public void Init()
     {
         WordDict = LoadJson<Load_WordData, int, Load_Word>($"Word/WordData").MakeDict();
-        CharacterDict = LoadJson<Load_CharacterData, int, Load_Character>($"Character/CharacterData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 643307313506876871}
   - component: {fileID: 6005185048205759885}
-  - component: {fileID: 5640808594829813809}
   - component: {fileID: 9157766156357968009}
   - component: {fileID: 8099016827500771240}
   - component: {fileID: -6452759539150852740}
@@ -90,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5640808594829813809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383663462593883120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f57697b9796704b850fe2a843a8f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsUsing: 0
 --- !u!61 &9157766156357968009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,8 +178,6 @@ MonoBehaviour:
   _hp: 5
   _maxHp: 5
   _attack: 0
-  teamData: {fileID: 11400000, guid: fd2e7e554714be0448f8e82f21a94d32, type: 2}
-  charData: {fileID: 11400000, guid: d16ad8af628db1b4d9e5f868d31a2a6d, type: 2}
   hpUI: {fileID: 0}
 --- !u!1 &2507243380420994240
 GameObject:

@@ -14,6 +14,7 @@ namespace Data
         public string charName;
         public string charNameEN;
         public string charImage;
+        public int price;
     }
 
     [Serializable]
@@ -70,61 +71,6 @@ namespace Data
             Dictionary<int, Load_Word> dict = new();
             foreach (Load_Word word in words)
                 dict.Add(word.wordIndex, word);
-            return dict;
-        }
-    }
-    #endregion
-
-    #region TeamEdit
-    [Serializable]
-    public class Load_TeamEdit
-    {
-        public int index;
-        public string charName;
-        public string charNameEN;
-        public string charImage;
-    }
-
-    [Serializable]
-    public class Load_TeamEditData : ILoader<int, Load_TeamEdit>
-    {
-        public List<Load_TeamEdit> teams = new();
-
-        public Dictionary<int, Load_TeamEdit> MakeDict()
-        {
-            Dictionary<int, Load_TeamEdit> dict = new();
-            foreach (Load_TeamEdit team in teams)
-                dict.Add(team.index, team);
-            return dict;
-        }
-    }
-    #endregion
-
-    #region Character
-    [Serializable]
-    public class Load_Character
-    {
-        public int index;
-        public string charName;
-        public string objName;
-        public int level;
-        public int hp;
-        public int attack;
-        public int price;
-        public int time;
-        public string pathImage;
-    }
-
-    [Serializable]
-    public class Load_CharacterData : ILoader<int, Load_Character>
-    {
-        public List<Load_Character> characters = new();
-
-        public Dictionary<int, Load_Character> MakeDict()
-        {
-            Dictionary<int, Load_Character> dict = new();
-            foreach (Load_Character character in characters)
-                dict.Add(character.index, character);
             return dict;
         }
     }

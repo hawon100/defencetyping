@@ -15,11 +15,6 @@ public class TowerStat : MonoBehaviour
     public int MaxHp { get { return _maxHp; } set { _maxHp = value; } }
     public int Attack { get { return _attack; } set { _attack = value; } }
 
-    private void Start()
-    {
-        //Init();
-    }
-
     public virtual void Init()
     {
         Hp = MaxHp;

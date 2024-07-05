@@ -16,6 +16,10 @@ public class BackDrop : BaseDrop
     {
         base.Start();
 
+        if (!PlayerPrefs.HasKey("CharacterData")) return;
+        string jsonData = PlayerPrefs.GetString("CharacterData");
+        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+
         for (int i = 0; i < Managers.DSL.charData.characters.Count; i++) _list.Add(Managers.Resource.Instantiate("UI/Lobby/Slot"));
         foreach (var card in _list) Managers.Resource.Destroy(card);
 
@@ -33,18 +37,12 @@ public class BackDrop : BaseDrop
             Util.FindChild<Text>(cardObj, "ObjName").text = Managers.DSL.charData.characters[i].charName;
             Util.FindChild<Text>(cardObj, "ObjNameEN").text = Managers.DSL.charData.characters[i].objName;
 
+            Util.FindChild<Text>(cardObj, "Level").text = $"lv.{Managers.DSL.charData.characters[i].level}";
+
             Util.FindChild<Text>(shellObj, "ObjName").text = Managers.DSL.charData.characters[i].charName;
             Util.FindChild<Text>(shellObj, "ObjNameEN").text = Managers.DSL.charData.characters[i].objName;
 
-
-            if(PlayerPrefs.HasKey("CharacterData"))
-            {
-                string jsonData = PlayerPrefs.GetString("CharacterData");
-                Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
-
-                Util.FindChild<Text>(cardObj, "Level").text = $"lv.{Managers.DSL.charData.characters[i].level}";
-                Util.FindChild<Text>(shellObj, "Level").text = $"lv.{Managers.DSL.charData.characters[i].level}";
-            }
+            Util.FindChild<Text>(shellObj, "Level").text = $"lv.{Managers.DSL.charData.characters[i].level}";
         }
 
         if(PlayerPrefs.HasKey("TeamData"))
@@ -56,17 +54,10 @@ public class BackDrop : BaseDrop
             {
                 for (int i = 0; i < Managers.DSL.teamData.teams.Count; i++)
                 {
-                    Debug.Log(Managers.DSL.teamData.teams[i].charName);
-                    if (PlayerPrefs.HasKey("CharacterData"))
+                    if (Managers.DSL.teamData.teams[i].charName == Util.FindChild<Text>(cards[j], "ObjName").text)
                     {
-                        string jsonData = PlayerPrefs.GetString("CharacterData");
-                        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
-
-                        if (Managers.DSL.teamData.teams[i].charName == Util.FindChild<Text>(cards[j], "ObjName").text)
-                        {
-                            cards[j].transform.SetParent(parentSlot[i].transform);
-                            cards[j].transform.position = parentSlot[i].transform.position;
-                        }
+                        cards[j].transform.SetParent(parentSlot[i].transform);
+                        cards[j].transform.position = parentSlot[i].transform.position;
                     }
                 }
             }

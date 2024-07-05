@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public CharListData charData;
-    public TeamData teamData;
-    public static TeamData TeamData;
 
     public Text[] text;
     public Text[] captaintext;
@@ -36,11 +34,6 @@ public class GameController : MonoBehaviour
     public Transform target;
     public Transform background;
 
-    private void Awake()
-    {
-        TeamData = teamData;
-    }
-
     private void Start()
     {
         Managers.Game.target = target;
@@ -51,10 +44,10 @@ public class GameController : MonoBehaviour
     {
         goldText.text = $"{UserStat.Gold}$";
 
-        for (int i = 0; i < TeamData.team.Count; i++)
-        {
-            //towerPriceText[i].text = $"{charData.dataEdit[i].stat.price}$";
-        }
+        //for (int i = 0; i < TeamData.team.Count; i++)
+        //{
+        //    //towerPriceText[i].text = $"{charData.dataEdit[i].stat.price}$";
+        //}
 
         UpdateWordTyping();
         UpdateBuild();
@@ -146,48 +139,53 @@ public class GameController : MonoBehaviour
     {
         if (selectedTower == null) return;
 
+        string jsonCharData = PlayerPrefs.GetString("CharacterData");
+        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonCharData);
+        string jsonTeamData = PlayerPrefs.GetString("TeamData");
+        Managers.DSL.teamData = JsonUtility.FromJson<Data.Save_TeamEditData>(jsonTeamData);
+
         switch (towerName)
         {
-            //case "Common":
-            //    Managers.Typing.type = Define.InstallTowerType.Common;
-            //    for (int i = 0; i < charData.dataEdit.Count; i++)
-            //    {
-            //        if (charData.dataEdit[i].prefabName == teamData.team[0].prefabName)
-            //        {
-            //            price = charData.dataEdit[i].stat.price;
-            //        }
-            //    }
-            //    break;
-            //case "Rare":
-            //    Managers.Typing.type = Define.InstallTowerType.Rare;
-            //    for (int i = 0; i < charData.dataEdit.Count; i++)
-            //    {
-            //        if (charData.dataEdit[i].prefabName == teamData.team[1].prefabName)
-            //        {
-            //            price = charData.dataEdit[i].stat.price;
-            //        }
-            //    }
-            //    break;
-            //case "Epic":
-            //    Managers.Typing.type = Define.InstallTowerType.Epic;
-            //    for (int i = 0; i < charData.dataEdit.Count; i++)
-            //    {
-            //        if (charData.dataEdit[i].prefabName == teamData.team[2].prefabName)
-            //        {
-            //            price = charData.dataEdit[i].stat.price;
-            //        }
-            //    }
-            //    break;
-            //case "Legend":
-            //    Managers.Typing.type = Define.InstallTowerType.Legend;
-            //    for (int i = 0; i < charData.dataEdit.Count; i++)
-            //    {
-            //        if (charData.dataEdit[i].prefabName == teamData.team[3].prefabName)
-            //        {
-            //            price = charData.dataEdit[i].stat.price;
-            //        }
-            //    }
-            //    break;
+            case "Common":
+                Managers.Typing.type = Define.InstallTowerType.Common;
+                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
+                {
+                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[0].charName)
+                    {
+                        price = Managers.DSL.charData.characters[i].price;
+                    }
+                }
+                break;
+            case "Rare":
+                Managers.Typing.type = Define.InstallTowerType.Rare;
+                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
+                {
+                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[1].charName)
+                    {
+                        price = Managers.DSL.charData.characters[i].price;
+                    }
+                }
+                break;
+            case "Epic":
+                Managers.Typing.type = Define.InstallTowerType.Epic;
+                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
+                {
+                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[2].charName)
+                    {
+                        price = Managers.DSL.charData.characters[i].price;
+                    }
+                }
+                break;
+            case "Legend":
+                Managers.Typing.type = Define.InstallTowerType.Legend;
+                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
+                {
+                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[3].charName)
+                    {
+                        price = Managers.DSL.charData.characters[i].price;
+                    }
+                }
+                break;
         }
 
         //price shop

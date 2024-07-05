@@ -30,14 +30,21 @@ public class TypingManager
         if (_input == _word[0])
         {
             Debug.Log("ºôµå ¼º°ø");
-            Debug.Log(GameController.TeamData.team);
-            switch (type)
+
+            if(PlayerPrefs.HasKey("TeamData"))
             {
-                case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[0].charNameEN}"); break;
-                case Define.InstallTowerType.Rare: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[1].charNameEN}"); break;
-                case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[2].charNameEN}"); break;
-                case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[3].charNameEN}"); break;
+                string jsonData = PlayerPrefs.GetString("TeamData");
+                Managers.DSL.teamData = JsonUtility.FromJson<Data.Save_TeamEditData>(jsonData);
+
+                switch (type)
+                {
+                    case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[0].charNameEN}"); break;
+                    case Define.InstallTowerType.Rare: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[1].charNameEN}"); break;
+                    case Define.InstallTowerType.Epic:Debug.Log("tower"); tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[2].charNameEN}"); break;
+                    case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[3].charNameEN}"); break;
+                }
             }
+
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
             Debug.Log(tower.name);

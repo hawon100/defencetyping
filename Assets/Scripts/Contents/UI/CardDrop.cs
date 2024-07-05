@@ -7,6 +7,7 @@ public class CardDrop : BaseDrop
     public string charName;
     public GameObject _image;
     public GameObject _text;
+    public int _price;
     private string pathImage;
 
     protected override void Start()
@@ -18,11 +19,18 @@ public class CardDrop : BaseDrop
 
         charName = Util.FindChild<Text>(gameObject, "Text").text;
 
-        for(int i = 0; i < Managers.Data.CharacterDict.Count; i++)
+        if(PlayerPrefs.HasKey("CharacterData"))
         {
-            if (Managers.Data.CharacterDict[i].charName == charName)
+            string jsonData = PlayerPrefs.GetString("CharacterData");
+            Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+
+            for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
             {
-                pathImage = Managers.Data.CharacterDict[i].pathImage;
+                if (Managers.DSL.charData.characters[i].charName == charName)
+                {
+                    pathImage = Managers.DSL.charData.characters[i].pathImage;
+                    _price = Managers.DSL.charData.characters[i].price;
+                }
             }
         }
     }
@@ -31,12 +39,12 @@ public class CardDrop : BaseDrop
     {
         if (Util.FindChild<Drag>(gameObject) != null)
         {
-            holderList.UpdateHolderList(pathImage, charName, _text, false);
+            holderList.UpdateHolderList(pathImage, charName, _price, _text, false);
             holderList.ResetHolderList(charName);
         }
         else
         {
-            holderList.UpdateHolderList(pathImage, charName, _text, true);
+            holderList.UpdateHolderList(pathImage, charName, _price, _text, true);
         }
     }
 
