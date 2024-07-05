@@ -30,12 +30,13 @@ public class TypingManager
         if (_input == _word[0])
         {
             Debug.Log("ºôµå ¼º°ø");
+            Debug.Log(GameController.TeamData.team);
             switch (type)
             {
-                case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate($"Tower/{GameController.TeamData.team[0].prefabName}"); break;
-                case Define.InstallTowerType.Rare: tower = Managers.Resource.Instantiate($"Tower/{GameController.TeamData.team[1].prefabName}"); break;
-                case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate($"Tower/{GameController.TeamData.team[2].prefabName}"); break;
-                case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate($"Tower/{GameController.TeamData.team[3].prefabName}"); break;
+                case Define.InstallTowerType.Common: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[0].charNameEN}"); break;
+                case Define.InstallTowerType.Rare: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[1].charNameEN}"); break;
+                case Define.InstallTowerType.Epic: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[2].charNameEN}"); break;
+                case Define.InstallTowerType.Legend: tower = Managers.Resource.Instantiate($"Tower/{Managers.DSL.teamData.teams[3].charNameEN}"); break;
             }
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
