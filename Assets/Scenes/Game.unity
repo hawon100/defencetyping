@@ -4482,7 +4482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charData: {fileID: 11400000, guid: d16ad8af628db1b4d9e5f868d31a2a6d, type: 2}
-  teamData: {fileID: 11400000, guid: fd2e7e554714be0448f8e82f21a94d32, type: 2}
   text:
   - {fileID: 1769373292}
   - {fileID: 1950971008}
@@ -5877,6 +5876,7 @@ MonoBehaviour:
   _targetTag: Enemy
   _target: {fileID: 0}
   targetPos: {x: 0, y: 0}
+  towerBullet: {fileID: 5920300684569205574, guid: 148f6001258b9644b80657adffce9aaf, type: 3}
   zenWave: {fileID: 8409540996495628358, guid: 6c848585edd2c0549ae71fb8b8f15000, type: 3}
   boom: {fileID: 1939226773735726338, guid: d45c340c179c3164382121b56c06c6ba, type: 3}
 --- !u!1 &1378406565
@@ -7353,7 +7353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4202632615850027230, guid: ff006c54fe586794f89d63f24a6f54a3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4651610706489838352, guid: ff006c54fe586794f89d63f24a6f54a3, type: 3}
       propertyPath: m_Pivot.x

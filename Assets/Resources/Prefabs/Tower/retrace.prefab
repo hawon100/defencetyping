@@ -178,7 +178,7 @@ MonoBehaviour:
   _hp: 5
   _maxHp: 5
   _attack: 0
-  hpUI: {fileID: 0}
+  hpUI: {fileID: 9062723766000940161, guid: ff006c54fe586794f89d63f24a6f54a3, type: 3}
 --- !u!1 &2507243380420994240
 GameObject:
   m_ObjectHideFlags: 0

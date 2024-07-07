@@ -87,7 +87,7 @@ public class BezierBullet : BulletBase
     {
         if (!(Vector2.Distance(transform.position, target.position) < 0.9f)) return;
 
-        //GameObject b = Managers.Resource.Instantiate(boom, null);
+        //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;
 
         if (bulletType == Define.BulletType.Enemy) target.GetComponent<EnemyStat>().Damage(1);
