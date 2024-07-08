@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LobbyScene : BaseScene
@@ -10,6 +9,12 @@ public class LobbyScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Lobby;
+
+        if (!PlayerPrefs.HasKey("CharacterData"))
+        {
+            Managers.DSL.SaveChar();
+        }
+            Managers.DSL.SaveChar();
     }
 
     public override void Clear()

@@ -15,6 +15,7 @@ public class MapInfomation
 
 public class MapSelect : MonoBehaviour
 {
+    public LobbyUI lobby;
     public RectTransform mapWin;
     public RectTransform infoPanel;
 
@@ -23,6 +24,11 @@ public class MapSelect : MonoBehaviour
 
     public Image warImage;
     public Text warContent;
+
+    private void Start()
+    {
+        lobby = GetComponent<LobbyUI>();
+    }
 
     public void StageSelect()
     {
@@ -49,12 +55,12 @@ public class MapSelect : MonoBehaviour
 
     private void PanelOpen()
     {
-        infoPanel.DOAnchorPosX(-910, 0.5f);
+        infoPanel.DOAnchorPosX(-650, 0.5f);
     }
 
     public void PanelClose()
     {
-        infoPanel.DOAnchorPosX(-1510, 0.5f);
+        infoPanel.DOAnchorPosX(-1200, 0.5f);
     }
 
     public void OnGamePlay()
@@ -65,6 +71,7 @@ public class MapSelect : MonoBehaviour
     public void OnGameLobby()
     {
         PanelClose();
+        lobby.Close();
         mapWin.DOAnchorPosY(1080, 0.5f);
     }
 }

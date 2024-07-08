@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BackDrop : BaseDrop
 {
+    public LobbyUI lobby;
     public GameObject spawnParent;
     public List<CardDrop> slots = new(); // slot object
     public List<GameObject> cards = new(); // card object
@@ -33,7 +34,9 @@ public class BackDrop : BaseDrop
             shells.Add(shellObj);
 
             Util.FindChild<Text>(obj, "Text").text = Managers.DSL.charData.characters[i].charName;
+
             Util.FindChild<Image>(cardObj, "Icon").sprite = Resources.Load<Sprite>($"{Managers.DSL.charData.characters[i].pathImage}");
+            
             Util.FindChild<Text>(cardObj, "ObjName").text = Managers.DSL.charData.characters[i].charName;
             Util.FindChild<Text>(cardObj, "ObjNameEN").text = Managers.DSL.charData.characters[i].objName;
 
@@ -62,6 +65,15 @@ public class BackDrop : BaseDrop
                 }
             }
         }    
+    }
+
+    private void Update()
+    {
+        for(int i = 0; i < Managers.DSL.charData.characters.Count; i++)
+        {
+            Util.FindChild<Text>(cards[i], "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level}";
+            Util.FindChild<Text>(shells[i], "Level").text = $"lv.{Managers.DSL.charData.characters[i].level}";
+        }
     }
 
     public override void OnDrop(PointerEventData eventData)

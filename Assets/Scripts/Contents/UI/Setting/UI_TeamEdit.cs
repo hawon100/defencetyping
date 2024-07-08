@@ -8,6 +8,13 @@ public class UI_TeamEdit : MonoBehaviour
 {
     public RectTransform teamWin;
     public HolderList holderList;
+    public BackLevel backLevel;
+    public LobbyUI lobby;
+
+    private void Start()
+    {
+        lobby = GetComponent<LobbyUI>();
+    }
 
     private void Update()
     {
@@ -22,6 +29,9 @@ public class UI_TeamEdit : MonoBehaviour
 
     public void OnEditExit()
     {
+        lobby.Close();
+        backLevel._objName = "";
+
         Managers.DSL.teamList = new List<Data.Save_TeamEdit>
         { 
             new Data.Save_TeamEdit
@@ -63,7 +73,6 @@ public class UI_TeamEdit : MonoBehaviour
 
         PlayerPrefs.SetString("TeamData", jsonData);
         PlayerPrefs.Save();
-        Debug.Log(PlayerPrefs.GetString("TeamData", jsonData));
 
         teamWin.DOAnchorPosX(1920, 0.5f);
     }

@@ -407,7 +407,6 @@ GameObject:
   - component: {fileID: 4662290200598049366}
   - component: {fileID: 3375446674103768364}
   - component: {fileID: 6216946566551316813}
-  - component: {fileID: 4890253978530680857}
   - component: {fileID: 2205021245801549320}
   m_Layer: 12
   m_Name: CharCard
@@ -489,19 +488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114eb8b8b3858b047ac764ec10e2d951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4890253978530680857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475423166724997025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f57697b9796704b850fe2a843a8f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsUsing: 0
 --- !u!225 &2205021245801549320
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -690,6 +676,7 @@ MonoBehaviour:
   charName: 
   _image: {fileID: 0}
   _text: {fileID: 0}
+  _price: 0
 --- !u!114 &931433229502562590
 MonoBehaviour:
   m_ObjectHideFlags: 0
