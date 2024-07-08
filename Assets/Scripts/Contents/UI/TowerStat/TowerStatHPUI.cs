@@ -34,6 +34,7 @@ public class TowerStatHPUI : MonoBehaviour
             GameObject h = Managers.Resource.Instantiate(healthPrefab, null);
 
             h.transform.parent = hpSlot;
+            h.GetComponent<RectTransform>().localScale = Vector3.one;
 
             health[i] = h;
             health[i].SetActive(i < curHp);
@@ -53,10 +54,28 @@ public class TowerStatHPUI : MonoBehaviour
         }
     }
 
+    //public void SetUI(Vector2 position, Canvas canvas)
+    //{
+    //    Vector2 screenPoint = Camera.main.WorldToScreenPoint(position);
+    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPoint, null, out Vector2 localPoint);
+    //    uiRect.anchoredPosition = localPoint;
+    //}
+
+    public Camera worldCamera; //Example
+
     public void SetUI(Vector2 position, Canvas canvas)
     {
-        Vector2 screenPoint = Camera.main.WorldToScreenPoint(position);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPoint, null, out Vector2 localPoint);
-        uiRect.anchoredPosition = localPoint;
+        if (!Managers.Game.mainCamera) Managers.Game.mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+        worldCamera = Managers.Game.mainCamera;
+
+        // 1. World Space의 위치를 Screen Space로 변환
+        Vector3 screenPos = worldCamera.WorldToScreenPoint(position);
+
+        // 2. Screen Space의 위치를 World Space Canvas의 RectTransform 좌표로 변환
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, worldCamera, out Vector2 localPoint);
+
+        // 3. 변환된 좌표를 RectTransform의 로컬 포지션으로 설정
+        uiRect.localPosition = localPoint;
     }
 }
