@@ -19,10 +19,16 @@ public class PlayerBullet : BulletBase
 
     protected override void Start()
     {
+        trailRend.Clear();
         base.Start();
     }
 
     private void OnEnable()
+    {
+        trailRend.Clear();
+    }
+
+    private void OnDisable()
     {
         trailRend.Clear();
     }

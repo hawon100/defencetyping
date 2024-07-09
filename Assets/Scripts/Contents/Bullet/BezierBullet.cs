@@ -101,9 +101,7 @@ public class BezierBullet : BulletBase
 
         //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;
-
-        if (bulletType == Define.BulletType.Enemy) target.GetComponent<EnemyStat>().Damage(1);
-        if (bulletType == Define.BulletType.Tower) target.GetComponent<TowerStat>().OnAttacked(1);
+        target.GetComponent<TowerStat>().OnAttacked(1);
         target = null;
         base.Hit();
     }
