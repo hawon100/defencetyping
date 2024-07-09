@@ -239,7 +239,8 @@ MonoBehaviour:
   curShotDelay: 0
   maxShotDelay: 0
   playerBullet: {fileID: 5920300684569205574, guid: 148f6001258b9644b80657adffce9aaf, type: 3}
-  cooltime: 2
+  bullet: {fileID: 0}
+  cooltime: 2.5
   rotSpeed: 2
   cannon: {fileID: 3148573281789096530}
   shotPoint: {fileID: 586462991319487749}

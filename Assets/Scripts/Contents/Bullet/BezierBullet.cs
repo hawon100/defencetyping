@@ -55,6 +55,12 @@ public class BezierBullet : BulletBase
 
     protected override void Move()
     {
+        if (!target)
+        {
+            Managers.Resource.Destroy(this.gameObject);
+            return;
+        }
+
         t += Time.deltaTime;
         targetPoint = target.position;
         transform.position = Bezier(startPoint, targetPoint, height, t / speed); //fail!
@@ -86,7 +92,12 @@ public class BezierBullet : BulletBase
     protected override void Hit()
     {
         //Error
-        if (!(Vector2.Distance(transform.position, target.position) < 0.9f)) return;
+        if (!target)
+        {
+            base.Hit();
+            return;
+        }
+        //if (!(Vector2.Distance(transform.position, target.position) < 0.9f)) return;
 
         //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;

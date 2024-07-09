@@ -86,6 +86,8 @@ public class Ship : EnemyBase
         s.Init();
         s.target = target;
         s.triggerTag = targetTag;
+
+        StopCoroutine(AttackCoroutine());
     }
 
     protected override void Detected()
