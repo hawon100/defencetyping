@@ -14,7 +14,6 @@ public class LobbyScene : BaseScene
         {
             Managers.DSL.SaveChar();
         }
-            Managers.DSL.SaveChar();
     }
 
     public override void Clear()
