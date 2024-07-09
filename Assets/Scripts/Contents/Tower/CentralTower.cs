@@ -5,7 +5,7 @@ using UnityEngine;
 public class CentralTower : TowerBase
 {
     [Header("Bullet")]
-    [SerializeField] private BezierBullet towerBullet;
+    [SerializeField] private BezierBullet2 towerBullet;
 
     [Header("Skill")]
     [SerializeField] private GameObject zenWave;
@@ -45,7 +45,7 @@ public class CentralTower : TowerBase
         m.transform.position = transform.position;
 
         GameObject b = Managers.Resource.Instantiate(towerBullet.gameObject, null);
-        BezierBullet s = b.GetComponent<BezierBullet>();
+        BezierBullet2 s = b.GetComponent<BezierBullet2>();
         s.Init();
         s.target = _target;
         b.transform.position = transform.position;

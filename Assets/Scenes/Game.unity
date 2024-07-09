@@ -5871,7 +5871,7 @@ MonoBehaviour:
   _targetTag: Enemy
   _target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  towerBullet: {fileID: 5920300684569205574, guid: 148f6001258b9644b80657adffce9aaf, type: 3}
+  towerBullet: {fileID: 1050873140245376981, guid: 5a91c76dcd06a0041891be01a5e18f86, type: 3}
   zenWave: {fileID: 8409540996495628358, guid: 6c848585edd2c0549ae71fb8b8f15000, type: 3}
   boom: {fileID: 1939226773735726338, guid: d45c340c179c3164382121b56c06c6ba, type: 3}
 --- !u!1 &1378406565
