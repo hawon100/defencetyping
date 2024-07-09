@@ -19,7 +19,7 @@ public class BulletBase : MonoBehaviour
 
     public virtual void Init()
     {
-        //trailRend.Clear();
+        trailRend.Clear();
     }
 
     protected virtual void Start()

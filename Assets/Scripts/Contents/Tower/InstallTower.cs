@@ -96,9 +96,9 @@ public class InstallTower : TowerBase
         GameObject m = Managers.Resource.Instantiate(boom, null);
         m.transform.position = shotPoint.position;
 
-        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+        GameObject b = Managers.Resource.Instantiate(bullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
-        //s.Init();
+        s.Init();
         Debug.Log(_target);
         s.target = _target;
         s.triggerTag = _targetTag;
