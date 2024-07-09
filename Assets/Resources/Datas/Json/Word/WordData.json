@@ -2,37 +2,37 @@
   "words": [
     {
       "wordIndex": "1",
-      "buildword": "충무공 이순신",
-      "attackword": "어영담",
-      "skillword": "적진포 해전",
-      "fixedword": "사천 해전"
+      "buildword": "옥포 해전",
+      "attackword": "웅포 해전",
+      "skillword": "율포 해전",
+      "fixedword": "절이도 해전"
     },
     {
       "wordIndex": "2",
-      "buildword": "원균",
+      "buildword": "합포 해전",
       "attackword": "어영남",
       "skillword": "도도 다카토라",
-      "fixedword": "부상자 1명"
+      "fixedword": "노량 전투"
     },
     {
       "wordIndex": "3",
-      "buildword": "정운",
-      "attackword": "사상자 불명",
-      "skillword": "선조 25년",
-      "fixedword": "임진년 5월 7일"
+      "buildword": "사천 해전",
+      "attackword": "장문포 해전",
+      "skillword": "한산도 대첩",
+      "fixedword": "삼도수군통제사 이순신"
     },
     {
       "wordIndex": "4",
-      "buildword": "배흥립",
-      "attackword": "조선수군",
-      "skillword": "조선",
-      "fixedword": "승리"
+      "buildword": "당포 해전",
+      "attackword": "칠천량 해전",
+      "skillword": "안골포 해전",
+      "fixedword": "충무공 이순신"
     },
     {
       "wordIndex": "5",
-      "buildword": "무의공 이순신",
-      "attackword": "어영담",
-      "skillword": "어영남",
+      "buildword": "당항포 해전",
+      "attackword": "명량 해전",
+      "skillword": "부산포 해전",
       "fixedword": "무의공 이순신"
     }
   ]
