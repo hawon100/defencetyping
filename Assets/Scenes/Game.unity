@@ -2360,7 +2360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3388215017483280264, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8453541078980306363, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14400,6 +14400,7 @@ MonoBehaviour:
   healthPrefab: {fileID: 0}
   hpSlot: {fileID: 0}
   hpPanel: {fileID: 0}
+  worldCamera: {fileID: 0}
 --- !u!4 &7408531435185351382
 Transform:
   m_ObjectHideFlags: 0
@@ -14438,6 +14439,7 @@ MonoBehaviour:
   healthPrefab: {fileID: 4697208522079289824, guid: d84ab755df059e84db3fa877dd3b4047, type: 3}
   hpSlot: {fileID: 5507567997063464891}
   hpPanel: {fileID: 4684126591779642746}
+  worldCamera: {fileID: 0}
 --- !u!96 &9071670884612476776
 TrailRenderer:
   serializedVersion: 3
