@@ -7,7 +7,9 @@ public class InstallTower : TowerBase
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
 
+    [Header("Bullet")]
     [SerializeField] private BezierBullet playerBullet;
+    [SerializeField] private PlayerBullet bullet;
 
     [Header("Auto Attack")]
     [SerializeField] private float cooltime;
@@ -94,13 +96,13 @@ public class InstallTower : TowerBase
         GameObject m = Managers.Resource.Instantiate(boom, null);
         m.transform.position = shotPoint.position;
 
-        GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
+        GameObject b = Managers.Resource.Instantiate(bullet.gameObject, null);
         BulletBase s = b.GetComponent<BulletBase>();
-        //s.Init();
+        s.Init();
         Debug.Log(_target);
         s.target = _target;
         s.triggerTag = _targetTag;
-        b.transform.position = shotPoint.position;
+        b.transform.position = shotPoint.parent.position; //Temp
 
         yield return waiting;
 

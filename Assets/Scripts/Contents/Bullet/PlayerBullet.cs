@@ -8,6 +8,7 @@ public class PlayerBullet : BulletBase
 
     public override void Init()
     {
+        trailRend.Clear();
         base.Init();
     }
 
@@ -18,7 +19,18 @@ public class PlayerBullet : BulletBase
 
     protected override void Start()
     {
+        trailRend.Clear();
         base.Start();
+    }
+
+    private void OnEnable()
+    {
+        trailRend.Clear();
+    }
+
+    private void OnDisable()
+    {
+        trailRend.Clear();
     }
 
     //public void test()

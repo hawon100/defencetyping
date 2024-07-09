@@ -83,9 +83,14 @@ public class Ship : EnemyBase
         //BulletBase s = b.GetComponent<BezierBullet>();
         //s.Init();
         Debug.Log(target);
+
+        if (!target) target = Managers.Game.target;
+
         s.Init();
         s.target = target;
         s.triggerTag = targetTag;
+
+        StopCoroutine(AttackCoroutine());
     }
 
     protected override void Detected()
