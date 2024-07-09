@@ -31,7 +31,8 @@ public class BackLevel : MonoBehaviour
             Util.FindChild<Image>(obj, "Image").sprite = Resources.Load<Sprite>(Managers.DSL.charData.characters[i].pathImage);
             Util.FindChild<Text>(obj, "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level}";
 
-            obj?.GetComponent<Button>().onClick.AddListener(() => LevelBtn(obj));
+            int index = i;
+            obj?.GetComponent<Button>().onClick.AddListener(() => LevelBtn(index, obj));
         }
     }
 
@@ -43,27 +44,25 @@ public class BackLevel : MonoBehaviour
         }
     }
 
-    public void LevelBtn(GameObject obj)
+    public void LevelBtn(int index, GameObject obj)
     {
-        int index = 0;
-
         levelPanel.DOAnchorPosY(-540, 0.5f);
         _objName = Util.FindChild<Text>(obj, "ObjName").text;
-
-        for(int i = 0; i < Managers.DSL.charData.characters.Count; i++)
-        {
-            if (Managers.DSL.charData.characters[i].charName == _objName)
-            {
-                index = i;
-                break;
-            }
-        }
 
         if (!PlayerPrefs.HasKey("CharacterData")) return;
 
         Debug.Log(index);
 
-        Util.FindChild<Button>(levelPanel.gameObject, "Button")?.onClick.AddListener(() => LevelUp(index));
+        //Util.FindChild<Button>(levelPanel.gameObject, "Button")?.onClick.AddListener(() => LevelUp(index));
+
+        //Debug.Log(PlayerPrefs.GetString("CharacterData"));
+
+        Button levelUpButton = Util.FindChild<Button>(levelPanel.gameObject, "Button");
+        levelUpButton.onClick.RemoveAllListeners(); // Remove all previous listeners
+        levelUpButton.onClick.AddListener(() =>
+        {
+            LevelUp(index);
+        });
 
         Debug.Log(PlayerPrefs.GetString("CharacterData"));
     }
