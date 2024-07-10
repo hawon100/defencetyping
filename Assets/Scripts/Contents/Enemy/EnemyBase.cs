@@ -36,7 +36,20 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void OnEnable()
     {
+        Managers.Wave.OnEndGame -= Stop;
+        Managers.Wave.OnEndGame += Stop;
+
         Init();
+    }
+
+    protected virtual void OnDisable()
+    {
+        Managers.Wave.OnEndGame -= Stop;
+    }
+
+    public void Stop()
+    {
+        isMove = false;
     }
 
     protected virtual void FixedUpdate()

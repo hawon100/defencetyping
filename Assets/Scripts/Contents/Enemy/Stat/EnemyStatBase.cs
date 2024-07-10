@@ -34,14 +34,14 @@ public class EnemyStatBase : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        Managers.Wave.OnEndGame -= Death;
-        Managers.Wave.OnEndGame += Death;
+        //Managers.Wave.OnEndGame -= Death;
+        //Managers.Wave.OnEndGame += Death;
     }
 
     protected virtual void OnDisable()
     {
-        Managers.Wave.OnEndGame -= Death;
+        //Managers.Wave.OnEndGame -= Death;
 
-        if (isDeath == true) Managers.Wave.WaveUpdate();
+        if (isDeath) Managers.Wave.WaveUpdate();
     }
 }

@@ -89,8 +89,8 @@ public class WaveManager : MonoBehaviour
     public void WaveEnd()
     {
         Debug.Log("Wave End!");
-        //isWave = false;
-        OnEndGame();
+        isWave = false;
+        //OnEndGame();
         isWin = true;
     }
 

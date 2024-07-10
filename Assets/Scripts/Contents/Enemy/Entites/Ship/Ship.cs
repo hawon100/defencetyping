@@ -42,6 +42,8 @@ public class Ship : EnemyBase
         base.OnEnable();
     }
 
+    protected override void OnDisable() => base.OnDisable();
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -126,5 +128,11 @@ public class Ship : EnemyBase
     protected override void LookAt()
     {
         base.LookAt();
+    }
+
+    //Temporary
+    public void Stop()
+    {
+        
     }
 }
