@@ -8,6 +8,7 @@ using DG.Tweening;
 [System.Serializable]
 public class MapInfomation
 {
+    public string warName;
     public Button warButton;
     public Sprite warImage;
     [TextArea(5, 5)] public string warContent;

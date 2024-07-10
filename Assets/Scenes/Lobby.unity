@@ -488,8 +488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 730
-    m_Right: 730
+    m_Left: 715
+    m_Right: 700
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
@@ -1029,7 +1029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &145393793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1037,7 +1037,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145393792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1045,12 +1045,12 @@ RectTransform:
   - {fileID: 1343100594}
   - {fileID: 504772816}
   - {fileID: 674343082}
-  m_Father: {fileID: 627110260}
+  m_Father: {fileID: 371386730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1200, y: 0}
-  m_SizeDelta: {x: 480, y: 735}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 800}
   m_Pivot: {x: 0.4999999, y: 0.49999997}
 --- !u!114 &145393794
 MonoBehaviour:
@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 371386732}
   - component: {fileID: 371386731}
   m_Layer: 5
-  m_Name: Battle of Okpo
+  m_Name: BattleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2000,12 +2000,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371386729}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1136644024}
+  - {fileID: 145393793}
   m_Father: {fileID: 16441882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3663,7 +3664,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 942925433}
-  - {fileID: 145393793}
   - {fileID: 240641937}
   m_Father: {fileID: 1129447756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6440,7 +6440,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 668277019}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.17518248
+  m_Size: 0.17590472
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
