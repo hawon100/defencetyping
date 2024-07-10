@@ -10,6 +10,7 @@ public class LobbyScene : BaseScene
 
         SceneType = Define.Scene.Lobby;
 
+            Managers.DSL.SaveChar();
         if (!PlayerPrefs.HasKey("CharacterData"))
         {
             Managers.DSL.SaveChar();
