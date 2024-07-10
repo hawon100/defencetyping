@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: Battle of Jukjinpo
   m_EditorClassIdentifier: 
   Background: {fileID: 7255742334223634990, guid: bfb2d728e2531294cbc57086a4043922, type: 3}
-  Tower:
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 5, y: 4}
-    HpPanelPos: {x: 385, y: 350}
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 5, y: -4}
-    HpPanelPos: {x: 385, y: -250}
+  TowerBuilderPos:
+  - {x: 6, y: 0}
+  - {x: 7, y: 5}
+  - {x: 7, y: -6}
   Spawners:
   - {fileID: 2002706007621442774, guid: f9bf2059e6e97dd45b545e5a7cb2bd80, type: 3}
+  isRight: 0
+  isLeft: 0
+  isTop: 0
+  isBottom: 0
   WaveLoop: 0
   WaveRandom: 0
   Wave:
