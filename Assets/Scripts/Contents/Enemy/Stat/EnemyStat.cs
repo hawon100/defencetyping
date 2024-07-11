@@ -30,6 +30,7 @@ public class EnemyStat : EnemyStatBase
         GameObject e = Managers.Resource.Instantiate("VFX/boom");
         e.transform.position = transform.position;
         e.transform.localScale = 3 * Vector2.one;
+        UserStat.Gold += gold;
 
         base.Death();
     }

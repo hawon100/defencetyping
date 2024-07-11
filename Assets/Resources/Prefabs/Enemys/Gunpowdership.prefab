@@ -5126,6 +5126,7 @@ MonoBehaviour:
   hp: 1
   maxHp: 1
   isDeath: 0
+  gold: 5
   hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 8083537761117358511}
 --- !u!96 &1383368535743734033

@@ -144,6 +144,7 @@ public class GameController : MonoBehaviour
 
     public void BuildTowerSelect(string towerName)
     {
+        Debug.Log(selectedTower);
         if (selectedTower == null) return;
 
         string jsonTeamData = PlayerPrefs.GetString("TeamData");
