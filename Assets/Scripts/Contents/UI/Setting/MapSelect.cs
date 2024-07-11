@@ -49,7 +49,6 @@ public class MapSelect : MonoBehaviour
             warImage.sprite = map.warImage;
             warContent.text = map.warContent;
             Managers.Game.currentStage = Resources.Load<Stage>($"Datas/Scriptable/Stages/{map.warButton.name}");
-            Debug.Log(Managers.Game.currentStage);
             PanelOpen();
         }
     }

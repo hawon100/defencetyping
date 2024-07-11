@@ -86,7 +86,17 @@ public class BezierBullet : BulletBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(triggerTag)) Hit();
+        if (collision.gameObject.CompareTag(triggerTag))
+        {
+            GiveDamage(collision.gameObject);
+            Hit();
+        }
+    }
+
+    private void GiveDamage(GameObject gameObject)
+    {
+        gameObject.GetComponent<TowerStat>().OnAttacked(1);
+        target = null;
     }
 
     protected override void Hit()
@@ -101,8 +111,8 @@ public class BezierBullet : BulletBase
 
         //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;
-        target.GetComponent<TowerStat>().OnAttacked(1);
-        target = null;
+        //target.GetComponent<TowerStat>().OnAttacked(1);
+        //target = null;
         base.Hit();
     }
 }
