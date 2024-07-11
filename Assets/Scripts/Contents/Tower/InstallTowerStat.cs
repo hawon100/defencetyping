@@ -7,11 +7,11 @@ public class InstallTowerStat : TowerStat
     public TowerStatHPUI hpUI;
 
     private WaitForSeconds waitSeconds = new WaitForSeconds(0.4f);
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public override void Init()
@@ -46,12 +46,14 @@ public class InstallTowerStat : TowerStat
     public override void OnAttacked(int damagedHp)
     {
         //hpUI.UpdateHP(Hp - damagedHp);
+        if (Hp - damagedHp > 1) StartCoroutine(DamagedMotion());
         base.OnAttacked(damagedHp);
-        if (Hp > 1) StartCoroutine(DamagedMotion());
     }
 
     private IEnumerator DamagedMotion()
     {
+        Debug.Log("Hallo");
+
         spriteRenderer.color = Color.red;
         yield return waitSeconds;
         spriteRenderer.color = Color.white;
