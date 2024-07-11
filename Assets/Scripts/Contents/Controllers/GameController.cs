@@ -140,9 +140,9 @@ public class GameController : MonoBehaviour
         if (selectedTower == null) return;
 
         string jsonCharData = PlayerPrefs.GetString("CharacterData");
-        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonCharData);
+        Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonCharData);
         string jsonTeamData = PlayerPrefs.GetString("TeamData");
-        Managers.DSL.teamData = JsonUtility.FromJson<Data.Save_TeamEditData>(jsonTeamData);
+        Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonTeamData);
 
         switch (towerName)
         {

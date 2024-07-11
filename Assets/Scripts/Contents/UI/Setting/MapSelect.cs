@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using Data;
 
 [System.Serializable]
 public class MapInfomation
@@ -16,53 +17,46 @@ public class MapInfomation
 
 public class MapSelect : MonoBehaviour
 {
-    public LobbyUI lobby;
     public RectTransform mapWin;
-    public RectTransform infoPanel;
+    public GameObject spawnParent;
 
-    public MapInfomation[] maps;
-    private MapInfomation map;
-
-    public Image warImage;
-    public Text warContent;
+    private LobbyUI _lobby;
+    private List<GameObject> _objList = new();
 
     private void Start()
     {
-        lobby = GetComponent<LobbyUI>();
+        _lobby = GetComponent<LobbyUI>();
+
+        for (int i = 0; i < Managers.Data.MapDict.Count; i++) _objList.Add(Managers.Resource.Instantiate("UI/Lobby/BattleButton"));
+        foreach (var obj in _objList) Managers.Resource.Destroy(obj);
+
+        for (int i = 0; i < Managers.Data.MapDict.Count; i++)
+        {
+            var obj = Managers.Resource.Instantiate("UI/Lobby/BattleButton", spawnParent.transform);
+
+            obj.name = Managers.Data.MapDict[i + 1].warNameEN;
+
+            Util.FindChild<Text>(obj, "warName").text = Managers.Data.MapDict[i + 1].warName;
+            Util.FindChild<Text>(Util.FindChild(obj, "Panel"), "warContent").text = Managers.Data.MapDict[i + 1].warContent;
+            Util.FindChild<Image>(Util.FindChild(obj, "Panel"), "warImage").sprite = Resources.Load<Sprite>($"{Managers.Data.MapDict[i + 1].warImage}");
+
+            obj.GetComponent<Button>().onClick.AddListener(() => StageSelect());
+            Util.FindChild<Button>(Util.FindChild(obj, "Panel"), "warButton").onClick.AddListener(() => OnGamePlay());
+        }
     }
 
     public void StageSelect()
     {
         string eventButtonName = EventSystem.current.currentSelectedGameObject.name;
 
-        for(int i = 0; i < maps.Length; i++)
+        foreach (var obj in _objList)
         {
-            if(eventButtonName == maps[i].warButton.gameObject.name)
+            if (obj.name == eventButtonName)
             {
-                map = maps[i];
+                Managers.Game.currentStage = Resources.Load<Stage>($"Datas/Scriptable/Stages/{obj.name}");
+                Debug.Log(Managers.Game.currentStage);
             }
         }
-
-        if (map == null) return;
-
-        if (map.warButton.name == eventButtonName)
-        {
-            warImage.sprite = map.warImage;
-            warContent.text = map.warContent;
-            Managers.Game.currentStage = Resources.Load<Stage>($"Datas/Scriptable/Stages/{map.warButton.name}");
-            Debug.Log(Managers.Game.currentStage);
-            PanelOpen();
-        }
-    }
-
-    private void PanelOpen()
-    {
-        infoPanel.DOAnchorPosX(-650, 0.5f);
-    }
-
-    public void PanelClose()
-    {
-        infoPanel.DOAnchorPosX(-1200, 0.5f);
     }
 
     public void OnGamePlay()
@@ -72,8 +66,7 @@ public class MapSelect : MonoBehaviour
 
     public void OnGameLobby()
     {
-        PanelClose();
-        lobby.Close();
+        _lobby.Close();
         mapWin.DOAnchorPosY(1080, 0.5f);
     }
 }

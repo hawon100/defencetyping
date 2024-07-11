@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class UI_LevelEdit : MonoBehaviour
 {
-    public LobbyUI lobby;
     public RectTransform levelWin;
     public RectTransform levelPanel;
+
+    private LobbyUI lobby;
 
     private void Start()
     {

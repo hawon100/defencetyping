@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BackDrop : BaseDrop
 {
-    public LobbyUI lobby;
     public GameObject spawnParent;
     public List<CardDrop> slots = new(); // slot object
     public List<GameObject> cards = new(); // card object
@@ -19,7 +18,7 @@ public class BackDrop : BaseDrop
 
         if (!PlayerPrefs.HasKey("CharacterData")) return;
         string jsonData = PlayerPrefs.GetString("CharacterData");
-        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+        Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonData);
 
         for (int i = 0; i < Managers.DSL.charData.characters.Count; i++) _list.Add(Managers.Resource.Instantiate("UI/Lobby/Slot"));
         foreach (var card in _list) Managers.Resource.Destroy(card);
@@ -51,7 +50,7 @@ public class BackDrop : BaseDrop
         if(PlayerPrefs.HasKey("TeamData"))
         {
             string jsonTeamData = PlayerPrefs.GetString("TeamData");
-            Managers.DSL.teamData = JsonUtility.FromJson<Data.Save_TeamEditData>(jsonTeamData);
+            Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonTeamData);
 
             for (int j = 0; j < cards.Count; j++)
             {

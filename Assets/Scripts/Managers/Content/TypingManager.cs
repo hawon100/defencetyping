@@ -34,7 +34,7 @@ public class TypingManager
             if(PlayerPrefs.HasKey("TeamData"))
             {
                 string jsonData = PlayerPrefs.GetString("TeamData");
-                Managers.DSL.teamData = JsonUtility.FromJson<Data.Save_TeamEditData>(jsonData);
+                Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonData);
 
                 switch (type)
                 {
