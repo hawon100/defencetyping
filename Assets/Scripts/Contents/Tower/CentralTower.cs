@@ -45,10 +45,10 @@ public class CentralTower : TowerBase
         m.transform.position = transform.position;
 
         GameObject b = Managers.Resource.Instantiate(towerBullet.gameObject, null);
+        b.transform.position = transform.position;
         BezierBullet2 s = b.GetComponent<BezierBullet2>();
         s.Init();
         s.target = _target;
-        b.transform.position = transform.position;
         _target = null;
     }
 

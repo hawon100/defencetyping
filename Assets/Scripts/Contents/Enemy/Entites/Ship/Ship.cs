@@ -135,4 +135,9 @@ public class Ship : EnemyBase
     {
         
     }
+    
+    public void Cat()
+    {
+        
+    }
 }
