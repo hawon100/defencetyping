@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public CharListData charData;
-
     public Text[] text;
     public Text[] captaintext;
     public InputField typingInput;
@@ -19,6 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject captainUI;
 
     public Text goldText;
+    public Text[] towerNameText = new Text[4];
     public Text[] towerPriceText = new Text[4];
     public int price;
 
@@ -38,16 +37,21 @@ public class GameController : MonoBehaviour
     {
         Managers.Game.target = target;
         Managers.Game.background = background;
+        typingInput.ActivateInputField();
+
+        string jsonData = PlayerPrefs.GetString("TeamData");
+        Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonData);
+
+        for (int i = 0; i < Managers.DSL.teamData.teams.Count; i++)
+        {
+            towerNameText[i].text = $"{Managers.DSL.teamData.teams[i].charName}";
+            towerPriceText[i].text = $"{Managers.DSL.teamData.teams[i].price}$";
+        }
     }
 
     private void Update()
     {
         goldText.text = $"{UserStat.Gold}$";
-
-        //for (int i = 0; i < TeamData.team.Count; i++)
-        //{
-        //    //towerPriceText[i].text = $"{charData.dataEdit[i].stat.price}$";
-        //}
 
         UpdateWordTyping();
         UpdateBuild();
@@ -59,12 +63,15 @@ public class GameController : MonoBehaviour
     {
         if (selectedTower == null) return;
 
+        string jsonData = PlayerPrefs.GetString("TeamData");
+        Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonData);
+
         switch (selectedTower.type)
         {
-            //case Define.InstallTowerType.Common: maxDelayChange = charData.dataEdit[0].stat.time; break;
-            //case Define.InstallTowerType.Rare: maxDelayChange = charData.dataEdit[1].stat.time; break;
-            //case Define.InstallTowerType.Epic: maxDelayChange = charData.dataEdit[2].stat.time; break;
-            //case Define.InstallTowerType.Legend: maxDelayChange = charData.dataEdit[3].stat.time; break;
+            case Define.InstallTowerType.Common: maxDelayChange = Managers.DSL.teamData.teams[0].time; break;
+            case Define.InstallTowerType.Rare: maxDelayChange = Managers.DSL.teamData.teams[1].time; break;
+            case Define.InstallTowerType.Epic: maxDelayChange = Managers.DSL.teamData.teams[2].time; break;
+            case Define.InstallTowerType.Legend: maxDelayChange = Managers.DSL.teamData.teams[3].time; break;
         }
 
         if (!selectedTower.isTyping)
@@ -139,8 +146,6 @@ public class GameController : MonoBehaviour
     {
         if (selectedTower == null) return;
 
-        string jsonCharData = PlayerPrefs.GetString("CharacterData");
-        Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonCharData);
         string jsonTeamData = PlayerPrefs.GetString("TeamData");
         Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonTeamData);
 
@@ -148,43 +153,19 @@ public class GameController : MonoBehaviour
         {
             case "Common":
                 Managers.Typing.type = Define.InstallTowerType.Common;
-                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
-                {
-                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[0].charName)
-                    {
-                        price = Managers.DSL.charData.characters[i].price;
-                    }
-                }
+                price = Managers.DSL.teamData.teams[0].price;
                 break;
             case "Rare":
                 Managers.Typing.type = Define.InstallTowerType.Rare;
-                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
-                {
-                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[1].charName)
-                    {
-                        price = Managers.DSL.charData.characters[i].price;
-                    }
-                }
+                price = Managers.DSL.teamData.teams[1].price;
                 break;
             case "Epic":
                 Managers.Typing.type = Define.InstallTowerType.Epic;
-                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
-                {
-                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[2].charName)
-                    {
-                        price = Managers.DSL.charData.characters[i].price;
-                    }
-                }
+                price = Managers.DSL.teamData.teams[2].price;
                 break;
             case "Legend":
                 Managers.Typing.type = Define.InstallTowerType.Legend;
-                for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
-                {
-                    if (Managers.DSL.charData.characters[i].charName == Managers.DSL.teamData.teams[3].charName)
-                    {
-                        price = Managers.DSL.charData.characters[i].price;
-                    }
-                }
+                price = Managers.DSL.teamData.teams[3].price;
                 break;
         }
 

@@ -2,38 +2,66 @@
   "words": [
     {
       "wordIndex": "1",
-      "buildword": "옥포 해전",
-      "attackword": "웅포 해전",
-      "skillword": "율포 해전",
-      "fixedword": "절이도 해전"
+      "buildword": "판옥선",
+      "attackword": "충무공 이순신",
+      "skillword": "임진왜란",
+      "fixedword": "오자병법"
     },
     {
       "wordIndex": "2",
-      "buildword": "합포 해전",
-      "attackword": "어영남",
-      "skillword": "도도 다카토라",
-      "fixedword": "노량 전투"
+      "buildword": "방패선",
+      "attackword": "무의공 이순신",
+      "skillword": "정유재란",
+      "fixedword": "손자병법"
     },
     {
       "wordIndex": "3",
-      "buildword": "사천 해전",
-      "attackword": "장문포 해전",
-      "skillword": "한산도 대첩",
-      "fixedword": "귀선"
+      "buildword": "거북선",
+      "attackword": "태종 이방원",
+      "skillword": "조명연합군",
+      "fixedword": "금신전선 상유십이"
     },
     {
       "wordIndex": "4",
-      "buildword": "당포 해전",
-      "attackword": "칠천량 해전",
-      "skillword": "안골포 해전",
-      "fixedword": "충무공 이순신"
+      "buildword": "해골선",
+      "attackword": "권율",
+      "skillword": "사로병진책",
+      "fixedword": "필사즉생 필생즉사"
     },
     {
       "wordIndex": "5",
-      "buildword": "당항포 해전",
-      "attackword": "명량 해전",
-      "skillword": "부산포 해전",
-      "fixedword": "무의공 이순신"
+      "buildword": "맹선",
+      "attackword": "류성룡",
+      "skillword": "난중일기",
+      "fixedword": "차수약제 사즉무감"
+    },
+    {
+      "wordIndex": "6",
+      "buildword": "과선",
+      "attackword": "원균",
+      "skillword": "선조실록",
+      "fixedword": "전방급신 물언아사"
+    },
+    {
+      "wordIndex": "7",
+      "buildword": "협선",
+      "attackword": "선조",
+      "skillword": "다대포진성 전투",
+      "fixedword": "물령망동 정중여산"
+    },
+    {
+      "wordIndex": "8",
+      "buildword": "사후선",
+      "attackword": "진린",
+      "skillword": "전주성 전투",
+      "fixedword": "금일고결사 원천필섬차적"
+    },
+    {
+      "wordIndex": "9",
+      "buildword": "우전선",
+      "attackword": "등자룡",
+      "skillword": "적진포 해전",
+      "fixedword": "난중일기"
     }
   ]
 }

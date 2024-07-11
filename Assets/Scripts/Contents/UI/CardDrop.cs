@@ -8,6 +8,7 @@ public class CardDrop : BaseDrop
     public GameObject _image;
     public GameObject _text;
     public int _price;
+    public float _time;
     private string pathImage;
 
     protected override void Start()
@@ -30,6 +31,7 @@ public class CardDrop : BaseDrop
                 {
                     pathImage = Managers.DSL.charData.characters[i].pathImage;
                     _price = Managers.DSL.charData.characters[i].price;
+                    _time = Managers.DSL.charData.characters[i].time;
                 }
             }
         }
@@ -39,12 +41,12 @@ public class CardDrop : BaseDrop
     {
         if (Util.FindChild<Drag>(gameObject) != null)
         {
-            holderList.UpdateHolderList(pathImage, charName, _price, _text, false);
+            holderList.UpdateHolderList(pathImage, charName, _price, _time, _text, false);
             holderList.ResetHolderList(charName);
         }
         else
         {
-            holderList.UpdateHolderList(pathImage, charName, _price, _text, true);
+            holderList.UpdateHolderList(pathImage, charName, _price, _time, _text, true);
         }
     }
 

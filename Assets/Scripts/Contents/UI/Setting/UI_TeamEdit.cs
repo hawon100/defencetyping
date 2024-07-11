@@ -41,6 +41,8 @@ public class UI_TeamEdit : MonoBehaviour
                 charName = holderList.holders[0].objName,
                 charNameEN = holderList.holders[0].objNameEN,
                 charImage = holderList.holders[0].ImagePath,
+                price = holderList.holders[0].price,
+                time = holderList.holders[0].time,
             },
             new Data.TeamEdit
             {
@@ -48,6 +50,8 @@ public class UI_TeamEdit : MonoBehaviour
                 charName = holderList.holders[1].objName,
                 charNameEN = holderList.holders[1].objNameEN,
                 charImage = holderList.holders[1].ImagePath,
+                price = holderList.holders[1].price,
+                time = holderList.holders[1].time,
             },
             new Data.TeamEdit
             {
@@ -55,6 +59,8 @@ public class UI_TeamEdit : MonoBehaviour
                 charName = holderList.holders[2].objName,
                 charNameEN = holderList.holders[2].objNameEN,
                 charImage = holderList.holders[2].ImagePath,
+                price = holderList.holders[2].price,
+                time = holderList.holders[2].time,
             },
             new Data.TeamEdit
             {
@@ -62,6 +68,8 @@ public class UI_TeamEdit : MonoBehaviour
                 charName = holderList.holders[3].objName,
                 charNameEN = holderList.holders[3].objNameEN,
                 charImage = holderList.holders[3].ImagePath,
+                price = holderList.holders[3].price,
+                time = holderList.holders[3].time,
             },
         };
 

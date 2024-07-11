@@ -11,6 +11,7 @@ public class CharHolder
     public string objNameEN;
     public string ImagePath;
     public int price;
+    public float time;
     public GameObject holderImage;
 }
 
@@ -32,7 +33,7 @@ public class HolderList : MonoBehaviour
         }
     }
 
-    public void UpdateHolderList(string imagePath, string charName, int price, GameObject image, bool isActive)
+    public void UpdateHolderList(string imagePath, string charName, int price, float time, GameObject image, bool isActive)
     {
         foreach (var holder in holders)
         {
@@ -41,6 +42,7 @@ public class HolderList : MonoBehaviour
                 holder.ImagePath = imagePath;
                 holder.holderImage = image;
                 holder.price = price;
+                holder.time = time;
                 holder.holderImage.SetActive(isActive);
                 break;
             }
@@ -56,6 +58,7 @@ public class HolderList : MonoBehaviour
                 holder.ImagePath = "";
                 holder.objName = "";
                 holder.price = 0;
+                holder.time = 0f;
                 holder.holderImage.SetActive(false);
                 holder.holderImage = null;
                 break;

@@ -21,7 +21,7 @@ public class DataSaveLoad
                 hp= 3,
                 attack= 1,
                 price= 5,
-                time= 3,
+                time= 3f,
                 pathImage= "Arts/Sprites/Ship/panokseon"
             },
             new Data.Character
@@ -33,7 +33,7 @@ public class DataSaveLoad
                 hp= 3,
                 attack= 1,
                 price= 5,
-                time= 3,
+                time= 3f,
                 pathImage= "Arts/Sprites/Ship/shieldline"
             },
             new Data.Character
@@ -45,8 +45,8 @@ public class DataSaveLoad
                 hp= 3,
                 attack= 1,
                 price= 5,
-                time= 3,
-                pathImage= "Arts/Sprites/Ship/retrace"
+                time= 3f,
+                pathImage= "Arts/Sprites/Ship/Installcastle"
             },
             new Data.Character
             {
@@ -57,7 +57,7 @@ public class DataSaveLoad
                 hp= 3,
                 attack= 1,
                 price= 5,
-                time= 3,
+                time= 3f,
                 pathImage= "Arts/Sprites/Ship/skullline"
             },
             new Data.Character
@@ -69,7 +69,7 @@ public class DataSaveLoad
                 hp= 3,
                 attack= 1,
                 price= 5,
-                time= 3,
+                time= 3f,
                 pathImage= "Arts/Sprites/Ship/blindline"
             }
         };

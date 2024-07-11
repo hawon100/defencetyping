@@ -15,6 +15,7 @@ namespace Data
         public string charNameEN;
         public string charImage;
         public int price;
+        public float time;
     }
 
     [Serializable]
@@ -35,7 +36,7 @@ namespace Data
         public int hp;
         public int attack;
         public int price;
-        public int time;
+        public float time;
         public string pathImage;
     }
 

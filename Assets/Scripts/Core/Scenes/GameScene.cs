@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    public AudioClip horn;
+
     protected override void Init()
     {
         base.Init();
@@ -11,6 +13,8 @@ public class GameScene : BaseScene
         SceneType = Define.Scene.Game;
 
         Managers.Typing.WordReset();
+
+        Managers.Sound.Play(horn);
     }
 
     public override void Clear()
