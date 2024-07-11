@@ -21,7 +21,7 @@ public class InstallTowerStat : TowerStat
         if(PlayerPrefs.HasKey("CharacterData"))
         {
             string jsonData = PlayerPrefs.GetString("CharacterData");
-            Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+            Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonData);
 
             for (int i = 0; i < Managers.DSL.charData.characters.Count; i++) // all change code
             {

@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class DataSaveLoad
 {
-    public List<Data.Save_Character> charList = new List<Data.Save_Character>();
-    public Data.Save_CharacterData charData = new Data.Save_CharacterData();
-    public List<Data.Save_TeamEdit> teamList = new List<Data.Save_TeamEdit>();
-    public Data.Save_TeamEditData teamData = new Data.Save_TeamEditData();
+    public List<Data.Character> charList = new List<Data.Character>();
+    public Data.CharacterData charData = new Data.CharacterData();
+    public List<Data.TeamEdit> teamList = new List<Data.TeamEdit>();
+    public Data.TeamEditData teamData = new Data.TeamEditData();
 
     public void SaveChar()
     {
-        Managers.DSL.charList = new List<Data.Save_Character>
+        Managers.DSL.charList = new List<Data.Character>
         {
-            new Data.Save_Character
+            new Data.Character
             {
                 index = 0,
                 charName = "∆«ø¡º±",
@@ -22,9 +22,9 @@ public class DataSaveLoad
                 attack= 1,
                 price= 5,
                 time= 3,
-                pathImage= "Assets/Sprites/Ship/panokseon"
+                pathImage= "Arts/Sprites/Ship/panokseon"
             },
-            new Data.Save_Character
+            new Data.Character
             {
                 index = 1,
                 charName = "πÊ∆–º±",
@@ -34,9 +34,9 @@ public class DataSaveLoad
                 attack= 1,
                 price= 5,
                 time= 3,
-                pathImage= "Assets/Sprites/Ship/shieldline"
+                pathImage= "Arts/Sprites/Ship/shieldline"
             },
-            new Data.Save_Character
+            new Data.Character
             {
                 index = 2,
                 charName = "±Õº±",
@@ -46,9 +46,9 @@ public class DataSaveLoad
                 attack= 1,
                 price= 5,
                 time= 3,
-                pathImage= "Assets/Sprites/Ship/retrace"
+                pathImage= "Arts/Sprites/Ship/retrace"
             },
-            new Data.Save_Character
+            new Data.Character
             {
                 index = 3,
                 charName = "«ÿ∞Òº±",
@@ -58,9 +58,9 @@ public class DataSaveLoad
                 attack= 1,
                 price= 5,
                 time= 3,
-                pathImage= "Assets/Sprites/Ship/skullline"
+                pathImage= "Arts/Sprites/Ship/skullline"
             },
-            new Data.Save_Character
+            new Data.Character
             {
                 index = 4,
                 charName = "∏Õº±",
@@ -70,11 +70,11 @@ public class DataSaveLoad
                 attack= 1,
                 price= 5,
                 time= 3,
-                pathImage= "Assets/Sprites/Ship/blindline"
+                pathImage= "Arts/Sprites/Ship/blindline"
             }
         };
 
-        Managers.DSL.charData = new Data.Save_CharacterData
+        Managers.DSL.charData = new Data.CharacterData
         {
             characters = Managers.DSL.charList
         };

@@ -1,8 +1,6 @@
 using Data;
 using System.Collections.Generic;
 using UnityEngine;
-using static LobbyScene;
-using System.IO;
 
 public interface ILoader<Key, Value>
 {
@@ -11,11 +9,13 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    public Dictionary<int, Load_Word> WordDict { get; private set; } = new();
+    public Dictionary<int, Word> WordDict { get; private set; } = new();
+    public Dictionary<int, Map> MapDict { get; private set; } = new();
 
     public void Init()
     {
-        WordDict = LoadJson<Load_WordData, int, Load_Word>($"Word/WordData").MakeDict();
+        WordDict = LoadJson<WordData, int, Word>("WordData").MakeDict();
+        MapDict = LoadJson<MapData, int, Map>("MapData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
@@ -26,7 +26,6 @@ public class DataManager
 
     public string SaveJson<T>(T container)
     {
-        string json = JsonUtility.ToJson(container);
-        return json;
+        return JsonUtility.ToJson(container);
     }
 }

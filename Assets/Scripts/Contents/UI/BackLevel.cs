@@ -17,7 +17,7 @@ public class BackLevel : MonoBehaviour
         if (!PlayerPrefs.HasKey("CharacterData")) return;
 
         string jsonData = PlayerPrefs.GetString("CharacterData");
-        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+        Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonData);
 
         for (int i = 0; i < Managers.DSL.charData.characters.Count; i++) list.Add(Managers.Resource.Instantiate("UI/Lobby/CharCard"));
         foreach (var obj in list) Managers.Resource.Destroy(obj);
@@ -70,7 +70,7 @@ public class BackLevel : MonoBehaviour
     private void LevelUp(int index)
     {
         string jsonData = PlayerPrefs.GetString("CharacterData");
-        Managers.DSL.charData = JsonUtility.FromJson<Data.Save_CharacterData>(jsonData);
+        Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonData);
 
         Managers.DSL.charData.characters[index].level++;
 
