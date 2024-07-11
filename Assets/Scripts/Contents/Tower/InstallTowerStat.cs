@@ -1,9 +1,18 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InstallTowerStat : TowerStat
 {
     public TowerStatHPUI hpUI;
+
+    private WaitForSeconds waitSeconds = new WaitForSeconds(0.4f);
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     public override void Init()
     {
@@ -38,6 +47,17 @@ public class InstallTowerStat : TowerStat
     {
         //hpUI.UpdateHP(Hp - damagedHp);
         base.OnAttacked(damagedHp);
+        if (Hp > 1) StartCoroutine(DamagedMotion());
+    }
+
+    private IEnumerator DamagedMotion()
+    {
+        spriteRenderer.color = Color.red;
+        yield return waitSeconds;
+        spriteRenderer.color = Color.white;
+        yield return waitSeconds;
+
+        StopCoroutine(DamagedMotion());
     }
 
     protected override void OnDead()

@@ -97,16 +97,18 @@ public class InstallTower : TowerBase
         m.transform.position = shotPoint.position;
 
         GameObject b = Managers.Resource.Instantiate(bullet.gameObject, null);
+        b.transform.position = shotPoint.parent.position; //Temp
         BulletBase s = b.GetComponent<BulletBase>();
         s.Init();
         Debug.Log(_target);
         s.target = _target;
         s.triggerTag = _targetTag;
-        b.transform.position = shotPoint.parent.position; //Temp
 
         yield return waiting;
 
         //_target = null;
+
+        StopCoroutine(AttackCoroutine());
     }
 
     protected override void AdjustLevel()

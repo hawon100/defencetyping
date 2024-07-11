@@ -70,8 +70,6 @@ public class TypingManager
         {
             Debug.Log("스킬 성공");
             towerBase = tower.GetComponent<TowerBase>();
-            timeTimeTime += 1;
-            Debug.Log(timeTimeTime + "번째 스킬 발동 상태: " + towerBase);
             towerBase.Skill();
         }
         else if (_input == _word[3])
@@ -81,6 +79,7 @@ public class TypingManager
                 UserStat.Gold -= 30;
                 Debug.Log("수리 성공");
                 towerStat = tower.GetComponent<TowerStat>();
+                if (!towerStat) towerStat = tower.GetComponentInChildren<TowerStat>();
                 towerStat.OnFixed(3);
             }
             else

@@ -19,7 +19,7 @@ public class PlayerBullet : BulletBase
 
     protected override void Start()
     {
-        trailRend.Clear();
+        trailRend = GetComponent<TrailRenderer>();
         base.Start();
     }
 
