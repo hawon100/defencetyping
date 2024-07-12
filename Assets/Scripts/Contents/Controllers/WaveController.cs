@@ -93,6 +93,7 @@ public class WaveController : MonoBehaviour
         if (Mathf.Round(analogPanel.color.r) == darkColor.r)
         {
             returnButton.SetActive(true);
+            gameController.typingInput.enabled = false;
             if (Managers.Wave.isWin)
             {
                 gameText.text = "You Win !";
