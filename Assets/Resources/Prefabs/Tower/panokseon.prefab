@@ -265,6 +265,7 @@ MonoBehaviour:
   _maxHp: 3
   _attack: 0
   hpUI: {fileID: 0}
+  spriteRenderer: {fileID: 8698053183865137712}
 --- !u!1 &1918081516670732383
 GameObject:
   m_ObjectHideFlags: 0
