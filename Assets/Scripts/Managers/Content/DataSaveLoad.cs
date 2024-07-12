@@ -46,7 +46,7 @@ public class DataSaveLoad
                 attack= 1,
                 price= 5,
                 time= 3f,
-                pathImage= "Arts/Sprites/Ship/Installcastle"
+                pathImage= "Arts/Sprites/Ship/retrace"
             },
             new Data.Character
             {

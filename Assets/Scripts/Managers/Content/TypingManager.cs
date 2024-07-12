@@ -68,9 +68,17 @@ public class TypingManager
         }
         else if (_input == _word[2])
         {
-            Debug.Log("스킬 성공");
-            towerBase = tower.GetComponent<TowerBase>();
-            towerBase.Skill();
+            if (UserStat.Gold >= UserStat.SkillPrice)
+            {
+                UserStat.Gold -= UserStat.SkillPrice;
+                Debug.Log("스킬 성공");
+                towerBase = tower.GetComponent<TowerBase>();
+                towerBase.Skill();
+            }
+            else
+            {
+                Debug.Log("스킬 실패 돈 부족");
+            }
         }
         else if (_input == _word[3])
         {
