@@ -239,24 +239,28 @@ MonoBehaviour:
     objNameEN: 
     ImagePath: 
     price: 0
+    time: 0
     holderImage: {fileID: 0}
   - holderObj: {fileID: 70068416}
     objName: 
     objNameEN: 
     ImagePath: 
     price: 0
+    time: 0
     holderImage: {fileID: 0}
   - holderObj: {fileID: 1733429295}
     objName: 
     objNameEN: 
     ImagePath: 
     price: 0
+    time: 0
     holderImage: {fileID: 0}
   - holderObj: {fileID: 783281785}
     objName: 
     objNameEN: 
     ImagePath: 
     price: 0
+    time: 0
     holderImage: {fileID: 0}
 --- !u!114 &5396583
 MonoBehaviour:

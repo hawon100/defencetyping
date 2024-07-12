@@ -52,8 +52,6 @@ public class InstallTowerStat : TowerStat
 
     private IEnumerator DamagedMotion()
     {
-        Debug.Log("Hallo");
-
         spriteRenderer.color = Color.red;
         yield return waitSeconds;
         spriteRenderer.color = Color.white;

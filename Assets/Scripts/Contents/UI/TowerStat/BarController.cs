@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CentralStatHPUI : MonoBehaviour
+public class BarController : MonoBehaviour
 {
     public Slider hpSlider;
 

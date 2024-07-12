@@ -6,7 +6,7 @@ using UnityEngine.UI; //Temp
 public class CenteralTowerStat : TowerStat
 {
     //[SerializeField] private Text CentralTowerHP; //Temp
-    [SerializeField] private CentralStatHPUI hpUI;
+    [SerializeField] private BarController hpUI;
 
     private WaitForSeconds waitSeconds = new WaitForSeconds(0.4f);
     private SpriteRenderer spriteRenderer;
