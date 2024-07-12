@@ -83,8 +83,8 @@ public class InstallTower : TowerBase
     {
         bool isRotate = true;
 
-        GameObject t = Managers.Resource.Instantiate("TargetSign");
-        t.transform.position = _target.position;
+        //GameObject t = Managers.Resource.Instantiate("TargetSign");
+        //t.transform.position = _target.position;
 
         while (isRotate)
         {
@@ -107,7 +107,7 @@ public class InstallTower : TowerBase
         s.target = _target;
         s.triggerTag = _targetTag;
 
-        Managers.Resource.Destroy(t);
+        //Managers.Resource.Destroy(t);
 
         yield return waiting;
 

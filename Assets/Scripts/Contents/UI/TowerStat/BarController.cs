@@ -7,21 +7,33 @@ public class BarController : MonoBehaviour
 {
     public Slider hpSlider;
 
-    private int maxHp;
+    private int maximum;
+    private float maximum2Float;
 
     private void Awake()
     {
 
     }
 
-    public void InitHP(int max)
+    public void Init(int max)
     {
-        maxHp = max;
+        maximum = max;
         hpSlider.value = 1;
     }
 
-    public void UpdateHP(int hp)
+    public void Updated(int hp)
     {
-        hpSlider.value = (float)hp / maxHp;
+        hpSlider.value = (float)hp / maximum;
+    }
+
+    public void Init2Float(float max)
+    {
+        maximum2Float = max;
+        hpSlider.value = 1;
+    }
+
+    public void Updated2Float(float current)
+    {
+        hpSlider.value = (float)current / maximum2Float;
     }
 }

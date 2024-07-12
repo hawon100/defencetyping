@@ -14,13 +14,13 @@ public class BossStat : EnemyStatBase
         GameObject bar = Managers.Resource.Instantiate("UI/BossBar");
 
         hpBar = bar.GetComponent<BarController>();
-        hpBar.InitHP(maxHp);
+        hpBar.Init(maxHp);
         base.Init();
     }
 
     public override void Damage(int value)
     {
-        hpBar.UpdateHP(hp - value);
+        hpBar.Updated(hp - value);
         //GameObject ui = Managers.Resource.Instantiate(hpPanelPrefab, null);
         //Once get damage, UI show the HP Bar.
         if (hp > 1) StartCoroutine(DamagedMotion());
