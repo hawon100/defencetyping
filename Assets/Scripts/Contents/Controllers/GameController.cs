@@ -26,17 +26,22 @@ public class GameController : MonoBehaviour
     public float curDelayChange;
     public float maxDelayChange;
 
-    public Slider[] wordResetTimer;
+    public Slider wordResetTimer;
 
     public Vector3 towerOffset;
 
     public Transform target;
     public Transform background;
 
+    private KeyCode _key;
+    bool _isInput = false;
+
     private void Start()
     {
         Managers.Game.target = target;
         Managers.Game.background = background;
+
+        typingInput.onValueChanged.AddListener(OnInputValueChanged);
         typingInput.ActivateInputField();
 
         string jsonData = PlayerPrefs.GetString("TeamData");
@@ -57,6 +62,20 @@ public class GameController : MonoBehaviour
         UpdateBuild();
         UpdateType();
         UpdateWordReload();
+
+        if (Input.anyKeyDown)
+        {
+            foreach (var c in Input.inputString)
+            {
+                _key = (KeyCode)((int)c);
+            }
+            _isInput = true;
+            BuildTowerSelect(_key);
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void UpdateType()
@@ -128,10 +147,7 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        foreach (var timer in wordResetTimer)
-        {
-            timer.value = curDelayChange / maxDelayChange;
-        }
+        wordResetTimer.value = curDelayChange / maxDelayChange;
 
         curDelayChange += Time.deltaTime;
 
@@ -142,38 +158,52 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void BuildTowerSelect(string towerName)
+    private void OnInputValueChanged(string input)
     {
-        Debug.Log(selectedTower);
+        string filtered = FilterNumbers(input);
+        if(input != filtered) typingInput.text = filtered;
+    }
+
+    private string FilterNumbers(string input)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(input, "[0-9]", "");
+    }
+
+    private void BuildTowerSelect(KeyCode key)
+    {
         if (selectedTower == null) return;
+        if (!_isInput) return;
 
         string jsonTeamData = PlayerPrefs.GetString("TeamData");
         Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonTeamData);
 
-        switch (towerName)
+        switch (key)
         {
-            case "Common":
+            case KeyCode.Alpha1:
                 Managers.Typing.type = Define.InstallTowerType.Common;
                 price = Managers.DSL.teamData.teams[0].price;
                 break;
-            case "Rare":
+            case KeyCode.Alpha2:
                 Managers.Typing.type = Define.InstallTowerType.Rare;
                 price = Managers.DSL.teamData.teams[1].price;
                 break;
-            case "Epic":
+            case KeyCode.Alpha3:
                 Managers.Typing.type = Define.InstallTowerType.Epic;
                 price = Managers.DSL.teamData.teams[2].price;
                 break;
-            case "Legend":
+            case KeyCode.Alpha4:
                 Managers.Typing.type = Define.InstallTowerType.Legend;
                 price = Managers.DSL.teamData.teams[3].price;
                 break;
+            default:
+                return;
         }
 
         //price shop
         if (UserStat.Gold >= price)
         {
             UserStat.Gold -= price;
+            _isInput = false;
         }
         else
         {

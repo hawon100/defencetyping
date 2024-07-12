@@ -76,7 +76,7 @@ public class TypingManager
         {
             if(UserStat.Gold >= UserStat.FixedPrice)
             {
-                UserStat.Gold -= 30;
+                UserStat.Gold -= UserStat.FixedPrice;
                 Debug.Log("수리 성공");
                 towerStat = tower.GetComponent<TowerStat>();
                 if (!towerStat) towerStat = tower.GetComponentInChildren<TowerStat>();

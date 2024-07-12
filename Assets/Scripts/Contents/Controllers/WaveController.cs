@@ -19,11 +19,16 @@ public class WaveController : MonoBehaviour
     [SerializeField] private Transform installTowerGroup;
     private int curWave;
 
+    List<GameObject> _list = new();
+
     private void Start()
     {
         Managers.Wave.WaveReset();
 
         thisStage = Managers.Game.currentStage;
+
+        for (int i = 0; i < thisStage.TowerBuilderPos.Count; i++) _list.Add(Managers.Resource.Instantiate("Tower/Tower"));
+        foreach(var obj in _list) Managers.Resource.Destroy(obj);
         
         GameObject bg = Managers.Resource.Instantiate(thisStage.Background, null); 
         bg.transform.parent = installTowerGroup;
@@ -50,7 +55,12 @@ public class WaveController : MonoBehaviour
         for (int i = 0; i < thisStage.TowerBuilderPos.Count; i++) 
         {
             //GameObject tb = Managers.Resource.Instantiate(thisStage.Tower[i].TowerBuilder.gameObject, null);
-            GameObject tb = Managers.Resource.Instantiate("Tower/Tower");
+            var tb = Managers.Resource.Instantiate("Tower/Tower");
+            if (tb.GetComponent<BuildTower>().count == 0)
+            {
+                tb.GetComponent<BuildTower>().count = i + 1;
+            }
+
             tb.transform.parent = installTowerGroup;
             tb.transform.position = thisStage.TowerBuilderPos[i];
             BuildTower bt = tb.GetComponent<BuildTower>();

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5861065556869493118}
   - component: {fileID: 2105567412254394623}
   - component: {fileID: 956074166395120477}
+  - component: {fileID: 4252642135666850328}
   m_Layer: 10
   m_Name: Tower
   m_TagString: TowerInstall
@@ -131,6 +132,8 @@ MonoBehaviour:
   isTyping: 0
   gameCtrl: {fileID: 0}
   type: 0
+  count: 0
+  hpPos: {x: 0, y: 0}
 --- !u!58 &956074166395120477
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,3 +169,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.25}
   serializedVersion: 2
   m_Radius: 1.8
+--- !u!114 &4252642135666850328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388215017483280264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f57697b9796704b850fe2a843a8f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 0

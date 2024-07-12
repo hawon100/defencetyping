@@ -8,17 +8,10 @@ public class BuildTower : MonoBehaviour
     public bool isTyping = false;
     public GameController gameCtrl;
     public Define.InstallTowerType type;
-
-    int _mask = (1 << (int)Define.Layer.Background) | (1 << (int)Define.Layer.TowerInstall) | (1 << (int)Define.Layer.Tower);
+    public int count;
 
     //Temp
     public Vector2 hpPos;
-
-    private void Start()
-    {
-        Managers.Input.MouseAction -= OnMouseEvent;
-        Managers.Input.MouseAction += OnMouseEvent;
-    }
 
     private void Update()
     {
@@ -32,6 +25,7 @@ public class BuildTower : MonoBehaviour
         {
             gameCtrl.buildUI.SetActive(false);
 
+            if (towerBuild.GetComponent<CenteralTowerStat>() == null) return;
             if(towerBuild.GetComponent<CenteralTowerStat>().enabled)
             {
                 gameCtrl.captainUI.SetActive(true);
@@ -50,38 +44,21 @@ public class BuildTower : MonoBehaviour
 
     private void OnKeyBoardEvent()
     {
+        var key = (KeyCode)((int)KeyCode.F1 + count);
+
+        if (Input.GetKeyDown(key))
+        {
+            ShortCutKey();
+        }
+
         if (Input.GetKeyDown(KeyCode.Return))
-        {
-            PanelClose();
-        }
-    }
-
-    private void OnMouseEvent(Define.MouseEvent evt)
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 rayOrigin = new Vector2(mousePosition.x, mousePosition.y);
-        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, 100.0f, _mask);
-
-        //Debug.Log(hit.collider);
-
-        if (hit.collider == null) return;
-
-        if (hit.collider.gameObject.layer == (int)Define.Layer.Background)
-        {
-            OnMouseEvent_PanelClose(evt);
-        }
-    }
-
-    private void OnMouseEvent_PanelClose(Define.MouseEvent evt)
-    {
-        if (evt == Define.MouseEvent.PointerDown)
         {
             gameCtrl.curDelayChange = 0;
             PanelClose();
         }
     }
 
-    private void OnMouseDown()
+    private void ShortCutKey()
     {
         for (int i = 0; i < gameCtrl.towers.Count; i++)
         {
@@ -93,13 +70,10 @@ public class BuildTower : MonoBehaviour
         gameCtrl.captainUI.SetActive(false);
         gameCtrl.towerUI.SetActive(false);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            gameCtrl.curDelayChange = 0;
-            Managers.Typing.tower = this.gameObject;
-            Managers.Typing.curBuildPos = transform.position; //Temp
-            PanelOpen();
-        }
+        gameCtrl.curDelayChange = 0;
+        Managers.Typing.tower = this.gameObject;
+        Managers.Typing.curBuildPos = transform.position; //Temp
+        PanelOpen();
     }
 
     private void PanelOpen()

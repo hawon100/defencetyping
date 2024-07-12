@@ -13,10 +13,4 @@ public class UserStat : MonoBehaviour
         Gold = user.gold;
         FixedPrice = fixedPrice;
     }
-
-    private void Update()
-    {
-        user.gold = Gold;
-        fixedPrice = FixedPrice;
-    }
 }
