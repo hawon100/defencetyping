@@ -11,11 +11,14 @@ public class BossStat : EnemyStatBase
 
     public override void Init()
     {
-        GameObject bar = Managers.Resource.Instantiate("UI/BossBar");
+        Transform canvas = Managers.Game.uiCanvas;
+        GameObject bar = Managers.Resource.Instantiate("UI/BossBar", canvas);
 
         hpBar = bar.GetComponent<BarController>();
         hpBar.Init(maxHp);
         base.Init();
+
+        Debug.Log(Managers.Game.uiCanvas);
     }
 
     public override void Damage(int value)
@@ -41,13 +44,15 @@ public class BossStat : EnemyStatBase
     {
         GameObject d = Managers.Resource.Instantiate("VFX/BigExplosion");
         d.transform.position = transform.position;
+        yield return waitSeconds;
+
         for (int i = -1; i < 2; i++)
         {
             GameObject e = Managers.Resource.Instantiate("VFX/boom");
             e.transform.position = transform.position + i * Vector3.one;
             e.transform.localScale = 3 * Vector2.one;
+            yield return waitSeconds;
         }
-        yield return null;
 
         StopCoroutine(ExplosionDeath());
     }

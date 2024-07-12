@@ -792,7 +792,6 @@ MonoBehaviour:
   maxHp: 3
   isDeath: 0
   gold: 0
-  hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 1901913400}
 --- !u!114 &243772165
 MonoBehaviour:
@@ -1211,7 +1210,6 @@ MonoBehaviour:
   maxHp: 3
   isDeath: 0
   gold: 0
-  hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 1614381921}
 --- !u!114 &271193850
 MonoBehaviour:
@@ -2835,7 +2833,6 @@ MonoBehaviour:
   maxHp: 3
   isDeath: 0
   gold: 0
-  hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 454536825}
 --- !u!114 &687589337
 MonoBehaviour:
@@ -5262,7 +5259,6 @@ MonoBehaviour:
   maxHp: 3
   isDeath: 0
   gold: 0
-  hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 565344930}
 --- !u!114 &1292441840
 MonoBehaviour:
@@ -8181,7 +8177,6 @@ MonoBehaviour:
   maxHp: 3
   isDeath: 0
   gold: 0
-  hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 1555743910182207176}
 --- !u!198 &278643494158428533
 ParticleSystem:
@@ -13313,7 +13308,6 @@ MonoBehaviour:
   maxHp: 3
   isDeath: 0
   gold: 0
-  hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 5339360975954286698}
 --- !u!50 &2554778761507922981
 Rigidbody2D:

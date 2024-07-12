@@ -368,11 +368,11 @@ MonoBehaviour:
   isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  cooltime: 0
+  cooltime: 10
   targetTag: 
   range: 0
   triSprite: {fileID: 2901246660037438641}
-  bomb: {fileID: 0}
+  bomb: {fileID: 469248367079783464, guid: 7c0d30c73b96bc4468e256ad5be6e3a9, type: 3}
 --- !u!58 &7432582720304012996
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -447,12 +447,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0101673fb61c2404bb2ecfc3a6f0894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  maxHp: 100
+  hp: 99
+  maxHp: 99
   isDeath: 0
   gold: 50
   hpBar: {fileID: 0}
-  spriteRend: {fileID: 0}
+  spriteRend: {fileID: 1083255187887556969}
 --- !u!1 &4749985466022909017
 GameObject:
   m_ObjectHideFlags: 0

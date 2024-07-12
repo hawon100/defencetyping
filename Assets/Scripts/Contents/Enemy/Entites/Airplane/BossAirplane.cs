@@ -9,8 +9,17 @@ public class BossAirplane : EnemyBase
 
     [Header("Bomb")]
     public AtomicBomb bomb;
+    private float timer;
 
     private Vector2 movingTo;
+
+    #region Delegate
+    private void DamagedByBomb()
+    {
+        enemyStat.Damage(33);
+        timer -= 2f;
+    }
+    #endregion Delegate
 
     protected override void Awake()
     {
@@ -32,8 +41,6 @@ public class BossAirplane : EnemyBase
     protected override void Init()
     {
         base.Init();
-        //movingTo.x = Trace(transform.position, targetPos).x;
-        //movingTo.y = Trace(transform.position, targetPos).y;
         triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
     }
 
@@ -48,7 +55,12 @@ public class BossAirplane : EnemyBase
         //    target = Managers.Game.target; 
 
         GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
-        b.transform.position = transform.position;      
+        b.transform.position = transform.position;
+
+        AtomicBomb a = b.GetComponent<AtomicBomb>();
+        a.onBomb -= DamagedByBomb;
+        a.onBomb += DamagedByBomb;
+        a.SetTimer(timer);
     }
 
     protected override void Detected()

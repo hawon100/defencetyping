@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,23 @@ public class AtomicBomb : MonoBehaviour
     [SerializeField] private float explosionTime;
 
     private WaitForSeconds second0p2 = new(0.2f);
+    private EnemyStat bombStat;
 
     private BarController timeBar;
     private float timeRate;
+
+    public event Action onBomb;
+
+    public void SetTimer(float time)
+    {
+        explosionTime = time;
+    }
+
+    private void Awake()
+    {
+        bombStat = GetComponent<EnemyStat>();
+    }
+
     private void OnEnable()
     {
         GameObject t = Managers.Resource.Instantiate("UI/");
@@ -22,6 +37,8 @@ public class AtomicBomb : MonoBehaviour
 
     private void OnDisable()
     {
+        if (bombStat.hp <= 0) onBomb?.Invoke();
+
         StopCoroutine(StartAtomicBomb());
     }
 
@@ -48,6 +65,10 @@ public class AtomicBomb : MonoBehaviour
 
         GameObject a = Managers.Resource.Instantiate("Skills/AtomicWave", null);
         a.transform.position = transform.position;
+
+        //GameObject w = Managers.Reso
+
+        //플레이어가 
 
         yield return second0p2;
 
