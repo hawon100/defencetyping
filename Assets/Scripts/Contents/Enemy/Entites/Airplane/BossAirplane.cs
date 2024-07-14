@@ -51,6 +51,9 @@ public class BossAirplane : EnemyBase
 
     protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
+
+        //Temp
+        return;
         //if (target != null)
         //    target = Managers.Game.target; 
 

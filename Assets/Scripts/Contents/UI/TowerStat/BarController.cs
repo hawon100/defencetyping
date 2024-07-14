@@ -16,7 +16,6 @@ public class BarController : MonoBehaviour
     {
         rect = GetComponent<RectTransform>();
         rect.localScale = Vector2.one;
-        Debug.Log("Activate");
     }
 
     public void Init(int max)
@@ -27,6 +26,7 @@ public class BarController : MonoBehaviour
 
     public void SetPosition(Vector2 position)
     {
+        rect.localScale = Vector2.one;
         rect.localPosition = position;
     }
 

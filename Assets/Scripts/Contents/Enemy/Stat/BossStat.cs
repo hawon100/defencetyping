@@ -17,7 +17,7 @@ public class BossStat : EnemyStatBase
         GameObject bar = Managers.Resource.Instantiate("UI/BossBar", canvas);
 
         hpBar = bar.GetComponent<BarController>();
-        //hpBar.SetPosition(Vector2.zero);
+        hpBar.SetPosition(new Vector2(0, 500f));
         hpBar.Init(maxHp);
         base.Init();
 
