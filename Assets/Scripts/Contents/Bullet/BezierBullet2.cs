@@ -101,7 +101,7 @@ public class BezierBullet2 : BulletBase
 
         //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;
-        target.GetComponent<EnemyStat>().Damage(1);
+        target.GetComponent<EnemyStatBase>().Damage(1);
         target = null;
         base.Hit();
     }
