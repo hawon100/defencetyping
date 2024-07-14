@@ -11,10 +11,13 @@ public class BossStat : EnemyStatBase
 
     public override void Init()
     {
+        if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
+
         Transform canvas = Managers.Game.uiCanvas;
         GameObject bar = Managers.Resource.Instantiate("UI/BossBar", canvas);
 
         hpBar = bar.GetComponent<BarController>();
+        //hpBar.SetPosition(Vector2.zero);
         hpBar.Init(maxHp);
         base.Init();
 

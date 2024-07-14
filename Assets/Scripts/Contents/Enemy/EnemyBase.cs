@@ -27,7 +27,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Awake()
     {
         enemyStat = GetComponent<EnemyStatBase>();
-        enemyStat.Init();
+        //enemyStat.Init();
     }
 
     protected virtual void Start()

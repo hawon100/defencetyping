@@ -7,18 +7,27 @@ public class BarController : MonoBehaviour
 {
     public Slider hpSlider;
 
+    private RectTransform rect;
+
     private int maximum;
     private float maximum2Float;
 
     private void Awake()
     {
-
+        rect = GetComponent<RectTransform>();
+        rect.localScale = Vector2.one;
+        Debug.Log("Activate");
     }
 
     public void Init(int max)
     {
         maximum = max;
         hpSlider.value = 1;
+    }
+
+    public void SetPosition(Vector2 position)
+    {
+        rect.localPosition = position;
     }
 
     public void Updated(int hp)

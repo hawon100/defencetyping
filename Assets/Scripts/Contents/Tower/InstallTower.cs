@@ -45,10 +45,17 @@ public class InstallTower : TowerBase
 
         timerate += Time.deltaTime;
 
+        TargetSign();
+
         if (timerate < cooltime) return;
 
         timerate = 0;
         OnAttack();
+    }
+
+    private void TargetSign()
+    {
+
     }
 
     private void CannonMove()
