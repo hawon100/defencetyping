@@ -19,7 +19,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected string targetTag;
     [SerializeField] [Range(0.0f, 10.0f)] protected float range;
 
-    private EnemyStatBase enemyStat;
+    protected EnemyStatBase enemyStat;
 
     protected Transform detectedTarget;
     protected Quaternion targetQuaternion;
@@ -27,6 +27,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Awake()
     {
         enemyStat = GetComponent<EnemyStatBase>();
+        //enemyStat.Init();
     }
 
     protected virtual void Start()

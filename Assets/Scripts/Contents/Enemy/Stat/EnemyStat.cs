@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyStat : EnemyStatBase
 {
-    [SerializeField] private GameObject hpPanelPrefab;
     [SerializeField] private SpriteRenderer spriteRend;
     private WaitForSeconds waitSeconds = new WaitForSeconds(0.4f);
 

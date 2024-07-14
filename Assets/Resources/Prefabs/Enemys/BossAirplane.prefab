@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 4318144069882673079}
   - component: {fileID: 7432582720304012996}
   - component: {fileID: 5389565723182183709}
-  - component: {fileID: 2215111847425302032}
+  - component: {fileID: 8349172922619774528}
   m_Layer: 6
   m_Name: BossAirplane
   m_TagString: Enemy
@@ -368,11 +368,11 @@ MonoBehaviour:
   isMove: 1
   target: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  cooltime: 0
+  cooltime: 10
   targetTag: 
   range: 0
   triSprite: {fileID: 2901246660037438641}
-  bomb: {fileID: 0}
+  bomb: {fileID: 469248367079783464, guid: 7c0d30c73b96bc4468e256ad5be6e3a9, type: 3}
 --- !u!58 &7432582720304012996
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &2215111847425302032
+--- !u!114 &8349172922619774528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,13 +444,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713554079885829383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2eb510c2b1303243ba5602b179c6f3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0101673fb61c2404bb2ecfc3a6f0894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  maxHp: 100
+  hp: 99
+  maxHp: 99
   isDeath: 0
-  hpPanelPrefab: {fileID: 0}
+  gold: 50
+  hpBar: {fileID: 0}
   spriteRend: {fileID: 1083255187887556969}
 --- !u!1 &4749985466022909017
 GameObject:

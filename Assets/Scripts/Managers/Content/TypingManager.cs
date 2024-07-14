@@ -47,7 +47,7 @@ public class TypingManager
 
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
-            //towerStat.towerPos = curBuildPos;
+            towerStat.towerPos = curBuildPos;
             towerStat.Init();
             //towerStat.towerStatUI.
         }

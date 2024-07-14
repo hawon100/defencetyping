@@ -25,10 +25,10 @@ public class Mothership : EnemyBase
 
         for (int i = 0; i < 5; i++)
         {
-            GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
-            Managers.Resource.Destroy(s);
-            GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
-            Managers.Resource.Destroy(b);
+            //GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
+            //Managers.Resource.Destroy(s);
+            //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, transform.parent = null);
+            //Managers.Resource.Destroy(b);
         }
     }
 

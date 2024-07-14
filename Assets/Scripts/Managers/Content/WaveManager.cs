@@ -47,6 +47,7 @@ public class WaveManager : MonoBehaviour
                 GameObject enemy = Managers.Resource.Instantiate(wave.WaveEnemie[i].Enemy.gameObject);
 
                 enemy.transform.position = spawnPos;
+                enemy.GetComponent<EnemyStatBase>().onPlayerDeath += WaveUpdate;
 
                 currentEnemy += 1;
             }
@@ -58,6 +59,7 @@ public class WaveManager : MonoBehaviour
     public void WaveUpdate() //Problem
     {
         currentEnemy -= 1;
+        Debug.Log(currentEnemy);
 
         if (currentEnemy <= 0)
         {

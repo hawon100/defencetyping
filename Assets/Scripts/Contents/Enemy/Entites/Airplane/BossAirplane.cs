@@ -8,9 +8,18 @@ public class BossAirplane : EnemyBase
     [SerializeField] private Transform triSprite;
 
     [Header("Bomb")]
-    public Bomb bomb;
+    public AtomicBomb bomb;
+    private float timer;
 
     private Vector2 movingTo;
+
+    #region Delegate
+    private void DamagedByBomb()
+    {
+        enemyStat.Damage(33);
+        timer -= 2f;
+    }
+    #endregion Delegate
 
     protected override void Awake()
     {
@@ -32,8 +41,6 @@ public class BossAirplane : EnemyBase
     protected override void Init()
     {
         base.Init();
-        movingTo.x = Trace(transform.position, targetPos).x;
-        movingTo.y = Trace(transform.position, targetPos).y;
         triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
     }
 
@@ -44,12 +51,19 @@ public class BossAirplane : EnemyBase
 
     protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
+
+        //Temp
+        return;
         //if (target != null)
         //    target = Managers.Game.target; 
 
         GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
-        b.GetComponent<Bomb>().StartBomb();
         b.transform.position = transform.position;
+
+        AtomicBomb a = b.GetComponent<AtomicBomb>();
+        a.onBomb -= DamagedByBomb;
+        a.onBomb += DamagedByBomb;
+        a.SetTimer(timer);
     }
 
     protected override void Detected()
@@ -61,8 +75,8 @@ public class BossAirplane : EnemyBase
     {
         if (!isMove) return;
 
-        transform.Translate(movingTo * moveSpeed * Time.deltaTime);
-        //transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        //transform.Translate(movingTo * moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
 
         //if (OutOfScreen())
         //{

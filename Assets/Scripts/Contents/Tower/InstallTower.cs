@@ -45,10 +45,17 @@ public class InstallTower : TowerBase
 
         timerate += Time.deltaTime;
 
+        TargetSign();
+
         if (timerate < cooltime) return;
 
         timerate = 0;
         OnAttack();
+    }
+
+    private void TargetSign()
+    {
+
     }
 
     private void CannonMove()
@@ -83,6 +90,9 @@ public class InstallTower : TowerBase
     {
         bool isRotate = true;
 
+        //GameObject t = Managers.Resource.Instantiate("TargetSign");
+        //t.transform.position = _target.position;
+
         while (isRotate)
         {
             Quaternion targetQuaternion = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
@@ -103,6 +113,8 @@ public class InstallTower : TowerBase
         Debug.Log(_target);
         s.target = _target;
         s.triggerTag = _targetTag;
+
+        //Managers.Resource.Destroy(t);
 
         yield return waiting;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class EnemyStatBase : MonoBehaviour
     public int maxHp;
     public bool isDeath;
     public int gold;
+
+    public event Action onPlayerDeath;
 
     public virtual void Init()
     {
@@ -43,6 +46,11 @@ public class EnemyStatBase : MonoBehaviour
     {
         //Managers.Wave.OnEndGame -= Death;
 
-        if (isDeath) Managers.Wave.WaveUpdate();
+        if (isDeath)
+        {
+            //Managers.Wave.WaveUpdate();
+            Debug.Log("Death");
+            onPlayerDeath?.Invoke();
+        }
     }
 }

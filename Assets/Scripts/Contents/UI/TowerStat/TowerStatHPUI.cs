@@ -70,12 +70,24 @@ public class TowerStatHPUI : MonoBehaviour
         worldCamera = Managers.Game.mainCamera;
 
         // 1. World Space의 위치를 Screen Space로 변환
-        Vector3 screenPos = worldCamera.WorldToScreenPoint(position);
+        //Vector3 screenPos = worldCamera.WorldToScreenPoint(position);
 
         // 2. Screen Space의 위치를 World Space Canvas의 RectTransform 좌표로 변환
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, worldCamera, out Vector2 localPoint);
+        //RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, worldCamera, out Vector2 localPoint);
 
         // 3. 변환된 좌표를 RectTransform의 로컬 포지션으로 설정
-        uiRect.localPosition = localPoint;
+        //uiRect.localPosition = localPoint;
+
+        //Debug.Log(worldCamera.WorldToScreenPoint(position));
+        //uiRect.localPosition = worldCamera.WorldToScreenPoint(position);
+        //uiRect.localPosition -= new Vector3(960f, 540f, 0f);
+
+        Vector3 screenPos = worldCamera.WorldToScreenPoint(position);
+
+        Vector2 uiPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            uiRect.parent as RectTransform, screenPos, worldCamera, out uiPos);
+
+        uiRect.localPosition = uiPos;
     }
 }
