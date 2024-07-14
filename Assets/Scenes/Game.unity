@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 160839446}
   m_Layer: 0
-  m_Name: Core
+  m_Name: '@Core'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,6 +347,7 @@ Transform:
   - {fileID: 1762037174}
   - {fileID: 152109598}
   - {fileID: 202645759}
+  - {fileID: 2081483992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &201874765
@@ -1708,7 +1709,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &445552047
 GameObject:
@@ -7924,12 +7925,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081483990}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.57, y: 3.5, z: -0.09600554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 160839446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106799382
 GameObject:
@@ -7941,7 +7942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106799383}
   m_Layer: 0
-  m_Name: UI
+  m_Name: '@UI'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7960,10 +7961,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 437507343}
   - {fileID: 1378406566}
   - {fileID: 783833618}
   - {fileID: 755460820}
-  - {fileID: 437507343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2116310298
@@ -14361,7 +14362,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 160839446}
-  - {fileID: 2081483992}
   - {fileID: 1765480958}
   - {fileID: 339318992}
   - {fileID: 219132953}

@@ -54,7 +54,6 @@ public class BuildTower : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             gameCtrl.curDelayChange = 0;
-            PanelClose();
         }
     }
 
