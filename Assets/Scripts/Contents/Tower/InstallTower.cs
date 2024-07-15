@@ -42,6 +42,7 @@ public class InstallTower : TowerBase
         }
 
         GameObject t = Managers.Resource.Instantiate("TargetSign");
+        t.SetActive(false);
         t.transform.parent = this.transform;
         targetSign = t.GetComponent<TargetSign>();
     }

@@ -18,6 +18,8 @@ public class WaveManager : MonoBehaviour
 
     public event EndGame OnEndGame; 
 
+    //public List<GameObject> pla
+
     public void WaveStart()
     {
         if (stage == null) return;
@@ -72,6 +74,7 @@ public class WaveManager : MonoBehaviour
     public void WaveUpdate() //Problem
     {
         currentEnemy -= 1;
+        Debug.Log(currentEnemy);
 
         if (currentEnemy > 0) return;
 
@@ -94,7 +97,9 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()                                        
     {
-        if (currentWave > stage.Wave.Count && isWave)
+        Debug.Log(currentWave);
+
+        if (currentWave >= stage.Wave.Count)
         {
             WaveEnd();
             return;
@@ -108,13 +113,12 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        if (currentWave >= stage.Wave.Count && !isWave) return;
-
-        WaveExecute(stage.Wave[currentWave]);
+        if (currentWave < stage.Wave.Count) WaveExecute(stage.Wave[currentWave]);
     }
 
     public void WaveEnd()
     {
+        currentWave = stage.Wave.Count;
         Debug.Log("Wave End!");
         isWave = false;
         //OnEndGame();
