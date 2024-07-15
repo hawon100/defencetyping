@@ -95,14 +95,14 @@ public class Airplane : EnemyBase
         if (collision.gameObject.CompareTag("Background"))
         {
             isMove = false;
-            Managers.Wave.WaveUpdate();
+            //Managers.Wave.WaveUpdate();
             Managers.Resource.Destroy(gameObject);
         }
 
         if (OutOfScreen())
         {
             isMove = false;
-            Managers.Wave.WaveUpdate();
+            //Managers.Wave.WaveUpdate();
             Managers.Resource.Destroy(gameObject);
         }
     }

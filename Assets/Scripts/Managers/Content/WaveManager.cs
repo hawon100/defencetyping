@@ -13,6 +13,7 @@ public class WaveManager : MonoBehaviour
     public int currentEnemy;
     public bool isWave = true;
     public bool isWin = false;
+    public bool isChange = true;
 
     public event EndGame OnEndGame; 
 
@@ -26,6 +27,8 @@ public class WaveManager : MonoBehaviour
     public void WaveExecute(Wave wave)
     {
         if (wave == null) return;
+
+        currentEnemy = 0;
 
         for (int i = 0; i < wave.WaveEnemie.Count; i++)
         {
@@ -44,10 +47,15 @@ public class WaveManager : MonoBehaviour
                 spawnPos.y = Random.Range(area.position.y - area.localScale.y / 2,
                                           area.position.y + area.localScale.y / 2);
 
-                GameObject enemy = Managers.Resource.Instantiate(wave.WaveEnemie[i].Enemy.gameObject);
+                GameObject enemyObject = wave.WaveEnemie[i].Enemy.gameObject;
+                GameObject enemy = Managers.Resource.Instantiate(enemyObject, null);
 
                 enemy.transform.position = spawnPos;
-                enemy.GetComponent<EnemyStatBase>().onPlayerDeath += WaveUpdate;
+                
+                EnemyStatBase stat = enemy.GetComponent<EnemyStatBase>();
+                
+                stat.onPlayerDeath -= WaveUpdate;
+                stat.onPlayerDeath += WaveUpdate;
 
                 currentEnemy += 1;
             }
@@ -59,14 +67,24 @@ public class WaveManager : MonoBehaviour
     public void WaveUpdate() //Problem
     {
         currentEnemy -= 1;
-        Debug.Log(currentEnemy);
 
-        if (currentEnemy <= 0)
-        {
-            Debug.Log("Wave " + (currentWave + 1) + "/Destroyed : " + currentEnemy);
-            currentEnemy = 0;
-            WaveChange();
-        }
+        if (currentEnemy > 0) return;
+
+        Debug.Log("Wave " + (currentWave + 1) + "/Destroyed : " + currentEnemy);
+        currentEnemy = 0;
+        WaveChange();
+
+        //lock (this)
+        //{
+        //    Debug.Log(currentWave + " : BAKA");
+        //    currentEnemy -= 1;
+
+        //    if (currentEnemy > 0) return;
+
+        //    Debug.Log("Wave " + (currentWave + 1) + "/Destroyed : " + currentEnemy);
+        //    currentEnemy = 0;
+        //    WaveChange();
+        //}
     }
 
     public void WaveChange()                                        
