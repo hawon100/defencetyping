@@ -85,13 +85,15 @@ public class Airplane : EnemyBase
     private bool OutOfScreen()
     {
         return transform.position.x < -Managers.Game.absScreenX ||
-               transform.position.x > Managers.Game.absScreenX ||
+               transform.position.x > Managers.Game.absScreenX  ||
                transform.position.y < -Managers.Game.absScreenY ||
                transform.position.y > Managers.Game.absScreenY;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        return;
+
         if (collision.gameObject.CompareTag("Background"))
         {
             isMove = false;

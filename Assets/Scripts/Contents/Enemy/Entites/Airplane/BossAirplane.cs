@@ -11,6 +11,8 @@ public class BossAirplane : EnemyBase
     public AtomicBomb bomb;
     private float timer;
 
+    //웨이브 발산
+
     private Vector2 movingTo;
 
     #region Delegate
@@ -51,7 +53,6 @@ public class BossAirplane : EnemyBase
 
     protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
-
         //Temp
         return;
         //if (target != null)

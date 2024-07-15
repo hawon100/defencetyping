@@ -5150,9 +5150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 2
   maxHp: 2
+  damage: 1
   isDeath: 0
   gold: 5
-  hpPanelPrefab: {fileID: 0}
   spriteRend: {fileID: 6388190055839536280}
 --- !u!96 &8024109543786906522
 TrailRenderer:

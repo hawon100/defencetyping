@@ -178,7 +178,7 @@ MonoBehaviour:
   _level: 0
   _hp: 10
   _maxHp: 10
-  _attack: 0
+  _attack: 1
   hpUI: {fileID: 0}
   spriteRenderer: {fileID: 8865927008626174173}
 --- !u!1 &3508323806308724288

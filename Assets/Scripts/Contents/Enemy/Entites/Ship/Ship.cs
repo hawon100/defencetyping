@@ -89,6 +89,7 @@ public class Ship : EnemyBase
         if (!target) target = Managers.Game.target;
 
         s.Init();
+        s.damage = enemyStat.damage;
         s.target = target;
         s.triggerTag = targetTag;
 

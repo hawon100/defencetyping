@@ -8,6 +8,7 @@ public class BulletBase : MonoBehaviour
 
     public Transform target;
     public float speed;
+    public int damage;
 
     protected Vector3 targetPos;
 
