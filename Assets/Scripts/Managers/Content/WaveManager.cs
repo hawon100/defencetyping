@@ -59,6 +59,7 @@ public class WaveManager : MonoBehaviour
                 bossWave = wave.BossBattle;
 
                 enemy.transform.position = spawnPos;
+                enemy.transform.parent = null;
                 
                 EnemyStatBase stat = enemy.GetComponent<EnemyStatBase>();
                 
@@ -76,6 +77,8 @@ public class WaveManager : MonoBehaviour
 
     public void WaveUpdate() //Problem
     {
+        if (!isWave) return;
+
         currentEnemy += 1;
         Debug.Log(currentEnemy);
 
@@ -100,13 +103,14 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()                                        
     {
+        currentWave += 1;
+        Debug.Log("Next Wave : " + currentWave);
+
         if (currentWave >= stage.Wave.Count)
         {
             WaveEnd();
             return;
         }
-        
-        currentWave += 1;
 
         if (stage.WaveRandom)
         {
@@ -119,6 +123,8 @@ public class WaveManager : MonoBehaviour
 
     public void WaveEnd()
     {
+        if (!isWave) return;
+
         currentWave = stage.Wave.Count;
         Debug.Log("Wave End!");
         isWave = false;

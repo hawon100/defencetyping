@@ -26,6 +26,8 @@ public class ZenWave : BulletBase
 
         transform.localScale = Vector2.one;
         Managers.Resource.Destroy(transform.parent.gameObject);
+
+        StopCoroutine(StableDestroy());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
