@@ -7,6 +7,7 @@ public class EnemyStatBase : MonoBehaviour
 {
     public int hp;
     public int maxHp;
+    public int damage;
     public bool isDeath;
     public int gold;
 
