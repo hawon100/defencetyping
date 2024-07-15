@@ -13,10 +13,10 @@ using System.ComponentModel;
 public class DataTransformer : EditorWindow
 {
 #if UNITY_EDITOR
-    [MenuItem("Tools/ParseExcel %#K")]
+    [MenuItem("Tools/ParseExcel %#D")]
     public static void ParseExcelDataToJson()
     {
-        ParseExcelDataToJson<MapData, Map>("Map");
+        ParseExcelDataToJson<LevelData, Level>("Level");
 
         Debug.Log("DataTransformer Completed");
     }
