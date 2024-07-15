@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1322509351741486512}
   - component: {fileID: 5747698767582502026}
+  - component: {fileID: 1057087654288119268}
+  - component: {fileID: 3533191839539539866}
   m_Layer: 0
   m_Name: TargetSign
   m_TagString: Untagged
@@ -84,3 +86,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1057087654288119268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035617318013527460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52f3a2d03e3d048b913540a606d63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &3533191839539539866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035617318013527460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f57697b9796704b850fe2a843a8f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 1

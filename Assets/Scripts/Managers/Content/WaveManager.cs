@@ -14,6 +14,7 @@ public class WaveManager : MonoBehaviour
     public bool isWave = true;
     public bool isWin = false;
     public bool isChange = true;
+    public bool bossWave = false;
 
     public event EndGame OnEndGame; 
 
@@ -49,6 +50,10 @@ public class WaveManager : MonoBehaviour
 
                 GameObject enemyObject = wave.WaveEnemie[i].Enemy.gameObject;
                 GameObject enemy = Managers.Resource.Instantiate(enemyObject, null);
+
+                if (!wave.WaveEnemie[i].IsRandom) spawnPos = wave.WaveEnemie[i].Spawn;
+
+                bossWave = wave.BossBattle;
 
                 enemy.transform.position = spawnPos;
                 
@@ -126,6 +131,7 @@ public class WaveManager : MonoBehaviour
     {
         isWin = false;
         isWave = true;
+        bossWave = false;
         currentEnemy = 0;
         currentWave = 0;
     }

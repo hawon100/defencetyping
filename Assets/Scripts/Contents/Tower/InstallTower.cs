@@ -48,17 +48,10 @@ public class InstallTower : TowerBase
 
         timerate += Time.deltaTime;
 
-        TargetSign();
-
         if (timerate < cooltime) return;
 
         timerate = 0;
         OnAttack();
-    }
-
-    private void TargetSign()
-    {
-
     }
 
     private void CannonMove()
@@ -93,8 +86,12 @@ public class InstallTower : TowerBase
     {
         bool isRotate = true;
 
-        //GameObject t = Managers.Resource.Instantiate("TargetSign");
-        //t.transform.position = _target.position;
+        GameObject t = Managers.Resource.Instantiate("TargetSign");
+        t.transform.position = _target.position;
+
+        TargetSign ts = t.GetComponent<TargetSign>();
+        ts.tower = this;
+        ts.target = _target;
 
         while (isRotate)
         {

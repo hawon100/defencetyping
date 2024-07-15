@@ -7,11 +7,13 @@ public class WaveEnemy
 {
     public EnemyBase Enemy;
     public int Amount;
-    public Vector2 targetPoint;
+    public bool IsRandom = true;
+    public Vector2 Spawn;
 }
 
 [CreateAssetMenu(fileName = "New WaveData", menuName = "Data/WaveData", order = int.MinValue)]
 public class Wave : ScriptableObject
 {
     public List<WaveEnemy> WaveEnemie;
+    public bool BossBattle;
 }
