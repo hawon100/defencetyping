@@ -11,6 +11,7 @@ public class LobbyScene : BaseScene
         SceneType = Define.Scene.Lobby;
 
         //PlayerPrefs.DeleteKey("TeamData");
+        Managers.DSL.SaveChar();
 
         if (!PlayerPrefs.HasKey("CharacterData"))
         {
