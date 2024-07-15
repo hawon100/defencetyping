@@ -11,9 +11,10 @@ public class BossStat : EnemyStatBase
 
     public override void Init()
     {
-        if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
+        //if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
 
-        Transform canvas = Managers.Game.uiCanvas;
+        //Transform canvas = Managers.Game.uiCanvas;
+        Transform canvas = GameObject.Find("WordUI").transform;
         GameObject bar = Managers.Resource.Instantiate("UI/BossBar", canvas);
 
         hpBar = bar.GetComponent<BarController>();
@@ -37,7 +38,7 @@ public class BossStat : EnemyStatBase
     {
         spriteRend.color = Color.white;
 
-        StartCoroutine(ExplosionDeath());
+        if (isDeath) StartCoroutine(ExplosionDeath());
         UserStat.Gold += gold;
 
         base.Death();
