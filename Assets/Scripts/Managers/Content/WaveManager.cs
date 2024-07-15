@@ -89,7 +89,7 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()                                        
     {
-        if (currentWave + 1 >= stage.Wave.Count)
+        if (currentWave >= stage.Wave.Count && isWave)
         {
             WaveEnd();
             return;
@@ -112,6 +112,12 @@ public class WaveManager : MonoBehaviour
         isWave = false;
         //OnEndGame();
         isWin = true;
+    }
+
+    public void GameEnd()
+    {
+        isWave = false;
+        isWin = false;
     }
 
     public void WaveReset()

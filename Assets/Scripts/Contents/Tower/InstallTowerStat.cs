@@ -28,9 +28,16 @@ public class InstallTowerStat : TowerStat
                 if (Managers.DSL.charData.characters[i].objName == gameObject.name)
                 {
                     _level = Managers.DSL.charData.characters[i].level;
-                    _hp = Managers.DSL.charData.characters[i].hp;
-                    _maxHp = Managers.DSL.charData.characters[i].hp;
-                    _attack = Managers.DSL.charData.characters[i].attack;
+
+                    for(int j = 0; j < Managers.Data.LevelDict.Count; j++)
+                    {
+                        if (_level == Managers.Data.LevelDict[j + 1].level)
+                        {
+                            _hp = Managers.Data.LevelDict[j + 1].hp;
+                            _maxHp = Managers.Data.LevelDict[j + 1].hp;
+                            _attack = Managers.Data.LevelDict[j + 1].attack;
+                        }
+                    }
                 }
             }
         }

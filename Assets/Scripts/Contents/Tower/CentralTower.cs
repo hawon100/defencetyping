@@ -62,7 +62,9 @@ public class CentralTower : TowerBase
         Debug.Log("OnSkill() was activated");
         GameObject w = Managers.Resource.Instantiate("Skills/WaveEffect");
         w.transform.position = transform.position;
-        w.GetComponentInChildren<ZenWave>().StableStart();
+        ZenWave z = w.GetComponentInChildren<ZenWave>();
+        z.damage = 10;
+        z.StableStart();
     }
 
     protected override void TowerFixed()

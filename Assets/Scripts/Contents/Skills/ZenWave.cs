@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZenWave : MonoBehaviour
+public class ZenWave : BulletBase
 {
     [SerializeField] private float seconds;
 
     private WaitForSeconds waitSeconds;
-    private void Awake()
+    protected override void Awake()
     {
         Debug.Log("Start");
         waitSeconds = new(seconds);
@@ -32,8 +32,9 @@ public class ZenWave : MonoBehaviour
     {
         //Debug.Log(other.name);
 
-        if (!other.gameObject.CompareTag("Enemy")) return;
+        if (!other.gameObject.CompareTag(triggerTag)) return;
 
-        other.GetComponent<EnemyStatBase>().Damage(10);
+        if (triggerTag == "Enemy") other.GetComponent<EnemyStatBase>().Damage(damage);
+        if (triggerTag == "Tower") other.GetComponent<TowerStat>().OnAttacked(damage);
     }
 }

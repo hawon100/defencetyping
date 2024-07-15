@@ -48,8 +48,10 @@ public class Airplane : EnemyBase
         //    target = Managers.Game.target;
 
         GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
-        b.GetComponent<Bomb>().StartBomb();
         b.transform.position = transform.position;
+        Bomb d = b.GetComponent<Bomb>();
+        d.StartBomb();
+        d.damage = enemyStat.damage;
     }
 
     protected override void Detected()
@@ -92,20 +94,21 @@ public class Airplane : EnemyBase
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        return;
+        //return;
 
         if (collision.gameObject.CompareTag("Background"))
         {
             isMove = false;
             //Managers.Wave.WaveUpdate();
+            enemyStat.Damage(8); //ÇÊ¸ê
             Managers.Resource.Destroy(gameObject);
         }
 
-        if (OutOfScreen())
-        {
-            isMove = false;
-            //Managers.Wave.WaveUpdate();
-            Managers.Resource.Destroy(gameObject);
-        }
+        //else if (OutOfScreen())
+        //{
+        //    isMove = false;
+        //    //Managers.Wave.WaveUpdate();
+        //    Managers.Resource.Destroy(gameObject);
+        //}
     }
 }
