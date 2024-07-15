@@ -791,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 3
+  damage: 0
   isDeath: 0
   gold: 0
   spriteRend: {fileID: 1901913400}
@@ -1210,6 +1211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 3
+  damage: 0
   isDeath: 0
   gold: 0
   spriteRend: {fileID: 1614381921}
@@ -2993,6 +2995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 3
+  damage: 0
   isDeath: 0
   gold: 0
   spriteRend: {fileID: 454536825}
@@ -5420,6 +5423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 3
+  damage: 0
   isDeath: 0
   gold: 0
   spriteRend: {fileID: 565344930}
@@ -8565,6 +8569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 3
+  damage: 0
   isDeath: 0
   gold: 0
   spriteRend: {fileID: 1555743910182207176}
@@ -13696,6 +13701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   maxHp: 3
+  damage: 0
   isDeath: 0
   gold: 0
   spriteRend: {fileID: 5339360975954286698}

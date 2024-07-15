@@ -53,8 +53,8 @@ public class MapSelect : MonoBehaviour
         {
             if (obj.name == eventButtonName)
             {
-                Managers.Game.currentStage = Resources.Load<Stage>($"Datas/Scriptable/Stages/{obj.name}");
-                //Debug.Log(Managers.Game.currentStage);
+                Managers.Game.currentStage = Resources.Load<Stage>($"Data/Scriptable/Stages/{obj.name}");
+                Debug.Log(Managers.Game.currentStage);
             }
         }
     }

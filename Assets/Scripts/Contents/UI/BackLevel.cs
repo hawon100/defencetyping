@@ -69,6 +69,8 @@ public class BackLevel : MonoBehaviour
 
     private void LevelUp(int index)
     {
+        if (Managers.DSL.charData.characters[index].level == Managers.Data.LevelDict[10].level) return;
+
         string jsonData = PlayerPrefs.GetString("CharacterData");
         Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonData);
 
