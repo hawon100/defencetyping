@@ -4,6 +4,7 @@ public class TowerStat : MonoBehaviour
 {
     public TowerStatUI towerStatUI;
     public Vector2     towerPos;
+    public bool isDestroy;
 
     [SerializeField] protected int _level;
     [SerializeField] protected int _hp;
@@ -18,6 +19,7 @@ public class TowerStat : MonoBehaviour
     public virtual void Init()
     {
         Hp = MaxHp;
+        isDestroy = false;
     }
 
     //public virtual void OnAttacked(TowerStat attacker)
@@ -49,7 +51,7 @@ public class TowerStat : MonoBehaviour
         GameObject e = Managers.Resource.Instantiate("VFX/boom");
         e.transform.position = transform.position;
 
-        Managers.Resource.Destroy(this.gameObject);
+        //Managers.Resource.Destroy(this.gameObject);
     }
 
     //protected virtual void OnDead(TowerStat attacker)

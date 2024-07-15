@@ -69,9 +69,16 @@ public class InstallTowerStat : TowerStat
 
     protected override void OnDead()
     {
-        Managers.Resource.Destroy(this.gameObject);
+        gameObject.SetActive(false);
+        isDestroy = true;
+        Invoke("OnTimeDead", 5);
         Managers.Resource.Destroy(hpUI.gameObject);
         base.OnDead();
+    }
+
+    private void OnTimeDead()
+    {
+        Managers.Resource.Destroy(gameObject);
     }
 
     //protected virtual void OnDead(TowerStat attacker)
