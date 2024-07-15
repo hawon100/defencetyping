@@ -39,8 +39,9 @@ public class BossStat : EnemyStatBase
         spriteRend.color = Color.white;
 
         if (isDeath) StartCoroutine(ExplosionDeath());
+        Managers.Resource.Destroy(hpBar.gameObject);
         UserStat.Gold += gold;
-        Managers.Wave.GameEnd();
+        //Managers.Wave.GameEnd();
 
         base.Death();
     }

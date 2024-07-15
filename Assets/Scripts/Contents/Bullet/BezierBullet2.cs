@@ -64,6 +64,10 @@ public class BezierBullet2 : BulletBase
         t += Time.deltaTime;
         targetPoint = target.position;
         transform.position = Bezier(startPoint, targetPoint, height, t / speed); //fail!
+
+
+        if (isDistance(transform.position, target.position, 0.5f))
+            base.Hit();
     }
 
     private Vector3 Bezier(Vector3 startPos, Vector3 endPos, float height, float t)
@@ -97,7 +101,6 @@ public class BezierBullet2 : BulletBase
             base.Hit();
             return;
         }
-        //if (!(Vector2.Distance(transform.position, target.position) < 0.9f)) return;
 
         //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;

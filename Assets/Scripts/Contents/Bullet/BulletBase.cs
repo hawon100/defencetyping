@@ -57,4 +57,9 @@ public class BulletBase : MonoBehaviour
         trailRend.Clear();
         Managers.Resource.Destroy(gameObject);
     }
+
+    protected bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
+    {
+        return (targetVec - currentVec).sqrMagnitude <= distance * distance;
+    }
 }
