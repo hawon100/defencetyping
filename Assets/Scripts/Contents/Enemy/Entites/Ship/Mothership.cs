@@ -56,9 +56,9 @@ public class Mothership : EnemyBase
 
     protected override void Attack()
     {
-        GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
+        //GameObject b = Managers.Resource.Instantiate(directBullet.gameObject, null);
 
-        b.transform.position = transform.position;
+        //b.transform.position = transform.position;
 
         if (!isSpawn) return;
 
