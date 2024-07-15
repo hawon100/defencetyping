@@ -53,10 +53,16 @@ public class BossAirplane : EnemyBase
 
     protected override void Attack() //First : Detected(), if no target : target set to centraltower
     {
-        //Temp
+        target = Managers.Game.target;
+
+        GameObject w = Managers.Resource.Instantiate("Skills/AtomicWave");
+        w.transform.position = transform.position;
+        ZenWave z = w.GetComponentInChildren<ZenWave>();
+        z.damage = 3;
+        if (isDistance(transform.position, target.position, 5f)) z.damage = 100;
+        z.StableStart();
+
         return;
-        //if (target != null)
-        //    target = Managers.Game.target; 
 
         GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
         b.transform.position = transform.position;

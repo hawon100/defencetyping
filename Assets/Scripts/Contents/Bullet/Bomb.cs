@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Bomb : BulletBase
 {
     [SerializeField] private SpriteRenderer spriteRend;
     [SerializeField] private GameObject boom;
@@ -24,6 +24,8 @@ public class Bomb : MonoBehaviour
             yield return delay0p2;
         }
 
+        GameObject d = Managers.Resource.Instantiate("VFX/BigExplosion");
+        d.transform.position = transform.position;
         GameObject b = Managers.Resource.Instantiate(boom, null);
         b.transform.position = transform.position;
 
@@ -33,5 +35,12 @@ public class Bomb : MonoBehaviour
     private void Death()
     {
         Managers.Resource.Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("Tower")) return;
+
+        other.GetComponent<TowerStat>().OnAttacked(1);
     }
 }
