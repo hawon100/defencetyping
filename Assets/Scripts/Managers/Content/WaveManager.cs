@@ -89,7 +89,7 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()                                        
     {
-        if (currentWave >= stage.Wave.Count && isWave)
+        if (currentWave > stage.Wave.Count && isWave)
         {
             WaveEnd();
             return;
@@ -102,6 +102,8 @@ public class WaveManager : MonoBehaviour
             WaveExecute(stage.Wave[Random.Range(0, stage.Wave.Count)]);
             return;
         }
+
+        if (currentWave >= stage.Wave.Count && !isWave) return;
 
         WaveExecute(stage.Wave[currentWave]);
     }

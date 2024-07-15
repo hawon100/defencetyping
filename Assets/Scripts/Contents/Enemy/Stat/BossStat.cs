@@ -40,6 +40,7 @@ public class BossStat : EnemyStatBase
 
         if (isDeath) StartCoroutine(ExplosionDeath());
         UserStat.Gold += gold;
+        Managers.Wave.GameEnd();
 
         base.Death();
     }
