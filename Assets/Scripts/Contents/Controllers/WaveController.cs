@@ -19,7 +19,8 @@ public class WaveController : MonoBehaviour
     [SerializeField] private Transform installTowerGroup;
     private int curWave;
 
-    List<GameObject> _list = new();
+    List<GameObject> _towerList = new();
+    List<GameObject> _functionList = new();
 
     private void Start()
     {
@@ -27,8 +28,10 @@ public class WaveController : MonoBehaviour
 
         thisStage = Managers.Game.currentStage;
 
-        for (int i = 0; i < thisStage.TowerBuilderPos.Count; i++) _list.Add(Managers.Resource.Instantiate("Tower/Tower"));
-        foreach(var obj in _list) Managers.Resource.Destroy(obj);
+        for (int i = 0; i < thisStage.TowerBuilderPos.Count; i++) _towerList.Add(Managers.Resource.Instantiate("Tower/Tower"));
+        foreach(var obj in _towerList) Managers.Resource.Destroy(obj);
+        for (int i = 0; i < thisStage.TowerBuilderPos.Count; i++) _functionList.Add(Managers.Resource.Instantiate($"ShortKey/F{i+2}"));
+        foreach(var obj in _functionList) Managers.Resource.Destroy(obj);
         
         GameObject bg = Managers.Resource.Instantiate(thisStage.Background, null); 
         bg.transform.parent = installTowerGroup;
@@ -55,14 +58,17 @@ public class WaveController : MonoBehaviour
         for (int i = 0; i < thisStage.TowerBuilderPos.Count; i++) 
         {
             //GameObject tb = Managers.Resource.Instantiate(thisStage.Tower[i].TowerBuilder.gameObject, null);
-            var tb = Managers.Resource.Instantiate("Tower/Tower");
+            var tb = Managers.Resource.Instantiate("Tower/Tower", installTowerGroup);
+            var sk = Managers.Resource.Instantiate($"ShortKey/F{i + 2}", installTowerGroup);
             if (tb.GetComponent<BuildTower>().count == 0)
             {
                 tb.GetComponent<BuildTower>().count = i + 1;
             }
 
-            tb.transform.parent = installTowerGroup;
+            //tb.transform.parent = installTowerGroup;
             tb.transform.position = thisStage.TowerBuilderPos[i];
+            //sk.transform.parent = installTowerGroup;
+            sk.transform.position = thisStage.TowerBuilderPos[i] - new Vector2(0, 0.8f);
             BuildTower bt = tb.GetComponent<BuildTower>();
             bt.WordPanel = centeralTower.WordPanel;
             bt.InputPanel = centeralTower.InputPanel;
