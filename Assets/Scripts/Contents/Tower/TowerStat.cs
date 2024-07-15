@@ -44,7 +44,12 @@ public class TowerStat : MonoBehaviour
 
     protected virtual void OnDead()
     {
-        
+        GameObject d = Managers.Resource.Instantiate("VFX/BigExplosion");
+        d.transform.position = transform.position;
+        GameObject e = Managers.Resource.Instantiate("VFX/boom");
+        e.transform.position = transform.position;
+
+        Managers.Resource.Destroy(this.gameObject);
     }
 
     //protected virtual void OnDead(TowerStat attacker)
