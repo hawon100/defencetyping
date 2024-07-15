@@ -95,7 +95,7 @@ public class BezierBullet : BulletBase
 
     private void GiveDamage(GameObject gameObject)
     {
-        gameObject.GetComponent<TowerStat>().OnAttacked(1);
+        gameObject.GetComponent<TowerStat>().OnAttacked(damage);
         target = null;
     }
 

@@ -27,10 +27,13 @@ public class InstallTower : TowerBase
 
     private readonly WaitForSeconds waiting = new(1f);
 
+    private TowerStat towerStat;
+
     //Attack Enabled() -> InstallTowerStat.Init(); 
 
     protected override void Start()
     {
+        towerStat = GetComponent<TowerStat>();
         rotSpeed = 5f;
         for (int i = 0; i < 3; i++)
         {
@@ -111,6 +114,7 @@ public class InstallTower : TowerBase
         BulletBase s = b.GetComponent<BulletBase>();
         s.Init();
         Debug.Log(_target);
+        s.damage = towerStat.Attack;
         s.target = _target;
         s.triggerTag = _targetTag;
 
