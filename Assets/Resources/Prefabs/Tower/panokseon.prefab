@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerStatUI: {fileID: 0}
   towerPos: {x: 0, y: 0}
+  isDestroy: 0
   _level: 0
   _hp: 3
   _maxHp: 3

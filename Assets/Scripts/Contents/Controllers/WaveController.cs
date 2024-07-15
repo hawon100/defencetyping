@@ -5,7 +5,7 @@ using UnityEngine.UI; //Temp
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] private Stage thisStage;
+    public Stage thisStage;
 
     [SerializeField] private Text waveText; //Temp
     [SerializeField] private Image analogPanel;
@@ -14,7 +14,7 @@ public class WaveController : MonoBehaviour
     [SerializeField] private Text gameText;
 
     [Header("GameController(Temp)")]
-    [SerializeField] private GameController gameController;
+    public GameController gameController;
     [SerializeField] private BuildTower centeralTower;
     [SerializeField] private Transform installTowerGroup;
     private int curWave;
