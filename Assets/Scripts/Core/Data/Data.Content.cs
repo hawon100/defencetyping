@@ -102,5 +102,30 @@ namespace Data
     }
     #endregion
 
+    #region Level
+
+    [Serializable]
+    public class Level
+    {
+        public int level;
+        public int hp;
+        public int attack;
+    }
+
+    [Serializable]
+    public class LevelData : ILoader<int, Level>
+    {
+        public List<Level> levels = new();
+
+        public Dictionary<int, Level> MakeDict()
+        {
+            Dictionary<int, Level> dict = new();
+            foreach (Level level in levels) dict.Add(level.level, level);
+            return dict;
+        }
+    }
+
+    #endregion
+
     #endregion
 }
