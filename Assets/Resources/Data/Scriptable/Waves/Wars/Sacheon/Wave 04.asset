@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c398807dc78f7d7498cc2079fd074515, type: 3}
-  m_Name: Wave_Easy_02
+  m_Name: Wave 04
   m_EditorClassIdentifier: 
   WaveEnemie:
+  - Enemy: {fileID: 8223618162424107102, guid: 909bdad6f8900ae46932e0520ac9c258, type: 3}
+    Amount: 2
+    IsRandom: 0
+    Spawn: {x: 0, y: 0}
   - Enemy: {fileID: 6090729184465292171, guid: d68e2c26e9a6d884eb4aff120eb2c778, type: 3}
-    Amount: 6
-    targetPoint: {x: 0, y: 0}
-  - Enemy: {fileID: 4318144069882673079, guid: dad0d0356477b744ab21ab450f251c35, type: 3}
-    Amount: 1
-    targetPoint: {x: 0, y: 0}
+    Amount: 2
+    IsRandom: 0
+    Spawn: {x: 0, y: 0}
+  BossBattle: 0

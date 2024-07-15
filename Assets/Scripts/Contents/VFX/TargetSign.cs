@@ -5,14 +5,14 @@ using UnityEngine;
 public class TargetSign : MonoBehaviour
 {
     public Transform target;
-    public InstallTower tower;
+    public GameObject tower;
     private void FixedUpdate()
     {
         if (!target || !tower) return;
 
         transform.position = target.position;
 
-        if (target.gameObject.activeSelf && tower.gameObject.activeSelf) return;
+        if (target.gameObject.activeSelf && tower.activeSelf) return;
 
         Managers.Resource.Destroy(this.gameObject);
     }
