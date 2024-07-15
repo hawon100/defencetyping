@@ -11,6 +11,7 @@ public class WaveManager : MonoBehaviour
     public Vector3 spawnPos;
     public int currentWave;
     public int currentEnemy;
+    public int currentAllEnemy;
     public bool isWave = true;
     public bool isWin = false;
     public bool isChange = true;
@@ -68,15 +69,17 @@ public class WaveManager : MonoBehaviour
             }
         }
 
+        currentAllEnemy = currentEnemy;
+        currentEnemy = 0;
         Debug.Log("Wave " + (currentWave  + 1) + "/Spawned : " + currentEnemy);
     }
 
     public void WaveUpdate() //Problem
     {
-        currentEnemy -= 1;
+        currentEnemy += 1;
         Debug.Log(currentEnemy);
 
-        if (currentEnemy > 0) return;
+        if (currentEnemy < currentAllEnemy) return;
 
         Debug.Log("Wave " + (currentWave + 1) + "/Destroyed : " + currentEnemy);
         currentEnemy = 0;
@@ -97,8 +100,6 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()                                        
     {
-        Debug.Log(currentWave);
-
         if (currentWave >= stage.Wave.Count)
         {
             WaveEnd();
