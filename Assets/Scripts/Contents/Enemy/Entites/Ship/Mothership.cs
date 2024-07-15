@@ -17,6 +17,7 @@ public class Mothership : EnemyBase
     private Vector3 spawnVec;
 
     private bool isSpawn;
+    private int spawned;
 
     protected override void Awake()
     {
@@ -75,11 +76,24 @@ public class Mothership : EnemyBase
             spawnVec.y = Mathf.Sin(i * Mathf.Deg2Rad) * radius;
 
             GameObject s = Managers.Resource.Instantiate(ship.gameObject, transform.parent = null);
-
-            Managers.Wave.currentEnemy++;
-            //s.transform.position = transform.position;
             s.transform.position = transform.position + spawnVec;
+
+            EnemyStatBase stat = s.GetComponent<EnemyStatBase>();
+
+            stat.onPlayerDeath -= AllDestroyed; 
+            stat.onPlayerDeath += AllDestroyed;
+
+            spawned += 1;
         }
+    }
+
+    private void AllDestroyed()
+    {
+        spawned -= 1;
+
+        if (spawned > 0) return;
+
+        isSpawn = true;
     }
 
     protected override void Move()

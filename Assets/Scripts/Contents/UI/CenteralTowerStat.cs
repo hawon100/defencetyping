@@ -43,6 +43,7 @@ public class CenteralTowerStat : TowerStat
     protected override void OnDead()
     {
         Managers.Wave.isWave = false;
+        Managers.Wave.isWin = false;
     }
 
     //protected virtual void OnDead(TowerStat attacker)
