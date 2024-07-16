@@ -19,6 +19,7 @@ public class WaveController : MonoBehaviour
     public GameController gameController;
     [SerializeField] private BuildTower centeralTower;
     [SerializeField] private Transform installTowerGroup;
+    private bool isConveration = true;
     private int curWave;
 
     List<GameObject> _towerList = new();
@@ -51,16 +52,6 @@ public class WaveController : MonoBehaviour
         }
 
         Managers.Wave.stage = thisStage;
-
-        //fixed 
-        while (true)
-        {
-            if (ConversationManager.Instance.DialoguePanel.gameObject.activeSelf == false)
-            {
-                Managers.Wave.WaveStart();
-                break;
-            }
-        }
         
         UpdateWave_Temp();
     }
@@ -91,8 +82,19 @@ public class WaveController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        WaveStarter();
         UpdateWave_Temp();
         UpdateGame(); //수정 사항!!
+    }
+
+    private void WaveStarter()
+    {
+        if (!isConveration) return;
+
+        if (ConversationManager.Instance.DialoguePanel.gameObject.activeSelf) return;
+        
+        isConveration = false;
+        Managers.Wave.WaveStart();
     }
 
     private void UpdateWave_Temp()
