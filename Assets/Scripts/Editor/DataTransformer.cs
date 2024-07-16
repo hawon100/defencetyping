@@ -16,7 +16,7 @@ public class DataTransformer : EditorWindow
     [MenuItem("Tools/ParseExcel %#D")]
     public static void ParseExcelDataToJson()
     {
-        ParseExcelDataToJson<LevelData, Level>("Level");
+        ParseExcelDataToJson<WordData, Word>("Word");
 
         Debug.Log("DataTransformer Completed");
     }

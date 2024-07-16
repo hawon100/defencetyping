@@ -1,67 +1,179 @@
 {
   "words": [
     {
-      "wordIndex": "1",
+      "wordIndex": 1,
       "buildword": "판옥선",
-      "attackword": "충무공 이순신",
-      "skillword": "임진왜란",
-      "fixedword": "오자병법"
-    },
-    {
-      "wordIndex": "2",
-      "buildword": "방패선",
-      "attackword": "무의공 이순신",
-      "skillword": "정유재란",
-      "fixedword": "손자병법"
-    },
-    {
-      "wordIndex": "3",
-      "buildword": "거북선",
       "attackword": "태종 이방원",
-      "skillword": "조명연합군",
-      "fixedword": "금신전선 상유십이"
+      "skillword": "오자병법",
+      "fixedword": "임진왜란"
     },
     {
-      "wordIndex": "4",
+      "wordIndex": 2,
+      "buildword": "방패선",
+      "attackword": "충무공 이순신",
+      "skillword": "손자병법",
+      "fixedword": "정유재란"
+    },
+    {
+      "wordIndex": 3,
+      "buildword": "거북선",
+      "attackword": "무의공 이순신",
+      "skillword": "금신전선 상유십이",
+      "fixedword": "조명연합군"
+    },
+    {
+      "wordIndex": 4,
       "buildword": "해골선",
-      "attackword": "권율",
-      "skillword": "사로병진책",
-      "fixedword": "필사즉생 필생즉사"
+      "attackword": "충장공 권율",
+      "skillword": "필사즉생 필생즉사",
+      "fixedword": "사로병진책"
     },
     {
-      "wordIndex": "5",
+      "wordIndex": 5,
       "buildword": "맹선",
       "attackword": "류성룡",
-      "skillword": "난중일기",
-      "fixedword": "차수약제 사즉무감"
+      "skillword": "차수약제 사즉무감",
+      "fixedword": "난중일기"
     },
     {
-      "wordIndex": "6",
+      "wordIndex": 6,
       "buildword": "과선",
       "attackword": "원균",
-      "skillword": "선조실록",
-      "fixedword": "전방급신 물언아사"
+      "skillword": "전방급신 물언아사",
+      "fixedword": "선조실록"
     },
     {
-      "wordIndex": "7",
+      "wordIndex": 7,
       "buildword": "협선",
       "attackword": "선조",
-      "skillword": "다대포진성 전투",
-      "fixedword": "물령망동 정중여산"
+      "skillword": "물령망동 정중여산",
+      "fixedword": "동래성 전투"
     },
     {
-      "wordIndex": "8",
+      "wordIndex": 8,
       "buildword": "사후선",
       "attackword": "진린",
-      "skillword": "전주성 전투",
-      "fixedword": "금일고결사 원천필섬차적"
+      "skillword": "금일고결사",
+      "fixedword": "충주 탄금대 전투"
     },
     {
-      "wordIndex": "9",
-      "buildword": "우전선",
+      "wordIndex": 9,
+      "buildword": "누전선",
       "attackword": "등자룡",
-      "skillword": "적진포 해전",
-      "fixedword": "난중일기"
+      "skillword": "원천필섬차적",
+      "fixedword": "옥포 해전"
+    },
+    {
+      "wordIndex": 10,
+      "buildword": "신기전",
+      "attackword": "이억기",
+      "skillword": "난중일기",
+      "fixedword": "정암진 전투"
+    },
+    {
+      "wordIndex": 11,
+      "buildword": "화차",
+      "attackword": "이경록",
+      "skillword": "삼척서천 산하동색",
+      "fixedword": "용인 전투"
+    },
+    {
+      "wordIndex": 12,
+      "buildword": "두정갑",
+      "attackword": "이시언",
+      "skillword": "일휘소탕 혈염산하",
+      "fixedword": "이치 전투"
+    },
+    {
+      "wordIndex": 13,
+      "buildword": "철찰갑",
+      "attackword": "어영남",
+      "skillword": "제사망 군졸문",
+      "fixedword": "한산도 대첩"
+    },
+    {
+      "wordIndex": 14,
+      "buildword": "피찰갑",
+      "attackword": "이운룡",
+      "skillword": "친상사장 이진기직",
+      "fixedword": "평양성 전투"
+    },
+    {
+      "wordIndex": 15,
+      "buildword": "쇄자갑",
+      "attackword": "정기룡",
+      "skillword": "투료연저 아핍기덕",
+      "fixedword": "금산 전투"
+    },
+    {
+      "wordIndex": 16,
+      "buildword": "경번갑",
+      "attackword": "김득기",
+      "skillword": "초혼동탑 설전공향",
+      "fixedword": "부산포 해전"
+    },
+    {
+      "wordIndex": 17,
+      "buildword": "면제배갑",
+      "attackword": "곽재우",
+      "skillword": "전선수과 미신불사",
+      "fixedword": "연안성 전투"
+    },
+    {
+      "wordIndex": 18,
+      "buildword": "엄심갑",
+      "attackword": "나대용",
+      "skillword": "즉불감 모아의",
+      "fixedword": "북관 대첩"
+    },
+    {
+      "wordIndex": 19,
+      "buildword": "지갑",
+      "attackword": "정운",
+      "skillword": "주득쌍룡검",
+      "fixedword": "진주성 전투"
+    },
+    {
+      "wordIndex": 20,
+      "buildword": "어린갑",
+      "attackword": "배흥립",
+      "skillword": "춘추기상웅",
+      "fixedword": "독성산성 전투"
+    },
+    {
+      "wordIndex": 21,
+      "buildword": "비거",
+      "attackword": "안위",
+      "skillword": "맹산서해의",
+      "fixedword": "벽제관 전투"
+    },
+    {
+      "wordIndex": 22,
+      "buildword": "마름쇠",
+      "attackword": "송희립",
+      "skillword": "충분고금동",
+      "fixedword": "행주 대첩"
+    },
+    {
+      "wordIndex": 23,
+      "buildword": "국궁",
+      "attackword": "영규",
+      "skillword": "삼도수군통제사",
+      "fixedword": "칠천량 해전"
+    },
+    {
+      "wordIndex": 24,
+      "buildword": "편전",
+      "attackword": "김면",
+      "skillword": "수군절도사",
+      "fixedword": "명량 해전"
+    },
+    {
+      "wordIndex": 25,
+      "buildword": "쇠뇌",
+      "attackword": "정문부",
+      "skillword": "덕풍부원군",
+      "fixedword": "노량 해전"
     }
   ]
 }
