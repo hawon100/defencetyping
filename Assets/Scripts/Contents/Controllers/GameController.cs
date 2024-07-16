@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
     public Transform target;
     public Transform background;
 
+    public GameObject dialogue;
+
     private KeyCode _key;
     bool _isInput = false;
 
