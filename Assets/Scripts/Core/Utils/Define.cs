@@ -54,6 +54,7 @@ public class Define
         Lobby,
         Game,
         Loading,
+        Dev,
     }
 
     public enum Sound
