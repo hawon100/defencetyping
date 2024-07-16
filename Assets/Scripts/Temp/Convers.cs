@@ -6,9 +6,13 @@ using UnityEngine;
 public class Convers : MonoBehaviour
 {
     public NPCConversation con;
+    public WaveController wave;
 
     private void Start()
     {
-        ConversationManager.Instance.StartConversation(con);
+        if(wave.thisStage.name == "Battle of Okpo")
+        {
+            ConversationManager.Instance.StartConversation(con);
+        }
     }
 }

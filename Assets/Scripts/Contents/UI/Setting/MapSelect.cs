@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using Data;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class MapInfomation
@@ -47,6 +48,7 @@ public class MapSelect : MonoBehaviour
 
     public void StageSelect()
     {
+        Managers.Sound.Play(_lobby.buttonClick);
         string eventButtonName = EventSystem.current.currentSelectedGameObject.name;
 
         foreach (var obj in _objList)

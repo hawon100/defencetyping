@@ -1,3 +1,4 @@
+using DialogueEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class GameScene : BaseScene
 {
     public AudioClip horn;
+    private bool isConveration = true;
 
     protected override void Init()
     {
@@ -13,7 +15,20 @@ public class GameScene : BaseScene
         SceneType = Define.Scene.Game;
 
         Managers.Typing.WordReset();
+    }
 
+    private void Update()
+    {
+        WaveStarter();
+    }
+
+    private void WaveStarter()
+    {
+        if (!isConveration) return;
+
+        if (ConversationManager.Instance.DialoguePanel.gameObject.activeSelf) return;
+
+        isConveration = false;
         Managers.Sound.Play(horn);
     }
 
