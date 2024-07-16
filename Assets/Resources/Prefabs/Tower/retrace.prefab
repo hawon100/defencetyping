@@ -131,8 +131,8 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0}
   _installType: 0
   bullet: {fileID: 1050873140245376981, guid: 5a91c76dcd06a0041891be01a5e18f86, type: 3}
-  cooltime: 2.5
-  delayTime: 1
+  cooltime: 4
+  delayTime: 2
   catapult: {fileID: 5179260317231138741}
   shotPoint: {fileID: 6289512263863788873}
 --- !u!114 &-5111090619318574725

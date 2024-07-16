@@ -92,7 +92,7 @@ public class WaveController : MonoBehaviour
         }
         else
         {
-            waveText.text = "Clear!";
+            waveText.text = Managers.Wave.isWin ? "Clear!" : "Fail!";
         }
     }
 

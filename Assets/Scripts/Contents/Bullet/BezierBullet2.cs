@@ -53,6 +53,11 @@ public class BezierBullet2 : BulletBase
         startPoint = transform.position;
     }
 
+    protected override void Detected()
+    {
+        base.Detected();
+    }
+
     protected override void Move()
     {
         if (!target)
@@ -65,9 +70,14 @@ public class BezierBullet2 : BulletBase
         targetPoint = target.position;
         transform.position = Bezier(startPoint, targetPoint, height, t / speed); //fail!
 
+        Detected();
 
-        if (isDistance(transform.position, target.position, 0.5f))
-            base.Hit();
+        if (!targetInfo) return;
+
+        if (targetInfo.transform != target) return;
+
+        targetInfo = null;
+        base.Hit();
     }
 
     private Vector3 Bezier(Vector3 startPos, Vector3 endPos, float height, float t)
@@ -88,10 +98,10 @@ public class BezierBullet2 : BulletBase
         return Vector3.Lerp(XY, YZ, t);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag(triggerTag)) Hit();
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag(triggerTag)) Hit();
+    //}
 
     protected override void Hit()
     {
@@ -104,7 +114,7 @@ public class BezierBullet2 : BulletBase
 
         //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;
-        if (!isDistance(transform.position, target.position, 0.5f)) return;
+        //if (!isDistance(transform.position, target.position, 0.5f)) return;
 
         target.GetComponent<EnemyStatBase>().Damage(1);
         target = null;
