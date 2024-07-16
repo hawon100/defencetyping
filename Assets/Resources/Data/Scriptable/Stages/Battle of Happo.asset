@@ -26,8 +26,6 @@ MonoBehaviour:
   WaveLoop: 0
   WaveRandom: 0
   Wave:
-  - {fileID: 11400000, guid: 297fa608b97f38047af359b41099aff3, type: 2}
-  - {fileID: 11400000, guid: d440053e1228a4b428f6ae7e1aa0dc0f, type: 2}
-  - {fileID: 11400000, guid: abcfde6b7658c7c47a846600d9b87766, type: 2}
-  - {fileID: 11400000, guid: f14648118ffe4364495f755238f234ea, type: 2}
-  - {fileID: 11400000, guid: 0cf68516bd8df0d499f5bf9c59b05849, type: 2}
+  - {fileID: 11400000, guid: 6c2873837c68b3443bc39cbafc090eef, type: 2}
+  - {fileID: 11400000, guid: 10d65e860ff310d47853cb17d08af0cd, type: 2}
+  - {fileID: 11400000, guid: 42fbf4a2446b74141853da931a8b7317, type: 2}

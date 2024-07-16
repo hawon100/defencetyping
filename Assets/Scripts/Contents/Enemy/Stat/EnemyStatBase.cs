@@ -32,7 +32,7 @@ public class EnemyStatBase : MonoBehaviour
         if (isDeath) return;
 
         isDeath = true;
-        onPlayerDeath?.Invoke();
+        //onPlayerDeath?.Invoke();
         //Managers.Resource.Instantiate("VFX/DustExplosion");
         Managers.Resource.Destroy(gameObject);
         //Managers.Spawn.curEnemy.Remove(this.gameObject);
@@ -52,8 +52,7 @@ public class EnemyStatBase : MonoBehaviour
         if (isDeath)
         {
             //Managers.Wave.WaveUpdate();
-            Debug.Log("Death");
-            //onPlayerDeath?.Invoke();
+            onPlayerDeath?.Invoke();
         }
     }
 }

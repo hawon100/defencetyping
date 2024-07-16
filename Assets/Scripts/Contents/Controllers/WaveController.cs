@@ -7,7 +7,7 @@ public class WaveController : MonoBehaviour
 {
     public Stage thisStage;
 
-    [SerializeField] private Text waveText; //Temp
+    [SerializeField] private Text waveText;
     [SerializeField] private Image analogPanel;
     [SerializeField] private GameObject returnButton;
     [SerializeField] private Color darkColor;
@@ -85,7 +85,8 @@ public class WaveController : MonoBehaviour
 
     private void UpdateWave_Temp()
     {
-        waveText.text = "Wave : " + (Managers.Wave.currentWave + 1);
+        waveText.text = "Wave " + (Managers.Wave.currentWave + 1) + " (" + Managers.Wave.currentEnemy
+            + "/" + Managers.Wave.currentAllEnemy + ")";
     }
 
     private void UpdateGame()

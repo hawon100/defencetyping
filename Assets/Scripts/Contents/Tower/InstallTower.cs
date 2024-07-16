@@ -40,6 +40,11 @@ public class InstallTower : TowerBase
             GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
             Managers.Resource.Destroy(b);
         }
+
+        GameObject t = Managers.Resource.Instantiate("TargetSign");
+        t.SetActive(false);
+        t.transform.parent = this.transform;
+        targetSign = t.GetComponent<TargetSign>();
     }
 
     protected override void Update()
@@ -82,16 +87,23 @@ public class InstallTower : TowerBase
         StartCoroutine(AttackCoroutine());
     }
 
+    private TargetSign targetSign;
+
     private IEnumerator AttackCoroutine()
     {
         bool isRotate = true;
 
-        GameObject t = Managers.Resource.Instantiate("TargetSign");
-        t.transform.position = _target.position;
-
-        TargetSign ts = t.GetComponent<TargetSign>();
-        ts.tower = this;
-        ts.target = _target;
+        if (_target)
+        {
+            targetSign.gameObject.SetActive(true);
+            targetSign.transform.position = _target.position;
+            targetSign.tower = this.gameObject;
+            targetSign.target = _target;
+        }
+        else
+        {
+            targetSign.gameObject.SetActive(false);
+        }
 
         while (isRotate)
         {
