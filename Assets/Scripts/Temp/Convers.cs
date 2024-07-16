@@ -7,11 +7,8 @@ public class Convers : MonoBehaviour
 {
     public NPCConversation con;
 
-    private void OnMouseOver()
+    private void Start()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            ConversationManager.Instance.StartConversation(con);
-        }
+        ConversationManager.Instance.StartConversation(con);
     }
 }

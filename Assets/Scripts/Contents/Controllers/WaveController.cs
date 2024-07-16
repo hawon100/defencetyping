@@ -1,3 +1,4 @@
+using DialogueEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,7 +51,17 @@ public class WaveController : MonoBehaviour
         }
 
         Managers.Wave.stage = thisStage;
-        Managers.Wave.WaveStart();
+
+        //fixed 
+        while (true)
+        {
+            if (ConversationManager.Instance.DialoguePanel.gameObject.activeSelf == false)
+            {
+                Managers.Wave.WaveStart();
+                break;
+            }
+        }
+        
         UpdateWave_Temp();
     }
 
