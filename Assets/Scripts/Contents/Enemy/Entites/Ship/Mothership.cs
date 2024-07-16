@@ -83,6 +83,10 @@ public class Mothership : EnemyBase
             stat.onPlayerDeath -= AllDestroyed; 
             stat.onPlayerDeath += AllDestroyed;
 
+            stat.onPlayerDeath -= Managers.Wave.WaveUpdate;
+            stat.onPlayerDeath += Managers.Wave.WaveUpdate;
+
+            Managers.Wave.currentAllEnemy += 1;
             spawned += 1;
         }
     }

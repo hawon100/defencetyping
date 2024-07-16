@@ -11,12 +11,15 @@ public class WaveManager : MonoBehaviour
     public Vector3 spawnPos;
     public int currentWave;
     public int currentEnemy;
+    public int currentAllEnemy;
     public bool isWave = true;
     public bool isWin = false;
     public bool isChange = true;
     public bool bossWave = false;
 
     public event EndGame OnEndGame; 
+
+    //public List<GameObject> pla
 
     public void WaveStart()
     {
@@ -56,6 +59,7 @@ public class WaveManager : MonoBehaviour
                 bossWave = wave.BossBattle;
 
                 enemy.transform.position = spawnPos;
+                enemy.transform.parent = null;
                 
                 EnemyStatBase stat = enemy.GetComponent<EnemyStatBase>();
                 
@@ -66,14 +70,19 @@ public class WaveManager : MonoBehaviour
             }
         }
 
+        currentAllEnemy = currentEnemy;
+        currentEnemy = 0;
         Debug.Log("Wave " + (currentWave  + 1) + "/Spawned : " + currentEnemy);
     }
 
     public void WaveUpdate() //Problem
     {
-        currentEnemy -= 1;
+        if (!isWave) return;
 
-        if (currentEnemy > 0) return;
+        currentEnemy += 1;
+        Debug.Log(currentEnemy);
+
+        if (currentEnemy < currentAllEnemy) return;
 
         Debug.Log("Wave " + (currentWave + 1) + "/Destroyed : " + currentEnemy);
         currentEnemy = 0;
@@ -94,13 +103,14 @@ public class WaveManager : MonoBehaviour
 
     public void WaveChange()                                        
     {
-        if (currentWave > stage.Wave.Count && isWave)
+        currentWave += 1;
+        Debug.Log("Next Wave : " + currentWave);
+
+        if (currentWave >= stage.Wave.Count)
         {
             WaveEnd();
             return;
         }
-        
-        currentWave += 1;
 
         if (stage.WaveRandom)
         {
@@ -108,13 +118,14 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        if (currentWave >= stage.Wave.Count && !isWave) return;
-
-        WaveExecute(stage.Wave[currentWave]);
+        if (currentWave < stage.Wave.Count) WaveExecute(stage.Wave[currentWave]);
     }
 
     public void WaveEnd()
     {
+        if (!isWave) return;
+
+        currentWave = stage.Wave.Count;
         Debug.Log("Wave End!");
         isWave = false;
         //OnEndGame();

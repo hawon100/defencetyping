@@ -23,5 +23,7 @@ public class EffectControll : MonoBehaviour
 
         transform.localScale = Vector2.one;
         Managers.Resource.Destroy(this.gameObject);
+
+        StopCoroutine(StableDestroy());
     }
 }

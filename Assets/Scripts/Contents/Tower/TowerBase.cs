@@ -25,7 +25,6 @@ public abstract class TowerBase : MonoBehaviour
     {
         float detectedRange = _range;
 
-        Debug.Log(Managers.Wave.bossWave);
         if (Managers.Wave.bossWave) detectedRange = 20f;
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectedRange);

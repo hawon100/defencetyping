@@ -13,20 +13,17 @@ MonoBehaviour:
   m_Name: Battle of Sacheon
   m_EditorClassIdentifier: 
   Background: {fileID: 268256842326626876, guid: b3fa0ac092453b14bb4dbf9445ec3f53, type: 3}
-  Tower:
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: -4.5, y: 0}
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 0, y: 3}
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 0, y: -3}
-  - TowerBuilder: {fileID: 2105567412254394623, guid: e85f104122cc98f4e919be26483ed64e, type: 3}
-    TowerBuilderPos: {x: 4.5, y: 0}
+  TowerBuilderPos: []
+  Spawners: []
+  isRight: 0
+  isLeft: 0
+  isTop: 0
+  isBottom: 0
   WaveLoop: 0
   WaveRandom: 0
   Wave:
-  - {fileID: 11400000, guid: 297fa608b97f38047af359b41099aff3, type: 2}
-  - {fileID: 11400000, guid: d440053e1228a4b428f6ae7e1aa0dc0f, type: 2}
-  - {fileID: 11400000, guid: abcfde6b7658c7c47a846600d9b87766, type: 2}
-  - {fileID: 11400000, guid: f14648118ffe4364495f755238f234ea, type: 2}
-  - {fileID: 11400000, guid: 0cf68516bd8df0d499f5bf9c59b05849, type: 2}
+  - {fileID: 11400000, guid: a5497d9ca539e7542a2c5358a8e2c3d5, type: 2}
+  - {fileID: 11400000, guid: 82515d8990f75eb46a2fb95d182f6eb5, type: 2}
+  - {fileID: 11400000, guid: 16f2d3f880989e84fbb52fbec7606e1c, type: 2}
+  - {fileID: 11400000, guid: 33214eee5b3005f46b99474a23aeced4, type: 2}
+  - {fileID: 11400000, guid: 0de242b462c8f87418ff23d384291ad3, type: 2}
