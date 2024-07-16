@@ -629,7 +629,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4dfcb331fbd387c4e974470f49d0f702, type: 3}
     m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
@@ -4712,6 +4712,7 @@ MonoBehaviour:
   waveText: {fileID: 1009041099}
   analogPanel: {fileID: 1579906882}
   returnButton: {fileID: 1334859457}
+  returnText: {fileID: 1004294136}
   darkColor: {r: 0, g: 0, b: 0, a: 0.5372549}
   gameText: {fileID: 219242673}
   gameController: {fileID: 1084488475}

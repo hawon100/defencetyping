@@ -10,6 +10,7 @@ public class WaveController : MonoBehaviour
     [SerializeField] private Text waveText;
     [SerializeField] private Image analogPanel;
     [SerializeField] private GameObject returnButton;
+    [SerializeField] private Text returnText;
     [SerializeField] private Color darkColor;
     [SerializeField] private Text gameText;
 
@@ -103,11 +104,13 @@ public class WaveController : MonoBehaviour
             gameController.typingInput.enabled = false;
             if (Managers.Wave.isWin)
             {
-                gameText.text = "You Win !";
+                returnText.text = "진격!";
+                gameText.text = "진격하라!";
             }
             else
             {
-                gameText.text = "Game Over !";
+                returnText.text = "후퇴!";
+                gameText.text = "후퇴하라!";
             }
         }
     }

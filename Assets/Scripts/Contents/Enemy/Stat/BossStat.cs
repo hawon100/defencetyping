@@ -19,6 +19,7 @@ public class BossStat : EnemyStatBase
 
         hpBar = bar.GetComponent<BarController>();
         hpBar.SetPosition(new Vector2(0, 500f));
+        hpBar.transform.SetAsFirstSibling();
         hpBar.Init(maxHp);
         base.Init();
 
