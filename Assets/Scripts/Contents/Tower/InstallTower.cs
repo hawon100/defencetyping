@@ -115,8 +115,11 @@ public class InstallTower : TowerBase
             yield return null;
         }
 
-        GameObject m = Managers.Resource.Instantiate(boom, null);
-        m.transform.position = shotPoint.position;
+        if (boom)
+        {
+            GameObject m = Managers.Resource.Instantiate(boom, null);
+            m.transform.position = shotPoint.position;
+        }
 
         GameObject b = Managers.Resource.Instantiate(bullet.gameObject, null);
         b.transform.position = shotPoint.parent.position; //Temp

@@ -6,6 +6,8 @@ public class PlayerBullet : BulletBase
 {
     private Vector2 moveVec; //Temp
 
+    [SerializeField] private Transform arrow;
+
     public override void Init()
     {
         trailRend.Clear();
@@ -59,6 +61,8 @@ public class PlayerBullet : BulletBase
 
         targetPos = target.position;
         //transform.Translate(moveVec * Time.deltaTime * speed);
+
+        transform.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, target.position));
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
 
         if (target.gameObject.activeSelf) return;

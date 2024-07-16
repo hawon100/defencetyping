@@ -49,6 +49,14 @@ public class BulletBase : MonoBehaviour
         Managers.Resource.Destroy(gameObject);
     }
 
+
+    protected float Gaze(Vector3 currentVec, Vector3 targetVec)
+    {
+        float degree = Mathf.Atan2(targetVec.y - currentVec.y, targetVec.x - currentVec.x);
+
+        return degree * Mathf.Rad2Deg;
+    }
+
     protected bool isDistance(Vector3 currentVec, Vector3 targetVec, float distance)
     {
         return (targetVec - currentVec).sqrMagnitude <= distance * distance;
