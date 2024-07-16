@@ -104,6 +104,8 @@ public class BezierBullet2 : BulletBase
 
         //GameObject b = Managers.Resource.Insta ntiate(boom, null);
         //b.transform.position = transform.position;
+        if (!isDistance(transform.position, target.position, 0.5f)) return;
+
         target.GetComponent<EnemyStatBase>().Damage(1);
         target = null;
         base.Hit();

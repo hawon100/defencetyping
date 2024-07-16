@@ -85,8 +85,15 @@ public class WaveController : MonoBehaviour
 
     private void UpdateWave_Temp()
     {
-        waveText.text = "Wave " + (Managers.Wave.currentWave + 1) + " (" + Managers.Wave.currentEnemy
+        if (Managers.Wave.isWave)
+        {
+            waveText.text = "Wave " + (Managers.Wave.currentWave + 1) + " (" + Managers.Wave.currentEnemy
             + "/" + Managers.Wave.currentAllEnemy + ")";
+        }
+        else
+        {
+            waveText.text = "Clear!";
+        }
     }
 
     private void UpdateGame()
