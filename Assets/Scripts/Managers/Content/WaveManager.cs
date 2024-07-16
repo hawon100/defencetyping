@@ -80,7 +80,6 @@ public class WaveManager : MonoBehaviour
         if (!isWave) return;
 
         currentEnemy += 1;
-        Debug.Log(currentEnemy);
 
         if (currentEnemy < currentAllEnemy) return;
 
