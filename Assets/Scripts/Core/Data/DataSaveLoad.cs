@@ -15,62 +15,62 @@ public class DataSaveLoad
             new Data.Character
             {
                 index = 0,
-                charName = "∆«ø¡º±",
+                charName = "∆«ø¡º∫",
                 objName = "panokseon",
                 level= 1,
                 hp= 3,
                 attack= 1,
                 price= 5,
                 time= 3f,
-                pathImage= "Arts/Sprites/Ship/panokseon"
+                pathImage= "Arts/Sprites/Tower/Install/panokseon"
             },
             new Data.Character
             {
                 index = 1,
-                charName = "πÊ∆–º±",
+                charName = "πÊ∆–º∫",
                 objName = "shieldline",
                 level= 1,
                 hp= 3,
                 attack= 1,
                 price= 5,
                 time= 3f,
-                pathImage= "Arts/Sprites/Ship/shieldline"
+                pathImage= "Arts/Sprites/Tower/Install/shieldline"
             },
             new Data.Character
             {
                 index = 2,
-                charName = "±Õº±",
+                charName = "∞≈∫œº∫",
                 objName = "retrace",
                 level= 1,
                 hp= 3,
                 attack= 1,
                 price= 5,
                 time= 3f,
-                pathImage= "Arts/Sprites/Ship/retrace"
+                pathImage= "Arts/Sprites/Tower/Install/retrace"
             },
             new Data.Character
             {
                 index = 3,
-                charName = "«ÿ∞Òº±",
+                charName = "«ÿ∞Òº∫",
                 objName = "skullline",
                 level= 1,
                 hp= 3,
                 attack= 1,
                 price= 5,
                 time= 3f,
-                pathImage= "Arts/Sprites/Ship/skullline"
+                pathImage= "Arts/Sprites/Tower/Install/skullline"
             },
             new Data.Character
             {
                 index = 4,
-                charName = "∏Õº±",
+                charName = "∏Õº∫",
                 objName = "blindline",
                 level= 1,
                 hp= 3,
                 attack= 1,
                 price= 5,
                 time= 3f,
-                pathImage= "Arts/Sprites/Ship/blindline"
+                pathImage= "Arts/Sprites/Tower/Install/blindline"
             }
         };
 
