@@ -82,7 +82,6 @@ public class CatapultTower : TowerBase
         b.transform.position = shotPoint.parent.position; //Temp
         BulletBase s = b.GetComponent<BulletBase>();
         s.Init();
-        Debug.Log(_target);
         s.damage = towerStat.Attack;
         s.target = _target;
         s.triggerTag = _targetTag;

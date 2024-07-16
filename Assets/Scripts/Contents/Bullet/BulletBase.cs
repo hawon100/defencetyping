@@ -13,7 +13,6 @@ public class BulletBase : MonoBehaviour
     protected Vector3 targetPos;
 
     protected TrailRenderer trailRend; //Temp -> private
-    protected Collider2D targetInfo;
     protected virtual void Awake()
     {
         trailRend = GetComponent<TrailRenderer>();
@@ -37,29 +36,6 @@ public class BulletBase : MonoBehaviour
     protected virtual void Move()
     {
 
-    }
-
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.CompareTag(triggerTag))
-    //    {
-    //        target = null;
-    //        Hit(other.gameObject);
-    //    }
-    //}
-
-    protected virtual void Detected()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1.5f);
-
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag(triggerTag))
-            {
-                targetInfo = collider;
-                return;
-            }
-        }
     }
 
     protected bool Measure(Vector3 Vector, float distance)

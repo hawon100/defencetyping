@@ -61,18 +61,33 @@ public class PlayerBullet : BulletBase
         //transform.Translate(moveVec * Time.deltaTime * speed);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
 
-        if (Measure(targetPos - transform.position, 0.05f)) //This one has the Problem
-        {
-            base.Hit();
-        }
+        if (target.gameObject.activeSelf) return;
+
+        base.Hit();
+
+        //if (Measure(targetPos - transform.position, 0.05f)) //This one has the Problem
+        //{
+        //    base.Hit();
+        //}
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //        Hit();
+    //    }
+    //}
+
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Hit();
-        }
+        if (!other.gameObject.CompareTag(triggerTag)) return;
+
+        if (!target) return;
+
+        if (!isDistance(transform.position, target.position, 1f)) return;
+
+        Hit();
     }
 
     protected override void Hit()

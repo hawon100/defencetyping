@@ -53,11 +53,6 @@ public class BezierBullet2 : BulletBase
         startPoint = transform.position;
     }
 
-    protected override void Detected()
-    {
-        base.Detected();
-    }
-
     protected override void Move()
     {
         if (!target)
@@ -70,13 +65,8 @@ public class BezierBullet2 : BulletBase
         targetPoint = target.position;
         transform.position = Bezier(startPoint, targetPoint, height, t / speed); //fail!
 
-        Detected();
+        if (target.gameObject.activeSelf) return;
 
-        if (!targetInfo) return;
-
-        if (targetInfo.transform != target) return;
-
-        targetInfo = null;
         base.Hit();
     }
 
@@ -102,6 +92,17 @@ public class BezierBullet2 : BulletBase
     //{
     //    if (collision.gameObject.CompareTag(triggerTag)) Hit();
     //}
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag(triggerTag)) return;
+
+        if (!target) return;
+
+        if (!isDistance(transform.position, target.position, 0.5f)) return;
+
+        Hit();
+    }
 
     protected override void Hit()
     {
