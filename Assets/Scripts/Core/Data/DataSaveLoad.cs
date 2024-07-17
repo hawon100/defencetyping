@@ -22,7 +22,8 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 3,
+                priceIn= 3,
+                priceOut= 3,
                 time= 3f,
                 pathImage= "Arts/Sprites/Tower/Install/panokseon"
             },
@@ -34,7 +35,8 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 2,
+                priceIn = 2,
+                priceOut= 2,
                 time= 3f,
                 pathImage= "Arts/Sprites/Tower/Install/shieldline"
             },
@@ -46,7 +48,8 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 10,
+                priceIn= 10,
+                priceOut= 10,
                 time= 3f,
                 pathImage= "Arts/Sprites/Tower/Install/retrace"
             },
@@ -58,7 +61,8 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 5,
+                priceIn= 5,
+                priceOut= 5,
                 time= 3f,
                 pathImage= "Arts/Sprites/Tower/Install/skullline"
             },
@@ -70,7 +74,8 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 1,
+                priceIn= 1,
+                priceOut= 1,
                 time= 3f,
                 pathImage = "Arts/Sprites/Tower/Install/blindline"
             }

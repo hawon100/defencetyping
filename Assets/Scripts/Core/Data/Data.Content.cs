@@ -35,7 +35,8 @@ namespace Data
         public int level;
         public int hp;
         public int attack;
-        public int price;
+        public int priceIn;
+        public int priceOut;
         public float time;
         public string pathImage;
     }

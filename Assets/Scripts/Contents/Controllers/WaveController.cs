@@ -63,16 +63,16 @@ public class WaveController : MonoBehaviour
             //GameObject tb = Managers.Resource.Instantiate(thisStage.Tower[i].TowerBuilder.gameObject, null);
             var tb = Managers.Resource.Instantiate("Tower/Tower", installTowerGroup);
             var sk = Managers.Resource.Instantiate($"ShortKey/F{i + 2}", installTowerGroup);
-            if (tb.GetComponent<BuildTower>().count == 0)
+            if (Util.FindChild<BuildTower>(tb, "Ground").count == 0)
             {
-                tb.GetComponent<BuildTower>().count = i + 1;
+                Util.FindChild<BuildTower>(tb, "Ground").count = i + 1;
             }
 
             //tb.transform.parent = installTowerGroup;
             tb.transform.position = thisStage.TowerBuilderPos[i];
             //sk.transform.parent = installTowerGroup;
             sk.transform.position = thisStage.TowerBuilderPos[i] - new Vector2(0, 0.8f);
-            BuildTower bt = tb.GetComponent<BuildTower>();
+            BuildTower bt = Util.FindChild<BuildTower>(tb, "Ground");
             bt.WordPanel = centeralTower.WordPanel;
             bt.InputPanel = centeralTower.InputPanel;
             bt.gameCtrl = centeralTower.gameCtrl;

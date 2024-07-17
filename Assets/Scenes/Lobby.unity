@@ -291,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4290eb77d27cc6145b70576870643956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
   fixedPrice: 0
   skillPrice: 0
 --- !u!1 &16441881

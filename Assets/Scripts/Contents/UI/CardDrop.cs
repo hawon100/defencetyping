@@ -30,7 +30,7 @@ public class CardDrop : BaseDrop
                 if (Managers.DSL.charData.characters[i].charName == charName)
                 {
                     pathImage = Managers.DSL.charData.characters[i].pathImage;
-                    _price = Managers.DSL.charData.characters[i].price;
+                    _price = Managers.DSL.charData.characters[i].priceIn;
                     _time = Managers.DSL.charData.characters[i].time;
                 }
             }

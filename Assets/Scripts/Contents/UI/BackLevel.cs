@@ -40,7 +40,7 @@ public class BackLevel : MonoBehaviour
     {
         for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
         {
-            Util.FindChild<Text>(cards[i], "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level} \n{Managers.DSL.charData.characters[i].price}₩";
+            Util.FindChild<Text>(cards[i], "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level} \n{Managers.DSL.charData.characters[i].priceOut}₩";
         }
     }
 
@@ -71,10 +71,10 @@ public class BackLevel : MonoBehaviour
         Managers.DSL.goldData = JsonUtility.FromJson<Data.GoldData>(jsonGoldData);
 
         if (Managers.DSL.charData.characters[index].level == Managers.Data.LevelDict[Managers.Data.LevelDict.Count].level) return;
-        if (Managers.DSL.charData.characters[index].price > Managers.DSL.goldData.coins[0].gold) return;
+        if (Managers.DSL.charData.characters[index].priceOut > Managers.DSL.goldData.coins[0].gold) return;
 
-        Managers.DSL.goldData.coins[0].gold -= Managers.DSL.charData.characters[index].price;
-        Managers.DSL.charData.characters[index].price *= 2;
+        Managers.DSL.goldData.coins[0].gold -= Managers.DSL.charData.characters[index].priceOut;
+        Managers.DSL.charData.characters[index].priceOut *= 2;
         Managers.DSL.charData.characters[index].level++;
 
         string jsonCharSaveData = Managers.Data.SaveJson(Managers.DSL.charData);
