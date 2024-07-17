@@ -106,7 +106,8 @@ MonoBehaviour:
   cooltime: 2.5
   rotSpeed: 2
   cannon: {fileID: 7525042665298961909}
-  shotPoint: {fileID: 1287341577719391414}
+  shotPoint:
+  - {fileID: 1287341577719391414}
   boom: {fileID: 0}
 --- !u!114 &-5111090619318574725
 MonoBehaviour:
