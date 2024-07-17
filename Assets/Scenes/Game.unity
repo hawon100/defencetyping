@@ -1650,7 +1650,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAE30\uD3ED 50$"
+  m_Text: "\uAE30\uD3ED 50\u20A9"
 --- !u!222 &599100235
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2911,7 +2911,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD734\uC2DD 30$"
+  m_Text: "\uD734\uC2DD 30\u20A9"
 --- !u!222 &952330639
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3305,7 +3305,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 999$
+  m_Text: "999\u20A9"
 --- !u!222 &1072697271
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3407,7 +3407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4290eb77d27cc6145b70576870643956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 11400000, guid: 4bbaa71124de9064bbdca6b62e9d9649, type: 2}
+  gold: 0
   fixedPrice: 30
   skillPrice: 50
 --- !u!1 &1098869983

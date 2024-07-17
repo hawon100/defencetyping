@@ -47,6 +47,21 @@ namespace Data
     }
     #endregion
 
+    #region Gold
+    [Serializable]
+    public class Gold
+    {
+        public int index;
+        public int gold;
+    }
+
+    [Serializable]
+    public class GoldData
+    {
+        public List<Gold> coins = new();
+    }
+    #endregion
+
     #endregion
 
     #region Load
