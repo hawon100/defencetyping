@@ -17,7 +17,7 @@ public class InstallTower : TowerBase
     [Header("Cannon")]
     [SerializeField] private float rotSpeed = 5f;
     [SerializeField] private Transform cannon;
-    [SerializeField] private Transform shotPoint;
+    [SerializeField] private Transform[] shotPoint;
 
     [Header("Boom Effect")]
     [SerializeField] private GameObject boom;
@@ -118,17 +118,21 @@ public class InstallTower : TowerBase
         if (boom)
         {
             GameObject m = Managers.Resource.Instantiate(boom, null);
-            m.transform.position = shotPoint.position;
+            for (int i = 0; i < shotPoint.Length; i++)
+                m.transform.position = shotPoint[i].position;
         }
 
-        GameObject b = Managers.Resource.Instantiate(bullet.gameObject, null);
-        b.transform.position = shotPoint.parent.position; //Temp
-        BulletBase s = b.GetComponent<BulletBase>();
-        s.Init();
-        Debug.Log(_target);
-        s.damage = towerStat.Attack;
-        s.target = _target;
-        s.triggerTag = _targetTag;
+        for (int i = 0; i < shotPoint.Length; i++)
+        {
+            GameObject b = Managers.Resource.Instantiate(bullet.gameObject, null);
+            b.transform.position = shotPoint[i].parent.position; //Temp
+            BulletBase s = b.GetComponent<BulletBase>();
+            s.Init();
+            Debug.Log(_target);
+            s.damage = towerStat.Attack;
+            s.target = _target;
+            s.triggerTag = _targetTag;
+        }
 
         //Managers.Resource.Destroy(t);
 
