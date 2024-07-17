@@ -85,6 +85,9 @@ public class WaveController : MonoBehaviour
         WaveStarter();
         UpdateWave_Temp();
         UpdateGame(); //수정 사항!!
+        Managers.DSL.goldData.coins[0].gold = UserStat.Gold;
+        Debug.Log($"Manager Gold - {Managers.DSL.goldData.coins[0].gold}");
+        Debug.Log($"InGame Gold - {UserStat.Gold}");
     }
 
     private void WaveStarter()
@@ -126,11 +129,6 @@ public class WaveController : MonoBehaviour
             {
                 returnText.text = "진격!";
                 gameText.text = "진격하라!";
-            }
-            else
-            {
-                returnText.text = "후퇴!";
-                gameText.text = "후퇴하라!";
 
                 Managers.DSL.goldList = new List<Data.Gold>
                 {
@@ -147,9 +145,14 @@ public class WaveController : MonoBehaviour
                 };
 
                 string jsonData = Managers.Data.SaveJson(Managers.DSL.goldData);
-                
+
                 PlayerPrefs.SetString("GoldData", jsonData);
                 PlayerPrefs.Save();
+            }
+            else
+            {
+                returnText.text = "후퇴!";
+                gameText.text = "후퇴하라!";
             }
         }
     }

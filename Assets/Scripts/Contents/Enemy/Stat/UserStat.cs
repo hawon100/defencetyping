@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class UserStat : MonoBehaviour
 {
-    public int gold;
     public int fixedPrice;
     public int skillPrice;
     public static int Gold;
@@ -12,7 +11,9 @@ public class UserStat : MonoBehaviour
 
     private void Awake()
     {
-        Gold = gold;
+        var jsonData = PlayerPrefs.GetString("GoldData");
+        Managers.DSL.goldData = JsonUtility.FromJson<Data.GoldData>(jsonData);
+        Gold = Managers.DSL.goldData.coins[0].gold;
         FixedPrice = fixedPrice;
         SkillPrice = skillPrice;
     }

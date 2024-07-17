@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,6 +49,10 @@ public class GameController : MonoBehaviour
 
         string jsonData = PlayerPrefs.GetString("TeamData");
         Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonData);
+        string jsonGoldData = PlayerPrefs.GetString("GoldData");
+        Managers.DSL.goldData = JsonUtility.FromJson<Data.GoldData>(jsonGoldData);
+
+        UserStat.Gold = Managers.DSL.goldData.coins[0].gold;
 
         for (int i = 0; i < Managers.DSL.teamData.teams.Count; i++)
         {
