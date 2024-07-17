@@ -85,9 +85,8 @@ public class WaveController : MonoBehaviour
         WaveStarter();
         UpdateWave_Temp();
         UpdateGame(); //수정 사항!!
-        Managers.DSL.goldData.coins[0].gold = UserStat.Gold;
-        Debug.Log($"Manager Gold - {Managers.DSL.goldData.coins[0].gold}");
-        Debug.Log($"InGame Gold - {UserStat.Gold}");
+        //Debug.Log($"Manager Gold - {Managers.DSL.goldData.coins[0].gold}");
+        //Debug.Log($"InGame Gold - {UserStat.Gold}");
     }
 
     private void WaveStarter()
@@ -109,7 +108,7 @@ public class WaveController : MonoBehaviour
         }
         else
         {
-            waveText.text = Managers.Wave.isWin ? "Clear!" : "Fail!";
+            waveText.text = Managers.Wave.isWin ? "승리!" : "패배!";
         }
     }
 
@@ -129,6 +128,7 @@ public class WaveController : MonoBehaviour
             {
                 returnText.text = "진격!";
                 gameText.text = "진격하라!";
+                Managers.DSL.goldData.coins[0].gold = UserStat.Gold;
 
                 Managers.DSL.goldList = new List<Data.Gold>
                 {
