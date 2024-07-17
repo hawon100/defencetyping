@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,13 +52,13 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < Managers.DSL.teamData.teams.Count; i++)
         {
             towerNameText[i].text = $"{Managers.DSL.teamData.teams[i].charName}";
-            towerPriceText[i].text = $"{Managers.DSL.teamData.teams[i].price}$";
+            towerPriceText[i].text = $"{Managers.DSL.teamData.teams[i].price}₩";
         }
     }
 
     private void Update()
     {
-        goldText.text = $"{UserStat.Gold}$";
+        goldText.text = $"{UserStat.Gold}₩";
 
         UpdateWordTyping();
         UpdateBuild();

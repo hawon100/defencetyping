@@ -131,6 +131,25 @@ public class WaveController : MonoBehaviour
             {
                 returnText.text = "ÈÄÅð!";
                 gameText.text = "ÈÄÅðÇÏ¶ó!";
+
+                Managers.DSL.goldList = new List<Data.Gold>
+                {
+                    new Data.Gold
+                    {
+                        index = 0,
+                        gold = UserStat.Gold
+                    }
+                };
+
+                Managers.DSL.goldData = new Data.GoldData
+                {
+                    coins = Managers.DSL.goldList
+                };
+
+                string jsonData = Managers.Data.SaveJson(Managers.DSL.goldData);
+                
+                PlayerPrefs.SetString("GoldData", jsonData);
+                PlayerPrefs.Save();
             }
         }
     }

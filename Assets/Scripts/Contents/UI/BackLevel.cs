@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,7 +40,7 @@ public class BackLevel : MonoBehaviour
     {
         for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
         {
-            Util.FindChild<Text>(cards[i], "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level}";
+            Util.FindChild<Text>(cards[i], "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level} \n{Managers.DSL.charData.characters[i].price}₩";
         }
     }
 
@@ -52,10 +52,6 @@ public class BackLevel : MonoBehaviour
         if (!PlayerPrefs.HasKey("CharacterData")) return;
 
         Debug.Log(index);
-
-        //Util.FindChild<Button>(levelPanel.gameObject, "Button")?.onClick.AddListener(() => LevelUp(index));
-
-        //Debug.Log(PlayerPrefs.GetString("CharacterData"));
 
         Button levelUpButton = Util.FindChild<Button>(levelPanel.gameObject, "Button");
         levelUpButton.onClick.RemoveAllListeners(); // Remove all previous listeners
@@ -69,16 +65,24 @@ public class BackLevel : MonoBehaviour
 
     private void LevelUp(int index)
     {
+        string jsonCharData = PlayerPrefs.GetString("CharacterData");
+        Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonCharData);
+        string jsonGoldData = PlayerPrefs.GetString("GoldData");
+        Managers.DSL.goldData = JsonUtility.FromJson<Data.GoldData>(jsonGoldData);
+
         if (Managers.DSL.charData.characters[index].level == Managers.Data.LevelDict[Managers.Data.LevelDict.Count].level) return;
+        if (Managers.DSL.charData.characters[index].price > Managers.DSL.goldData.coins[0].gold) return;
 
-        string jsonData = PlayerPrefs.GetString("CharacterData");
-        Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonData);
-
+        Managers.DSL.goldData.coins[0].gold -= Managers.DSL.charData.characters[index].price;
+        Managers.DSL.charData.characters[index].price *= 2;
         Managers.DSL.charData.characters[index].level++;
 
-        string jsonSaveData = Managers.Data.SaveJson(Managers.DSL.charData);
+        string jsonCharSaveData = Managers.Data.SaveJson(Managers.DSL.charData);
+        string jsonGoldSaveData = Managers.Data.SaveJson(Managers.DSL.goldData);
 
-        PlayerPrefs.SetString("CharacterData", jsonSaveData);
+        PlayerPrefs.SetString("CharacterData", jsonCharSaveData);
+        PlayerPrefs.Save();
+        PlayerPrefs.SetString("GoldData", jsonGoldSaveData);
         PlayerPrefs.Save();
     }
 }

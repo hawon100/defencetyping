@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class SwipeMenu : MonoBehaviour
 {
+    public RectTransform levelPanel;
     public GameObject scrollbar;
     float scroll_pos = 0;
     float[] pos;
@@ -22,6 +24,7 @@ public class SwipeMenu : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             scroll_pos = scrollbar.GetComponent<Scrollbar>().value;
+            levelPanel.DOAnchorPosY(-815, 0.5f);
         }
         else
         {

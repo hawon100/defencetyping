@@ -7,10 +7,12 @@ public class DataSaveLoad
     public Data.CharacterData charData = new Data.CharacterData();
     public List<Data.TeamEdit> teamList = new List<Data.TeamEdit>();
     public Data.TeamEditData teamData = new Data.TeamEditData();
+    public List<Data.Gold> goldList = new List<Data.Gold>();
+    public Data.GoldData goldData = new Data.GoldData();
 
-    public void SaveChar()
+    public void ResetCharData()
     {
-        Managers.DSL.charList = new List<Data.Character>
+        charList = new List<Data.Character>
         {
             new Data.Character
             {
@@ -20,7 +22,7 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 5,
+                price= 3,
                 time= 3f,
                 pathImage= "Arts/Sprites/Tower/Install/panokseon"
             },
@@ -32,7 +34,7 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 5,
+                price= 2,
                 time= 3f,
                 pathImage= "Arts/Sprites/Tower/Install/shieldline"
             },
@@ -44,7 +46,7 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 5,
+                price= 10,
                 time= 3f,
                 pathImage= "Arts/Sprites/Tower/Install/retrace"
             },
@@ -68,20 +70,42 @@ public class DataSaveLoad
                 level= 1,
                 hp= 3,
                 attack= 1,
-                price= 5,
+                price= 1,
                 time= 3f,
-                pathImage= "Arts/Sprites/Tower/Install/blindline"
+                pathImage = "Arts/Sprites/Tower/Install/blindline"
             }
         };
 
-        Managers.DSL.charData = new Data.CharacterData
+        charData = new Data.CharacterData
         {
-            characters = Managers.DSL.charList
+            characters = charList
         };
 
-        string jsonData = Managers.Data.SaveJson(Managers.DSL.charData);
+        string jsonData = Managers.Data.SaveJson(charData);
 
         PlayerPrefs.SetString("CharacterData", jsonData);
+        PlayerPrefs.Save();
+    }
+
+    public void ResetGoldData()
+    {
+        goldList = new List<Data.Gold>
+        {
+            new Data.Gold
+            {
+                index = 0,
+                gold = 50,
+            }
+        };
+
+        goldData = new Data.GoldData
+        {
+            coins = goldList
+        };
+
+        string jsonData = Managers.Data.SaveJson(goldData);
+
+        PlayerPrefs.SetString("GoldData", jsonData);
         PlayerPrefs.Save();
     }
 }

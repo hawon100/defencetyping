@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class UserStat : MonoBehaviour
 {
-    public UserData user;
+    public int gold;
     public int fixedPrice;
     public int skillPrice;
     public static int Gold;
@@ -12,7 +12,7 @@ public class UserStat : MonoBehaviour
 
     private void Awake()
     {
-        Gold = user.gold;
+        Gold = gold;
         FixedPrice = fixedPrice;
         SkillPrice = skillPrice;
     }
