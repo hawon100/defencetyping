@@ -606,8 +606,8 @@ MonoBehaviour:
   zoomStep: 1
   minCamSize: 5
   maxCamSize: 10
-  mapMinX: -20
-  mapMaxX: 20
+  mapMinX: -30
+  mapMaxX: 30
   mapMinY: -10
   mapMaxY: 10
 --- !u!1 &262170580
@@ -6186,7 +6186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8079db8744867b044b7afde07d2af86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horn: {fileID: 8300000, guid: 669b26a0268be314eaade69c758e091e, type: 3}
 --- !u!1 &1769373289
 GameObject:
   m_ObjectHideFlags: 0
