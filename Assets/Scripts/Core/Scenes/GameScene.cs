@@ -30,7 +30,7 @@ public class GameScene : BaseScene
         isConveration = false;
         Managers.Sound.Play("Effect/horn");
 
-        Invoke("BGMStart", 5);
+        Invoke("BGMStart", 4);
         //Managers.Sound.Play("Bgm/MEGALOVANIA", Define.Sound.Bgm);
     }
 
