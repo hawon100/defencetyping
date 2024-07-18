@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Battle of Okpo
   m_EditorClassIdentifier: 
   Background: {fileID: 3946853328564810819, guid: f83ca3fcd2c81124a905bdcbeb3585e5, type: 3}
+  mapMinX: -10
+  mapMaxX: 30
+  mapMinY: -15
+  mapMaxY: 15
   TowerBuilderPos:
   - {x: 3.5, y: 3.5}
   - {x: 5.5, y: 0}

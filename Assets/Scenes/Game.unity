@@ -606,8 +606,8 @@ MonoBehaviour:
   zoomStep: 1
   minCamSize: 5
   maxCamSize: 10
-  mapMinX: -20
-  mapMaxX: 20
+  mapMinX: -30
+  mapMaxX: 30
   mapMinY: -10
   mapMaxY: 10
 --- !u!1 &262170580
