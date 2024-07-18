@@ -56,13 +56,13 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < Managers.DSL.teamData.teams.Count; i++)
         {
             towerNameText[i].text = $"{Managers.DSL.teamData.teams[i].charName}";
-            towerPriceText[i].text = $"{Managers.DSL.teamData.teams[i].price}₩";
+            towerPriceText[i].text = $"{Managers.DSL.teamData.teams[i].price}";
         }
     }
 
     private void Update()
     {
-        goldText.text = $"{UserStat.Gold}₩";
+        goldText.text = $"{UserStat.Gold}";
 
         UpdateWordTyping();
         UpdateBuild();
@@ -180,24 +180,30 @@ public class GameController : MonoBehaviour
         if (selectedTower == null) return;
         if (!_isInput) return;
 
+        if (Util.FindChild(selectedTower.gameObject) != null) return;
+
         string jsonTeamData = PlayerPrefs.GetString("TeamData");
         Managers.DSL.teamData = JsonUtility.FromJson<Data.TeamEditData>(jsonTeamData);
 
         switch (key)
         {
             case KeyCode.Alpha1:
+                Managers.Sound.Play("Effect/money");
                 Managers.Typing.type = Define.InstallTowerType.Common;
                 price = Managers.DSL.teamData.teams[0].price;
                 break;
             case KeyCode.Alpha2:
+                Managers.Sound.Play("Effect/money");
                 Managers.Typing.type = Define.InstallTowerType.Rare;
                 price = Managers.DSL.teamData.teams[1].price;
                 break;
             case KeyCode.Alpha3:
+                Managers.Sound.Play("Effect/money");
                 Managers.Typing.type = Define.InstallTowerType.Epic;
                 price = Managers.DSL.teamData.teams[2].price;
                 break;
             case KeyCode.Alpha4:
+                Managers.Sound.Play("Effect/money");
                 Managers.Typing.type = Define.InstallTowerType.Legend;
                 price = Managers.DSL.teamData.teams[3].price;
                 break;
