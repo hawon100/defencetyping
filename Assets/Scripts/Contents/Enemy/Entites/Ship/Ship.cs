@@ -76,6 +76,7 @@ public class Ship : EnemyBase
 
         anime.SetTrigger(attackAnime);
 
+        Managers.Sound.Play("Effect/Artillery");
         GameObject b = Managers.Resource.Instantiate(bezierBullet.gameObject, null);
         b.transform.position = transform.position;
         BulletBase s = b.GetComponent<BulletBase>();
