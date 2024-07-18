@@ -13,6 +13,8 @@ public class TimerUI : MonoBehaviour
 
     private void Start()
     {
+        if (waveController.thisStage.TowerBuilderPos.Count == 0) return;
+
         for(int i = 0; i < waveController.thisStage.TowerBuilderPos.Count; i++)
         {
             var obj = Managers.Resource.Instantiate("UI/Timer/Timer", gameObject.transform);
@@ -25,7 +27,9 @@ public class TimerUI : MonoBehaviour
 
     private void Update()
     {
-        for(int i = 0; i < waveController.gameController.towers.Count; i++)
+        if (waveController.thisStage.TowerBuilderPos.Count == 0) return;
+
+        for (int i = 0; i < waveController.gameController.towers.Count; i++)
         {
             if (Util.FindChild<InstallTowerStat>(waveController.gameController.towers[i + 1].gameObject) == null) return;
 

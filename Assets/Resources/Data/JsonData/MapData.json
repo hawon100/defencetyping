@@ -13,6 +13,13 @@
       "warNameEN": "Battle of Happo",
       "warImage": "Arts/Sprites/MapIcon/Imjin/Happo",
       "warContent": "옥포 해전에서 적선을 분멸하며 첫 승전을 거둔 이순신과 원균의 연합 함대는 전투 후 영등포에서 휴식을 취하려 했으나"
+    },
+    {
+      "mapIndex": 3,
+      "warName": "사천 해전",
+      "warNameEN": "Battle of Sacheon",
+      "warImage": "Arts/Sprites/MapIcon/Imjin/Sacheon",
+      "warContent": "전라좌도 수군절도사 이순신이 이끄는 조선 수군 연합함대가 사천 앞 바다에서 도쿠이 미치유키가 지휘하는 일본군 함대 13척을 모두 전멸시키고 큰 승리를 거둔 해전이다."
     }
   ]
 }
