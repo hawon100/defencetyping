@@ -17,6 +17,7 @@ public class Mothership : EnemyBase
     private Vector3 spawnVec;
 
     private bool isSpawn;
+    private bool isSound;
     private int spawned;
 
     protected override void Awake()
@@ -40,6 +41,8 @@ public class Mothership : EnemyBase
 
     protected override void Init()
     {
+        isSound = true;
+        Managers.Sound.Play("BGM/Wave", Define.Sound.Bgm);
         isSpawn = true;
         base.Init();
     }
@@ -102,7 +105,14 @@ public class Mothership : EnemyBase
 
     protected override void Move()
     {
-        if (!isMove) return;
+        if (!isMove)
+        {
+            if (!isSound) return;
+            isSound = false;
+            rb2d.velocity = Vector2.zero;
+            Managers.Sound.Play("BGM/Wave", Define.Sound.Bgm);
+            return;
+        }
 
         Detected();
         LookAt();
