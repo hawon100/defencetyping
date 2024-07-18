@@ -24,6 +24,8 @@ public class Bomb : BulletBase
             yield return delay0p2;
         }
 
+        Managers.Sound.Play("Effect/Boom");
+        yield return delay0p2;
         GameObject d = Managers.Resource.Instantiate("VFX/BigExplosion");
         d.transform.position = transform.position;
         GameObject b = Managers.Resource.Instantiate(boom, null);
