@@ -35,6 +35,7 @@ public class BackDrop : BaseDrop
             Util.FindChild<Text>(obj, "Text").text = Managers.DSL.charData.characters[i].charName;
 
             Util.FindChild<Image>(cardObj, "Icon").sprite = Resources.Load<Sprite>($"{Managers.DSL.charData.characters[i].pathImage}");
+            Util.FindChild<Image>(shellObj, "Icon").sprite = Resources.Load<Sprite>($"{Managers.DSL.charData.characters[i].pathImage}");
             
             Util.FindChild<Text>(cardObj, "ObjName").text = Managers.DSL.charData.characters[i].charName;
             Util.FindChild<Text>(cardObj, "ObjNameEN").text = Managers.DSL.charData.characters[i].objName;

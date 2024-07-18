@@ -40,12 +40,13 @@ public class BackLevel : MonoBehaviour
     {
         for (int i = 0; i < Managers.DSL.charData.characters.Count; i++)
         {
-            Util.FindChild<Text>(cards[i], "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level} \n{Managers.DSL.charData.characters[i].priceOut}₩";
+            Util.FindChild<Text>(cards[i], "Level").text = $"Lv.{Managers.DSL.charData.characters[i].level} \n{Managers.DSL.charData.characters[i].priceOut}";
         }
     }
 
     public void LevelBtn(int index, GameObject obj)
     {
+        Managers.Sound.Play("Effect/cardClick");
         levelPanel.DOAnchorPosY(-540, 0.5f);
         _objName = Util.FindChild<Text>(obj, "ObjName").text;
 
@@ -65,6 +66,8 @@ public class BackLevel : MonoBehaviour
 
     private void LevelUp(int index)
     {
+        Managers.Sound.Play("Effect/Level");
+
         string jsonCharData = PlayerPrefs.GetString("CharacterData");
         Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonCharData);
         string jsonGoldData = PlayerPrefs.GetString("GoldData");

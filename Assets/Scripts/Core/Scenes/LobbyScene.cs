@@ -14,8 +14,8 @@ public class LobbyScene : BaseScene
         SceneType = Define.Scene.Lobby;
 
         //PlayerPrefs.DeleteKey("TeamData");
-        Managers.DSL.ResetCharData();
-        Managers.DSL.ResetGoldData();
+        //Managers.DSL.ResetCharData();
+        //Managers.DSL.ResetGoldData();
 
         if (!PlayerPrefs.HasKey("CharacterData"))
         {
@@ -34,7 +34,7 @@ public class LobbyScene : BaseScene
             var jsonData = PlayerPrefs.GetString("GoldData");
             Managers.DSL.goldData = JsonUtility.FromJson<Data.GoldData>(jsonData);
 
-            goldText.text = $"{Managers.DSL.goldData.coins[0].gold}₩";
+            goldText.text = $"{Managers.DSL.goldData.coins[0].gold}";
         }
     }
 

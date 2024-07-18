@@ -19,6 +19,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Managers.Sound.Play("Effect/page");
         previousParent = transform.parent;
 
         transform.SetParent(canvas);

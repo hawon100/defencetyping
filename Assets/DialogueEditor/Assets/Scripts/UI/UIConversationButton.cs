@@ -24,7 +24,6 @@ namespace DialogueEditor
         public eButtonType ButtonType { get { return m_buttonType; } }
 
         // UI Elements
-        [SerializeField] private AudioClip click;
         [SerializeField] private TMPro.TextMeshProUGUI TextMesh = null;
         [SerializeField] private Image OptionBackgroundImage = null;
         private RectTransform m_rect;
@@ -109,7 +108,7 @@ namespace DialogueEditor
         {
             if (!ConversationManager.Instance.AllowMouseInteraction) { return; }
 
-            Managers.Sound.Play(click);
+            Managers.Sound.Play("Effect/page");
             DoClickBehaviour();
         }
 
