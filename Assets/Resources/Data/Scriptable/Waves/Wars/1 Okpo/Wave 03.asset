@@ -22,7 +22,7 @@ MonoBehaviour:
     IsRandom: 1
     Spawn: {x: 0, y: 0}
   - Enemy: {fileID: 6090729184465292171, guid: 922ea414affa49b42967b101fcafd7b5, type: 3}
-    Amount: 2
+    Amount: 1
     IsRandom: 1
     Spawn: {x: 0, y: 0}
   BossBattle: 0
