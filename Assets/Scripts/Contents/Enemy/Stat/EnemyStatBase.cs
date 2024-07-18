@@ -32,6 +32,7 @@ public class EnemyStatBase : MonoBehaviour
         if (isDeath) return;
 
         isDeath = true;
+        Managers.Sound.Play("Effect/Boom");
         //onPlayerDeath?.Invoke();
         //Managers.Resource.Instantiate("VFX/DustExplosion");
         Managers.Resource.Destroy(gameObject);
