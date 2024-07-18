@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class BarController : MonoBehaviour
 {
-    public Slider hpSlider;
+    //public Slider hpSlider;
+    public Image hpBar;
 
     private RectTransform rect;
 
@@ -21,7 +22,8 @@ public class BarController : MonoBehaviour
     public void Init(int max)
     {
         maximum = max;
-        hpSlider.value = 1;
+        //hpSlider.value = 1;
+        hpBar.fillAmount = 1;
     }
 
     public void SetPosition(Vector2 position)
@@ -32,18 +34,18 @@ public class BarController : MonoBehaviour
 
     public void Updated(int hp)
     {
-        hpSlider.value = (float)hp / maximum;
-        Debug.Log(hpSlider.value);
+        //hpSlider.value = (float)hp / maximum;
+        hpBar.fillAmount = (float)hp / maximum;
     }
 
     public void Init2Float(float max)
     {
-        maximum2Float = max;
-        hpSlider.value = 1;
+        //maximum2Float = max;
+        //hpSlider.value = 1;
     }
 
     public void Updated2Float(float current)
     {
-        hpSlider.value = (float)current / maximum2Float;
+        //hpSlider.value = (float)current / maximum2Float;
     }
 }

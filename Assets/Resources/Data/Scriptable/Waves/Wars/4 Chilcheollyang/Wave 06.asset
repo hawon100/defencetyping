@@ -27,6 +27,6 @@ MonoBehaviour:
     Spawn: {x: 30, y: 30}
   - Enemy: {fileID: 6090729184465292171, guid: 922ea414affa49b42967b101fcafd7b5, type: 3}
     Amount: 3
-    IsRandom: 0
+    IsRandom: 1
     Spawn: {x: 30, y: 30}
   BossBattle: 0
