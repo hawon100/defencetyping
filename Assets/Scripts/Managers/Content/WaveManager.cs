@@ -32,6 +32,8 @@ public class WaveManager : MonoBehaviour
     {
         if (wave == null) return;
 
+        Managers.Sound.Play("Effect/horn");
+
         currentEnemy = 0;
 
         for (int i = 0; i < wave.WaveEnemie.Count; i++)

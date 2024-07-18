@@ -28,7 +28,7 @@ public class GameScene : BaseScene
         if (ConversationManager.Instance.DialoguePanel.gameObject.activeSelf) return;
 
         isConveration = false;
-        Managers.Sound.Play("Effect/horn");
+        //Managers.Sound.Play("Effect/horn");
 
         //Invoke("BGMStart", 4);
         //Managers.Sound.Play("Bgm/MEGALOVANIA", Define.Sound.Bgm);
