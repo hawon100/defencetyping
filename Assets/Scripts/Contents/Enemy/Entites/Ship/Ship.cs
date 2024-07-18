@@ -17,6 +17,7 @@ public class Ship : EnemyBase
     //readonly : Only for Read
 
     private Rigidbody2D rb2d;
+    private bool isSound;
 
     protected override void Awake()
     {
@@ -33,6 +34,8 @@ public class Ship : EnemyBase
 
     protected override void Init()
     {
+        isSound = true;
+        Managers.Sound.Play("BGM/Wave", Define.Sound.Bgm);
         particle.Play();
         base.Init();
     }
@@ -101,8 +104,11 @@ public class Ship : EnemyBase
     {
         if (!isMove)
         {
+            if (!isSound) return;
+            isSound = false;
             rb2d.velocity = Vector2.zero;
             particle.Stop();
+            Managers.Sound.Play("BGM/Wave", Define.Sound.Bgm);
             return;
         }
 
