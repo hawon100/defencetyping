@@ -18,10 +18,10 @@ MonoBehaviour:
   mapMinY: -20
   mapMaxY: 20
   TowerBuilderPos:
-  - {x: 0, y: 5}
-  - {x: 6, y: 0}
-  - {x: 0, y: -5}
-  - {x: -6, y: 0}
+  - {x: 0, y: 6}
+  - {x: 7, y: 0}
+  - {x: 0, y: -6}
+  - {x: -7, y: 0}
   - {x: -6, y: 5}
   - {x: -6, y: -5}
   - {x: 6, y: -5}
@@ -38,8 +38,13 @@ MonoBehaviour:
   WaveLoop: 0
   WaveRandom: 0
   Wave:
-  - {fileID: 11400000, guid: a5497d9ca539e7542a2c5358a8e2c3d5, type: 2}
-  - {fileID: 11400000, guid: 82515d8990f75eb46a2fb95d182f6eb5, type: 2}
-  - {fileID: 11400000, guid: 16f2d3f880989e84fbb52fbec7606e1c, type: 2}
-  - {fileID: 11400000, guid: 33214eee5b3005f46b99474a23aeced4, type: 2}
-  - {fileID: 11400000, guid: 0de242b462c8f87418ff23d384291ad3, type: 2}
+  - {fileID: 11400000, guid: 8088802c6761e024daafe11234391de3, type: 2}
+  - {fileID: 11400000, guid: f8aef752d00713442a924c44f082de62, type: 2}
+  - {fileID: 11400000, guid: 21bfa82e5f6c17f4aa8e7df9b7f14ae8, type: 2}
+  - {fileID: 11400000, guid: e18fb8e17e2c49e49a5386e72ff48ab6, type: 2}
+  - {fileID: 11400000, guid: a6a6fa98c442631489ea39721e84c43a, type: 2}
+  - {fileID: 11400000, guid: 5e4fb7d4bd2319344b413cff642cfe59, type: 2}
+  - {fileID: 11400000, guid: f80d346762a64e04cafcbdc68de342f6, type: 2}
+  - {fileID: 11400000, guid: ee712a0f0c5c10345ad6089d0d516b42, type: 2}
+  - {fileID: 11400000, guid: 6bd74b05874909f47b6c3fd034b667cb, type: 2}
+  - {fileID: 11400000, guid: 89e67370cc3421247a7d14fe47d25e9d, type: 2}
