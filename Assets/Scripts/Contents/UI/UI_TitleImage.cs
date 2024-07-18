@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class UI_TitleImage : MonoBehaviour, IPointerClickHandler
+public class UI_TitleImage : MonoBehaviour
 {
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnClick(string name)
     {
-        MapManager.LoadScene(Define.Scene.Lobby);
+        switch(name)
+        {
+            case "Start":
+                MapManager.LoadScene(Define.Scene.Lobby);
+                break;
+            case "Quit":
+                Application.Quit();
+                break;
+        }
     }
 }

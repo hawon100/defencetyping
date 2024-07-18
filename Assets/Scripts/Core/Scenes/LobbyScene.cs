@@ -36,11 +36,11 @@ public class LobbyScene : BaseScene
 
             goldText.text = $"{Managers.DSL.goldData.coins[0].gold}";
         }
+    }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Managers.Sound.Play("Effect/horn", Define.Sound.Bgm);
-        }
+    public void OnClick()
+    {
+        MapManager.LoadScene(Define.Scene.Title);
     }
 
     public override void Clear()
