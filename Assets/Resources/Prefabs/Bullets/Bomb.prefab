@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 882365351
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f4b4729b34ae5f40ab13a8b94e4f027, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a665bae8db9cd4887d4e8dc2a13d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerTag: 
+  triggerTag: Tower
   target: {fileID: 0}
   speed: 0
   damage: 2

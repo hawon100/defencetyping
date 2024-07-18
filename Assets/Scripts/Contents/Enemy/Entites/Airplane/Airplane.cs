@@ -96,13 +96,10 @@ public class Airplane : EnemyBase
     {
         //return;
 
-        if (collision.gameObject.CompareTag("Background"))
-        {
-            isMove = false;
-            //Managers.Wave.WaveUpdate();
-            enemyStat.Damage(8); //ÇÊ¸ê
-            Managers.Resource.Destroy(gameObject);
-        }
+        if (!collision.gameObject.CompareTag("Background")) return;
+        
+
+        enemyStat.Damage(8); //ÇÊ¸ê
 
         //else if (OutOfScreen())
         //{

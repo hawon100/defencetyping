@@ -133,7 +133,6 @@ public class InstallTower : TowerBase
             b.transform.position = shotPoint[i].parent.position; //Temp
             BulletBase s = b.GetComponent<BulletBase>();
             s.Init();
-            Debug.Log(_target);
             s.damage = towerStat.Attack;
             s.target = _target;
             s.triggerTag = _targetTag;

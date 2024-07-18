@@ -33,6 +33,7 @@ public class BarController : MonoBehaviour
     public void Updated(int hp)
     {
         hpSlider.value = (float)hp / maximum;
+        Debug.Log(hpSlider.value);
     }
 
     public void Init2Float(float max)

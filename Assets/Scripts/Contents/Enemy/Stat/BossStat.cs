@@ -9,10 +9,12 @@ public class BossStat : EnemyStatBase
     [SerializeField] private SpriteRenderer spriteRend;
     private WaitForSeconds waitSeconds = new WaitForSeconds(0.4f);
 
-    public override void Init()
+    //public override void Init()
+    private void Start()
     {
         //if (Managers.Game.uiCanvas == null) Managers.Game.uiCanvas = GameObject.Find("TowerStatUI").transform; //Temp
 
+        Debug.Log("Init()");
         //Transform canvas = Managers.Game.uiCanvas;
         Transform canvas = GameObject.Find("WordUI").transform;
         GameObject bar = Managers.Resource.Instantiate("UI/BossBar", canvas);
@@ -31,8 +33,8 @@ public class BossStat : EnemyStatBase
         hpBar.Updated(hp - value);
         //GameObject ui = Managers.Resource.Instantiate(hpPanelPrefab, null);
         //Once get damage, UI show the HP Bar.
-        if (hp > 1) StartCoroutine(DamagedMotion());
         base.Damage(value);
+        if (hp > 1) StartCoroutine(DamagedMotion());
     }
 
     protected override void Death()

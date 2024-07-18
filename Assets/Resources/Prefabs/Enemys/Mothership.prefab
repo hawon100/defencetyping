@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rotSpeed: 2
-  stopDistance: 7
+  stopDistance: 10
   isMove: 1
   target: {fileID: 5167192082821131428, guid: a99b8ca8cba7ef04d962a4ee377dcfdf, type: 3}
   targetPos: {x: 0, y: 0}

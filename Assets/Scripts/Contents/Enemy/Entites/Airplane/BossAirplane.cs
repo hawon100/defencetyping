@@ -15,13 +15,6 @@ public class BossAirplane : EnemyBase
 
     private Vector2 movingTo;
 
-    #region Delegate
-    private void DamagedByBomb()
-    {
-        enemyStat.Damage(33);
-        timer -= 2f;
-    }
-    #endregion Delegate
 
     protected override void Awake()
     {
@@ -37,7 +30,6 @@ public class BossAirplane : EnemyBase
     protected override void Start()
     {
         base.Start();
-        Init();
     }
 
     protected override void Init()
@@ -64,13 +56,13 @@ public class BossAirplane : EnemyBase
 
         return;
 
-        GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
-        b.transform.position = transform.position;
+        //GameObject b = Managers.Resource.Instantiate(bomb.gameObject, null);
+        //b.transform.position = transform.position;
 
-        AtomicBomb a = b.GetComponent<AtomicBomb>();
-        a.onBomb -= DamagedByBomb;
-        a.onBomb += DamagedByBomb;
-        a.SetTimer(timer);
+        //AtomicBomb a = b.GetComponent<AtomicBomb>();
+        //a.onBomb -= DamagedByBomb;
+        //a.onBomb += DamagedByBomb;
+        //a.SetTimer(timer);
     }
 
     protected override void Detected()

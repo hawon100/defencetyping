@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class TowerBase : MonoBehaviour
 {
     [SerializeField] protected Define.TowerType _type;
-    [SerializeField][Range(0.0f, 20.0f)] protected float _range;
+    [SerializeField] protected float _range;
     [SerializeField] protected string _targetTag;
     public Transform _target; //T3mp -> protected
 
@@ -25,7 +25,7 @@ public abstract class TowerBase : MonoBehaviour
     {
         float detectedRange = _range;
 
-        if (Managers.Wave.bossWave) detectedRange = 20f;
+        if (Managers.Wave.bossWave) detectedRange = 200f;
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectedRange);
 

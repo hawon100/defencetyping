@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Battle of Happo
   m_EditorClassIdentifier: 
   Background: {fileID: 3521042097807484010, guid: 3d20fba0c7b339a4695e1c4340d76ce8, type: 3}
-  mapMinX: -15
-  mapMaxX: 15
+  mapMinX: -20
+  mapMaxX: 20
   mapMinY: -20
   mapMaxY: 10
   TowerBuilderPos:

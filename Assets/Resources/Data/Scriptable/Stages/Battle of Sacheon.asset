@@ -15,8 +15,8 @@ MonoBehaviour:
   Background: {fileID: 6236716913670805407, guid: eb9170b6fab04cd4b89f4c7b4169b8bb, type: 3}
   mapMinX: -30
   mapMaxX: 10
-  mapMinY: -15
-  mapMaxY: 15
+  mapMinY: -20
+  mapMaxY: 20
   TowerBuilderPos:
   - {x: -9.5, y: 3.5}
   - {x: -9.5, y: -1.5}

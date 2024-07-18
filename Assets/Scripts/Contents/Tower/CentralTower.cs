@@ -20,7 +20,7 @@ public class CentralTower : TowerBase
 
     protected override void Start()
     {
-        _range = 50f;
+        _range = 200f;
         for (int i = 0; i < 3; i++)
         {
             //GameObject b = Managers.Resource.Instantiate(playerBullet.gameObject, null);
@@ -40,7 +40,7 @@ public class CentralTower : TowerBase
     private IEnumerator AttackCoroutine()
     {
         yield return null;
-
+        Debug.Log("Attacked!");
         GameObject m = Managers.Resource.Instantiate(boom, null);
         m.transform.position = transform.position;
 
@@ -59,7 +59,6 @@ public class CentralTower : TowerBase
 
     protected override void OnSkill()
     {
-        Debug.Log("OnSkill() was activated");
         GameObject w = Managers.Resource.Instantiate("Skills/WaveEffect");
         w.transform.position = transform.position;
         ZenWave z = w.GetComponentInChildren<ZenWave>();
