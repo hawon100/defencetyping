@@ -29,7 +29,14 @@ public class GameScene : BaseScene
 
         isConveration = false;
         Managers.Sound.Play("Effect/horn");
+
+        Invoke("BGMStart", 4);
         //Managers.Sound.Play("Bgm/MEGALOVANIA", Define.Sound.Bgm);
+    }
+
+    private void BGMStart()
+    {
+        Managers.Sound.Play("BGM/EasternMind", Define.Sound.Bgm);
     }
 
     public override void Clear()
