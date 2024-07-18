@@ -11,14 +11,6 @@ public class TitleScene : BaseScene
         SceneType = Define.Scene.Title;
     }
 
-    private void Update()
-    {
-        if(Input.anyKeyDown)
-        {
-            MapManager.LoadScene(Define.Scene.Lobby);
-        }
-    }
-
     public override void Clear()
     {
 
