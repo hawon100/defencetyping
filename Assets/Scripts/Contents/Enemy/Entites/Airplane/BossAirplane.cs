@@ -29,13 +29,16 @@ public class BossAirplane : EnemyBase
 
     protected override void Start()
     {
+        triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
         base.Start();
     }
 
     protected override void Init()
     {
         base.Init();
-        triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
+        //movingTo.x = Trace(transform.position, targetPos).x;
+        //movingTo.y = Trace(transform.position, targetPos).y;
+        //triSprite.rotation = Quaternion.Euler(0, 0, Gaze(transform.position, targetPos) - 90f);
     }
 
     protected override void FixedUpdate()
