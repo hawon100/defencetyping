@@ -15,7 +15,7 @@ public class SoundManager
             Object.DontDestroyOnLoad(root);
 
             string[] soundNames = System.Enum.GetNames(typeof(Define.Sound));
-            for(int i = 0; i < soundNames.Length - 1; i++)
+            for (int i = 0; i < soundNames.Length - 1; i++)
             {
                 GameObject go = new GameObject { name = soundNames[i] };
                 _audioSources[i] = go.AddComponent<AudioSource>();
@@ -28,7 +28,7 @@ public class SoundManager
 
     public void Clear()
     {
-        foreach(AudioSource audioSource in _audioSources)
+        foreach (AudioSource audioSource in _audioSources)
         {
             audioSource.clip = null;
             audioSource.Stop();
@@ -49,7 +49,11 @@ public class SoundManager
         if (type == Define.Sound.Bgm)
         {
             AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
-            if (audioSource.isPlaying) audioSource.Stop();
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+                return;
+            }
 
             audioSource.pitch = pitch;
             audioSource.clip = audioClip;
@@ -62,7 +66,7 @@ public class SoundManager
             audioSource.PlayOneShot(audioClip);
         }
     }
-    
+
     AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
     {
         if (path.Contains("Sounds/") == false) path = $"Sounds/{path}";
