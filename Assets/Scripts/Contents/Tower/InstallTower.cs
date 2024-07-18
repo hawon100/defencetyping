@@ -117,9 +117,14 @@ public class InstallTower : TowerBase
 
         if (boom)
         {
+            Managers.Sound.Play("Effect/Artillery");
             GameObject m = Managers.Resource.Instantiate(boom, null);
             for (int i = 0; i < shotPoint.Length; i++)
                 m.transform.position = shotPoint[i].position;
+        }
+        else
+        {
+            Managers.Sound.Play("Effect/Crossbow");
         }
 
         for (int i = 0; i < shotPoint.Length; i++)

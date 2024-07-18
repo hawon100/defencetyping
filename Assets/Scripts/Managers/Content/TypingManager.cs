@@ -45,6 +45,8 @@ public class TypingManager
                 }
             }
 
+            Managers.Sound.Play("Effect/Charge");
+
             towerBase = tower.GetComponent<TowerBase>();
             towerStat = tower.GetComponent<TowerStat>();
             towerStat.towerPos = curBuildPos;
@@ -53,6 +55,8 @@ public class TypingManager
         }
         else if (_input == _word[1])
         {
+            Managers.Sound.Play("Effect/Artillery");
+
             Debug.Log("공격 성공");
             towerBase = tower.GetComponent<TowerBase>();
             Debug.Log(tower.name);
@@ -84,6 +88,8 @@ public class TypingManager
         {
             if(UserStat.Gold >= UserStat.FixedPrice)
             {
+                Managers.Sound.Play("Effect/Heal");
+
                 UserStat.Gold -= UserStat.FixedPrice;
                 Debug.Log("수리 성공");
                 towerStat = tower.GetComponent<TowerStat>();
