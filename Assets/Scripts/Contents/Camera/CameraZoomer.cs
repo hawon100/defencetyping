@@ -11,6 +11,19 @@ public class CameraZoomer : MonoBehaviour
 
     private Vector3 dragOrigin;
 
+    private void Start()
+    {
+        Invoke("MapSetting", 0.5f);
+    }
+
+    private void MapSetting()
+    {
+        mapMinX = Managers.Wave.stage.mapMinX;
+        mapMaxX = Managers.Wave.stage.mapMaxX;
+        mapMinY = Managers.Wave.stage.mapMinY;
+        mapMaxY = Managers.Wave.stage.mapMaxY;
+    }
+
     private void Update()
     {
         PanCamera();

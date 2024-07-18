@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Battle of Sacheon
   m_EditorClassIdentifier: 
   Background: {fileID: 6236716913670805407, guid: eb9170b6fab04cd4b89f4c7b4169b8bb, type: 3}
+  mapMinX: -30
+  mapMaxX: 10
+  mapMinY: -15
+  mapMaxY: 15
   TowerBuilderPos:
   - {x: -9.5, y: 3.5}
   - {x: -9.5, y: -1.5}
