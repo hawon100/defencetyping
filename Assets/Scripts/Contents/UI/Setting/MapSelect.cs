@@ -48,7 +48,7 @@ public class MapSelect : MonoBehaviour
 
     public void StageSelect()
     {
-        Managers.Sound.Play(_lobby.buttonClick);
+        Managers.Sound.Play("Effect/page");
         string eventButtonName = EventSystem.current.currentSelectedGameObject.name;
 
         foreach (var obj in _objList)
