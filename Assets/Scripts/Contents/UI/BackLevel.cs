@@ -46,6 +46,8 @@ public class BackLevel : MonoBehaviour
 
     public void LevelBtn(int index, GameObject obj)
     {
+        if (Managers.DSL.charData.characters[index].level == Managers.Data.LevelDict[Managers.Data.LevelDict.Count].level) return;
+
         Managers.Sound.Play("Effect/cardClick");
         levelPanel.DOAnchorPosY(-540, 0.5f);
         _objName = Util.FindChild<Text>(obj, "ObjName").text;
@@ -66,15 +68,18 @@ public class BackLevel : MonoBehaviour
 
     private void LevelUp(int index)
     {
-        Managers.Sound.Play("Effect/Level");
-
         string jsonCharData = PlayerPrefs.GetString("CharacterData");
         Managers.DSL.charData = JsonUtility.FromJson<Data.CharacterData>(jsonCharData);
         string jsonGoldData = PlayerPrefs.GetString("GoldData");
         Managers.DSL.goldData = JsonUtility.FromJson<Data.GoldData>(jsonGoldData);
 
-        if (Managers.DSL.charData.characters[index].level == Managers.Data.LevelDict[Managers.Data.LevelDict.Count].level) return;
-        if (Managers.DSL.charData.characters[index].priceOut > Managers.DSL.goldData.coins[0].gold) return;
+        if (Managers.DSL.charData.characters[index].priceOut > Managers.DSL.goldData.coins[0].gold)
+        {
+            Managers.Sound.Play("Effect/LevelFail");
+            return;
+        }
+
+        Managers.Sound.Play("Effect/Level");
 
         Managers.DSL.goldData.coins[0].gold -= Managers.DSL.charData.characters[index].priceOut;
         Managers.DSL.charData.characters[index].priceOut *= 2;

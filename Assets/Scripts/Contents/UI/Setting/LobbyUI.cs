@@ -16,18 +16,15 @@ public class LobbyUI : MonoBehaviour
         switch (btnName)
         {
             case "GameStart":
-                Managers.Sound.Play("Effect/page");
                 Open();
                 mapWin.DOAnchorPosY(0, 0.5f);
                 break;
             case "PowerUp":
-                Managers.Sound.Play("Effect/page");
                 //character Level up
                 Open();
                 levelWin.DOAnchorPosX(0, 0.5f);
                 break;
             case "Edit":
-                Managers.Sound.Play("Effect/page");
                 //character tower add or remove
                 Open();
                 teamWin.DOAnchorPosX(0, 0.5f);
