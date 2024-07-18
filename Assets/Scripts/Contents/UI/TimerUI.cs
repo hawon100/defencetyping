@@ -29,13 +29,13 @@ public class TimerUI : MonoBehaviour
     {
         if (waveController.thisStage.TowerBuilderPos.Count == 0) return;
 
-        for (int i = 0; i < waveController.gameController.towers.Count; i++)
+        for (int i = 1; i < waveController.gameController.towers.Count; i++)
         {
-            if (Util.FindChild<InstallTowerStat>(waveController.gameController.towers[i + 1].gameObject) == null) return;
+            if (Util.FindChild<InstallTowerStat>(waveController.gameController.towers[i].gameObject) == null) return;
 
-            if (Util.FindChild<InstallTowerStat>(waveController.gameController.towers[i + 1].gameObject).isDestroy)
+            if (Util.FindChild<InstallTowerStat>(waveController.gameController.towers[i].gameObject).isDestroy)
             {
-                var image = _list[i].GetComponent<Image>();
+                var image = _list[i - 1].GetComponent<Image>();
                 if(image.fillAmount != 1)
                 {
                     image.fillAmount = 1;
