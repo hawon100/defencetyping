@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    public AudioClip horn;
     private bool isConveration = true;
 
     protected override void Init()
@@ -29,7 +28,8 @@ public class GameScene : BaseScene
         if (ConversationManager.Instance.DialoguePanel.gameObject.activeSelf) return;
 
         isConveration = false;
-        Managers.Sound.Play(horn);
+        Managers.Sound.Play("Effect/horn");
+        //Managers.Sound.Play("Bgm/MEGALOVANIA", Define.Sound.Bgm);
     }
 
     public override void Clear()

@@ -16,7 +16,7 @@ MonoBehaviour:
   TowerBuilderPos:
   - {x: 3.5, y: 3.5}
   - {x: 5.5, y: 0}
-  - {x: -1.5, y: -4}
+  - {x: 4.17, y: -4}
   Spawners:
   - {fileID: 2002706007621442774, guid: f9bf2059e6e97dd45b545e5a7cb2bd80, type: 3}
   isRight: 0
