@@ -32,7 +32,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+        cooltime += Random.Range(-1f, 2f);
     }
 
     protected virtual void OnEnable()
