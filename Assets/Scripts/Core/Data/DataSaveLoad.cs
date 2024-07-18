@@ -99,7 +99,7 @@ public class DataSaveLoad
             new Data.Gold
             {
                 index = 0,
-                gold = 50,
+                gold = 0,
             }
         };
 

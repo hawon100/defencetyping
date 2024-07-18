@@ -340,7 +340,7 @@ namespace DialogueEditor
 
         private void ScrollingText_Update()
         {
-            const float charactersPerSecond = 500;
+            const float charactersPerSecond = 3000;
             float timePerChar = (60.0f / charactersPerSecond);
             timePerChar *= ScrollSpeed;
 
@@ -352,7 +352,7 @@ namespace DialogueEditor
 
                 DialogueText.maxVisibleCharacters = m_scrollIndex;
                 m_scrollIndex++;
-                Managers.Sound.Play("Effect/Speak");
+                //Managers.Sound.Play("Effect/Speak");
 
                 // Finished?
                 if (m_scrollIndex >= m_targetScrollTextCount)
